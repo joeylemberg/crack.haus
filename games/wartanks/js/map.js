@@ -50,9 +50,16 @@ var Map = {
 		}
 	},
 	moveBoom: function(b){
+		console.log("MOVEEE");
 		if(b.r < b.size){
 			b.r += 1;
+			Map.boomTerrain(b);
+		}else{
+			Map.booms = [];
 		}
+		console.log(b);
+		Map.drawMap(Game.ctx['map']);
+		//
 	},
 	drawBoom: function(b){
 		var ctx = Game.ctx['sprite'];
@@ -63,6 +70,23 @@ var Map = {
 		ctx.arc(0,0,b.r,0,6.3,1);
 		ctx.fill();
 		ctx.restore();
+	},
+
+	boomTerrain: function(b){
+		var x = Math.round(b.x);
+		var r = Math.round(b.r);
+		console.log(b);
+		console.log("I N HERE");
+		for(var i = 0; i < r*2; i++){
+			var slice = Map.slices[x-r+i]
+			if(slice){
+				$.each(slice, function(){
+					var strip = [];
+
+					this.color = "red";
+				});
+			}
+		}
 	}
 	
 };
