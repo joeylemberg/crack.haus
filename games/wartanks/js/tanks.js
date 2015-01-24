@@ -20,10 +20,10 @@ var Tanks = {
 	weapons: ["shot", "shot"],
 	
 	sendData: function(){
-		Comm.send("TankMoved", {
+		/*Comm.send("TankMoved", {
 			player: Game.player,
 			unit: Tanks.units[Game.player]		
-		});
+		});*/
 	},
 	
 	units: [{weapon: "shot", player: 0, x:150,y:100,dx:0,dy:0,theta:0,turret:-45,fill:'#995d95',stroke:'#000000', grounded:false, power:200},
