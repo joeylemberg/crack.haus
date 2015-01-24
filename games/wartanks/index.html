@@ -21,6 +21,9 @@
 		<canvas id='text_grad' width='1000' height='600' class='game-canvas' style='display:none;'></canvas>
 </div>
 
+<button type="button" onclick="startgame()" style="position:fixed;top:100;left:10;z-index:999;" >Start Game</button>
+<button type="button" onclick="joingame()" style="position:fixed;top:200;left:10;z-index:999;" >Join Game</button>
+
 <div id='control-panel'>
   <div class="control-panel-widget">
     <button id="trigger">Fire</button>
@@ -38,16 +41,21 @@
 
 </div>
 
-
-<script src='/socket.io/socket.io.js'></script>
 <script src="./lib/jquery.js" type="text/javascript"></script>
+
+
+<!--<script src='/socket.io/socket.io.js'></script>
 <script src="./lib/adapter.js"></script>
-<script src="./lib/sock.js"></script>
+<script src="./lib/sock.js"></script>-->
+
+<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
+
+<script src="./js/tankscomm.js" type="text/javascript"></script>
+<script src="/js/comm.js"></script>
 
 <script src="./js/map.js"></script>
 
 
-<script src="./js/comm.js" type="text/javascript"></script>
 
 <script src="./js/game.js" type="text/javascript"></script>
 <script src="./js/tanks.js" type="text/javascript"></script>
@@ -58,20 +66,6 @@
 <script src="./js/weapons/shot.js" type="text/javascript"></script>
 
 <script>
-
-
-
-function p1(){
-	Comm.setupGame();
-}
-
-function p2(){
-	Comm.joinGame();
-}
-
-function p11(){
-	Comm.getMapData();
-}
 
 Game.init();
 

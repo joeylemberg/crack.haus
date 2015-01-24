@@ -1,4 +1,40 @@
-var Comm = {
+var ImDone = function(){};
+
+var game = {
+    //state: "0",
+    setupGame: function() {
+        console.log('setupGame');
+        //this.state = "" + Math.random();
+        //console.log(this.state);
+		Map.makeMap();
+		Map.drawMap(Game.ctx['map']);
+		Game.player = 0;
+		Tanks.init();
+        return Map.slices;
+    },
+    joinGame: function(map_data) {
+        console.log('joinGame');
+        Map.slices = map_data;
+		Map.drawMap(Game.ctx['map']);
+		Game.player = 1;
+		Tanks.init();
+        //this.state = map_data;
+        //console.log(this.state);
+        return;
+    },
+    applyTurn: function(turn_data, done) {
+        //this.state += turn_data;
+        //console.log('turn starting: ', this.state);
+        //var my_turn_data = "asd"; //prompt("enter your turn: ");
+        //this.state += my_turn_data;
+        //console.log('turn done: ', this.state);
+        ImDone = function(my_turn_data){
+        	done(my_turn_data);
+        }
+    },
+}
+
+var Commx = {
 	
 	socket: null,
 	
@@ -16,7 +52,6 @@ var Comm = {
 	setupGame: function(){
 		Game.player = 0;
 		this.socket = socket;
-		Map.makeMap();
 	},
 	
 	joinGame: function(){
