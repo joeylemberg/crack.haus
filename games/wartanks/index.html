@@ -10,15 +10,6 @@
 
 <body style="" screen_capture_injected="true" cz-shortcut-listen="true">
 
-<div id='control-panel'>
-	
-	Position: <input id='tank-pos' type='number' value='100'>
-	<span id='trigger'> FIRE </span>
-	Angle: <input id='tank-ang' type='number' value='300'>
-	POWER: <input id='tank-pow' type='number' value='100'>
-	
-</div>
-
 <div id='main-game-box' align='center'>
 	<canvas id='background-canvas' width='720' height='450' class='game-canvas' style='z-index:1;'></canvas>
 	<canvas id='map-canvas' width='1000' height='600' class='game-canvas' style='z-index:2;'></canvas>
@@ -28,6 +19,23 @@
 		<canvas id='title_menu' width='1000' height='600' class='game-canvas' style='z-index:10;'></canvas>
 		<canvas id='menu_grad' width='1000' height='600' class='game-canvas' style='display:none;'></canvas>
 		<canvas id='text_grad' width='1000' height='600' class='game-canvas' style='display:none;'></canvas>
+</div>
+
+<div id='control-panel'>
+  <div class="control-panel-widget">
+    <button id="trigger">Fire</button>
+  </div>
+  
+  <div class="control-panel-widget">
+    <label for='tank-ang'>Angle:</label>
+    <input id='tank-ang' name="tank-ang" type='number' value='300'> 
+  </div>
+
+  <div class="control-panel-widget">
+    <label for='tank-pow'>Power:</label>
+    <input id='tank-pow' name='tank-pow' type='number' value='100'>
+  </div>
+
 </div>
 
 
