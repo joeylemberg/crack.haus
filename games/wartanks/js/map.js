@@ -2,6 +2,8 @@ var Map = {
 	leaf: {r:50 + Math.ceil(131 * Math.random()) , g: 50 + Math.ceil(131 * Math.random()), b: 3},
 	autumn: Math.random(),
 	slices: [],
+	shots: [],
+	booms: [],
 	makeMap: function(){
 		Map.slices = [];
 		
@@ -37,6 +39,21 @@ var Map = {
 				s = Map.slices[i]
 				ctx.fillRect(i-1, s, 3, 600-s);
 		}
+	},
+	moveBoom: function(b){
+		if(b.r < b.size){
+			b.r += 1;
+		}
+	},
+	drawBoom: function(b){
+		var ctx = Game.ctx['sprite'];
+		ctx.save();
+		ctx.beginPath();
+		ctx.fillStyle = "rgba(200,25,25,0.7)";
+		ctx.translate(b.x,b.y);
+		ctx.arc(0,0,b.r,0,6.3,1);
+		ctx.fill();
+		ctx.restore();
 	}
 	
 };
