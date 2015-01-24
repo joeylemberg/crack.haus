@@ -47,32 +47,32 @@ var Input = {
 		//	alert(e.keyCode);
 			switch(e.keyCode){
 		
-			case 32: // Spacebar
+			case 32:
 				e.preventDefault();
 				Tanks.fire();
 			break;
 		
-			case 37: // Left Arrow
+			case 37:
 				e.preventDefault();
 				var tank = Tanks.units[Game.player];
 				tank.x--;
 				tank.grounded = false;
 				$("#tank-pos").val(tank.x);
 			break;
-				case 39: // Right Arrow
+				case 39:
 					e.preventDefault();
 					var tank = Tanks.units[Game.player];
 					tank.x++;
 					tank.grounded = false;
 					$("#tank-pos").val(tank.x);
 				break;
-				case 38: // Up Arrow
+				case 38:
 					e.preventDefault();
 					var tank = Tanks.units[Game.player];
 					$('#tank-ang').val(parseInt($('#tank-ang').val()) - 5);
 					tank.turret = $('#tank-ang').val() / 180 * Math.PI;
 				break;
-				case 40: // Down Arrow
+				case 40:
 					e.preventDefault();
 					var tank = Tanks.units[Game.player];
 					$('#tank-ang').val(parseInt($('#tank-ang').val()) + 5);
@@ -95,8 +95,8 @@ var Input = {
 		});
 		
 		$(document).mousemove(function(e){
-			Input.x = e.pageX * 1000 / $(".game-canvas").width();		
-			Input.y = e.pageY * 600 / $(".game-canvas").height();
+			Input.x = e.pageX * 1000 / $(window).width();		
+			Input.y = e.pageY * 600 / $(window).height();
 
 			var tank = Tanks.units[Game.player];
 

@@ -30,7 +30,8 @@ var Tanks = {
 	{weapon: "shot",player: 1, x:650,y:100,dx:-0.2,dy:-1,theta:0.5,turret:250,fill:'#eeeeee',stroke:'#000000', grounded:false, power: 200}],
 	
 	fire: function(force){
-			if(Game.turn == Game.player || force){
+			if(ImReady && (Game.turn == Game.player || force)){
+				Map.shots = [];
 				var tank = Tanks.units[Game.turn];
 				var shot = Weapons[tank.weapon];
 				shot.init(tank);
@@ -51,6 +52,9 @@ var Tanks = {
 				
 				Game.turn = (Game.turn+1)%2;
 				$("#trigger").css("opacity","0.2");
+				if(!force){
+					ImDone(Tanks.units[Game.player]);
+				}
 			}
 			
 	

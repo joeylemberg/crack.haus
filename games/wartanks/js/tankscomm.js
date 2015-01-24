@@ -1,4 +1,5 @@
 var ImDone = function(){};
+var ImReady = false;
 
 var game = {
     //state: "0",
@@ -18,11 +19,20 @@ var game = {
 		Map.drawMap(Game.ctx['map']);
 		Game.player = 1;
 		Tanks.init();
+	//	game.applyTurn("READY");
+		ImReady = true;
         //this.state = map_data;
         //console.log(this.state);
         return;
     },
     applyTurn: function(turn_data, done) {
+    	if(turn_data == "READY"){
+    		ImReady = true;
+    	}else{
+    		var hisId = (Game.player + 1) % 2;
+    		Tanks.units[hisId] = turn_data;
+    		Tanks.fire(true);
+    	}
         //this.state += turn_data;
         //console.log('turn starting: ', this.state);
         //var my_turn_data = "asd"; //prompt("enter your turn: ");
@@ -34,7 +44,7 @@ var game = {
     },
 }
 
-var Commx = {
+/*var Commx = {
 	
 	socket: null,
 	
@@ -130,4 +140,4 @@ var Commx = {
 		
 	}
 	
-}
+}*/

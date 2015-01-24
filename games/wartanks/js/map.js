@@ -50,14 +50,12 @@ var Map = {
 		}
 	},
 	moveBoom: function(b){
-		console.log("MOVEEE");
 		if(b.r < b.size){
 			b.r += 1;
 			Map.boomTerrain(b);
 		}else{
 			Map.booms = [];
 		}
-		console.log(b);
 		Map.drawMap(Game.ctx['map']);
 		//
 	},
@@ -75,8 +73,6 @@ var Map = {
 	boomTerrain: function(b){
 		var x = Math.round(b.x);
 		var r = Math.round(b.r);
-		console.log(b);
-		console.log("I N HERE");
 		for(var i = 0; i < r*2; i++){
 			var slice = Map.slices[x-r+i]
 			if(slice){

@@ -40,7 +40,7 @@ var joingame = function() {
             console.log('received init data');
             game.joinGame(data.data);
             console.log('sending first turn');
-            conn.send({type: 'turn', data: "0"});
+            conn.send({type: 'turn', data: "READY"});
         } else if (data.type == 'turn') {
             console.log('received turn data');
             game.applyTurn(data.data, turnDone);
