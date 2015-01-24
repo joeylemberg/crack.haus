@@ -1,4 +1,0 @@
-Wartanks notes.txt |
--------------------+
-
-Game logic assumes a 1600x1000 (???) canvas.  It is scaled to fit, but game logic is ignorant of scaling.
