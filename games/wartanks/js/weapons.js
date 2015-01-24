@@ -1,7 +1,7 @@
 var Weapons = {
 	detectImpact: function(b){
 		var impact = null;
-		if(b.x < 1 || b.x > 999 || b.y > 600 || b.y > Map.slices[Math.round(b.x)]){
+		if(b.x < 1 || b.x > 999 || b.y > 600 || b.y > Map.slices[Math.round(b.x)][0].top){
 					Game.ctx['sprite'].beginPath();
 					Game.ctx['sprite'].fillStyle = 'brown';	
 					Game.ctx['sprite'].fillRect(b.x-4,b.y-6,8,10);

@@ -11,7 +11,15 @@ var Map = {
 		var dl = -(level-300)/80 * Math.random();
 		
 		for(var i = 0; i < 1000; i++){
-			Map.slices.push(level);
+
+			var col = {
+				top: level,
+				bottom: 600,
+				type: "dirt",
+				color: "rgb(9, 86, 14)"
+			};
+
+			Map.slices.push([col]);
 			level += Math.random() - 0.5 + dl;
 			dl += Math.random()*0.4 - 0.2;
 			if(level > 550){
@@ -35,15 +43,21 @@ var Map = {
 		
 		var s;
 		for(var i = 0; i < Map.slices.length; i++){
-		
-				s = Map.slices[i]
-				ctx.fillRect(i-1, s, 3, 600-s);
+			$.each(Map.slices[i], function(){
+				ctx.fillStyle = this.color;
+				ctx.fillRect(i-1, this.top, 3, this.bottom);
+			});
 		}
 	},
 	moveBoom: function(b){
 		if(b.r < b.size){
 			b.r += 1;
+			Map.boomTerrain(b);
+		}else{
+			Map.booms = [];
 		}
+		Map.drawMap(Game.ctx['map']);
+		//
 	},
 	drawBoom: function(b){
 		var ctx = Game.ctx['sprite'];
@@ -54,6 +68,21 @@ var Map = {
 		ctx.arc(0,0,b.r,0,6.3,1);
 		ctx.fill();
 		ctx.restore();
+	},
+
+	boomTerrain: function(b){
+		var x = Math.round(b.x);
+		var r = Math.round(b.r);
+		for(var i = 0; i < r*2; i++){
+			var slice = Map.slices[x-r+i]
+			if(slice){
+				$.each(slice, function(){
+					var strip = [];
+
+					this.color = "red";
+				});
+			}
+		}
 	}
 	
 };
