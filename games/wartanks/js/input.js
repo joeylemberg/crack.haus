@@ -7,14 +7,15 @@ var Input = {
 		var h = $(window).height();
 		var w = $(window).width();
 		
-		$("canvas").attr("height", $(window).height());
-		$("canvas").attr("width", $(window).width());
+		$("canvas").attr("height", $(window).height() * window.devicePixelRatio);
+		$("canvas").attr("width", $(window).width() * window.devicePixelRatio);
 		$("canvas").each(function(){
 			var ctx = this.getContext("2d");
-			ctx.scale($(window).width()/1000, $(window).height()/600);
+			ctx.scale($(window).width()/1000 * window.devicePixelRatio, $(window).height()/600 * window.devicePixelRatio);
 		});
 		
-		
+		Map.drawMap(Game.ctx['map']);
+		Game.drawBG(Game.ctx['bg']);
 	},
 	
 	initInputListeners: function(){
@@ -88,6 +89,11 @@ var Input = {
 	},
 	
 	initMouseListeners: function(){
+		
+		$(document).click(function(){
+			Tanks.fire();
+		});
+		
 		$(document).mousemove(function(e){
 			Input.x = e.pageX * 1000 / $(window).width();		
 			Input.y = e.pageY * 600 / $(window).height();

@@ -7,9 +7,14 @@ var Tanks = {
 		}
 		loop();
 		
+		Input.sizeGame();
+		$(window).resize(Input.sizeGame);
+		
 		Input.initInputListeners();
 		Input.initKeyListeners();
 		Input.initMouseListeners();
+		
+		
 	},
 	
 	sendData: function(){

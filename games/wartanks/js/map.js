@@ -35,7 +35,7 @@ var Map = {
 		for(var i = 0; i < Map.slices.length; i++){
 		
 				s = Map.slices[i]
-				ctx.fillRect(i, s, 1, 600-s);
+				ctx.fillRect(i-1, s, 3, 600-s);
 		}
 	}
 	
