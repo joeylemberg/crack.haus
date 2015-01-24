@@ -7,10 +7,17 @@ var Tanks = {
 		}
 		loop();
 		
+		Input.sizeGame();
+		$(window).resize(Input.sizeGame);
+		
 		Input.initInputListeners();
 		Input.initKeyListeners();
 		Input.initMouseListeners();
+		
+		
 	},
+
+	weapons: ["shot", "shot"],
 	
 	sendData: function(){
 		Comm.send("TankMoved", {
@@ -19,27 +26,29 @@ var Tanks = {
 		});
 	},
 	
-	units: [{x:150,y:100,dx:0,dy:0,theta:0,turret:-45,fill:'#995d95',stroke:'#000000', grounded:false, power:100},
-	{x:650,y:100,dx:-0.2,dy:-1,theta:0.5,turret:250,fill:'#eeeeee',stroke:'#000000', grounded:false, power: 100}],
+	units: [{weapon: "shot", player: 0, x:150,y:100,dx:0,dy:0,theta:0,turret:-45,fill:'#995d95',stroke:'#000000', grounded:false, power:200},
+	{weapon: "shot",player: 1, x:650,y:100,dx:-0.2,dy:-1,theta:0.5,turret:250,fill:'#eeeeee',stroke:'#000000', grounded:false, power: 200}],
 	
 	fire: function(force){
 			if(Game.turn == Game.player || force){
 				var tank = Tanks.units[Game.turn];
-				
-				var shot = {
+				var shot = Weapons[tank.weapon];
+				shot.init(tank);
+				Map.shots.push(shot);
+
+				/*var shot = {
 					player: Game.turn,
 					type:'dry',
 					x:tank.x + 6*Math.sin(tank.theta) + 14*Math.cos(tank.turret),
 					y:tank.y - 6*Math.cos(tank.theta) + 14*Math.sin(tank.turret),
 					dx: tank.power/30 * Math.cos(tank.turret),
 					dy: tank.power/30 * Math.sin(tank.turret)
-				};
+				};*/
 				
-				Comm.send("ShotFired", {
+				/*Comm.send("ShotFired", {
 					"ball": shot
-				});
+				});*/
 				
-				Game.Balls.push(shot);
 				Game.turn = (Game.turn+1)%2;
 				$("#trigger").css("opacity","0.2");
 			}
@@ -137,7 +146,7 @@ var Tanks = {
 		var tank;
 		for(var i = 0; i < Tanks.units.length; i++){
 			tank = Tanks.units[i];
-			var slice = Map.slices[Math.round(tank.x)];
+			var slice = Map.slices[Math.round(tank.x)][0].top;
 			
 			if(!tank.grounded){
 				tank.dy += Game.g;
@@ -152,10 +161,10 @@ var Tanks = {
 					tank.dx = 0;
 					
 					var x = Math.round(tank.x);
-					tank.y = Map.slices[x];
+					tank.y = Map.slices[x][0].top;
 	
-					var l = Map.slices[Math.max(0,x-5)];
-					var r = Map.slices[Math.min(999,x+5)];
+					var l = Map.slices[Math.max(0,x-5)][0].top;
+					var r = Map.slices[Math.min(999,x+5)][0].top;
 
 						tank.theta = Math.atan((r-l)/10);//Math.atan((r-l)/10);
 
@@ -171,6 +180,16 @@ var Tanks = {
 			tank = Tanks.units[i];
 			Tanks.draw(i);
 		}
+
+		$.each(Map.shots, function(){
+			this.move();
+			this.draw();
+		});
+
+		$.each(Map.booms, function(){
+			Map.moveBoom(this);
+			Map.drawBoom(this);
+		});
 		
 		Game.moveBalls();
 		

@@ -7,14 +7,15 @@ var Input = {
 		var h = $(window).height();
 		var w = $(window).width();
 		
-		$("canvas").attr("height", $(window).height());
-		$("canvas").attr("width", $(window).width());
+		$("canvas").attr("height", $(window).height() * window.devicePixelRatio);
+		$("canvas").attr("width", $(window).width() * window.devicePixelRatio);
 		$("canvas").each(function(){
 			var ctx = this.getContext("2d");
-			ctx.scale($(window).width()/1000, $(window).height()/600);
+			ctx.scale($(window).width()/1000 * window.devicePixelRatio, $(window).height()/600 * window.devicePixelRatio);
 		});
 		
-		
+		Map.drawMap(Game.ctx['map']);
+		Game.drawBG(Game.ctx['bg']);
 	},
 	
 	initInputListeners: function(){
@@ -46,32 +47,32 @@ var Input = {
 		//	alert(e.keyCode);
 			switch(e.keyCode){
 		
-			case 32:
+			case 32: // Spacebar
 				e.preventDefault();
 				Tanks.fire();
 			break;
 		
-			case 37:
+			case 37: // Left Arrow
 				e.preventDefault();
 				var tank = Tanks.units[Game.player];
 				tank.x--;
 				tank.grounded = false;
 				$("#tank-pos").val(tank.x);
 			break;
-				case 39:
+				case 39: // Right Arrow
 					e.preventDefault();
 					var tank = Tanks.units[Game.player];
 					tank.x++;
 					tank.grounded = false;
 					$("#tank-pos").val(tank.x);
 				break;
-				case 38:
+				case 38: // Up Arrow
 					e.preventDefault();
 					var tank = Tanks.units[Game.player];
 					$('#tank-ang').val(parseInt($('#tank-ang').val()) - 5);
 					tank.turret = $('#tank-ang').val() / 180 * Math.PI;
 				break;
-				case 40:
+				case 40: // Down Arrow
 					e.preventDefault();
 					var tank = Tanks.units[Game.player];
 					$('#tank-ang').val(parseInt($('#tank-ang').val()) + 5);
@@ -88,9 +89,14 @@ var Input = {
 	},
 	
 	initMouseListeners: function(){
+		
+		$(document).click(function(){
+			Tanks.fire();
+		});
+		
 		$(document).mousemove(function(e){
-			Input.x = e.pageX * 1000 / $(window).width();		
-			Input.y = e.pageY * 600 / $(window).height();
+			Input.x = e.pageX * 1000 / $(".game-canvas").width();		
+			Input.y = e.pageY * 600 / $(".game-canvas").height();
 
 			var tank = Tanks.units[Game.player];
 
