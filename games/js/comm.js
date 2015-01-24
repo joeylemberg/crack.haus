@@ -3,7 +3,7 @@ var startgame = function() {
     console.log('start game');
     var peer = new Peer({key: "lwjd5qra8257b9"});
     peer.on('open', function(id) {
-        console.log('My peer ID is: '+id);
+        alert('My peer ID is: '+id);
     });
     var initData = {type: 'init', data: game.setupGame()};
     peer.on('connection', function(new_conn) {
