@@ -44,7 +44,6 @@ var Comm = {
 		Tanks.draw(1);
 		Tanks.init();
 		Comm.setMessageListeners();
-		console.log("Map data sent");
 	},
 	
 	setMessageListeners: function(){
@@ -52,7 +51,6 @@ var Comm = {
 		this.socket.on("message", function(msgData){
 			var message = JSON.parse(msgData);
 			var data = message.data;
-			console.log(message);
 			switch(message.name){
 				case "ShotFired":
 					Game.Balls.push(data.ball);

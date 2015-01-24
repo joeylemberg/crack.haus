@@ -146,7 +146,7 @@ var Tanks = {
 		var tank;
 		for(var i = 0; i < Tanks.units.length; i++){
 			tank = Tanks.units[i];
-			var slice = Map.slices[Math.round(tank.x)];
+			var slice = Map.slices[Math.round(tank.x)][0].top;
 			
 			if(!tank.grounded){
 				tank.dy += Game.g;
@@ -161,10 +161,10 @@ var Tanks = {
 					tank.dx = 0;
 					
 					var x = Math.round(tank.x);
-					tank.y = Map.slices[x];
+					tank.y = Map.slices[x][0].top;
 	
-					var l = Map.slices[Math.max(0,x-5)];
-					var r = Map.slices[Math.min(999,x+5)];
+					var l = Map.slices[Math.max(0,x-5)][0].top;
+					var r = Map.slices[Math.min(999,x+5)][0].top;
 
 						tank.theta = Math.atan((r-l)/10);//Math.atan((r-l)/10);
 

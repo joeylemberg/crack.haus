@@ -11,7 +11,15 @@ var Map = {
 		var dl = -(level-300)/80 * Math.random();
 		
 		for(var i = 0; i < 1000; i++){
-			Map.slices.push(level);
+
+			var col = {
+				top: level,
+				bottom: 600,
+				type: "dirt",
+				color: "rgb(9, 86, 14)"
+			};
+
+			Map.slices.push([col]);
 			level += Math.random() - 0.5 + dl;
 			dl += Math.random()*0.4 - 0.2;
 			if(level > 550){
@@ -35,9 +43,10 @@ var Map = {
 		
 		var s;
 		for(var i = 0; i < Map.slices.length; i++){
-		
-				s = Map.slices[i]
-				ctx.fillRect(i-1, s, 3, 600-s);
+			$.each(Map.slices[i], function(){
+				ctx.fillStyle = this.color;
+				ctx.fillRect(i-1, this.top, 3, this.bottom);
+			});
 		}
 	},
 	moveBoom: function(b){
