@@ -49,6 +49,9 @@ var Map = {
         }
 
         this.slices = slices;
+
+        Map.tree = [];
+        Map.trees.push(Trees.makeTree(400,400,8 + 5 * Math.random(), Map.randomRGB(53, 8, 8)));
     },
     draw: function(){
 
@@ -61,6 +64,10 @@ var Map = {
 				ctx.fillStyle = line.color;
 				ctx.fillRect(row-1, line.top, 3, line.bottom - line.top);
 			});
+		});
+
+		_.each(this.trees, function(tree){
+			Trees.drawTree(tree);
 		});
     },
 
@@ -80,6 +87,17 @@ var Map = {
 							tank.dy = tank.dy || -0.25;
 						}
 					});
+
+					/*var k = j-1;
+					while(k > 0){
+						var sliceHat = Map.slices[i][k];
+						if(sliceHat.bottom > slice.top-5 && sliceHat.state == "fixed"){
+							sliceHat.state = "sliding";
+						}else{
+							k = -1;
+						}
+					}*/
+
 					slice.top++;
 					slice.bottom++;
 					if(j+1 < Map.slices[i].length){
