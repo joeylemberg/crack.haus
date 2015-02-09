@@ -1,0 +1,14 @@
+#scoreboard{
+	width:100%;
+	background-color:rgba(100,100,250,0.2);
+	height:100px;
+	position:relative;
+	z-index:4;
+}
+
+#game-clock{
+	position:fixed;
+	top:25px;
+	left:48%;
+	font-size:36px;
+}

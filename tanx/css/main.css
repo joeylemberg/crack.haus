@@ -1,0 +1,9 @@
+body{
+	margin:0;
+	
+  font-family: 'Play', sans-serif;
+}
+
+#game-ctx{
+	cursor:none;
+}

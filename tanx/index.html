@@ -1,0 +1,112 @@
+<html>
+
+<head>
+
+	<link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css' />
+
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/scoreboard.css" />
+	<link rel="stylesheet" href="css/controls.css" />
+
+<style>
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div id="scoreboard">
+	  <div class="player-panel player-1" data-player-id="1">
+    <h3>P1</h3>
+    <span class="player-score" id="p1_score">100</span>
+    <div class="gas-meter-wrapper">
+      <span>Gas</span>
+      <div class="gas-meter">
+        <div class="meter"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="game-clock"></div>
+
+  <div class="player-panel player-2" data-player-id="2">
+    <span class="player-score" id="p2_score">100</span>
+    <h3>P2</h3>
+    <div class="gas-meter-wrapper">
+      <div class="gas-meter">
+        <div class="meter"></div>
+      </div>
+      <span>Gas</span>
+    </div>
+  </div>
+
+
+</div>
+
+<canvas id='bg-ctx' width='1000' height='600' class='game-canvas' style='z-index:2;'></canvas>
+<canvas id='map-ctx' width='1000' height='600' class='game-canvas' style='z-index:3;'></canvas>
+<canvas id='game-ctx' width='1000' height='600' class='game-canvas' style='z-index:4;'></canvas>
+
+<div id="controls">
+	  <div class="control-panel-widget">
+    <button id="trigger">Fire</button>
+  </div>
+
+  <div class="control-panel-widget">
+  <label class="move-button" id="move-left"> &#8592; </label>
+  <label class="move-title" > Move </label>
+  <label class="move-button" id="move-right"> &#8594; </label>
+  </div>
+  
+  <div class="control-panel-widget">
+    <label for='tank-ang'>Angle:</label>
+    <input id='tank-ang' name="tank-ang" type='number' value='300'> 
+  </div>
+
+  <div class="control-panel-widget">
+    <label for='tank-pow'>Power:</label>
+    <input id='tank-pow' name='tank-pow' type='number' value='100'>
+  </div>
+
+  <div class="control-panel-widget">
+    <label for='weapon-select'>Weapon:</label>
+    <select id="weapon-select">
+      <option>standard shell</option>
+      <option>mine shaft</option>
+      <option>burial</option>
+      <option>sandwich</option>
+      <option>nuke</option>
+    </select>
+  </div>
+
+</div>
+
+	<script src="lib/jquery.js"></script>
+	<script src="lib/underscore.js"></script>
+
+	<script src="js/Game.js"></script>
+	<script src="js/Map.js"></script>
+	<script src="js/Tanks.js"></script>
+	<script src="js/Weapons.js"></script>
+
+	<script src="js/Panels.js"></script>
+	<script src="js/Util.js"></script>
+	<script src="js/Input.js"></script>
+
+	<script src="js/weapons/standardShell.js"></script>
+  <script src="js/weapons/sandwich.js"></script>
+	<script src="js/weapons/wheel.js"></script>
+	<script src="js/weapons/graveDigger.js"></script>
+	<script src="js/weapons/mineShaft.js"></script>
+	<script src="js/weapons/nuke.js"></script>
+
+	<script>
+		Game.init();
+	</script>
+
+</body>
+
+</html>

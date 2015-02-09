@@ -1,0 +1,142 @@
+var Weapons = {
+	shots: [],
+	booms: [],
+	/*fire: function(shotData){
+		console.log("FIRING:");
+		console.log(shotData);
+		var shot = Weapons[shotData.weapon];
+		shot.init(shotData);
+		spritesView.addShot(shot);
+		gameView.moveWorld();
+	},*/
+	detectImpact: function(b){
+		var impact = null;
+		var slices = Map.slices;
+		if(b.x < 1 || b.x > 999 || b.y > 600 || b.y > slices[Math.round(b.x)][0].top){
+					impact = {x: b.x, y: b.y};
+					
+					
+					
+					
+				}
+				return impact;
+	},
+
+	move: function(){
+		for(var i = 0; i < this.shots.length; i++){
+			var shot = this.shots[i];
+			shot.move();
+			if(shot.state == "done"){
+				this.shots.splice(i,1);
+			}
+
+		}
+		for(var i = 0; i < this.booms.length; i++){
+			var boom = this.booms[i];
+			this.moveBoom(boom);
+			if(boom.r > boom.size){
+				this.booms.splice(i,1);
+			}
+
+		}
+	},
+	draw: function(){
+		for(var i = 0; i < this.shots.length; i++){
+			var shot = this.shots[i];
+			shot.draw();
+		}
+		for(var i = 0; i < this.booms.length; i++){
+			var boom = this.booms[i];
+			this.drawBoom(boom);
+		}
+	},
+	boom: function(x, y, size, damage, type){
+		var boom = {
+			x: x,
+			y: y,
+			r: 0,
+			damage: damage,
+			size: size,
+			type: type,
+			state: "expanding",
+			hits: []
+		};
+		for(var i = 0; i < Tanks.units.length; i++){
+			boom.hits.push(0);
+		}
+		this.booms.push(boom);
+	},
+	drawBoom: function(b){
+		ctx.save();
+		ctx.beginPath();
+		ctx.fillStyle = "rgba(200,25,25,0.7)";
+		ctx.translate(b.x,b.y);
+		ctx.arc(0,0,b.r,0,6.3,1);
+		ctx.fill();
+		ctx.restore();
+	},
+	moveBoom: function(boom){
+		boom.r += 1;
+		var r2 = Math.pow(boom.r, 2);
+		var lens = [];
+		var slices = Map.slices;
+		for(var i = 0; i < boom.r*2 ; i++){
+			var boomLength = Math.sqrt(r2 - Math.pow(boom.r-i,2));
+			var j = Math.round(boom.x - boom.r + i);
+
+			
+			
+			var slice = slices[j][0];
+			if(slice.top < boom.y + boomLength){
+				if(slice.top < boom.y - boomLength){
+					Map.slices[j].push({
+		                top: slice.top,
+		                bottom: boom.y - boomLength,
+		                type: "dirt",
+		                color: slice.color
+					});
+					/*
+console.log(j + " " + boom.y + " - " + boomLength);
+console.log(slice);*/
+				}
+
+
+					slice.top = boom.y + boomLength;
+					_.each(Tanks.units, function(tank){
+
+						if(Math.abs(j - tank.x) < 20){
+							tank.grounded = false;
+						}
+
+						if(!boom.hits[tank.id]){
+								var dx = tank.x - boom.x;
+								var dy = tank.y - boom.y;
+								if(Math.sqrt(dx*dx + dy*dy) < boom.r + 10){
+									var damage = Math.round(boom.damage * Math.max(0.1, (boom.size - boom.r + 1)/boom.size));
+									boom.hits[tank.id] = damage;
+									console.log(damage);
+								}
+							}
+					});
+					/*mapView.ctx.clearRect(j, 0, 1, slice.top);
+					_.each(this.model.get("players"), function(player){
+
+						if(Math.abs(j - player.get("x")) < 20){
+							player.set("grounded", false);
+							player.set("moving", true);
+						}
+
+						if(!boom.hits[player.get("id")]){
+								var dx = player.get("x") - boom.x;
+								var dy = player.get("y") - boom.y;
+								if(Math.sqrt(dx*dx + dy*dy) < boom.r + 10){
+									var damage = Math.round(boom.damage * Math.max(0.1, (boom.size - boom.r + 1)/boom.size));
+									boom.hits[player.get("id")] = damage;
+									console.log(damage);
+								}
+							}
+					});*/
+			}
+		}
+	}
+};
