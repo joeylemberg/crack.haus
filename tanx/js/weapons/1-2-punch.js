@@ -1,7 +1,7 @@
-Weapons["sandwich"] = {
+Weapons["1-2-punch"] = {
 	
 	damage: 30,
-	name: "sandwich",
+	name: "1-2-punch",
 	color: "blue",
 	dr: 4,
 	r0: 10,

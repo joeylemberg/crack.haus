@@ -1,7 +1,7 @@
-Weapons["standard shell"] = {
+Weapons["shell"] = {
 	
 	damage: 50,
-	name: "standard shell",
+	name: "shell",
 	dr: 4,
 	r0: 10,
 	size: 50,
