@@ -22,6 +22,11 @@ var Panels = {
 		this.drawClock();
 		this.drawScores();
 
+		for(var i = 0; i < Tanks.units.length; i++){
+			var tank = Tanks.units[i];
+			$(".player-panel[data-player-id='" + tank.id + "']").find(".meter").css("width", Math.round(tank.gas) + "%");
+		}
+
 	},
 
 	clearClock: function(){

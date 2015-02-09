@@ -90,6 +90,31 @@ var Input = {
 			tank.power = pow;
 
 		});
+
+
+
+		$("#move-right").on("click", function(e){
+			e.preventDefault();
+
+					var tank = Tanks.units[Game.turn];
+					if(!Tanks.useGas(tank)){
+						return;
+					}
+					//tank.x++;
+					tank.dx = 1;//Math.max(0.5, tank.dx + 0.2)
+					tank.grounded = false;
+		});
+
+		$("#move-left").on("click", function(e){
+			e.preventDefault();
+					if(!Tanks.useGas(tank)){
+						return;
+					}
+					var tank = Tanks.units[Game.turn];
+					//tank.x++;
+					tank.dx = 1;//Math.max(0.5, tank.dx + 0.2)
+					tank.grounded = false;
+		});
 		
 			
 	},
@@ -110,6 +135,9 @@ var Input = {
 			case 37:
 				e.preventDefault();
 				var tank = Tanks.units[Game.turn];
+				if(!Tanks.useGas(tank)){
+						return;
+					}
 				//tank.x--;
 				tank.dx = -1;//Math.min(-0.5, tank.dx - 0.2);
 				tank.grounded = false;
@@ -118,6 +146,9 @@ var Input = {
 				case 39:
 					e.preventDefault();
 					var tank = Tanks.units[Game.turn];
+					if(!Tanks.useGas(tank)){
+						return;
+					}
 					//tank.x++;
 					tank.dx = 1;//Math.max(0.5, tank.dx + 0.2)
 					tank.grounded = false;

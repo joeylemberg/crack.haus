@@ -51,7 +51,10 @@ var Map = {
         this.slices = slices;
 
         Map.trees = [];
-      //  Map.trees.push(Trees.makeTree(400,400,8 + 5 * Math.random(), Map.randomRGB(53, 8, 8)));
+        var treeSpot = Math.round(Math.random() * (Map.w - 200));
+        var branchColor = Map.randomRGB(50,10,10);
+		var leafColor = 'rgba(' + Math.round(50 + (200 * Math.random())) + ', ' + Math.round(50 + (200 * Math.random())) + ', 0,50)';
+        Map.trees.push(Trees.makeTree(treeSpot,Map.slices[treeSpot][0].top,8 + 5 * Math.random(), branchColor, leafColor));
     },
     draw: function(){
 
@@ -59,15 +62,17 @@ var Map = {
     	//var ctx = this.ctx;
       	ctx.beginPath();
 		//ctx.clearRect(0,0,1000,600);
+
+
+		_.each(this.trees, function(tree){
+			Trees.drawTree(tree);
+		});
+		
 		_.each(this.slices, function(slice, row){
 			_.each(slice, function(line){
 				ctx.fillStyle = line.color;
 				ctx.fillRect(row-1, line.top, 3, line.bottom - line.top);
 			});
-		});
-
-		_.each(this.trees, function(tree){
-			Trees.drawTree(tree);
 		});
     },
 

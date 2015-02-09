@@ -2,7 +2,11 @@ var Input = {
 	
 	x: 0,
 	y: 0,
-	
+
+
+	mousedown: "mousedown",
+	mouseup: "mouseup",
+
 	sizeGame: function(){
 		var h = $(window).height();
 		var w = $(window).width();
