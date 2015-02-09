@@ -54,7 +54,7 @@ var Map = {
         var treeSpot = Math.round(Math.random() * (Map.w - 200));
         var branchColor = Map.randomRGB(50,10,10);
 		var leafColor = 'rgba(' + Math.round(50 + (200 * Math.random())) + ', ' + Math.round(50 + (200 * Math.random())) + ', 0,50)';
-        Map.trees.push(Trees.makeTree(treeSpot,Map.slices[treeSpot][0].top,8 + 5 * Math.random(), branchColor, leafColor));
+      //  Map.trees.push(Trees.makeTree(treeSpot,Map.slices[treeSpot][0].top,8 + 5 * Math.random(), branchColor, leafColor));
     },
     draw: function(){
 
