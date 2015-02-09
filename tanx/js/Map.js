@@ -50,8 +50,8 @@ var Map = {
 
         this.slices = slices;
 
-        Map.tree = [];
-        Map.trees.push(Trees.makeTree(400,400,8 + 5 * Math.random(), Map.randomRGB(53, 8, 8)));
+        Map.trees = [];
+      //  Map.trees.push(Trees.makeTree(400,400,8 + 5 * Math.random(), Map.randomRGB(53, 8, 8)));
     },
     draw: function(){
 
