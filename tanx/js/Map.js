@@ -27,14 +27,37 @@ var Map = {
             var b = Math.round(5 + Math.random() * 5);
             return "rgb(" + r + "," + g + "," + b + ")";
         }
+
+        var randomBrown = function(){
+            var r = Math.round(10 + Math.random() * 10);
+            var g = Math.round(10 + Math.random() * 10);
+            var b = Math.round(5 + Math.random() * 5);
+            return "rgb(" + r + "," + g + "," + b + ")";
+        }
+
+        var r = 20 -10 + Math.random()*20;
+        var g = 60 - 20 + Math.random()*40;
+        var b = 10 -5 + Math.random()*20;;
+
+        var toRGB = function(r,g,b){
+            return "rgb(" + Math.max(0,Math.round(r)) + "," + Math.max(0,Math.round(g)) + "," + Math.max(0,Math.round(b)) + ")";
+        }
+
+        Map.topColor = randomGreen();
+        Map.bottomColor = randomBrown();
+
         
         for(var i = 0; i < Map.w; i++){
+
+        	r += -0.7 + 1.4*Math.random();
+        	g += -0.7 + 1.4*Math.random();
+        	b += -0.7 + 1.4*Math.random();
 
             var col = {
                 top: level,
                 bottom: Map.h,
                 type: "dirt",
-                color: randomGreen(),
+                color: toRGB(r,g,b),
                 state: "fixed"
             };
 
@@ -61,7 +84,7 @@ var Map = {
 		var leafColor = 'rgba(' + Math.round(50 + (100 * Math.random())) + ', ' + Math.round(50 + (100 * Math.random())) + ', 0,50)';
         var theTree = Trees.makeTree(treeSpot,Map.slices[treeSpot][0].top,8 + 5 * Math.random(), branchColor, leafColor);
         Map.trees.push(theTree);
-        while(Math.random() < 0.3){
+        while(Math.random() < 0.4){
         	var treeSpot = 200 + Math.round(Math.random() * (Map.w - 400));
         	var theTree = Trees.makeTree(treeSpot,Map.slices[treeSpot][0].top,8 + 5 * Math.random(), branchColor, leafColor);
         	Map.trees.push(theTree);
@@ -79,10 +102,61 @@ var Map = {
 					for(var j = 0; j < Map.slices[i].length; j++){
 						var row = i;
 						var line = Map.slices[i][j];
-						ctx.fillStyle = line.color;
+						
+							/*var grd=ctx.createLinearGradient(0,line.top,0,line.bottom*1.2);
+							grd.addColorStop(0,Map.bottomColor);
+							grd.addColorStop(0.01,Map.topColor);
+							grd.addColorStop(0.2,line.color);
+
+							grd.addColorStop(0.7,line.color);
+							grd.addColorStop(1,Map.bottomColor);*/
+							ctx.fillStyle = line.color;
+						
+						
+
+
+
 						ctx.fillRect(row-1, line.top, 2, line.bottom - line.top);
 					}
 				}
+
+				/*ctx.beginPath();
+				ctx.lineWidth = 2;
+				ctx.strokeStyle = "rgba(2,3,0,0.6)";
+				ctx.lineCap = "round";
+
+				for(var i = 0; i < 5; i++){
+					ctx.beginPath();
+					var lastTop = 0;
+					for(var j = 0; j < Map.slices.length; j++){
+						if(Map.slices[j][i]){
+							if(Math.abs(lastTop - Map.slices[j][i].top) > 2){
+								ctx.moveTo(j,Map.slices[j][i].top);
+							}else{
+								ctx.lineTo(j,Map.slices[j][i].top);
+							}
+							lastTop = Map.slices[j][i].top;
+						}
+					}
+					ctx.stroke();
+
+					ctx.beginPath();
+					var lastBottom = Map.h;
+					for(var j = 0; j < Map.slices.length; j++){
+						if(Map.slices[j][i]){
+							if(Math.abs(lastBottom - Map.slices[j][i].bottom) > 2){
+								ctx.moveTo(j,Map.slices[j][i].bottom);
+							}else{
+								ctx.lineTo(j,Map.slices[j][i].bottom);
+							}
+							lastBottom = Map.slices[j][i].bottom;
+						}
+					}
+					ctx.stroke();
+				}*/
+
+
+
 			}
 
 		if(Trees.dirty || force){
@@ -158,7 +232,6 @@ var Map = {
 		}
 
 		if(Map.dirty || Trees.dirty){
-			Trees.dirty = false;
 			for(var i = 0; i < Map.trees.length; i++){
 				var tree = Map.trees[i];
 				var treeSlices = Map.slices[Math.round(tree.branches[0].base.x)];
@@ -202,6 +275,9 @@ var Map = {
 			grd.addColorStop(1, Util.randomColor());
 			ctx.fillStyle = grd;
 			ctx.scale(2,1);
+			ctx.fillRect(0,0,2000,1000);
+			//make greyer
+			ctx.fillStyle = "rgba(0,0,0,0.2)";
 			ctx.fillRect(0,0,2000,1000);
 			ctx.restore();
 	},

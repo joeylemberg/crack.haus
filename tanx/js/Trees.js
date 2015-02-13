@@ -13,6 +13,7 @@ var Trees = {
 			hitBoxes: [],
 			dy: 0
 		};
+		tree.root = tree;
 		tree.branches.push(Trees.newBranch(tree,null,x,y,size,tree.theta));
 		Trees.dirty = true;
 		return tree;
@@ -131,6 +132,7 @@ var Trees = {
 
 
 	drawTree: function(tree){
+
 		var ctx = this.ctx;
 		ctx.save();
 		ctx.lineJoin = "round";
@@ -146,7 +148,6 @@ var Trees = {
 	drawBranch: function(branch){
 		var ctx = this.ctx;
 		ctx.beginPath();
-		ctx.lineWidth = Math.ceil(branch.size * 0.5);
 		ctx.moveTo(branch.base.x, branch.base.y);
 		for(var i = 0; i < branch.path.length; i++){
 			ctx.lineTo(branch.path[i].x, branch.path[i].y);
@@ -170,6 +171,11 @@ var Trees = {
 
 		//ctx.quadraticCurveTo(branch.path.x, branch.path.y, branch.tip.x, branch.tip.y);
 		//ctx.bezierCurveTo(branch.path0.x, branch.path0.y, branch.path1.x, branch.path1.y, branch.tip.x, branch.tip.y);
+	
+			ctx.strokeStyle = branch.root.branchColor;
+			ctx.lineWidth = Math.ceil(branch.size * 0.5);
+	
+
 		ctx.stroke();
 		for(var i = 0; i < branch.branches.length; i++){
 			Trees.drawBranch(branch.branches[i]);

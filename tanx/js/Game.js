@@ -41,14 +41,23 @@ var Game = {
 	moveThings: function(){
 		Tanks.move();
 		Weapons.move();
-		if(Weapons.booms.length == 0){
+	//	if(Weapons.booms.length == 0){
 			Map.move();
-		}
+	//	}
 		Panels.move();
 		if(this.state == "firing"){
 			if(!Weapons.shots.length && !Weapons.booms.length && !Map.dirty && !Trees.dirty){
 				for(var i = 0; i < Tanks.units.length; i++){
 					if(!Tanks.units[i].grounded){
+						return;
+					}
+				}
+				for(var i = 0; i < Map.trees.length; i++){
+					var tree = Map.trees[i];
+					var treeSlices = Map.slices[Math.round(tree.branches[0].base.x)];
+					var treeY = treeSlices.length ? treeSlices[0].top : Map.h;
+					if(tree.branches[0].base.y < treeY){
+						Trees.dirty = true;
 						return;
 					}
 				}

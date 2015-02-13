@@ -224,18 +224,18 @@ var Weapons = {
 					//boom is completely above or below slice
 				}else if(slice.top > boom.y - boomLength && slice.bottom > boom.y + boomLength){
 					//boom give the slice a haircut
-					Trees.dirty = false;
+					Trees.dirty = true;
 					slice.top = boom.y + boomLength;
 				}else if(slice.top < boom.y - boomLength && slice.bottom > boom.y - boomLength && slice.bottom < boom.y + boomLength){
 					//boom chops the bottom off of slice
-					Trees.dirty = false;
+					Trees.dirty = true;
 					slice.bottom = boom.y - boomLength;
 					if(boom.type != "digger"){
 						slice.state = "sliding";
 					}
 				}else if(slice.top < boom.y - boomLength && slice.bottom > boom.y + boomLength){
 					//boom splits the slice in two, blowing out some piece
-					Trees.dirty = false;
+					Trees.dirty = true;
 					Map.slices[j].splice(k,0,{
 						top: slice.top,
 		                bottom: boom.y - boomLength,
@@ -247,7 +247,7 @@ var Weapons = {
 					k++;
 				}else if(slice.top > boom.y - boomLength && slice.bottom < boom.y + boomLength){
 					//slice is obliterated
-					Trees.dirty = false;
+					Trees.dirty = true;
 					Map.slices[j].splice(k,1);
 					k--;
 				}
@@ -262,7 +262,7 @@ var Weapons = {
 					//if(!branch.hasLeaves){
 					//	continue;
 					//}
-					if(branch.hasLeaves && Util.dist(boom.x,boom.y, branch.tip.x, branch.tip.y) < boom.r / 2){
+					if(branch.hasLeaves && Util.dist(boom.x,boom.y, branch.tip.x, branch.tip.y) < boom.r){
 						var killChildren = function(branch){
 							branch.dead = true;
 							for(var k = 0; k < branch.branches.length; k++){
@@ -276,9 +276,8 @@ var Weapons = {
 							i--;
 						}
 
-
-
 						Trees.dirty = true;
+
 						continue;
 					}
 					killBranches(branch.branches);
