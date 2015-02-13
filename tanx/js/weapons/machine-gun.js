@@ -1,10 +1,10 @@
-Weapons["shell"] = {
+Weapons["machine gun"] = {
 	
-	damage: 50,
-	name: "shell",
-	dr: 4,
-	r0: 10,
-	size: 50,
+	damage: 20,
+	name: "machine gun",
+	dr: 3,
+	r0: 5,
+	size: 20,
 	knock: 1,
 	pop: 1,
 	type: "shell",
@@ -13,22 +13,40 @@ Weapons["shell"] = {
 		for(var key in shotData){
 			this[key] = shotData[key];
 		}
+		var theta = shotData.theta;
 		this.state = "cruising";
+		this.shotsFired = 0;
 		this.theta = 0;
-		Weapons.shots.push(this);
+		var that = this;
+		var j = 0;
 
-		var flash = $.extend({}, this);
-				flash.color = "#354f70";
+		for(var i = 0; i < 10; i++){
+			setTimeout(function(){
+				j++;
+				var shot = $.extend({}, that);
+				var tank = Tanks.units[shot.owner];
+				shot.x = tank.x + 6*Math.sin(tank.theta) + 14*Math.cos(tank.turret);
+				shot.y = tank.y - 6*Math.cos(tank.theta) + 14*Math.sin(tank.turret);
+				theta = tank.turret + (((j*3)%7) - 3)/100;
+				shot.dx += shotData.power/30 * Math.cos(theta);
+				shot.dy += shotData.power/30 * Math.sin(theta);
+				Weapons.shots.push(shot);
+
+				var flash = $.extend({}, shot);
+				flash.color = "#cc4d22";
 				flash.r0 = 1;
-				flash.dr = 3;
-				flash.size = 50;
+				flash.dr = 1;
+				flash.size = 20;
 				flash.type = "flash";
 
 				Weapons.boom(flash);
+			}, 100 * i);
+		}
 	},
 
 	move: function(){
 		switch(this.state){
+
 			case "cruising":
 
 
@@ -77,6 +95,7 @@ Weapons["shell"] = {
 		
 		ctx.translate(this.x, this.y);
 		ctx.rotate(Math.atan2(this.dy, this.dx));
+		ctx.scale(0.5, 0.75);
 		ctx.strokeStyle = "#383838";
 		ctx.lineWidth = 2;
 		ctx.lineCap = "round";
@@ -87,9 +106,9 @@ Weapons["shell"] = {
 		ctx.fillStyle = "#4f4f4f";
 		ctx.fillRect(-6,-2,14,4);
 		ctx.fillRect(-6,-3,10,6);
-		ctx.fillStyle = "#af6d16";
+		ctx.fillStyle = "#603f0c";
 		ctx.fillRect(-3,-1,11,2);
-		ctx.fillStyle = "#a0a0a0";
+		ctx.fillStyle = "#77736a";
 		ctx.fillRect(-5,-2,8,4);
 
 		ctx.restore();

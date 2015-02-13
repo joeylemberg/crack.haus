@@ -101,7 +101,7 @@ var Input = {
 						return;
 					}
 					//tank.x++;
-					tank.dx = 1;//Math.max(0.5, tank.dx + 0.2)
+					tank.dx = tank.speed;//Math.max(0.5, tank.dx + 0.2)
 					tank.grounded = false;
 		});
 
@@ -112,7 +112,7 @@ var Input = {
 					}
 					var tank = Tanks.units[Game.turn];
 					//tank.x++;
-					tank.dx = 1;//Math.max(0.5, tank.dx + 0.2)
+					tank.dx = -tank.speed;//Math.max(0.5, tank.dx + 0.2)
 					tank.grounded = false;
 		});
 		
@@ -139,7 +139,7 @@ var Input = {
 						return;
 					}
 				//tank.x--;
-				tank.dx = -1;//Math.min(-0.5, tank.dx - 0.2);
+				tank.dx = -tank.speed;//Math.min(-0.5, tank.dx - 0.2);
 				tank.grounded = false;
 				$("#tank-pos").val(tank.x);
 			break;
@@ -150,7 +150,7 @@ var Input = {
 						return;
 					}
 					//tank.x++;
-					tank.dx = 1;//Math.max(0.5, tank.dx + 0.2)
+					tank.dx = tank.speed;//Math.max(0.5, tank.dx + 0.2)
 					tank.grounded = false;
 					$("#tank-pos").val(tank.x);
 				break;

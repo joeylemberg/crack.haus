@@ -126,7 +126,29 @@ var Weapons = {
 		//ctx.fillStyle = "rgba(200,25,25,0.7)";
 		ctx.fillStyle = b.color;
 		ctx.translate(b.x,b.y);
-		ctx.arc(0,0,b.r,0,6.3,1);
+
+		if(b.type == "flash"){
+			ctx.globalCompositeOperation = "destination-over";
+			ctx.globalAlpha = Math.round(25 * (1 - (b.r / b.size)))/100;
+			var tank = Tanks.units[b.owner];
+			ctx.rotate(tank.turret);
+			ctx.rotate(-Math.PI/2);
+			ctx.moveTo(-100,5);
+			ctx.lineTo(-10,5);
+			ctx.lineTo(0,-2);
+			ctx.lineTo(10,5);
+			ctx.lineTo(100,5);
+			ctx.lineTo(100,100);
+			ctx.lineTo(-100,100);
+			ctx.closePath();
+			ctx.clip();
+			ctx.scale(0.5,1.5);
+			ctx.beginPath();
+			ctx.arc(0,0,b.r,0,6.3,1);
+			ctx.fill();
+			ctx.restore();
+		}else{
+			ctx.arc(0,0,b.r,0,6.3,1);
 		ctx.fill();
 		ctx.restore();
 
@@ -138,12 +160,19 @@ var Weapons = {
 		Map.ctx.clip();
 		Map.ctx.clearRect(-b.r,-b.r,2*b.r,2*b.r);
 		Map.ctx.restore();
+		}
+		
 	},
 	moveBoom: function(boom){
 
 		boom.age ++;
 
 		boom.r += boom.dr || 1;
+
+		if(boom.type=="flash"){
+			return;
+		}
+
 		var r2 = Math.pow(boom.r, 2);
 		var lens = [];
 		var slices = Map.slices;
@@ -195,15 +224,18 @@ var Weapons = {
 					//boom is completely above or below slice
 				}else if(slice.top > boom.y - boomLength && slice.bottom > boom.y + boomLength){
 					//boom give the slice a haircut
+					Trees.dirty = false;
 					slice.top = boom.y + boomLength;
 				}else if(slice.top < boom.y - boomLength && slice.bottom > boom.y - boomLength && slice.bottom < boom.y + boomLength){
 					//boom chops the bottom off of slice
+					Trees.dirty = false;
 					slice.bottom = boom.y - boomLength;
 					if(boom.type != "digger"){
 						slice.state = "sliding";
 					}
 				}else if(slice.top < boom.y - boomLength && slice.bottom > boom.y + boomLength){
 					//boom splits the slice in two, blowing out some piece
+					Trees.dirty = false;
 					Map.slices[j].splice(k,0,{
 						top: slice.top,
 		                bottom: boom.y - boomLength,
@@ -215,6 +247,7 @@ var Weapons = {
 					k++;
 				}else if(slice.top > boom.y - boomLength && slice.bottom < boom.y + boomLength){
 					//slice is obliterated
+					Trees.dirty = false;
 					Map.slices[j].splice(k,1);
 					k--;
 				}
@@ -278,6 +311,18 @@ var Weapons = {
 	hit: function(pointsData){
 		pointsData.t = 0;
 		pointsData.wave = 0;
+		if(Weapons.points.length && Weapons.points[Weapons.points.length-1].y + 5 > pointsData.y){
+			//for(var i = 0; i < Weapons.points.length; i++){
+			//	Weapons.points[i].y -= 2.5;
+			//}
+			pointsData.y = Weapons.points[Weapons.points.length-1].y + 5;
+			//pointsData.y += 10;
+			/*if(Weapons.points[Weapons.points.length-1].x > pointsData.x){
+				pointsData.x -= 10;
+			}else{
+				pointsData.x += 10;
+			}*/
+		}
 		Weapons.points.push(pointsData);
 		Tanks.units[pointsData.owner].score += pointsData.value;
 		var tank = Tanks.units[pointsData.target];

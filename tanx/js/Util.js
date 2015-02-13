@@ -54,8 +54,8 @@ var Util = {
 					slice = Map.slices[i][j];
 					if(y > slice.top && y < slice.bottom){
 						return {
-								x: x,
-								y: y
+								x: i,
+								y: y + (i-x)*dy/dx
 							};
 						/*if(y - dy < slice.top){
 							return {
