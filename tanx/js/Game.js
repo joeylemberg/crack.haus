@@ -7,9 +7,9 @@
 var ctx;
 
 var Game = {
-	state: "aiming",
+	state: "firing",
 	players: [],
-	turn: 0,
+	turn: -1,
 	map: null,
 	timeLimit: 30,
 	clock: 30,
@@ -46,7 +46,12 @@ var Game = {
 		}
 		Panels.move();
 		if(this.state == "firing"){
-			if(!Weapons.shots.length && !Weapons.booms.length){
+			if(!Weapons.shots.length && !Weapons.booms.length && !Map.dirty && !Trees.dirty){
+				for(var i = 0; i < Tanks.units.length; i++){
+					if(!Tanks.units[i].grounded){
+						return;
+					}
+				}
 				Game.turn = (Game.turn + 1)%2;
 				this.state = "aiming";
 				Input.activate();

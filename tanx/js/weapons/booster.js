@@ -35,6 +35,13 @@ Weapons["booster jets"] = {
 					this.dx = norm[0];
 					this.dy = norm[1];
 					this.state = "boosting";
+					var bestTop = Map.bestTop(tank.x, tank.y);
+					if(Math.abs(tank.y - bestTop) < 4){
+						tank.y = Map.bestTop(tank.x, tank.y) - 1;
+					}else{
+						tank.y = tank.y - 2.5;
+					}
+					
 
 				break;
 

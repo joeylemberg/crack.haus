@@ -30,6 +30,7 @@ Weapons["nuke"] = {
 					var shotName = this.name;
 					this.x = impact.x;
 					this.y = impact.y + 25;
+					this.target = impact.target;
 					Weapons.boom($.extend({}, this));
 
 					that.knock = 1;

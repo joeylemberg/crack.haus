@@ -41,10 +41,10 @@ var Map = {
             slices.push([col]);
             level += Math.random() - 0.5 + dl;
             dl += Math.random()*0.4 - 0.2;
-            if(level > 550){
+            if(level > Map.h - 50){
                 dl -= 0.1;
             }
-            if(level < 150){
+            if(level < Map.h/3){
                 dl += 0.1;
             }
             if((i%100 > 45 && i < 55)){// && (i > 200 && i < 800)){
@@ -61,6 +61,11 @@ var Map = {
 		var leafColor = 'rgba(' + Math.round(50 + (100 * Math.random())) + ', ' + Math.round(50 + (100 * Math.random())) + ', 0,50)';
         var theTree = Trees.makeTree(treeSpot,Map.slices[treeSpot][0].top,8 + 5 * Math.random(), branchColor, leafColor);
         Map.trees.push(theTree);
+        while(Math.random() < 0.3){
+        	var treeSpot = 200 + Math.round(Math.random() * (Map.w - 400));
+        	var theTree = Trees.makeTree(treeSpot,Map.slices[treeSpot][0].top,8 + 5 * Math.random(), branchColor, leafColor);
+        	Map.trees.push(theTree);
+        }
     	Map.draw(true);
     },
     draw: function(force){

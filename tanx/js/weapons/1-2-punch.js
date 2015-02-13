@@ -19,11 +19,11 @@ Weapons["1-2-punch"] = {
 		var shot1 = $.extend({}, this);
 		var shot2 = $.extend({}, this);
 
-		shot1.dx =  this.power/30 * Math.cos(this.theta + 0.15);
-		shot2.dx =  this.power/30 * Math.cos(this.theta - 0.1);
+		shot1.dx =  this.power/6 * Math.cos(this.theta + 0.15);
+		shot2.dx =  this.power/6 * Math.cos(this.theta - 0.1);
 
-		shot1.dy =  this.power/30 * Math.sin(this.theta + 0.15);
-		shot2.dy =  this.power/30 * Math.sin(this.theta - 0.15);
+		shot1.dy =  this.power/6 * Math.sin(this.theta + 0.15);
+		shot2.dy =  this.power/6 * Math.sin(this.theta - 0.15);
 	//		dy: tank.power/30 * Math.sin(tank.turret),
 
 		Weapons.shots.push(shot1);
@@ -43,6 +43,7 @@ Weapons["1-2-punch"] = {
 					var shotName = this.name;
 					this.x = impact.x;
 					this.y = impact.y;
+					this.target = impact.target;
 					Weapons.boom(this);
 				}else{
 					this.x += this.dx;

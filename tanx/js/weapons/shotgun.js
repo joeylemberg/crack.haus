@@ -20,6 +20,8 @@ Weapons["shotgun"] = {
 		var that = this;
 		var j = 0;
 
+		console.log(shotData);
+
 		for(var i = 0; i < 20; i++){
 			setTimeout(function(){
 				j++;
@@ -29,8 +31,8 @@ Weapons["shotgun"] = {
 				shot.y = tank.y - 6*Math.cos(tank.theta) + 14*Math.sin(tank.turret);
 				shot.power = shotData + ((j * 3) % 7) - 3;
 				theta = tank.turret + (((j*j*j)%21) - 10)/50;
-				shot.dx += shotData.power/30 * Math.cos(theta);
-				shot.dy += shotData.power/30 * Math.sin(theta);
+				shot.dx = tank.power/6 * Math.cos(theta);
+				shot.dy = tank.power/6 * Math.sin(theta);
 				Weapons.shots.push(shot);
 			}, 5 * i);
 		}

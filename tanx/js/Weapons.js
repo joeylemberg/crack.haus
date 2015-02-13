@@ -259,6 +259,9 @@ var Weapons = {
 			var killBranches = function(branches){
 				for(var i = 0; i < branches.length; i++){
 					var branch = branches[i];
+					//if(!branch.hasLeaves){
+					//	continue;
+					//}
 					if(branch.hasLeaves && Util.dist(boom.x,boom.y, branch.tip.x, branch.tip.y) < boom.r / 2){
 						var killChildren = function(branch){
 							branch.dead = true;

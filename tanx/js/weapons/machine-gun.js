@@ -28,8 +28,8 @@ Weapons["machine gun"] = {
 				shot.x = tank.x + 6*Math.sin(tank.theta) + 14*Math.cos(tank.turret);
 				shot.y = tank.y - 6*Math.cos(tank.theta) + 14*Math.sin(tank.turret);
 				theta = tank.turret + (((j*3)%7) - 3)/100;
-				shot.dx += shotData.power/30 * Math.cos(theta);
-				shot.dy += shotData.power/30 * Math.sin(theta);
+				shot.dx = tank.power/6 * Math.cos(theta);
+				shot.dy = tank.power/6 * Math.sin(theta);
 				Weapons.shots.push(shot);
 
 				var flash = $.extend({}, shot);

@@ -3,7 +3,7 @@ var Input = {
 	x: -100,
 	y: -100,
 
-	active: true,
+	active: false,
 
 	init: function(){
 		this.initHtmlEvents();
@@ -46,7 +46,6 @@ var Input = {
 			}
 			var tank = Tanks.units[0];
 			tank.power = $(this).val();
-			
 		});
 		
 		$('#trigger').click(function(){
@@ -81,8 +80,9 @@ var Input = {
 				ang += 360;
 			}
 
-			var pow = Math.round(Util.dist(Input.x,Input.y,tank.x,tank.y));
+			var pow = Math.round(Util.dist(Input.x,Input.y,tank.x,tank.y) / 5);
 
+			pow = Math.min(100,pow);
 
 			$("#tank-ang").val(ang);
 			$("#tank-pow").val(pow);

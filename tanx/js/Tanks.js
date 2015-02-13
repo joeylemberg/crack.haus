@@ -3,7 +3,9 @@ var Tanks = {
 	fire: function(){
 		var weaponName = $("#weapon-select").val();
 		var tank = Game.getTank();
-
+		if(tank.power > 200){
+			tank.power = 200;
+		}
       	var shotData = {
         weapon: weaponName,
         owner : Game.turn,
@@ -11,8 +13,8 @@ var Tanks = {
 			y:tank.y - 6*Math.cos(tank.theta) + 14*Math.sin(tank.turret),
 			theta: tank.turret,
 			power: tank.power,
-			dx: tank.power/30 * Math.cos(tank.turret),
-			dy: tank.power/30 * Math.sin(tank.turret),
+			dx: tank.power/6 * Math.cos(tank.turret),
+			dy: tank.power/6 * Math.sin(tank.turret),
 			age: 0
       };
       Game.fire(shotData);

@@ -29,6 +29,7 @@ Weapons["mine shaft"] = {
 					this.dx *= 0.1;
 					this.dy *= 0.1;
 					this.fuel = 200;
+					this.target = impact.target;
 					Weapons.boom(this);
 					this.lastBoom = {x: this.x, y: this.y};
 					/*var shotName = this.name;
