@@ -20,8 +20,22 @@ var Weapons = {
 			if(slice.top < b.y && slice.bottom > b.y){
 				impact = {x: b.x, y: b.y};
 			}
-			return impact;
 		}
+
+		for(var i = 0; i < Map.trees.length; i++){
+			var tree = Map.trees[i];
+			for(var j = 0; j < tree.hitBoxes.length; j++){
+				var box = tree.hitBoxes[j];
+				console.log(Util.dist(b.x, b.y, box.tip.x, box.tip.y));
+				if(Util.dist(b.x, b.y, box.tip.x, box.tip.y) < 10){
+					impact = {x: b.x, y: b.y};
+					return impact;
+				}
+			}
+		}
+
+
+			return impact;
 		
 	},
 
@@ -53,6 +67,8 @@ var Weapons = {
 			}
 
 		}
+
+
 	},
 	draw: function(){
 		for(var i = 0; i < this.shots.length; i++){
@@ -67,6 +83,7 @@ var Weapons = {
 			var p = this.points[i];
 			this.drawPoints(p);
 		}
+
 	},
 	boom: function(shotData){
 		//default boom values
@@ -112,6 +129,15 @@ var Weapons = {
 		ctx.arc(0,0,b.r,0,6.3,1);
 		ctx.fill();
 		ctx.restore();
+
+		Map.ctx.save();
+		Map.ctx.translate(b.x,b.y);
+		Map.ctx.beginPath();
+		Map.ctx.arc(0,0,b.r,0,6.3,1);
+		Map.ctx.closePath();
+		Map.ctx.clip();
+		Map.ctx.clearRect(-b.r,-b.r,2*b.r,2*b.r);
+		Map.ctx.restore();
 	},
 	moveBoom: function(boom){
 
@@ -193,6 +219,57 @@ var Weapons = {
 					k--;
 				}
 			}
+		}
+
+		if(boom.target){
+			var tree = boom.target;
+			var killBranches = function(branches){
+				for(var i = 0; i < branches.length; i++){
+					var branch = branches[i];
+					if(branch.hasLeaves && Util.dist(boom.x,boom.y, branch.tip.x, branch.tip.y) < boom.r / 2){
+						var killChildren = function(branch){
+							branch.dead = true;
+							for(var k = 0; k < branch.branches.length; k++){
+								branch.branches[k].dead = true;
+								killChildren(branch.branches[k]);
+							}
+						};
+						killChildren(branches[i]);
+						if(!boom.saveBranches){
+							branches.splice(i,1);
+							i--;
+						}
+
+
+
+						Trees.dirty = true;
+						continue;
+					}
+					killBranches(branch.branches);
+				}
+			}
+			killBranches(tree.branches);
+			if(Trees.dirty){
+				for(var j = 0; j < tree.hitBoxes.length; j++){
+					var box = tree.hitBoxes[j];
+					if(box.dead){
+						if(boom.saveBranches){
+							box.leaves = [];
+						}else{
+							tree.hitBoxes.splice(j,1);
+							j--;
+						}
+					}
+				}
+			}
+			/*for(var j = 0; j < tree.hitBoxes.length; j++){
+				var box = tree.hitBoxes[j];
+				//console.log(Util.dist(b.x, b.y, box.tip.x, box.tip.y));
+				if(Util.dist(boom.x,boom.y,x,y, box.tip.x, box.tip.y) < 10 + boom.size){
+					
+				}
+			}*/
+
 		}
 	},
 	dig: function(boom){

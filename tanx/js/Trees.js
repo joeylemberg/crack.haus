@@ -1,15 +1,33 @@
 var Trees = {
 
+	dirty: false,
+	ctx: null,
+
 	makeTree: function(x,y,size, branchColor, leafColor){
 		var tree = {
 			branches: [],
 			leaves: [],
 			branchColor: branchColor,
 			leafColor: leafColor,
-			theta: Math.PI/2
+			theta: Math.PI/2,
+			hitBoxes: [],
+			dy: 0
 		};
 		tree.branches.push(Trees.newBranch(tree,null,x,y,size,tree.theta));
+		Trees.dirty = true;
 		return tree;
+	},
+
+	toAllBranches: function(tree, operation){
+		var func = function(branch){
+			if(branch.branches)
+			for(var k = 0; k < branch.branches.length; k++){
+				if(operation(branch.branches[k])){
+					func(branch.branches[k]);
+				}
+			}
+		}
+		func(tree);
 	},
 
 	newBranch: function(root,parent,x,y,s,theta){
@@ -81,6 +99,8 @@ var Trees = {
 		branch.tip = {x: x, y: y};
 
 		if(branch.size < 6){
+			branch.hasLeaves = true;
+			branch.root.hitBoxes.push(branch);
 			for(var i = 0; i < branch.size + 4; i++){
 				branch.leaves.push({
 				x: branch.tip.x - 5 + Math.random() * 10,
@@ -111,6 +131,7 @@ var Trees = {
 
 
 	drawTree: function(tree){
+		var ctx = this.ctx;
 		ctx.save();
 		ctx.lineJoin = "round";
 		ctx.lineCap = "round";
@@ -123,6 +144,7 @@ var Trees = {
 		ctx.restore();
 	},
 	drawBranch: function(branch){
+		var ctx = this.ctx;
 		ctx.beginPath();
 		ctx.lineWidth = Math.ceil(branch.size * 0.5);
 		ctx.moveTo(branch.base.x, branch.base.y);

@@ -17,7 +17,10 @@ var Game = {
 	interval: 0,
 	g: 0.2,
 	init: function(){
-		ctx = $("#game-ctx")[0].getContext("2d");
+		ctx = $("#game-canvas")[0].getContext("2d");
+		Tanks.units[0].x = 100 + Math.random()*100;
+		Tanks.units[1].x = Map.w - (100 + Math.random()*100);
+		Map.init();
 		Map.generate();
 		Map.drawBG();
 		Input.init();

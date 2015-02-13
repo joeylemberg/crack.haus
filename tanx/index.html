@@ -1,5 +1,6 @@
 <html>
-
+<title>War Tanks</title>
+<link rel="shortcut icon" href="img/yinyang.png" >
 <head>
 
 	<link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css' />
@@ -46,9 +47,11 @@
 
 </div>
 
-<canvas id='bg-ctx' width='1000' height='600' class='game-canvas' style='z-index:2;'></canvas>
-<canvas id='map-ctx' width='1000' height='600' class='game-canvas' style='z-index:3;'></canvas>
-<canvas id='game-ctx' width='1000' height='600' class='game-canvas' style='z-index:4;'></canvas>
+<canvas id='bg-canvas' width='1000' height='600' class='game-canvas' style='z-index:2;'></canvas>
+<canvas id='map-canvas' width='1000' height='600' class='game-canvas' style='z-index:3;'></canvas>
+<canvas id='trees-canvas' width='1000' height='600' class='game-canvas' style='z-index:4;'></canvas>
+
+<canvas id='game-canvas' width='1000' height='600' class='game-canvas' style='z-index:5;'></canvas>
 
 <div id="controls">
 	  <div class="control-panel-widget">
@@ -75,6 +78,7 @@
     <label for='weapon-select'>Weapon:</label>
     <select id="weapon-select">
       <option>shell</option>
+      <option>booster jets</option>
       <option>mine shaft</option>
       <option>burial</option>
       <option>1-2-punch</option>
@@ -103,6 +107,7 @@
 	<script src="js/weapons/burial.js"></script>
 	<script src="js/weapons/mine-shaft.js"></script>
 	<script src="js/weapons/nuke.js"></script>
+  <script src="js/weapons/booster.js"></script>
 
 	<script>
 		Game.init();

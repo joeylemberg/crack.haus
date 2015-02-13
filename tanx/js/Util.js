@@ -91,6 +91,18 @@ var Util = {
 			}
 		}
 
+		for(var i = 0; i < Map.trees.length; i++){
+			var tree = Map.trees[i];
+			for(var j = 0; j < tree.hitBoxes.length; j++){
+				var box = tree.hitBoxes[j];
+				//console.log(Util.dist(b.x, b.y, box.tip.x, box.tip.y));
+				if(Util.dist(x,y, box.tip.x, box.tip.y) < 10){
+					impact = {x: x, y:y, target: tree};
+					return impact;
+				}
+			}
+		}
+
 		return;
 
 	},
@@ -119,6 +131,11 @@ var Util = {
 
 		$el.css("text-shadow", str);
     
+	},
+
+	normalize: function(x, y){
+		var mag = Math.sqrt(x*x, y*y);
+		return [x/mag, y/mag];
 	}
 
 }

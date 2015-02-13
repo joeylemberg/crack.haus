@@ -30,6 +30,7 @@ Weapons["shell"] = {
 					var shotName = this.name;
 					this.x = impact.x;
 					this.y = impact.y;
+					this.target = impact.target;
 					Weapons.boom(this);
 				}else{
 					this.x += this.dx;

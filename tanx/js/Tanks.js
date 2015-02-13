@@ -124,6 +124,29 @@ var Tanks = {
 				//tank.dx *= 0.99;
 			}
 
+			for(var k = 0; k < Map.trees.length; k++){
+			var tree = Map.trees[k];
+			for(var j = 0; j < tree.hitBoxes.length; j++){
+				var box = tree.hitBoxes[j];
+				//console.log(Util.dist(b.x, b.y, box.tip.x, box.tip.y));
+				if(Util.dist(x0,y0, box.tip.x, box.tip.y) < 10){
+					tank.grounded = true;
+					tank.dx = 0;
+					tank.dy = 0;
+					tank.theta = 0;
+					var l = box.base.y;
+					var r = box.tip.y;
+					//if(box.base.x < box.tip.x){
+						tank.theta = Math.atan((r-l)/(box.tip.x - box.base.x));
+					//}
+					
+
+
+					continue;
+				}
+			}
+		}
+
 			if(tank.x < 0.5){
 				tank.x = 1;
 			}

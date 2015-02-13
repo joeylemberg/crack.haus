@@ -59,19 +59,19 @@ var Input = {
 
 	initMouseListeners: function(){
 		
-		$("#game-ctx").click(function(){
+		$("#game-canvas").click(function(){
 			if(!Input.active){
 				return;
 			}
 			Tanks.fire();
 		});
 		
-		$("#game-ctx").mousemove(function(e){
+		$("#game-canvas").mousemove(function(e){
 			if(!Input.active){
 				return;
 			}
-			Input.x = e.pageX * 1000 / $("#game-ctx").width();		
-			Input.y = e.pageY * 600 / $("#game-ctx").height();
+			Input.x = e.pageX * 1000 / $("#game-canvas").width();		
+			Input.y = e.pageY * 600 / $("#game-canvas").height();
 
 			var tank = Tanks.units[Game.turn];
 
