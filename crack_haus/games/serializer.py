@@ -16,12 +16,12 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class GameSerializer(serializers.HyperlinkedModelSerializer):
+class GameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Game
-        fields = ('url', 'name', 'description', 'players')
+        fields = ('url', 'id', 'name', 'description', 'players')
 
 class PlayerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Player
-        fields = ('tag', 'peer_id', 'game')
+        fields = ('url', 'tag', 'peer_id', 'game')
