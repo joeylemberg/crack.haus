@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Player(models.Model):
-    tag = models.CharField(max_length=32)
-    peer_id = models.CharField(max_length=32)
+    tag = models.CharField(max_length=32, unique=True)
+    peer_id = models.CharField(max_length=32, unique=True)
 
     game = models.ForeignKey('Game', related_name='players')
     invited = models.ManyToManyField('Player')
