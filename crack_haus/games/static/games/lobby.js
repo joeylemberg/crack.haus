@@ -11,7 +11,8 @@ var lobby = {
 
 	init: function(){
 		$("#all-games").on("click", ".listed-game", lobby.setGame);
-		lobby.interval = setInterval(lobby.getGames, 1000);
+		lobby.getGamesList();
+		//lobby.interval = setInterval(lobby.getGames, 1000);
 	},
 
 	getGames: function(){
@@ -31,17 +32,12 @@ var lobby = {
 		$.ajax({
 		    type: "GET",
 		    contentType: "application/json",
-		    url: "http://192.168.1.7:8000/games/",
+		    url: "api/games/",
 		    success: function (data) {
-		        console.log(data);
+		        lobby.renderGames(data);
 		    },
 		    failure: function(data){
 		    	console.log(data);
-		    },
-		    complete: function(data){
-		    	var data = [{"url":"http://192.168.1.7:8000/games/1/","name":"Tanx","description":"Wartanx mutha fucka","online_users":0,"lobby_users":0}];
-		    	console.log(data);
-		    	lobby.renderGames(data);
 		    }
 		});
 	},
@@ -72,13 +68,13 @@ var lobby = {
 		html += "<tr>";
 		html += "<th>Game</th>";
 		html += "<th>Description</th>";
-		html += "<th>Players in Game</th>";
-		html += "<th>Players in Lobby</th>";
+	//	html += "<th>Players in Game</th>";
+	//	html += "<th>Players in Lobby</th>";
 		html += "</tr>";
 
 		for(i = 0; i < games.length; i++){
 			game = games[i];
-			html += "<tr class='listed-game' data-href='" + game.url + "' data-name='" + game.name + "'>";
+			html += "<tr class='listed-game' data-url='" + game.url + "' data-name='" + game.name + "'>";
 			html += "<td>" + game.name + "</td>";
 			html += "<td>" + game.description + "</td>";
 		//	html += "<td>" + game.online_users + "</td>";
