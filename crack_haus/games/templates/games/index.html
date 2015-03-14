@@ -1,9 +1,9 @@
 <html>
 
 <head>
+{% load staticfiles %}
 
-<link rel="stylesheet" type="text/css" href="lobby.css">
-
+<link rel="stylesheet" type="text/css" href="{% static "games/lobby.css" %}">
 
 </head>
 
@@ -24,8 +24,8 @@
 
  </script>
 
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="lobby.js"></script>
+<script type="text/javascript" src="{% static "games/jquery.js" %}"></script>
+<script type="text/javascript" src="{% static "games/lobby.js" %}"></script>
 
 </body>
 
