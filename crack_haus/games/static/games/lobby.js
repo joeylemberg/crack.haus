@@ -186,6 +186,8 @@ var lobby = {
 
 	listen: function(){
 		lobby.peer.off('connection');
+		clearInterval(lobby.interval);
+		$("#all-games, .lobby-name, .main-title").remove();
 		dragKings();
 		/*conn.on('data', function(data) {
 			console.log(data);
