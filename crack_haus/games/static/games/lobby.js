@@ -1,3 +1,5 @@
+var conn;
+
 $(document).ready(function(){
 	lobby.init();
 });
@@ -12,7 +14,7 @@ var lobby = {
 
 	init: function(){
 		$("#all-games").on("click", ".listed-game", lobby.setGame);
-		$("#all-games").on("click", ".open-game", lobby.setGame);
+		$("#all-games").on("click", ".open-game", lobby.acceptGame);
 		lobby.getGamesList();
 	},
 
@@ -94,6 +96,7 @@ var lobby = {
     		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 		}
 		lobby.peer = new Peer({key: 'j12fo2q0wvwvcxr'});
+		lobby.peer.on('connection', lobby.peerConnect);
 		var tag = prompt("Please enter your name", "Harry Potter");
 		function postIt(){
 			if(lobby.peer.id){
@@ -158,12 +161,34 @@ var lobby = {
 
 		for(i = 0; i < data.players.length; i++){
 			player = data.players[i];
-			html += "<tr class='open-game' data-tag='" + player.tag + "' data-peer-id='" + player.peer_id + "'>";
+			html += "<tr class='open-game' data-id='" + player.id + " data-tag='" + player.tag + "' data-peer-id='" + player.peer_id + "'>";
 			html += "<td>" + player.tag + "</td>";
 			html += "</tr>"
 		}
 		$("#all-games").empty();
 		$("#all-games").append(html);
+	},
+
+	acceptGame: function(e){
+		
+		var clickedRow = $(e.target).closest(".open-game");
+		var peerId = clickedRow.attr("data-peer-id");
+
+    	conn = lobby.peer.connect(peerId);
+    	lobby.listen();
+
+	},
+
+	peerConnect: function(data){
+		conn = data;
+		lobby.listen();
+	},
+
+	listen: function(){
+		lobby.peer.off('connection');
+		conn.on('data', function(data) {
+			console.log(data);
+		});
 	}
 
 
