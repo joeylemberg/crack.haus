@@ -25,4 +25,4 @@ class GameSerializer(serializers.ModelSerializer):
 class PlayerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Player
-        fields = ('tag', 'peer_id', 'game')
+        fields = ('tag', 'peer_id', 'game', 'url')
