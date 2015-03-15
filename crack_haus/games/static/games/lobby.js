@@ -12,21 +12,16 @@ var lobby = {
 
 	init: function(){
 		$("#all-games").on("click", ".listed-game", lobby.setGame);
+		$("#all-games").on("click", ".open-game", lobby.setGame);
 		lobby.getGamesList();
-		//lobby.interval = setInterval(lobby.getGames, 1000);
 	},
 
 	getGames: function(){
-
 		if(lobby.game){
 			lobby.getGame();
 		}else{
 			lobby.getGamesList();
 		}
-		
-
-
-
 	},
 
 	getGamesList: function(){ 
@@ -118,7 +113,7 @@ var lobby = {
 			        }
 			    },
 			    success: function (data) {
-			        console.log(data);
+			        lobby.interval = setInterval(lobby.getPlayers, 1000);
 			    },
 			    failure: function(data){
 			    	console.log(data);
@@ -135,9 +130,40 @@ var lobby = {
 		}
 
 		postIt();
-
-
 		
+	},
+
+	getPlayers: function(){
+		$.ajax({
+		    type: "GET",
+		    contentType: "application/json",
+		    url: "api/games/" + lobby.game.id,
+		    success: function (data) {
+		        lobby.renderLobby(data);
+		    },
+		    failure: function(data){
+		    	console.log(data);
+		    }
+		});
+	},
+
+	renderLobby: function(data){
+		var i, player;
+
+		var html = "<table class='game-table' cellspacing='0' >";
+ 
+		html += "<tr>";
+		html += "<th>Tag</th>";
+		html += "</tr>";
+
+		for(i = 0; i < data.players.length; i++){
+			player = data.players[i];
+			html += "<tr class='open-game' data-tag='" + player.tag + "' data-peer-id='" + player.peer_id + "'>";
+			html += "<td>" + player.tag + "</td>";
+			html += "</tr>"
+		}
+		$("#all-games").empty();
+		$("#all-games").append(html);
 	}
 
 
