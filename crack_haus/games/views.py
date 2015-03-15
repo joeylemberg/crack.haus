@@ -7,7 +7,7 @@ from rest_framework import generics, viewsets
 class PlayerViewSet(viewsets.ModelViewSet):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
-    permission_classes = AllowAny
+    permission_classes = (AllowAny,)
 
 class GameViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Game.objects.all()
