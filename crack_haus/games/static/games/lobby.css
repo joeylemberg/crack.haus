@@ -24,10 +24,10 @@ td{
 	padding: 5px;
 }
 
-tr.listed-game{
+tr.listed-game, tr.open-game{
 	cursor: pointer;
 }
 
-tr.listed-game:hover{
+tr.listed-game:hover, tr.open-game:hover{
 	background-color: #abcdef;
 }

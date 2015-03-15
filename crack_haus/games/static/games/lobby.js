@@ -12,21 +12,16 @@ var lobby = {
 
 	init: function(){
 		$("#all-games").on("click", ".listed-game", lobby.setGame);
+		$("#all-games").on("click", ".open-game", lobby.setGame);
 		lobby.getGamesList();
-		//lobby.interval = setInterval(lobby.getGames, 1000);
 	},
 
 	getGames: function(){
-
 		if(lobby.game){
 			lobby.getGame();
 		}else{
 			lobby.getGamesList();
 		}
-		
-
-
-
 	},
 
 	getGamesList: function(){ 
@@ -152,8 +147,23 @@ var lobby = {
 		});
 	},
 
-	renderLobby: function(){
-		
+	renderLobby: function(data){
+		var i, player;
+
+		var html = "<table class='game-table' cellspacing='0' >";
+ 
+		html += "<tr>";
+		html += "<th>Tag</th>";
+		html += "</tr>";
+
+		for(i = 0; i < data.players.length; i++){
+			player = data.players[i];
+			html += "<tr class='open-game' data-tag='" + player.tag + "' data-peer-id='" + player.peer_id + "'>";
+			html += "<td>" + player.tag + "</td>";
+			html += "</tr>"
+		}
+		$("#all-games").empty();
+		$("#all-games").append(html);
 	}
 
 
