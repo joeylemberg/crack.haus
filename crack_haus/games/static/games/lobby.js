@@ -8,6 +8,8 @@ var lobby = {
 
 	game: null,
 		
+	userId: null,
+
 	peer: null,
 
 	interval: null,
@@ -116,6 +118,7 @@ var lobby = {
 			        }
 			    },
 			    success: function (data) {
+			    	lobby.userId = data.id;
 			        lobby.interval = setInterval(lobby.getPlayers, 1000);
 			    },
 			    failure: function(data){
@@ -185,10 +188,19 @@ var lobby = {
 	},
 
 	listen: function(){
+
+		$.ajax({
+		    type: "DELETE",
+		    contentType: "application/json",
+		    url: "api/players/" + lobby.userId
+		});
+		
+
 		lobby.peer.off('connection');
 		clearInterval(lobby.interval);
 		$("#all-games, .lobby-name, .main-title").remove();
 		dragKings();
+
 		/*conn.on('data', function(data) {
 			console.log(data);
 		});*/
