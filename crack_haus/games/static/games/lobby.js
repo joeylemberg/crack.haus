@@ -118,7 +118,7 @@ var lobby = {
 			        }
 			    },
 			    success: function (data) {
-			        console.log(data);
+			        lobby.interval = setInterval(lobby.getPlayers, 1000);
 			    },
 			    failure: function(data){
 			    	console.log(data);
@@ -135,8 +135,24 @@ var lobby = {
 		}
 
 		postIt();
+		
+	},
 
+	getPlayers: function(){
+		$.ajax({
+		    type: "GET",
+		    contentType: "application/json",
+		    url: "api/games/" + lobby.game.id,
+		    success: function (data) {
+		        lobby.renderLobby(data);
+		    },
+		    failure: function(data){
+		    	console.log(data);
+		    }
+		});
+	},
 
+	renderLobby: function(){
 		
 	}
 
