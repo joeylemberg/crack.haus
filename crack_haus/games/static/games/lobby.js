@@ -186,9 +186,10 @@ var lobby = {
 
 	listen: function(){
 		lobby.peer.off('connection');
-		conn.on('data', function(data) {
+		dragKings();
+		/*conn.on('data', function(data) {
 			console.log(data);
-		});
+		});*/
 	}
 
 
