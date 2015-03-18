@@ -1,5 +1,7 @@
 var conn;
 
+var playerId = 0;
+
 $(document).ready(function(){
 	lobby.init();
 });
@@ -100,7 +102,7 @@ var lobby = {
 		}
 		lobby.peer = new Peer({key: 'j12fo2q0wvwvcxr'});
 		lobby.peer.on('connection', lobby.peerConnect);
-		var tag = prompt("Please enter your name", "Harry Potter");
+		var tag = prompt("Please enter your name", "player" + Math.round(Math.random() * 1000));
 		function postIt(){
 			if(lobby.peer.id){
 				$.ajax({
@@ -184,6 +186,7 @@ var lobby = {
 	},
 
 	peerConnect: function(data){
+		playerId = 1;
 		conn = data;
 		lobby.listen();
 	},
@@ -195,11 +198,19 @@ var lobby = {
 		lobby.peer.off('connection');
 		clearInterval(lobby.interval);
 		$("#all-games, .lobby-name, .main-title").remove();
-		dragKings();
 
-		/*conn.on('data', function(data) {
-			console.log(data);
-		});*/
+		switch(lobby.game.name){
+			case "Dragkings":
+				dragKings();
+				break;
+				
+			case "Tanx":
+			case "WarTanks":
+				warTanks();
+				break;
+
+		}
+
 	},
 
 	deleteMe: function(){
