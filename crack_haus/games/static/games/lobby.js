@@ -2,6 +2,8 @@ var conn;
 
 var playerId = 0;
 
+var game;
+
 $(document).ready(function(){
 	lobby.init();
 });
@@ -208,6 +210,7 @@ var lobby = {
 				
 			case "Tanx":
 			case "WarTanks":
+				game = warTanks;
 				warTanks.init();
 				chat.init();
 				break;
@@ -247,12 +250,13 @@ var lobby = {
 		}
 
 		switch(data.type){
-
 			case "chat":
 				chat.log(data);
 				break;
+		}
 
-
+		if(game && game.onMessage){
+			game.onMessage(data);
 		}
 
 		

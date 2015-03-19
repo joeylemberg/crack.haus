@@ -1,0 +1,38 @@
+#tanks{
+	position:relative;
+	margin-right:auto;
+	margin-left:auto;
+	width:800;
+	height:500;
+	border: 3px solid #a4a4a4;
+}
+
+#tanks>canvas{
+	position:absolute;
+	z-index: 1;
+}
+
+#tanks>#fire{
+	position:absolute;
+	bottom:25px;
+	left:50px;
+	padding:10px;
+	font-size:20px;
+	font-weight:900;
+	border: 3px solid #1e1e1e;
+	border-radius: 20px;
+	z-index: 2;
+	background: #c99f9f;
+	cursor:pointer;
+	color:#1e1e1e;
+	
+  	transform:scale(3,1); 
+  	-webkit-transform:scale(3,1);
+  	display:inline-block;
+}
+
+#tanks>#fire:hover{
+	background: #9b8484;
+	bottom:24px;
+	left:51px;
+}

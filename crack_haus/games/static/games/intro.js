@@ -1,11 +1,12 @@
 var warTanksIntro = function(){
 
-		warTanks.t++;
+		warTanks.t+=10;
 		ctx.save();
 		ctx.clearRect(0,0,1000,600);
 
 		if(warTanks.t == 500){
 			clearInterval(warTanks.interval);
+			warTanks.setUpGame();
 			ctx.clearRect(0,0,1000,1000);
 			return;
 		}
