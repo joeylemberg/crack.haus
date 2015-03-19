@@ -1,11 +1,14 @@
 var Tanks = {
 	
 	fire: function(){
-		var weaponName = "shell";//$("#weapon-select").val();
+		var weaponName = $("#weapon-select").val();
 		var tank = Game.getTank();
 		if(tank.power > 200){
 			tank.power = 200;
 		}
+		
+		tank.turret = $("#tanks>#angle").val();
+		tank.power = $("#tanks>#power").val();
       	var shotData = {
         weapon: weaponName,
         owner : Game.turn,
@@ -33,7 +36,7 @@ var Tanks = {
 	},
 
 	units: [{id: 0, gas: 100, score: 0, speed: 1, weapons: ["standard shell", "wheel", "nuke", "acid", "rollback"],x:100,y:100,dx:0,dy:0,theta:0,turret:-45,fill:'#995d95',stroke:'#000000', grounded:false, power:50},
-	{id: 1, gas: 100, score: 0, speed: 1, weapons: ["standard shell", "wheel", "nuke", "acid", "rollback"],x:400,y:100,dx:-0.2,dy:-1,theta:0.5,turret:3,fill:'#eeeeee',stroke:'#000000', grounded:false}],
+	{id: 1, gas: 100, score: 0, speed: 1, weapons: ["standard shell", "wheel", "nuke", "acid", "rollback"],x:400,y:100,dx:-0.2,dy:-1,theta:0.5,turret:3,fill:'#eeeeee',stroke:'#000000', grounded:false, power: 50}],
 	
 	
 	drawTank: function(ctx, x, y, theta, turret, fill, stroke){

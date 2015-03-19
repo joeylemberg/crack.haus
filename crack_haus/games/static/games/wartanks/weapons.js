@@ -32,7 +32,7 @@ var Weapons = {
 
 			var shot = this.shots[i];
 			shot.age++;
-			if(shot.state == "done" || shot.x < 0.5 || shot.x > Map.w - 0.5){
+			if(shot.state == "done" || shot.x < 0.5 || shot.x > Map.w - 0.5 || (shot.age > 25 && isNaN(shot.dx) && isNaN(shot.dy))){
 				this.shots.splice(i,1);
 			}else{
 				shot.move();
@@ -140,14 +140,14 @@ var Weapons = {
 		ctx.fill();
 		ctx.restore();
 
-		Map.ctx.save();
-		Map.ctx.translate(b.x,b.y);
-		Map.ctx.beginPath();
-		Map.ctx.arc(0,0,b.r,0,6.3,1);
-		Map.ctx.closePath();
-		Map.ctx.clip();
-		Map.ctx.clearRect(-b.r,-b.r,2*b.r,2*b.r);
-		Map.ctx.restore();
+		/*ctx.save();
+		ctx.translate(b.x,b.y);
+		ctx.beginPath();
+		ctx.arc(0,0,b.r,0,6.3,1);
+		ctx.closePath();
+		ctx.clip();
+		ctx.clearRect(-b.r,-b.r,2*b.r,2*b.r);
+		ctx.restore();*/
 		}
 		
 	},
@@ -183,8 +183,8 @@ var Weapons = {
 						if(!boom.hits[tank.id]){
 								var dx = tank.x - boom.x;
 								var dy = tank.y - boom.y;
-								var r2 = Math.sqrt(dx*dx + dy*dy);
-								if(r2 < boom.r + 10){
+								var r22 = Math.sqrt(dx*dx + dy*dy);
+								if(r22 < boom.r + 10){
 									var damage = Math.ceil(boom.damage * Math.min(1, Math.max(0.1, (boom.size * 1.1 - boom.r)/boom.size)));
 									if(boom.age <= 1){
 										damage = boom.damage;
@@ -199,8 +199,8 @@ var Weapons = {
 										y: tank.y,
 										value: damage,
 										target: tank.id,
-										dx : dx/r2 * boom.knock,
-										dy : dy/r2 * boom.knock - boom.pop
+										dx : dx/r22 * boom.knock,
+										dy : dy/r22 * boom.knock - boom.pop
 									});
 								}
 							}
@@ -390,5 +390,267 @@ var Weapons = {
 		ctx.restore();
 	}
 
+},
+
+"1-2-punch" : {
+
+	
+	damage: 30,
+	name: "1-2-punch",
+	color: "blue",
+	dr: 4,
+	r0: 10,
+	size: 80,
+	knock: 3,
+	pop: 3,
+	type: "shell",
+
+	init: function(shotData){
+		for(var key in shotData){
+			this[key] = shotData[key];
+		}
+		this.state = "cruising";
+
+		var shot1 = $.extend({}, this);
+		var shot2 = $.extend({}, this);
+
+		shot1.dx =  this.power/6 * Math.cos(this.theta + 0.15);
+		shot2.dx =  this.power/6 * Math.cos(this.theta - 0.1);
+
+		shot1.dy =  this.power/6 * Math.sin(this.theta + 0.15);
+		shot2.dy =  this.power/6 * Math.sin(this.theta - 0.15);
+	//		dy: tank.power/30 * Math.sin(tank.turret),
+
+		Weapons.shots.push(shot1);
+		Weapons.shots.push(shot2);
+
+
+	},
+
+	move: function(){
+		switch(this.state){
+			case "cruising":
+
+				var impact = Util.collisionDetect(this);
+
+				if(impact){
+					this.state = "done";
+					var shotName = this.name;
+					this.x = impact.x;
+					this.y = impact.y;
+					this.target = impact.target;
+					Weapons.boom(this);
+				}else{
+					this.x += this.dx;
+					this.y += this.dy;
+					this.dy += Game.g;
+					this.theta += 0.1;
+				}
+
+				/*this.x += this.dx;
+				this.y += this.dy;
+				this.dy += Game.g;
+				this.theta += 0.1;
+
+				if(Weapons.detectImpact(this)){
+					this.state = "done";
+					var shotName = this.name;
+					Weapons.boom(this.x,this.y,50,50,"blast")
+				}*/
+
+				break;
+
+			case "blowing":
+				this.theta -= 0.2;
+				this.size --;
+				if(this.size < 0){
+					this.state = "done";
+				}
+				break;
+		}
+	},
+
+	draw: function(){		
+		ctx.save();
+		
+		ctx.translate(this.x, this.y);
+		ctx.rotate(Math.atan2(this.dy, this.dx));
+
+		ctx.translate(15,-10);
+		ctx.scale(0.8,0.8);
+		ctx.rotate(Math.PI/2);
+		ctx.beginPath();
+		
+		ctx.lineWidth = 1;
+		ctx.strokeStyle ="#000000";
+		ctx.fillStyle="#85a3fc";
+
+		//index finger
+		ctx.moveTo(9,17);
+		ctx.lineTo(8.5,10);
+		ctx.quadraticCurveTo(10.5,9,11.5,10);
+		ctx.lineTo(12.5,16);
+		ctx.lineTo(13,16);
+		//middle finger
+		ctx.lineTo(14,9);
+		ctx.quadraticCurveTo(15.5,8,17,9);
+		ctx.lineTo(17,16);
+		//ring finger
+		ctx.lineTo(19,10);
+		ctx.quadraticCurveTo(20.5,10,22,10.5);
+		ctx.lineTo(20,16.5);
+		ctx.lineTo(21,17);
+		//pinky
+		ctx.lineTo(21,14);
+		ctx.quadraticCurveTo(22,12,25,13.5);
+		ctx.lineTo(22.5,20);
+	
+		ctx.quadraticCurveTo(19.5,24,20,27);
+		ctx.quadraticCurveTo(15,28.5,9,27);
+		//thumb
+		ctx.quadraticCurveTo(7,23,4,18);
+		ctx.quadraticCurveTo(2.5,15,8,13);
+		ctx.lineTo(9,18);
+		ctx.closePath();
+		
+		ctx.fill();
+		ctx.stroke();
+		ctx.restore();
+
+
+	}
+},
+
+"mine shaft": {
+	damage: 1,
+	name: "mine shaft",
+	dr: 4,
+	r0: 10,
+	size: 10,
+	knock: 1,
+	pop: 1,
+	type: "digger",
+
+	init: function(shotData){
+		for(var key in shotData){
+			this[key] = shotData[key];
+		}
+		this.state = "cruising";
+		this.theta = 0;
+		this.fuel = 200;
+		Weapons.shots.push(this);
+	},
+
+	move: function(){
+		switch(this.state){
+			case "cruising":
+
+				var impact = Util.collisionDetect(this);
+				if(impact){
+					this.state = "digging";
+					this.dx *= 0.1;
+					this.dy *= 0.1;
+					this.fuel = 200;
+					this.target = impact.target;
+					Weapons.boom(this);
+					this.lastBoom = {x: this.x, y: this.y};
+					/*var shotName = this.name;
+					this.x = impact.x;
+					this.y = impact.y;
+					Weapons.boom(this);*/
+				}else{
+					this.x += this.dx;
+					this.y += this.dy;
+					this.dy += Game.g;
+					this.theta += 0.1;
+				}
+
+				/*this.x += this.dx;
+				this.y += this.dy;
+				this.dy += Game.g;
+				this.theta += 0.1;
+
+				if(Weapons.detectImpact(this)){
+					this.state = "done";
+					var shotName = this.name;
+					Weapons.boom(this.x,this.y,50,50,"blast")
+				}*/
+
+				break;
+
+			case "digging":
+				this.theta -= 0.2;
+				this.x += this.dx;
+				this.y += this.dy;
+				this.x += this.dx
+				this.dy += 0.01;
+				this.fuel--;
+				if(this.fuel < 100){
+					this.dx *= 0.97;
+					this.dy *= 0.97;
+				}if(this.fuel < 1){
+					this.state = "blowing";
+				}
+
+				if(this.fuel % 10 == 0 || Util.dist(this.x, this.y, this.lastBoom.x, this.lastBoom.y) > 5){
+					this.lastBoom.x = this.x;
+					this.lastBoom.y = this.y;
+					Weapons.boom(this);
+				}
+
+				if(this.y > Map.h){
+					this.dy *= -1;
+					this.y += this.dy;
+				}
+				//Weapons.dig(this);
+
+				break;
+
+			case "blowing":
+				/*this.theta -= 0.2;
+				this.size --;
+				if(this.size < 0){*/
+					this.state = "done";
+				//}
+				break;
+		}
+	},
+
+	draw: function(){
+		ctx.save();
+
+	if(this.fuel < 100){
+		ctx.globalAlpha = Math.round(this.fuel) / 100;
+	}
+
+	ctx.lineJoin = "round";
+	ctx.translate(this.x, this.y );
+	ctx.rotate(Math.atan2(this.dy, this.dx) - Math.PI/2);
+
+	ctx.beginPath();
+	ctx.fillStyle = "#a3a3a3";
+	ctx.strokeStyle = "black";
+	ctx.lineWidth = 2.5;
+	ctx.strokeRect(-1,-10,2,12 + 4 * Math.cos(this.theta*1.5));
+	ctx.fillRect(-1,-10,2,12 + 4 * Math.cos(this.theta*1.5));
+
+	ctx.scale(Math.sin(this.theta),1);
+
+
+	
+	ctx.translate(-7.5,-15);
+	ctx.scale(0.5,0.5);
+	ctx.lineWidth = 2.5;
+	ctx.moveTo(27,3);
+	ctx.lineTo(3,3);
+	ctx.lineTo(13,13);
+	ctx.lineTo(13,23);
+	ctx.lineTo(17,27);
+	ctx.lineTo(17,13);
+	ctx.closePath();
+	ctx.stroke();
+	ctx.fill();
+	ctx.restore();
+	}
 }
 }

@@ -3,8 +3,18 @@ var Panels = {
 	init: function(){
 		this.resetClock();
 		$("#tanks").append("<div id='fire'>FIRE</div>");
+		$("#tanks").append("<select id='weapon-select'><option>shell</option><option>1-2-punch</option><option>mine shaft</option></select>");
+		$("#tanks").append("<input id='power' type='number' min='1' max='100' value='70'/>");
+		$("#tanks").append("<input id='angle' type='number' min='0' max='359' value='270'/>");
 
 		$("#tanks>#fire").click(Panels.fire);
+
+		$("#tanks>input").change(function(){
+			var tank = Tanks.units[playerId];
+			tank.turret = $("#tanks>#angle").val();
+			tank.power = $("#tanks>#power").val();
+		});
+		
 	},
 
 	resetClock: function(){
@@ -18,6 +28,14 @@ var Panels = {
 
 	move: function(){
 		Game.clock = Math.max(0, Game.timeLimit - Math.round((Date.now() - Game.clockStart)/1000));
+		if(!Game.clock && warTanks.state == "myTurn"){
+			Panels.fire();
+		}
+		if(warTanks.state == "myTurn"){
+			$("#tanks>#fire").addClass("active");
+		}else{
+			$("#tanks>#fire").removeClass("active");
+		}
 	},
 
 	draw: function(){

@@ -61,7 +61,6 @@ var Game = {
 						return;
 					}
 				}
-				Game.turn = (Game.turn + 1)%2;
 				this.state = "aiming";
 				Input.activate();
 				Panels.resetClock();

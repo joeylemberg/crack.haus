@@ -51,6 +51,10 @@ var warTanks = {
 			case "map":
 				Map.slices = data.slices;
 				break;
+
+			case "turn":
+				warTanks.endTurn(data);
+				break;
 		}
 
 	},
@@ -76,14 +80,14 @@ var warTanks = {
 		switch(warTanks.state){
 			case "myTurnEnd":
 			case "hisTurnEnd":
-				if(!Weapons.shots.length){
+				if(!Weapons.shots.length && !Weapons.booms.length){
 					Panels.resetClock();
 					if(warTanks.state == "myTurnEnd"){
 						warTanks.state = "hisTurn";
 					}else{
 						warTanks.state = "myTurn";
 					}
-					Game.turn = Game.turn % 2;
+					Game.turn = (Game.turn + 1) % 2;
 
 				}
 				break;
@@ -99,10 +103,13 @@ var warTanks = {
 	},
 
 	endTurn: function(data){
-		lobby.send(data);
+		if(warTanks.state == "myTurn"){
+			lobby.send(data);
+		}
 		warTanks.state += "End";
 		Panels.clearClock();
-		Weapons[data.shot.weapon].init(data.shot);
+		var weapon = Weapons[data.shot.weapon];
+		$.proxy(weapon.init, weapon)(data.shot);
 
 	}
 }

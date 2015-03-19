@@ -1,6 +1,6 @@
 var warTanksIntro = function(){
 
-		warTanks.t+=10;
+		warTanks.t++;
 		ctx.save();
 		ctx.clearRect(0,0,1000,600);
 
@@ -40,6 +40,9 @@ var warTanksIntro = function(){
 					ctx.font = "bold 18px tahoma";
 					ctx.strokeText("copyright 2015, all rights reserved", 400,400);
 					ctx.fillText("copyright 2015, all rights reserved", 400,400);
+
+					ctx.strokeText("produced by Danny Bankman", 400,425);
+					ctx.fillText("produced by Danny Bankman", 400,425);
 				}
 
 				var gradient = ctx.createLinearGradient(0, 500, 800, 0);
