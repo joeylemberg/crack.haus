@@ -9,6 +9,8 @@ $(document).ready(function(){
 var lobby = {
 
 	game: null,
+
+	tag: "notag",
 		
 	userId: null,
 
@@ -102,7 +104,7 @@ var lobby = {
 		}
 		lobby.peer = new Peer({key: 'j12fo2q0wvwvcxr'});
 		lobby.peer.on('connection', lobby.peerConnect);
-		var tag = prompt("Please enter your name", "player" + Math.round(Math.random() * 1000));
+		lobby.tag = prompt("Please enter your name", "player" + Math.round(Math.random() * 1000));
 		function postIt(){
 			if(lobby.peer.id){
 				$.ajax({
@@ -112,7 +114,7 @@ var lobby = {
 			    url: "api/players/",
 			    data: JSON.stringify({
 			    	peer_id: lobby.peer.id,
-			    	tag: tag,
+			    	tag: lobby.tag,
 			    	game: lobby.game.id
 			    }),
 			    beforeSend: function(xhr, settings) {
@@ -206,10 +208,13 @@ var lobby = {
 				
 			case "Tanx":
 			case "WarTanks":
-				warTanks();
+				warTanks.init();
+				chat.init();
 				break;
 
 		}
+
+		conn.on("data", lobby.readMessage);
 
 	},
 
@@ -230,6 +235,37 @@ var lobby = {
 			    }
 			});
 		}
+	},
+
+	readMessage: function(data){
+
+		try{
+			data = JSON.parse(data)
+		}catch(e){
+			console.log(e);
+			return;
+		}
+
+		switch(data.type){
+
+			case "chat":
+				chat.log(data);
+				break;
+
+
+		}
+
+		
+	},
+
+	send: function(data, moreData){
+
+		if(typeof data == "string"){
+			moreData.type = data;
+			data = moreData;
+		}
+
+		conn.send(JSON.stringify(data));
 	}
 
 

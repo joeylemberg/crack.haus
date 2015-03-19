@@ -2,6 +2,12 @@ body{
 	font-family:"Trebuchet MS", Helvetica, sans-serif;
 }
 
+canvas{
+	margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 .lobby-name{
 	color: #686868;
 }
@@ -36,4 +42,48 @@ tr.listed-game, tr.open-game{
 
 tr.listed-game:hover, tr.open-game:hover{
 	background-color: #abcdef;
+}
+
+#chat-form{
+	margin: 5px;
+	display: block;
+}
+
+#chat-input{
+	width: 85%;
+	margin-right:2%;
+	border: 1px solid black;
+	border-radius: 5px;
+	line-height: 20px;
+	padding-left: 5px;
+}
+
+#chat-submit{
+  width: 10%;
+  border-radius: 0;
+  line-height: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: white;
+}
+
+#chat-box{
+	height: 150px;
+    border: 1px solid black;
+    overflow-y: scroll;
+	border-radius: 5px;
+	margin: 5px;=
+}
+
+#chat-box p{
+	margin: 3px;
+	font-size:12px;
+}
+
+.them-chat{
+	color: #3b00c6;
+}
+
+.me-chat{
+	color: #2b7f0a;
 }
