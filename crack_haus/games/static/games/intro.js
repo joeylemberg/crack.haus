@@ -61,7 +61,7 @@ var warTanksIntro = function(){
 				ctx.font = "bold 38px tahoma";
 				ctx.lineJoin = "round";
 				ctx.textAlign = "left";
-				ctx.strokeStyle = "#494949";
+				ctx.strokeStyle = "#1e1e1e";
 				ctx.fillStyle = gradient;
 				ctx.lineWidth = 6;
 				ctx.translate(50,200);
