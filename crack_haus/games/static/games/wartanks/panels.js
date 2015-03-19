@@ -4,14 +4,14 @@ var Panels = {
 		this.resetClock();
 		$("#tanks").append("<div id='fire'>FIRE</div>");
 		$("#tanks").append("<select id='weapon-select'><option>shell</option><option>1-2-punch</option><option>mine shaft</option></select>");
-		$("#tanks").append("<input id='power' type='number' min='1' max='100' value='70'/>");
-		$("#tanks").append("<input id='angle' type='number' min='0' max='359' value='270'/>");
+		$("#tanks").append("<input id='power' type='number' min='1' max='100' value='25'/>");
+		$("#tanks").append("<input id='angle' type='number' min='0' max='359' value='275'/>");
 
 		$("#tanks>#fire").click(Panels.fire);
 
 		$("#tanks>input").change(function(){
 			var tank = Tanks.units[playerId];
-			tank.turret = $("#tanks>#angle").val() / 180 * Math.PI;;
+			tank.turret = $("#tanks>#angle").val() / 180 * Math.PI;
 			tank.power = $("#tanks>#power").val();
 		});
 		
