@@ -11,7 +11,7 @@ var Panels = {
 
 		$("#tanks>input").change(function(){
 			var tank = Tanks.units[playerId];
-			tank.turret = $("#tanks>#angle").val();
+			tank.turret = $("#tanks>#angle").val() / 180 * Math.PI;;
 			tank.power = $("#tanks>#power").val();
 		});
 		
@@ -27,6 +27,10 @@ var Panels = {
 	},
 
 	move: function(){
+		if(warTanks.state != "myTurn" && warTanks.state != "hisTurn"){
+			return;
+		}
+
 		Game.clock = Math.max(0, Game.timeLimit - Math.round((Date.now() - Game.clockStart)/1000));
 		if(!Game.clock && warTanks.state == "myTurn"){
 			Panels.fire();
@@ -49,6 +53,10 @@ var Panels = {
 
 	drawClock: function(){
 		if(!Game.clock){
+			return;
+		}
+
+		if(warTanks.state != "myTurn" && warTanks.state != "hisTurn"){
 			return;
 		}
 		ctx.save();
