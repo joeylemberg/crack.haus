@@ -209,9 +209,12 @@ var lobby = {
 				break;
 				
 			case "Tanx":
+			case "Tanks":
 			case "WarTanks":
-				game = warTanks;
-				warTanks.init();
+				//game = warTanks;
+				//warTanks.init();
+				$("#war-tanks-wrapper").show();
+				Game.init();
 				chat.init();
 				break;
 

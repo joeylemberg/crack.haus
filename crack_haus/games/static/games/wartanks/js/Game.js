@@ -32,7 +32,8 @@ var Game = {
 	},
 	animateLoop: function(){
 		this.loop();
-		requestAnimationFrame(_.bind(this.animateLoop, this));
+		//requestAnimationFrame(_.bind(this.animateLoop, this));
+		setTimeout(_.bind(this.animateLoop, this), 30);
 	},
 	loop: function(){
 		this.moveThings();
@@ -61,6 +62,7 @@ var Game = {
 						return;
 					}
 				}
+				Game.turn = (Game.turn + 1)%2;
 				this.state = "aiming";
 				Input.activate();
 				Panels.resetClock();

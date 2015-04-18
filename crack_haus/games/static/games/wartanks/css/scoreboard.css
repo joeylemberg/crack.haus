@@ -1,0 +1,22 @@
+#scoreboard{
+	width:100%;
+	background-color:rgba(100,100,250,0.2);
+	height:100px;
+	position:relative;
+	z-index:10;
+	pointer-events: none;
+}
+
+#game-clock{
+	position:fixed;
+	color:#383838;
+	top:25px;
+	left:48%;
+	font-size:36px;
+	font-weight:700;
+	text-shadow:
+   -2px -2px 0 #d3d3d3,  
+    2px -2px 0 #d3d3d3,
+    -2px 2px 0 #d3d3d3,
+     2px 2px 0 #d3d3d3;
+}

@@ -11,7 +11,34 @@
 
 <script src="http://cdn.peerjs.com/0.3/peer.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static "games/lobby.css" %}">
-<link rel="stylesheet" type="text/css" href="{% static "games/wartanks/tanks.css" %}">
+
+<!-- wartanks -->
+
+	<link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css' />
+
+	<link rel="stylesheet" href="{% static "games/wartanks/css/main.css" %}"/>
+	<link rel="stylesheet" href="{% static "games/wartanks/css/scoreboard.css" %}"/>
+	<link rel="stylesheet" href="{% static "games/wartanks/css/controls.css" %}"/>
+			<script src="{% static "games/wartanks/lib/underscore.js" %}"></script>
+		<script src="{% static "games/wartanks/js/Game.js" %}"></script>
+	<script src="{% static "games/wartanks/js/Map.js" %}"></script>
+  <script src="{% static "games/wartanks/js/Trees.js" %}"></script>
+	<script src="{% static "games/wartanks/js/Tanks.js" %}"></script>
+	<script src="{% static "games/wartanks/js/Weapons.js" %}"></script>
+
+	<script src="{% static "games/wartanks/js/Panels.js" %}"></script>
+	<script src="{% static "games/wartanks/js/Util.js" %}"></script>
+	<script src="{% static "games/wartanks/js/Input.js" %}"></script>
+
+	<script src="{% static "games/wartanks/js/weapons/shell.js" %}"></script>
+  <script src="{% static "games/wartanks/js/weapons/1-2-punch.js" %}"></script>
+	<script src="{% static "games/wartanks/js/weapons/wheel.js" %}"></script>
+	<script src="{% static "games/wartanks/js/weapons/burial.js" %}"></script>
+	<script src="{% static "games/wartanks/js/weapons/mine-shaft.js" %}"></script>
+	<script src="{% static "games/wartanks/js/weapons/nuke.js" %}"></script>
+  <script src="{% static "games/wartanks/js/weapons/booster.js" %}"></script>
+  <script src="{% static "games/wartanks/js/weapons/machine-gun.js" %}"></script>
+  <script src="{% static "games/wartanks/js/weapons/shotgun.js" %}"></script>
 
 </head>
 
@@ -37,18 +64,99 @@
 <script type="text/javascript" src="{% static "games/dragkings.js" %}"></script>
 <script type="text/javascript" src="{% static "games/chat.js" %}"></script>
 <script type="text/javascript" src="{% static "games/intro.js" %}"></script>
-<script type="text/javascript" src="{% static "games/wartanks/wartanks.js" %}"></script>
-<script type="text/javascript" src="{% static "games/wartanks/map.js" %}"></script>
-<script type="text/javascript" src="{% static "games/wartanks/util.js" %}"></script>
-<script type="text/javascript" src="{% static "games/wartanks/tanks.js" %}"></script>
-<script type="text/javascript" src="{% static "games/wartanks/game.js" %}"></script>
-<script type="text/javascript" src="{% static "games/wartanks/panels.js" %}"></script>
-<script type="text/javascript" src="{% static "games/wartanks/weapons.js" %}"></script>
+
+
 
 
 
 
 <img id="crack-house-icon" class="animated tada" src="{% static "favicon.ico" %}"/>
+
+
+
+
+
+
+<div id="war-tanks-wrapper" style="display:none;">
+
+<div id="scoreboard">
+	  <div class="player-panel player-1" data-player-id="0">
+    <h3>P1</h3>
+    <span class="player-score" id="p1_score">100</span>
+    <div class="gas-meter-wrapper">
+      <span>Gas</span>
+      <div class="gas-meter">
+        <div class="meter"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="game-clock"></div>
+
+  <div class="player-panel player-2" data-player-id="1">
+    <span class="player-score" id="p2_score">100</span>
+    <h3>P2</h3>
+    <div class="gas-meter-wrapper">
+      <div class="gas-meter">
+        <div class="meter"></div>
+      </div>
+      <span>Gas</span>
+    </div>
+  </div>
+
+
+</div>
+
+<canvas id='bg-canvas' width='1000' height='600' class='game-canvas' style='z-index:2;'></canvas>
+<canvas id='map-canvas' width='1000' height='600' class='game-canvas' style='z-index:3;'></canvas>
+<canvas id='trees-canvas' width='1000' height='600' class='game-canvas' style='z-index:4;'></canvas>
+
+<canvas id='game-canvas' width='1000' height='600' class='game-canvas' style='z-index:5;'></canvas>
+
+<div id="controls">
+	  <div class="control-panel-widget">
+    <button id="trigger">Fire</button>
+  </div>
+
+  <div class="control-panel-widget">
+  <label class="move-button" id="move-left"> &#8592; </label>
+  <label class="move-title" > Move </label>
+  <label class="move-button" id="move-right"> &#8594; </label>
+  </div>
+  
+  <div class="control-panel-widget">
+    <label for='tank-ang'>Angle:</label>
+    <input id='tank-ang' name="tank-ang" type='number' value='300'> 
+  </div>
+
+  <div class="control-panel-widget">
+    <label for='tank-pow'>Power:</label>
+    <input id='tank-pow' name='tank-pow' type='number' value='100'>
+  </div>
+
+  <div class="control-panel-widget">
+    <label for='weapon-select'>Weapon:</label>
+    <select id="weapon-select">
+    <option>shell</option>
+      <option>machine gun</option>
+      <option>shotgun</option>
+      
+      <option>booster jets</option>
+      <option>mine shaft</option>
+      <!--<option>burial</option>-->
+      <option>1-2-punch</option>
+      <option>nuke</option>
+    </select>
+  </div>
+
+</div>
+
+
+</div>
+<!-- end wartanks -->
+
+
+
 
 </body>
 

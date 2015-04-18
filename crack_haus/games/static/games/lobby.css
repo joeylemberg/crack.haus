@@ -66,8 +66,12 @@ tr.listed-game:hover, tr.open-game:hover{
   background: white;
 }
 
+#chat-wrapper{
+     position:fixed;bottom:0;z-index:9999999;width:100%;background-color:#c5d7e5;
+}
+
 #chat-box{
-	height: 150px;
+	height: 109px;
     border: 1px solid black;
     overflow-y: scroll;
 	border-radius: 5px;
