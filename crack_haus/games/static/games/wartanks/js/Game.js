@@ -32,8 +32,8 @@ var Game = {
 	},
 	animateLoop: function(){
 		this.loop();
-		//requestAnimationFrame(_.bind(this.animateLoop, this));
-		setTimeout(_.bind(this.animateLoop, this), 30);
+		requestAnimationFrame(_.bind(this.animateLoop, this));
+		//setTimeout(_.bind(this.animateLoop, this), 30);
 	},
 	loop: function(){
 		this.moveThings();
