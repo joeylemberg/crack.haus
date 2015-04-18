@@ -1,5 +1,9 @@
 var conn;
 
+var playerId = 0;
+
+var game;
+
 $(document).ready(function(){
 	lobby.init();
 });
@@ -7,6 +11,8 @@ $(document).ready(function(){
 var lobby = {
 
 	game: null,
+
+	tag: "notag",
 		
 	userId: null,
 
@@ -18,6 +24,7 @@ var lobby = {
 		$("#all-games").on("click", ".listed-game", lobby.setGame);
 		$("#all-games").on("click", ".open-game", lobby.acceptGame);
 		lobby.getGamesList();
+		//window.onbeforeunload = lobby.deleteMe();
 	},
 
 	getGames: function(){
@@ -99,7 +106,7 @@ var lobby = {
 		}
 		lobby.peer = new Peer({key: 'j12fo2q0wvwvcxr'});
 		lobby.peer.on('connection', lobby.peerConnect);
-		var tag = prompt("Please enter your name", "Harry Potter");
+		lobby.tag = prompt("Please enter your name", "player" + Math.round(Math.random() * 1000));
 		function postIt(){
 			if(lobby.peer.id){
 				$.ajax({
@@ -109,7 +116,7 @@ var lobby = {
 			    url: "api/players/",
 			    data: JSON.stringify({
 			    	peer_id: lobby.peer.id,
-			    	tag: tag,
+			    	tag: lobby.tag,
 			    	game: lobby.game.id
 			    }),
 			    beforeSend: function(xhr, settings) {
@@ -183,38 +190,90 @@ var lobby = {
 	},
 
 	peerConnect: function(data){
+		playerId = 1;
 		conn = data;
 		lobby.listen();
 	},
 
 	listen: function(){
-		function csrfSafeMethod(method) {
-    		// these HTTP methods do not require CSRF protection
-    		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-		}
-		$.ajax({
-		    type: "DELETE",
-		    contentType: "application/json",
-		    url: "api/players/" + lobby.userId,
-		    beforeSend: function(xhr, settings) {
-		        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-		            xhr.setRequestHeader("X-CSRFToken", $("body").attr("data-token"));
-		        }
-		    }
-		});
 		
+		lobby.deleteMe();
 
 		lobby.peer.off('connection');
 		clearInterval(lobby.interval);
 		$("#all-games, .lobby-name, .main-title").remove();
-		dragKings();
 
-		/*conn.on('data', function(data) {
-			console.log(data);
-		});*/
+		switch(lobby.game.name){
+			case "Dragkings":
+				dragKings();
+				break;
+				
+			case "Tanx":
+			case "WarTanks":
+				game = warTanks;
+				warTanks.init();
+				chat.init();
+				break;
+
+		}
+
+		conn.on("data", lobby.readMessage);
+
+	},
+
+	deleteMe: function(){
+		if(lobby.userId){
+			function csrfSafeMethod(method) {
+    			// these HTTP methods do not require CSRF protection
+    			return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+			}
+			$.ajax({
+			    type: "DELETE",
+			    contentType: "application/json",
+			    url: "api/players/" + lobby.userId,
+			    beforeSend: function(xhr, settings) {
+			        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+			            xhr.setRequestHeader("X-CSRFToken", $("body").attr("data-token"));
+			        }
+			    }
+			});
+		}
+	},
+
+	readMessage: function(data){
+
+		try{
+			data = JSON.parse(data)
+		}catch(e){
+			console.log(e);
+			return;
+		}
+
+		switch(data.type){
+			case "chat":
+				chat.log(data);
+				break;
+		}
+
+		if(game && game.onMessage){
+			game.onMessage(data);
+		}
+
+		
+	},
+
+	send: function(data, moreData){
+
+		if(typeof data == "string"){
+			moreData.type = data;
+			data = moreData;
+		}
+
+		conn.send(JSON.stringify(data));
 	}
 
 
 
 
 }
+

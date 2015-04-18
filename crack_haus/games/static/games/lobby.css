@@ -2,8 +2,19 @@ body{
 	font-family:"Trebuchet MS", Helvetica, sans-serif;
 }
 
+.main-title{
+	font-size:24px;
+}
+
 .lobby-name{
+	font-size:18px;
 	color: #686868;
+}
+
+.subtitle{
+	font-size: 14px;
+	color: #c7c7c7;
+	margin-left: 100px;
 }
 
 .game-list{
@@ -31,3 +42,125 @@ tr.listed-game, tr.open-game{
 tr.listed-game:hover, tr.open-game:hover{
 	background-color: #abcdef;
 }
+
+#chat-form{
+	margin: 5px;
+	display: block;
+}
+
+#chat-input{
+	width: 85%;
+	margin-right:2%;
+	border: 1px solid black;
+	border-radius: 5px;
+	line-height: 20px;
+	padding-left: 5px;
+}
+
+#chat-submit{
+  width: 10%;
+  border-radius: 0;
+  line-height: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: white;
+}
+
+#chat-box{
+	height: 150px;
+    border: 1px solid black;
+    overflow-y: scroll;
+	border-radius: 5px;
+	margin: 5px;=
+}
+
+#chat-box p{
+	margin: 3px;
+	font-size:12px;
+}
+
+.them-chat{
+	color: #3b00c6;
+}
+
+.me-chat{
+	color: #2b7f0a;
+}
+
+
+
+
+#crack-house-icon{
+	position:fixed;
+	top:10px;right:10px;
+    -webkit-animation: crack-out 30s infinite linear;
+}
+
+@-webkit-keyframes crack-out { 
+    0% { 
+        -webkit-transform: perspective(400px) rotateY(0) translateX(-10px) translateY(-5px) rotate(-10deg); 
+        -webkit-animation-timing-function: ease-out;
+    }
+
+	7% { 
+        -webkit-transform: rotate(350deg) scale(.6); 
+        -webkit-animation-timing-function: ease-out;
+    }
+
+    11% { 
+        -webkit-transform: rotate(200deg) scale(0.8) translateZ(77px); 
+        -webkit-animation-timing-function: ease-out;
+    }
+
+    26% { 
+        -webkit-transform: rotate(100deg); 
+        -webkit-animation-timing-function: ease-out;
+    }
+
+    40% { 
+        -webkit-transform: perspective(400px) translateZ(90px) rotateY(170deg) translateX(6px) translateY(-12px) rotate(20deg); 
+        -webkit-animation-timing-function: ease-out;
+    }
+    45%{
+    	-webkit-transform: rotate(-30deg);
+    	-webkit-animation-timing-function: ease-in;
+    }
+    50% { 
+        -webkit-transform: perspective(290px) translateZ(150px) rotateY(190deg) scale(0.7)  translateX(7px) translateY(2px) rotate(-40deg); 
+        -webkit-animation-timing-function: ease-in;
+    }
+    80% { 
+        -webkit-transform: perspective(409px) rotateY(360deg) scale(.95) translateX(-4px) translateY(13px) rotate(79deg);
+        -webkit-animation-timing-function: ease-in;
+    }
+    90% { 
+        -webkit-transform: perspective(400px) scale(0.4) translateX(1px) translateY(3px) rotate(200deg);
+        -webkit-animation-timing-function: ease-in;
+    }
+    100% { 
+        -webkit-transform: perspective(400px) scale(1) translateX(-10px) translateY(-5px) rotate(350deg);
+        -webkit-animation-timing-function: ease-in; 
+    } 
+} 
+@keyframes crack-out { 
+    0% { 
+        transform: perspective(400px) rotateY(0); 
+        animation-timing-function: ease-out; 
+    } 
+    40% { 
+        transform: perspective(400px) translateZ(150px) rotateY(170deg); 
+        animation-timing-function: ease-out; 
+    } 
+    50% { 
+        transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1); 
+        animation-timing-function: ease-in; 
+    } 
+    80% { 
+        transform: perspective(400px) rotateY(360deg) scale(.95); 
+        animation-timing-function: ease-in; 
+    } 
+    100% { 
+        transform: perspective(400px) scale(1); 
+        animation-timing-function: ease-in; 
+    } 
+} 

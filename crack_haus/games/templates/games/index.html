@@ -1,17 +1,24 @@
 <html>
+<meta charset="utf-8">
+<title>crack.haus games</title>
+<!--<link rel="shortcut icon" href="//cdn.sstatic.net/stackoverflow/img/favicon.ico?v=6cd6089ee7f6">-->
 
 <head>
 {% load staticfiles %}
 
+<link rel="shortcut icon" href="{% static "favicon.ico" %}">
+
+
 <script src="http://cdn.peerjs.com/0.3/peer.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static "games/lobby.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "games/wartanks/tanks.css" %}">
 
 </head>
 
 <body data-token="{{ csrf_token }}">
 
-<h1 class="main-title" >crack.haus</h1>
-<h2 class="lobby-name">All Game Lobbies</h2>
+<div class="main-title" >&#9749; crack.haus <span class='subtitle'>welcome home</span></div>
+<div class="lobby-name">All Game Lobbies</div>
 
 <div id="all-games" class="game-list">
 	Loading Games List...
@@ -28,6 +35,20 @@
 <script type="text/javascript" src="{% static "games/jquery.js" %}"></script>
 <script type="text/javascript" src="{% static "games/lobby.js" %}"></script>
 <script type="text/javascript" src="{% static "games/dragkings.js" %}"></script>
+<script type="text/javascript" src="{% static "games/chat.js" %}"></script>
+<script type="text/javascript" src="{% static "games/intro.js" %}"></script>
+<script type="text/javascript" src="{% static "games/wartanks/wartanks.js" %}"></script>
+<script type="text/javascript" src="{% static "games/wartanks/map.js" %}"></script>
+<script type="text/javascript" src="{% static "games/wartanks/util.js" %}"></script>
+<script type="text/javascript" src="{% static "games/wartanks/tanks.js" %}"></script>
+<script type="text/javascript" src="{% static "games/wartanks/game.js" %}"></script>
+<script type="text/javascript" src="{% static "games/wartanks/panels.js" %}"></script>
+<script type="text/javascript" src="{% static "games/wartanks/weapons.js" %}"></script>
+
+
+
+
+<img id="crack-house-icon" class="animated tada" src="{% static "favicon.ico" %}"/>
 
 </body>
 
