@@ -79,7 +79,7 @@ var Map = {
         this.slices = slices;
 
         Map.trees = [];
-        /*var treeSpot = 200 + Math.round(Math.random() * (Map.w - 400));
+        var treeSpot = 200 + Math.round(Math.random() * (Map.w - 400));
         var branchColor = Map.randomRGB(25,10,10);
 		var leafColor = 'rgba(' + Math.round(50 + (100 * Math.random())) + ', ' + Math.round(50 + (100 * Math.random())) + ', 0,50)';
         var theTree = Trees.makeTree(treeSpot,Map.slices[treeSpot][0].top,8 + 5 * Math.random(), branchColor, leafColor);
@@ -88,7 +88,7 @@ var Map = {
         	var treeSpot = 200 + Math.round(Math.random() * (Map.w - 400));
         	var theTree = Trees.makeTree(treeSpot,Map.slices[treeSpot][0].top,8 + 5 * Math.random(), branchColor, leafColor);
         	Map.trees.push(theTree);
-        }*/
+        }
     	Map.draw(true);
     },
     draw: function(force){

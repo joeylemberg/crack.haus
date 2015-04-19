@@ -1,0 +1,12 @@
+
+
+http://localhost:8000/admin/
+username: joey
+usual password
+-> if no user then run:
+sudo python manage.py createsuperuser
+
+cd crack.haus/crack_haus/
+git pull
+python manage.py collectstatic
+sudo service apache2 restart
