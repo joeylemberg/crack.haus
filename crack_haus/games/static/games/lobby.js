@@ -75,6 +75,7 @@ var lobby = {
 		html += "<tr>";
 		html += "<th>Game</th>";
 		html += "<th>Description</th>";
+                html += "<th>Users in lobby</th>";
 		html += "</tr>";
 
 		for(i = 0; i < games.length; i++){
@@ -82,7 +83,8 @@ var lobby = {
 			html += "<tr class='listed-game' data-id='" + game.id + "' data-name='" + game.name + "'>";
 			html += "<td>" + game.name + "</td>";
 			html += "<td>" + game.description + "</td>";
-			html += "</tr>"
+		        html += "<td>" + game.lobby_size + "</td>";
+                        html += "</tr>"
 		}
 		$("#all-games").empty();
 		$("#all-games").append(html);
