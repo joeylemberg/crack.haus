@@ -23,7 +23,9 @@ class PlayerSerializer(serializers.ModelSerializer):
         fields = ('id', 'tag', 'peer_id', 'game', 'url')
 
 class GameSerializer(serializers.ModelSerializer):
+    lobby_size = serializers.IntegerField(source='get_lobby_size', read_only=True)
+
     class Meta:
         model = Game
-        fields = ('url', 'id', 'name', 'description', 'players')
+        fields = ('url', 'id', 'name', 'description', 'lobby_size')
         depth = 1

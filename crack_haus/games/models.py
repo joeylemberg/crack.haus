@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your models here.
 class Player(models.Model):
@@ -21,5 +22,6 @@ class Game(models.Model):
     def __unicode__(self):
         return self.name
 
-
+    def get_lobby_size(self):
+        return len(self.players.filter(last_ping__gte=timezone.now() - timezone.timedelta(seconds=5)))
 

@@ -28,4 +28,4 @@ class GameViewSet(viewsets.ReadOnlyModelViewSet):
         player.last_ping=timezone.now()
         player.save()
         res.data['players'] = serializer.data
-        return res #Response(serializer.data)
+        return res
