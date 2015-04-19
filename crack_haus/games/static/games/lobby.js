@@ -271,14 +271,10 @@ var lobby = {
 
 	send: function(data, moreData){
 
-
 		if(typeof data == "string"){
 			moreData.type = data;
 			data = moreData;
 		}
-
-		
-		console.log(JSON.stringify(data));
 
 		conn.send(JSON.stringify(data));
 	}

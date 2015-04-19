@@ -24,6 +24,8 @@ var Tanks = {
 				tank: tank
 			});
 
+      warTanks.state = "myTurnEnd";
+
       Game.fire(shotData);
 	},
 	

@@ -125,11 +125,17 @@ var warTanks = {
 	endTurn: function(data){
 		if(warTanks.state == "myTurn"){
 			lobby.send(data);
+		}else{
+			Tanks[data.tank.id] = data.tank;
+			Game.fire(data.shot);
 		}
 		warTanks.state += "End";
-		Panels.clearClock();
-		var weapon = Weapons[data.shot.weapon];
-		$.proxy(weapon.init, weapon)(data.shot);
+
+		
+
+		//Panels.clearClock();
+		//var weapon = Weapons[data.shot.weapon];
+		//$.proxy(weapon.init, weapon)(data.shot);
 
 	}
 }

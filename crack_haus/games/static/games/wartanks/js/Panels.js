@@ -35,7 +35,7 @@ var Panels = {
 
 	drawClock: function(){
 
-		$("#game-clock").html(Game.clock);
+		$("#game-clock").html(Game.clock + "<br/>" + warTanks.state);
 
 		/*ctx.save();
 		ctx.beginPath();

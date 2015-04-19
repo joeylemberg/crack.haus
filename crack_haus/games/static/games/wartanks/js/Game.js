@@ -35,6 +35,7 @@ var Game = {
 	loop: function(){
 		this.moveThings();
 		this.drawThings();
+		warTanks.checkState();
 	},
 	moveThings: function(){
 		Tanks.move();
@@ -75,7 +76,9 @@ var Game = {
 		Input.draw();
 	},
 	fire: function(shotData){
-		this.state = "firing";
+		console.log("FIRE!!!");
+		console.log(shotData);
+		Game.state = "firing";
 		Input.deactivate();
 		Panels.clearClock();
 		Weapons[shotData.weapon].init(shotData);
