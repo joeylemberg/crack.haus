@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
+from django.utils import timezone
 
 from rest_framework import viewsets
 
@@ -16,13 +17,13 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+class PlayerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Player
+        fields = ('id', 'tag', 'peer_id', 'game', 'url')
+
 class GameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Game
         fields = ('url', 'id', 'name', 'description', 'players')
         depth = 1
-
-class PlayerSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Player
-        fields = ('id', 'tag', 'peer_id', 'game', 'url')

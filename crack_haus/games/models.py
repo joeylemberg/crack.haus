@@ -9,6 +9,8 @@ class Player(models.Model):
     game = models.ForeignKey('Game', related_name='players')
     invited = models.ManyToManyField('Player')
 
+    last_ping = models.DateTimeField(auto_now_add=True)
+
     def __unicode__(self):
         return self.tag
 
