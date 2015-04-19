@@ -3,10 +3,8 @@ var warTanks = {
 	state: "intro",
 
 	init: function(){
-		/*$("body").append($("<div id='tanks'><canvas width='800' height='500'></canvas></div>"));
-		canvas = $("#tanks>canvas")[0];
-		ctx = canvas.getContext("2d");
-		warTanks.playIntro();*/
+		$("body").append($("<div id='tanks-intro' style='height:100%;width:100%;z-index:999999999;position:fixed;top:0;left:0;background-color:white;'><canvas style='width:100%;height:100%;' width='800' height='500'></canvas></div>"));
+		warTanks.playIntro();
 		warTanks.handshake();
 		
 	},
@@ -17,13 +15,16 @@ var warTanks = {
 
 	handshake: function(){
 		setTimeout(function(){
+			
 			warTanks.setUpGame();
-		}, 1500);
+
+		}, 7500);
 	},
 
 	playIntro: function(){
-		warTanks.t = 0;
-		ctx.fillStyle = "black";
+				warTanks.t = 0;
+				warTanks.introCtx = $("#tanks-intro>canvas")[0].getContext("2d");
+		warTanks.introCtx.fillStyle = "black";
 		warTanks.interval = setInterval(warTanks.introFrame, 20);
 	},
 
@@ -48,6 +49,7 @@ var warTanks = {
 		}else{
 			warTanks.state = "hisTurn";
 		}
+
 		Game.turn = 0;
 		//Panels.init();
 		//warTanks.startLoop();
@@ -124,13 +126,13 @@ var warTanks = {
 	},
 
 	endTurn: function(data){
-		if(warTanks.state == "myTurn"){
-			lobby.send(data);
-		}else{
-			Tanks[data.tank.id] = data.tank;
+		//if(warTanks.state == "myTurn"){
+//			lobby.send(data);
+//		}else{
+			Tanks.units[data.tank.id] = data.tank;
 			Game.fire(data.shot);
-		}
-		warTanks.state += "End";
+//		}
+		warTanks.state = "hisTurnEnd";
 
 		
 

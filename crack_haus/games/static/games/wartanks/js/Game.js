@@ -7,7 +7,7 @@
 var ctx;
 
 var Game = {
-	state: "firing",
+	state: "setUp",
 	players: [],
 	turn: -1,
 	map: null,
@@ -20,7 +20,10 @@ var Game = {
 		ctx = $("#game-canvas")[0].getContext("2d");
 		Tanks.units[0].x = 100 + Math.random()*100;
 		Tanks.units[1].x = Map.w - (100 + Math.random()*100);
-
+		this.state = "aiming";
+		if(warTanks.state == "myTurn"){
+					Input.activate();
+				}
 		Input.init();
 		Panels.init();
 	},
@@ -62,9 +65,6 @@ var Game = {
 				}
 				//Game.turn = (Game.turn + 1)%2;
 				this.state = "aiming";
-				if(game.state == "myTurn" || "hisTurnEnd"){
-					Input.activate();
-				}
 				
 				Panels.resetClock();
 			}
