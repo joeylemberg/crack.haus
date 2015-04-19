@@ -1,19 +1,25 @@
-var canvas;
-var ctx;
-
-
-
 var warTanks = {
 
 	state: "intro",
 
 	init: function(){
-		$("body").append($("<div id='tanks'><canvas width='800' height='500'></canvas></div>"));
+		/*$("body").append($("<div id='tanks'><canvas width='800' height='500'></canvas></div>"));
 		canvas = $("#tanks>canvas")[0];
 		ctx = canvas.getContext("2d");
-		warTanks.playIntro();
+		warTanks.playIntro();*/
+		warTanks.handshake();
+		
 	},
-	
+
+	buildHtml: function(){
+
+	},
+
+	handshake: function(){
+		setTimeout(function(){
+			warTanks.setUpGame();
+		}, 1500);
+	},
 
 	playIntro: function(){
 		warTanks.t = 0;
@@ -27,7 +33,9 @@ var warTanks = {
 
 	setUpGame: function(){
 		warTanks.state = "setUp";
-		Map.drawBG()
+		Map.drawBG();
+		Map.init();
+		console.log("playerId: " + playerId);
 		if(playerId == 0){
 			Map.generate();
 			lobby.send({
@@ -35,12 +43,14 @@ var warTanks = {
 				slices: Map.slices
 			});
 			warTanks.state = "myTurn";
+			Game.init();
+			Game.animateLoop();
 		}else{
 			warTanks.state = "hisTurn";
 		}
 		Game.turn = 0;
-		Panels.init();
-		warTanks.startLoop();
+		//Panels.init();
+		//warTanks.startLoop();
 	},
 
 	onMessage: function(data){
@@ -49,7 +59,17 @@ var warTanks = {
 
 		switch(data.type){
 			case "map":
+				Game.init();
 				Map.slices = data.slices;
+				Game.animateLoop();
+
+				Map.dirty = true;
+
+				setTimeout(function(){
+					Map.draw(true);
+				}, 1000);
+
+				console.log("good slices");
 				break;
 
 			case "turn":
@@ -86,6 +106,7 @@ var warTanks = {
 						warTanks.state = "hisTurn";
 					}else{
 						warTanks.state = "myTurn";
+						Input.activate();
 					}
 					Game.turn = (Game.turn + 1) % 2;
 
@@ -105,11 +126,17 @@ var warTanks = {
 	endTurn: function(data){
 		if(warTanks.state == "myTurn"){
 			lobby.send(data);
+		}else{
+			Tanks[data.tank.id] = data.tank;
+			Game.fire(data.shot);
 		}
 		warTanks.state += "End";
-		Panels.clearClock();
-		var weapon = Weapons[data.shot.weapon];
-		$.proxy(weapon.init, weapon)(data.shot);
+
+		
+
+		//Panels.clearClock();
+		//var weapon = Weapons[data.shot.weapon];
+		//$.proxy(weapon.init, weapon)(data.shot);
 
 	}
 }

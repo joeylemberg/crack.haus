@@ -20,12 +20,9 @@ var Game = {
 		ctx = $("#game-canvas")[0].getContext("2d");
 		Tanks.units[0].x = 100 + Math.random()*100;
 		Tanks.units[1].x = Map.w - (100 + Math.random()*100);
-		Map.init();
-		Map.generate();
-		Map.drawBG();
+
 		Input.init();
 		Panels.init();
-		this.animateLoop();
 	},
 	getTank: function(){
 		return Tanks.units[this.turn];
@@ -33,10 +30,12 @@ var Game = {
 	animateLoop: function(){
 		this.loop();
 		requestAnimationFrame(_.bind(this.animateLoop, this));
+		//setTimeout(_.bind(this.animateLoop, this), 30);
 	},
 	loop: function(){
 		this.moveThings();
 		this.drawThings();
+		warTanks.checkState();
 	},
 	moveThings: function(){
 		Tanks.move();
@@ -61,8 +60,12 @@ var Game = {
 						return;
 					}
 				}
+				//Game.turn = (Game.turn + 1)%2;
 				this.state = "aiming";
-				Input.activate();
+				if(game.state == "myTurn" || "hisTurnEnd"){
+					Input.activate();
+				}
+				
 				Panels.resetClock();
 			}
 		}
@@ -76,7 +79,9 @@ var Game = {
 		Input.draw();
 	},
 	fire: function(shotData){
-		this.state = "firing";
+		console.log("FIRE!!!");
+		console.log(shotData);
+		Game.state = "firing";
 		Input.deactivate();
 		Panels.clearClock();
 		Weapons[shotData.weapon].init(shotData);

@@ -209,9 +209,13 @@ var lobby = {
 				break;
 				
 			case "Tanx":
+			case "Tanks":
 			case "WarTanks":
+				$("#war-tanks-wrapper").show();
 				game = warTanks;
 				warTanks.init();
+				
+				//Game.init();
 				chat.init();
 				break;
 
@@ -241,6 +245,9 @@ var lobby = {
 	},
 
 	readMessage: function(data){
+
+		console.log("I GOT THE MESSAGE");
+		console.log(data);
 
 		try{
 			data = JSON.parse(data)
