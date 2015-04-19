@@ -17,6 +17,13 @@ var Tanks = {
 			dy: tank.power/6 * Math.sin(tank.turret),
 			age: 0
       };
+
+      lobby.send({
+				type: "turn",
+				shot: shotData,
+				tank: tank
+			});
+
       Game.fire(shotData);
 	},
 	

@@ -5,7 +5,7 @@ var Map = {
 	trees: [],
 	dirtySlices: [],
 	init: function(){
-		this.ctx = $("#map-canvas")[0].getContext("2d");
+		Map.ctx = $("#map-canvas")[0].getContext("2d");
 		Trees.ctx = $("#trees-canvas")[0].getContext("2d");
 		this.dirty = true;
 	},

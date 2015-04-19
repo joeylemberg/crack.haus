@@ -211,10 +211,11 @@ var lobby = {
 			case "Tanx":
 			case "Tanks":
 			case "WarTanks":
-				//game = warTanks;
-				//warTanks.init();
 				$("#war-tanks-wrapper").show();
-				Game.init();
+				game = warTanks;
+				warTanks.init();
+				
+				//Game.init();
 				chat.init();
 				break;
 
@@ -245,6 +246,9 @@ var lobby = {
 
 	readMessage: function(data){
 
+		console.log("I GOT THE MESSAGE");
+		console.log(data);
+
 		try{
 			data = JSON.parse(data)
 		}catch(e){
@@ -267,10 +271,14 @@ var lobby = {
 
 	send: function(data, moreData){
 
+
 		if(typeof data == "string"){
 			moreData.type = data;
 			data = moreData;
 		}
+
+		
+		console.log(JSON.stringify(data));
 
 		conn.send(JSON.stringify(data));
 	}

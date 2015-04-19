@@ -20,12 +20,9 @@ var Game = {
 		ctx = $("#game-canvas")[0].getContext("2d");
 		Tanks.units[0].x = 100 + Math.random()*100;
 		Tanks.units[1].x = Map.w - (100 + Math.random()*100);
-		Map.init();
-		Map.generate();
-		Map.drawBG();
+
 		Input.init();
 		Panels.init();
-		this.animateLoop();
 	},
 	getTank: function(){
 		return Tanks.units[this.turn];
