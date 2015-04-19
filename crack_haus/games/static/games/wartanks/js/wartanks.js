@@ -106,6 +106,7 @@ var warTanks = {
 						warTanks.state = "hisTurn";
 					}else{
 						warTanks.state = "myTurn";
+						Input.activate();
 					}
 					Game.turn = (Game.turn + 1) % 2;
 

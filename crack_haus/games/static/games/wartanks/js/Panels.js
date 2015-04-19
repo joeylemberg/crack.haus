@@ -21,7 +21,7 @@ var Panels = {
 		
 		this.drawClock();
 		this.drawScores();
-
+ 
 		for(var i = 0; i < Tanks.units.length; i++){
 			var tank = Tanks.units[i];
 			$(".player-panel[data-player-id='" + tank.id + "']").find(".meter").css("width", Math.round(tank.gas) + "%");
@@ -34,8 +34,9 @@ var Panels = {
 	},
 
 	drawClock: function(){
-
-		$("#game-clock").html(Game.clock + "<br/>" + warTanks.state);
+		$("#game-clock").html(Game.clock);
+		$("#game-state").html(warTanks.state);
+		//$("#game-clock").show();
 
 		/*ctx.save();
 		ctx.beginPath();

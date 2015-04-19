@@ -60,9 +60,12 @@ var Game = {
 						return;
 					}
 				}
-				Game.turn = (Game.turn + 1)%2;
+				//Game.turn = (Game.turn + 1)%2;
 				this.state = "aiming";
-				Input.activate();
+				if(game.state == "myTurn" || "hisTurnEnd"){
+					Input.activate();
+				}
+				
 				Panels.resetClock();
 			}
 		}
