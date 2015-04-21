@@ -15,6 +15,7 @@ var Game = {
 	clock: 30,
 	clockStart: 0,
 	interval: 0,
+	round: 1,
 	g: 0.2,
 	init: function(){
 		ctx = $("#game-canvas")[0].getContext("2d");
@@ -36,9 +37,35 @@ var Game = {
 		//setTimeout(_.bind(this.animateLoop, this), 30);
 	},
 	loop: function(){
-		this.moveThings();
+		
+		if(this.timePast === undefined){
+			this.timePast = 0;
+			this.lastFrame = Date.now();
+		}
+
+		var now = Date.now();
+		if(this.lastFrame){
+			this.timePast += Math.min(1000, now - this.lastFrame);
+			while(this.timePast > 16.6666666667){
+				this.timePast -= 16.6666666667;
+				this.moveThings();
+			}
+		}
+		this.lastFrame = now;
+
+
 		this.drawThings();
 		warTanks.checkState();
+
+
+		if(warTanks.state == "myTurn" && (!this.lastSend || now - this.lastSend > 100)){
+			this.lastSend = now;
+			lobby.send({
+				type: "tank",
+				tank: Tanks.units[playerId]
+			});
+		}
+
 	},
 	moveThings: function(){
 		Tanks.move();

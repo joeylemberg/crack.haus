@@ -114,6 +114,8 @@ var Tanks = {
 		
 		
 		ctx.restore();
+
+		Input.draw();
 		
 		
 	},

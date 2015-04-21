@@ -62,6 +62,7 @@ var warTanks = {
 		switch(data.type){
 			case "map":
 				Game.init();
+				Map.init();
 				Map.slices = data.slices;
 				Game.animateLoop();
 
@@ -76,6 +77,10 @@ var warTanks = {
 
 			case "turn":
 				warTanks.endTurn(data);
+				break;
+
+			case "tank":
+				Tanks.units[data.tank.id] = data.tank;
 				break;
 		}
 
@@ -102,13 +107,16 @@ var warTanks = {
 		switch(warTanks.state){
 			case "myTurnEnd":
 			case "hisTurnEnd":
-				if(!Weapons.shots.length && !Weapons.booms.length){
+				if(!Weapons.shots.length && !Weapons.booms.length && !Map.dirty && !Trees.dirty){
 					Panels.resetClock();
+					Game.round += 0.5;
 					if(warTanks.state == "myTurnEnd"){
 						warTanks.state = "hisTurn";
 					}else{
 						warTanks.state = "myTurn";
+						Tanks.units[playerId].gas = Math.min(Tanks.units[playerId].gas + 10, 100);
 						Input.activate();
+						Input.draw();
 					}
 					Game.turn = (Game.turn + 1) % 2;
 

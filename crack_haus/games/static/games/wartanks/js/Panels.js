@@ -6,13 +6,14 @@ var Panels = {
 
 	resetClock: function(){
 		Game.clockStart = Date.now();
-		Game.clock = 30;
+		Game.clock = 15;
 		$("#game-clock").show();
 	},
 
 	move: function(){
 		Game.clock = Game.timeLimit - Math.round((Date.now() - Game.clockStart)/1000);
 		if(Game.clock < 1 && Input.active){
+			Input.deactivate();
 			Tanks.fire();
 		}
 	},
@@ -36,6 +37,7 @@ var Panels = {
 	drawClock: function(){
 		$("#game-clock").html(Game.clock);
 		$("#game-state").html(warTanks.state);
+		$("#game-round").html("ROUND # <b>" +Game.round + "</b>");
 		//$("#game-clock").show();
 
 		/*ctx.save();

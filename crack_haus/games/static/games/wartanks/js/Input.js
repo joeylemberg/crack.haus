@@ -22,6 +22,13 @@ var Input = {
 	},
 
 	initHtmlEvents: function(){
+
+		$("#input-lock").change(function(){
+			if($("#input-lock").prop("checked")){
+
+			}
+		});
+
 		$('#tank-pos').change(function(){
 			if(!Input.active){
 				return;
@@ -58,14 +65,16 @@ var Input = {
 
 	initMouseListeners: function(){
 		
-		$("#game-canvas").click(function(){
-			if(!Input.active){
-				return;
-			}
-			Tanks.fire();
+		$("#game-canvas").mousedown(function(e){
+			Input.mousedown = true;
 		});
-		
-		$("#game-canvas").mousemove(function(e){
+
+		$("#game-canvas").mouseup(function(e){
+			Input.mousedown = false;
+		});
+
+		$("#game-canvas").click(function(e){
+			//if(!Input.active || !$("#input-lock").prop("checked")){
 			if(!Input.active){
 				return;
 			}
@@ -89,6 +98,34 @@ var Input = {
 
 			tank.power = pow;
 
+		});
+		
+		$("#game-canvas").mousemove(function(e){
+			//if(!Input.active || !$("#input-lock").prop("checked")){
+			if(!Input.active || !Input.mousedown){
+				return;
+			}
+
+			Input.x = e.pageX * 1000 / $("#game-canvas").width();		
+			Input.y = e.pageY * 600 / $("#game-canvas").height();
+
+			var tank = Tanks.units[Game.turn];
+
+			tank.turret = Math.atan2(Input.y - tank.y, Input.x - tank.x);
+			var ang = Math.round(tank.turret * 180/Math.PI) % 360;
+			while(ang < 0){
+				ang += 360;
+			}
+
+			var pow = Math.round(Util.dist(Input.x,Input.y,tank.x,tank.y) / 5);
+
+			pow = Math.min(100,pow);
+
+			$("#tank-ang").val(ang);
+			$("#tank-pow").val(pow);
+
+			tank.power = pow;
+			
 		});
 
 
@@ -175,6 +212,7 @@ var Input = {
 
 	draw: function(){
 		var tank = Tanks.units[Game.turn];
+		
 		ctx.save();
 			ctx.translate(Input.x,Input.y);
 			ctx.beginPath();
