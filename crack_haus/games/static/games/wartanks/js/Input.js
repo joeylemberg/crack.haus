@@ -16,8 +16,9 @@ var Input = {
 	},
 
 	deactivate: function(){
-		this.x = -100;
-		this.y = -100;
+//		this.x = -100;
+//		this.y = -100;
+ctx.clearRect(0,0,1000,1000);
 		this.active = false;
 	},
 
@@ -165,6 +166,9 @@ var Input = {
 			switch(e.keyCode){
 		
 			case 32:
+			if($(":focus").length){
+				return;
+			}
 				e.preventDefault();
 				Tanks.fire();
 			break;
@@ -212,7 +216,7 @@ var Input = {
 
 	draw: function(){
 		var tank = Tanks.units[Game.turn];
-		
+
 		ctx.save();
 			ctx.translate(Input.x,Input.y);
 			ctx.beginPath();

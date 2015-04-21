@@ -109,7 +109,15 @@ var warTanks = {
 			case "hisTurnEnd":
 				if(!Weapons.shots.length && !Weapons.booms.length && !Map.dirty && !Trees.dirty){
 					Panels.resetClock();
+
+
 					Game.round += 0.5;
+
+					if(Game.round >= 11){
+						warTanks.gameOver();
+						warTanks.state = "gameOver";
+						return;
+					}
 					if(warTanks.state == "myTurnEnd"){
 						warTanks.state = "hisTurn";
 					}else{
@@ -147,6 +155,20 @@ var warTanks = {
 		//Panels.clearClock();
 		//var weapon = Weapons[data.shot.weapon];
 		//$.proxy(weapon.init, weapon)(data.shot);
+
+	},
+
+	gameOver: function(){
+		var p1 = Tanks.units[0];
+		var p2 = Tanks.units[1];
+
+		if(p1.score > p2.score){
+			alert(p1.name + " wins!");
+		}else if(p1.score < p2.score){
+			alert(p2.name + " wins!");
+		}else{
+			alert("No one wins!");
+		}
 
 	}
 }
