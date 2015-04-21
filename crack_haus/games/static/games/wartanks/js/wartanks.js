@@ -50,6 +50,14 @@ var warTanks = {
 			warTanks.state = "hisTurn";
 		}
 
+		lobby.send({
+				type: "tag",
+				id: playerId,
+				tag: lobby.tag
+			});
+
+		Tanks.units[playerId].name = lobby.tag;
+
 		Game.turn = 0;
 		//Panels.init();
 		//warTanks.startLoop();
@@ -60,6 +68,11 @@ var warTanks = {
 		console.log(data);
 
 		switch(data.type){
+
+			case "tag":
+				Tanks.units[data.id].name = data.tag;
+				break;
+
 			case "map":
 				Game.init();
 				Map.init();
