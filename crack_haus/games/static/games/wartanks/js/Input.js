@@ -75,6 +75,9 @@ ctx.clearRect(0,0,1000,1000);
 		});
 
 		$("#game-canvas").click(function(e){
+
+								$("#chat-form, #chat-box").hide();
+
 			//if(!Input.active || !$("#input-lock").prop("checked")){
 			if(!Input.active){
 				return;
@@ -159,12 +162,23 @@ ctx.clearRect(0,0,1000,1000);
 
 	initKeyListeners: function(){
 		window.addEventListener("keydown", function(e) {
+
+			if(e.keyCode == 13){
+				if(!$(":focus").length){
+					$("#chat-form").show();
+					setTimeout(function(){
+						$("#chat-input").focus();
+					}, 100);
+					$("#chat-box").show();
+				}
+			}
+
 			if(!Input.active){
 				return;
 			}
 		//	alert(e.keyCode);
 			switch(e.keyCode){
-		
+
 			case 32:
 			if($(":focus").length){
 				return;

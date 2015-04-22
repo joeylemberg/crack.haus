@@ -45,7 +45,12 @@ tr.listed-game:hover, tr.open-game:hover{
 
 #chat-form{
 	margin: 5px;
-	display: block;
+	position: fixed;
+    z-index:100;
+    width:80%;
+    left:10%;
+    bottom:105px;
+    display:none;
 }
 
 #chat-input{
@@ -67,15 +72,23 @@ tr.listed-game:hover, tr.open-game:hover{
 }
 
 #chat-wrapper{
-     position:fixed;bottom:0;z-index:9999999;width:100%;background-color:#c5d7e5;
+    position:fixed;bottom:0;z-index:9999999;width:100%;background-color:#c5d7e5;
 }
 
 #chat-box{
-	height: 109px;
+    height: 10%;
+	min-height: 40px;
     border: 1px solid black;
     overflow-y: scroll;
 	border-radius: 5px;
-	margin: 5px;=
+	margin: 5px;
+    position: fixed;
+    bottom: 135px;
+    width:80%;
+    left:10%;
+    display:none;
+    z-index:100;
+    background-color:rgba(255,255,255,0.8);
 }
 
 #chat-box p{
