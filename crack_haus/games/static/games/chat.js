@@ -2,7 +2,7 @@ var chat = {
 
 	init: function(){
 
-		var chatInput = $("<form id='chat-form'><input type='text' id='chat-input' /><input type='submit' id='chat-submit' value='SEND' />");
+		var chatInput = $("<form id='chat-form'><input type='text' autocomplete='off' id='chat-input' /><input type='submit' id='chat-submit' value='SEND' />");
 		var chatLog = $("<div id='chat-box'></div>");
 
 	/*	var chatWrapper = $("<div id='chat-wrapper'></div>");

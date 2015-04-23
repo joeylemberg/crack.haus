@@ -24,6 +24,8 @@ var Tanks = {
 				tank: tank
 			});
 
+      Input.deactivate();
+
       warTanks.state = "myTurnEnd";
 
       $("#weapon-select").children(":selected").remove();
@@ -162,11 +164,11 @@ var Tanks = {
 			}
 		}
 
-			if(tank.x < 0.5){
-				tank.x = 1;
+			if(tank.x < 10.5){
+				tank.x = 11;
 			}
-			if(tank.x > Map.w - 1.5){
-				tank.x = Map.w - 1;
+			if(tank.x > Map.w - 11.5){
+				tank.x = Map.w - 12;
 			}
 
 			//
@@ -183,7 +185,7 @@ var Tanks = {
 				tank.x += tank.dx;
 			}
 				
-				if(tank.x < 0.51 || tank.x > Map.w - 1.49){
+				if(tank.x < 10.51 || tank.x > Map.w - 12.49){
 					tank.dx *= -1;
 					tank.x += tank.dx;
 				}

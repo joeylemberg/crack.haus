@@ -13,6 +13,7 @@ var Input = {
 
 	activate: function(){
 		this.active = true;
+		$(".game-canvas").addClass("hide-mouse");
 	},
 
 	deactivate: function(){
@@ -20,6 +21,7 @@ var Input = {
 //		this.y = -100;
 ctx.clearRect(0,0,1000,1000);
 		this.active = false;
+		$(".game-canvas").removeClass("hide-mouse");
 	},
 
 	initHtmlEvents: function(){
@@ -93,7 +95,7 @@ ctx.clearRect(0,0,1000,1000);
 				ang += 360;
 			}
 
-			var pow = Math.round(Util.dist(Input.x,Input.y,tank.x,tank.y) / 5);
+			var pow = Math.round(Util.dist(Input.x,Input.y,tank.x,tank.y));
 
 			pow = Math.min(100,pow);
 
@@ -106,6 +108,10 @@ ctx.clearRect(0,0,1000,1000);
 		
 		$("#game-canvas").mousemove(function(e){
 			//if(!Input.active || !$("#input-lock").prop("checked")){
+
+				Input.mouseX = e.pageX * 1000 / $("#game-canvas").width();		
+			Input.mouseY = e.pageY * 600 / $("#game-canvas").height();
+
 			if(!Input.active || !Input.mousedown){
 				return;
 			}
@@ -121,7 +127,7 @@ ctx.clearRect(0,0,1000,1000);
 				ang += 360;
 			}
 
-			var pow = Math.round(Util.dist(Input.x,Input.y,tank.x,tank.y) / 5);
+			var pow = Math.round(Util.dist(Input.x,Input.y,tank.x,tank.y));
 
 			pow = Math.min(100,pow);
 
@@ -231,11 +237,17 @@ ctx.clearRect(0,0,1000,1000);
 	draw: function(){
 		var tank = Tanks.units[Game.turn];
 
-		ctx.save();
-			ctx.translate(Input.x,Input.y);
+		
+
+			if(tank && this.active){
+
+		if(Input.mouseX && Input.mouseY){
+			ctx.save();
+			ctx.translate(Input.mouseX, Input.mouseY);
+			ctx.scale(1.5,1.5);
 			ctx.beginPath();
 			ctx.strokeStyle = "red";
-			ctx.lineWidth = 1;
+			ctx.lineWidth = 2;
 			ctx.moveTo(-6,-6);
 			ctx.lineTo(-2,-2);
 			ctx.moveTo(6,6);
@@ -245,6 +257,36 @@ ctx.clearRect(0,0,1000,1000);
 			ctx.moveTo(6,-6);
 			ctx.lineTo(2,-2);
 			ctx.stroke();
+
 			ctx.restore();
+		}
+
+				ctx.save();
+        var x = tank.x + 6*Math.sin(tank.theta) + 14*Math.cos(tank.turret);
+		var y = tank.y - 6*Math.cos(tank.theta) + 14*Math.sin(tank.turret);
+			ctx.translate(x,y);
+				ctx.beginPath();
+			ctx.strokeStyle = "rgba(255,255,255,0.1)";
+			ctx.lineWidth = 3;
+			ctx.arc(0,0,100,0,Math.PI*2, 1);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.fillStyle = "rgba(255,255,255,0.3)";
+			ctx.moveTo(0,0);
+			ctx.lineTo(Math.cos(tank.turret + 0.25) * tank.power,Math.sin(tank.turret + 0.25) * tank.power);
+			ctx.lineTo(Math.cos(tank.turret + 0.1) * tank.power,Math.sin(tank.turret + 0.1) * tank.power);
+			ctx.lineTo(Math.cos(tank.turret) * tank.power,Math.sin(tank.turret) * tank.power);
+			ctx.lineTo(Math.cos(tank.turret - 0.1) * tank.power,Math.sin(tank.turret - 0.1) * tank.power);
+			ctx.lineTo(Math.cos(tank.turret - 0.25) * tank.power,Math.sin(tank.turret - 0.25) * tank.power);
+			ctx.lineTo(0,0);
+			ctx.closePath();
+			ctx.fill();
+
+			ctx.restore();
+			}
+
+			
+
 	}
 }

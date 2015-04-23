@@ -95,7 +95,6 @@ var Map = {
 
     	if(this.dirty || force){
 
-			Map.dirty = false;
     		var ctx = Map.ctx;
 				ctx.clearRect(0,0,1000,600);
 				for(var i = 0; i < Map.slices.length; i++){

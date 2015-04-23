@@ -121,6 +121,9 @@ var warTanks = {
 			case "myTurnEnd":
 			case "hisTurnEnd":
 				if(!Weapons.shots.length && !Weapons.booms.length && !Map.dirty && !Trees.dirty){
+
+					
+					
 					Panels.resetClock();
 
 

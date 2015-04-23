@@ -2,9 +2,9 @@ Weapons["mine shaft"] = {
 	
 	damage: 1,
 	name: "mine shaft",
-	dr: 4,
+	dr: 9,
 	r0: 10,
-	size: 10,
+	size: 18,
 	knock: 1,
 	pop: 1,
 	type: "digger",
