@@ -36,7 +36,6 @@ var warTanks = {
 		warTanks.state = "setUp";
 		Map.drawBG();
 		Map.init();
-		console.log("playerId: " + playerId);
 		if(playerId == 0){
 			Map.generate();
 			lobby.send({

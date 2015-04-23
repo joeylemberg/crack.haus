@@ -106,8 +106,6 @@ var Game = {
 		Input.draw();
 	},
 	fire: function(shotData){
-		console.log("FIRE!!!");
-		console.log(shotData);
 		Game.state = "firing";
 		Input.deactivate();
 		Panels.clearClock();
