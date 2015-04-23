@@ -262,9 +262,10 @@ ctx.clearRect(0,0,1000,1000);
 		}
 
 				ctx.save();
-        var x = tank.x + 6*Math.sin(tank.theta) + 14*Math.cos(tank.turret);
-		var y = tank.y - 6*Math.cos(tank.theta) + 14*Math.sin(tank.turret);
-			ctx.translate(x,y);
+        			ctx.translate(tank.x,tank.y);
+        	var x = 6*Math.sin(tank.theta) + 14*Math.cos(tank.turret);
+			var y = -6*Math.cos(tank.theta) + 14*Math.sin(tank.turret);
+
 				ctx.beginPath();
 			ctx.strokeStyle = "rgba(255,255,255,0.1)";
 			ctx.lineWidth = 3;
@@ -273,13 +274,13 @@ ctx.clearRect(0,0,1000,1000);
 
 			ctx.beginPath();
 			ctx.fillStyle = "rgba(255,255,255,0.3)";
-			ctx.moveTo(0,0);
+			ctx.moveTo(x,y);
 			ctx.lineTo(Math.cos(tank.turret + 0.25) * tank.power,Math.sin(tank.turret + 0.25) * tank.power);
 			ctx.lineTo(Math.cos(tank.turret + 0.1) * tank.power,Math.sin(tank.turret + 0.1) * tank.power);
 			ctx.lineTo(Math.cos(tank.turret) * tank.power,Math.sin(tank.turret) * tank.power);
 			ctx.lineTo(Math.cos(tank.turret - 0.1) * tank.power,Math.sin(tank.turret - 0.1) * tank.power);
 			ctx.lineTo(Math.cos(tank.turret - 0.25) * tank.power,Math.sin(tank.turret - 0.25) * tank.power);
-			ctx.lineTo(0,0);
+			ctx.lineTo(x,y);
 			ctx.closePath();
 			ctx.fill();
 

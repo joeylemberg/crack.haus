@@ -4,6 +4,16 @@ var Panels = {
 		this.resetClock();
 	},
 
+	colorPlayers: function(){
+		//applyTextShadow
+		for(var i = 0; i < Tanks.units.length; i++){
+			var tank = Tanks.units[i];
+			var playerBox = $(".player-panel[data-player-id='" + tank.id + "']");
+			Util.applyTextShadow(playerBox, tank.fill);
+			playerBox.children("div").css({"color": tank.stroke, "font-weight" : "bold"});
+		}
+	},
+
 	resetClock: function(){
 		Game.clockStart = Date.now();
 		Game.clock = 15;
@@ -22,6 +32,7 @@ var Panels = {
 		
 		this.drawClock();
 		this.drawScores();
+		this.colorPlayers();
  
 		for(var i = 0; i < Tanks.units.length; i++){
 			var tank = Tanks.units[i];

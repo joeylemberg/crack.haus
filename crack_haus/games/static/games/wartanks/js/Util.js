@@ -124,10 +124,10 @@ var Util = {
 	},
 
 	applyTextShadow: function($el, color){
-		str = "-3px -3px 0 " + color + ",";
+		var str = "-3px -3px 0 " + color + ",";
 		str += "3px -3px 0 " + color + ",";
 		str += "-3px 3px 0 " + color + ",";
-		str += "3px 3px 0 " + color + ",";
+		str += "3px 3px 0 " + color;
 
 		$el.css("text-shadow", str);
     
