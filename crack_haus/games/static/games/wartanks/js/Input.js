@@ -95,9 +95,11 @@ ctx.clearRect(0,0,1000,1000);
 				ang += 360;
 			}
 
-			var pow = Math.round(Util.dist(Input.x,Input.y,tank.x,tank.y) * 2);
+			var pow = Math.round(Util.dist(Input.x,Input.y,tank.x,tank.y) / 2);
 
 			pow = Math.min(100,pow);
+
+			console.log(pow);
 
 			$("#tank-ang").val(ang);
 			$("#tank-pow").val(pow);
@@ -176,6 +178,10 @@ ctx.clearRect(0,0,1000,1000);
 						$("#chat-input").focus();
 					}, 100);
 					$("#chat-box").show();
+				}else{
+					if($(":focus").attr("type") == "number"){
+						$(":focus").blur();
+					}
 				}
 			}
 
@@ -186,7 +192,7 @@ ctx.clearRect(0,0,1000,1000);
 			switch(e.keyCode){
 
 			case 32:
-			if($(":focus").length){
+			if($(":focus").length && $(":focus").attr("type") != "number"){
 				return;
 			}
 				e.preventDefault();

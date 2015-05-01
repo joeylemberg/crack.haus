@@ -173,8 +173,8 @@ var lobby = {
 
 		for(i = 0; i < data.players.length; i++){
 			player = data.players[i];
-			html += "<tr class='open-game' data-id='" + player.id + " data-tag='" + player.tag + "' data-peer-id='" + player.peer_id + "'>";
-			html += "<td>" + player.tag + "</td>";
+			html += "<tr class='open-game " + (player.id == lobby.userId ? "self-listing" : "") + "' data-id='" + player.id + " data-tag='" + player.tag + "' data-peer-id='" + player.peer_id + "'>";
+			html += "<td>" + player.tag + (player.id == lobby.userId ? "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>(you)</i>" : "") + "</td>";
 			html += "</tr>"
 		}
 		$("#all-games").empty();
@@ -183,6 +183,10 @@ var lobby = {
 
 	acceptGame: function(e){
 		
+		if($(e.target).closest(".open-game").hasClass("self-listing")){
+			return;
+		}
+
 		var clickedRow = $(e.target).closest(".open-game");
 		var peerId = clickedRow.attr("data-peer-id");
 

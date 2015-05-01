@@ -1,7 +1,7 @@
 Weapons["booster jets"] = {
 	
 	damage: 50,
-	name: "booster",
+	name: "booster jets",
 	dr: 4,
 	r0: 10,
 	size: 50,

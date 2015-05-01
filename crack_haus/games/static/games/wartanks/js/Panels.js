@@ -2,7 +2,12 @@ var Panels = {
 
 	init: function(){
 		this.resetClock();
+		$("input[type='number']").mouseleave(function(){
+			$(this).blur();
+		});
 	},
+
+	active: null,
 
 	colorPlayers: function(){
 		//applyTextShadow
@@ -18,6 +23,7 @@ var Panels = {
 		Game.clockStart = Date.now();
 		Game.clock = 15;
 		$("#game-clock").show();
+		Panels.renderWeapons();
 	},
 
 	move: function(){
@@ -89,6 +95,44 @@ var Panels = {
 			}else
 			ctx.restore();
 		}*/
+	},
+
+	 renderWeapons: function(){
+	 	var tank = Tanks.units[playerId];
+		var weapons = tank.weapons;
+
+		$("#weapon-list").empty();
+		$("#weapon-list").removeClass("open");
+
+		for(var i = 0; i < weapons.length; i++){
+			var weapon = Weapons[weapons[i]];
+			var box = $("<div data-index='" + i + "' class='listed-weapon'></div>");
+			if(i != tank.weaponIndex){
+				box.hide();
+			}
+			box.append("<span class='listed-weapon-name'>" + weapon.name + "</span>");
+			$("#weapon-list").append(box);
+		}
+
+		$(".listed-weapon").click(Panels.weaponSelectClick);
+
+
+	},
+
+	weaponSelectClick: function(e){
+		if($("#weapon-list").hasClass("open")){
+			var w = $(e.target).closest(".listed-weapon");
+			var i = parseInt(w.data("index"));
+			var tank = Tanks.units[playerId];
+			tank.weaponIndex = i;
+			$("#weapon-list").removeClass("open");
+			Panels.renderWeapons();
+			return;
+		}
+
+		$(".listed-weapon").show();
+		$("#weapon-list").addClass("open");
+
 	}
 
 

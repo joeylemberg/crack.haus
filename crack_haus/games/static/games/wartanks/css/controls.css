@@ -175,3 +175,22 @@ h3{
   background-color: #2ecc71;
 }
 
+#weapon-list{
+  display:inline-block;
+    margin-top: -100%;
+    border-radius: 5px;
+}
+
+.listed-weapon{
+  padding: 5px;
+  width: 120px;
+  border: 1px solid rgba(40,100,150,0.7);
+  background: white;
+}
+
+.listed-weapon:hover{
+  cursor:pointer;
+  background-color:black;
+  color:white;
+}
+

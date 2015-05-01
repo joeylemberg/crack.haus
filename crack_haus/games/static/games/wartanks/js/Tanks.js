@@ -1,8 +1,10 @@
 var Tanks = {
 	
 	fire: function(){
-		var weaponName = $("#weapon-select").val();
 		var tank = Game.getTank();
+
+		var weaponName = tank.weapons[tank.weaponIndex];
+		tank.weapons.splice(tank.weaponIndex, 1);
 		if(tank.power > 200){
 			tank.power = 200;
 		}
@@ -41,8 +43,8 @@ var Tanks = {
 		return false;
 	},
 
-	units: [{id: 0, name: "tank1", gas: 100, score: 0, speed: 1, weapons: ["standard shell", "wheel", "nuke", "acid", "rollback"],x:100,y:100,dx:0,dy:0,theta:0,turret:-45,fill:'#995d95',stroke:'#000000', grounded:false, power:100},
-	{id: 1, name: "tank2", gas: 100, score: 0, speed: 1, weapons: ["standard shell", "wheel", "nuke", "acid", "rollback"],x:400,y:100,dx:-0.2,dy:-1,theta:0.5,turret:3,fill:'#eeeeee',stroke:'#000000', grounded:false}],
+	units: [{id: 0, name: "tank1", gas: 100, score: 0, speed: 1, weaponIndex: 0, weapons: ["shell", "nuke", "mine shaft", "booster jets", "machine gun"],x:100,y:100,dx:0,dy:0,theta:0,turret:-45,fill:'#995d95',stroke:'#000000', grounded:false, power:100},
+	{id: 1, name: "tank2", gas: 100, score: 0, speed: 1, weaponIndex: 0, weapons: ["shell", "nuke", "mine shaft", "booster jets", "machine gun"],x:400,y:100,dx:-0.2,dy:-1,theta:0.5,turret:3,fill:'#eeeeee',stroke:'#000000', grounded:false}],
 	
 	
 	drawTank: function(ctx, x, y, theta, turret, fill, stroke){

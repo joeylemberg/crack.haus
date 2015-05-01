@@ -130,17 +130,21 @@
   
   <div class="control-panel-widget">
     <label for='tank-ang'>Angle:</label>
-    <input id='tank-ang' name="tank-ang" type='number' value='300'> 
+    <input id='tank-ang' name="tank-ang" type='number' value='300' min="0" max="359"> 
   </div>
 
   <div class="control-panel-widget">
     <label for='tank-pow'>Power:</label>
-    <input id='tank-pow' name='tank-pow' type='number' value='100'>
+    <input id='tank-pow' name='tank-pow' type='number' value='100' min="1" max="100">
   </div>
+
+
+
 
   <div class="control-panel-widget">
     <label for='weapon-select'>Weapon:</label>
-    <select id="weapon-select">
+    <div id='weapon-list'></div>
+    <!--<select id="weapon-select">
     <option>shell</option>
     <option>shell</option>
     <option>shell</option>
@@ -148,7 +152,7 @@
       <option>shotgun</option>
       <option>mine shaft</option>
       <option>mine shaft</option>
-      <!--<option>burial</option>-->
+      <!--<option>burial</option>
       <option>1-2-punch</option>
       <option>1-2-punch</option>
       <option>1-2-punch</option>
@@ -158,7 +162,7 @@
       <option>booster jets</option>
             <option>booster jets</option>
                   <option>booster jets</option>
-    </select>
+    </select>-->
   </div>
  <!-- <div class="control-panel-widget">
     <label for='input-lock'>Mouse Aiming &amp; Firing</label>

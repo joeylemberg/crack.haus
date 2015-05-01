@@ -43,6 +43,10 @@ tr.listed-game:hover, tr.open-game:hover{
 	background-color: #abcdef;
 }
 
+.self-listing{
+    color: #bababa;
+}
+
 #chat-form{
 	margin: 5px;
 	position: fixed;

@@ -4,7 +4,7 @@ Weapons["mine shaft"] = {
 	name: "mine shaft",
 	dr: 4,
 	r0: 10,
-	size: 10,
+	size: 15,
 	knock: 1,
 	pop: 1,
 	type: "digger",
@@ -30,14 +30,6 @@ Weapons["mine shaft"] = {
 					this.dy *= 0.1;
 					this.fuel = 200;
 					this.target = impact.target;
-					var firstBoom = $.extend({}, this);
-					firstBoom.size = 25;
-					firstBoom.knock = 3;
-					firstBoom.dr = 6;
-					firstBoom.damage = 5;
-					firstBoom.color = "#7c741a";
-
-					Weapons.boom(firstBoom);
 					this.lastBoom = {x: this.x, y: this.y};
 					/*var shotName = this.name;
 					this.x = impact.x;
