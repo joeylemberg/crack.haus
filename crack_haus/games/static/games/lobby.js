@@ -252,9 +252,6 @@ var lobby = {
 
 	readMessage: function(data){
 
-		console.log("I GOT THE MESSAGE");
-		console.log(data);
-
 		try{
 			data = JSON.parse(data)
 		}catch(e){

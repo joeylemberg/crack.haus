@@ -64,8 +64,6 @@ var warTanks = {
 
 	onMessage: function(data){
 
-		console.log(data);
-
 		switch(data.type){
 
 			case "tag":

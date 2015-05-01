@@ -5,6 +5,8 @@ var Tanks = {
 
 		var weaponName = tank.weapons[tank.weaponIndex];
 		tank.weapons.splice(tank.weaponIndex, 1);
+		tank.weaponIndex--;
+		tank.weaponIndex = Math.max(0, tank.weaponIndex);
 		if(tank.power > 200){
 			tank.power = 200;
 		}
