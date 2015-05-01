@@ -76,7 +76,7 @@ tr.listed-game:hover, tr.open-game:hover{
 }
 
 #chat-box{
-    height: 10%;
+    height: 16%;
 	min-height: 40px;
     border: 1px solid black;
     overflow-y: scroll;

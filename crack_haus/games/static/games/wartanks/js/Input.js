@@ -95,7 +95,7 @@ ctx.clearRect(0,0,1000,1000);
 				ang += 360;
 			}
 
-			var pow = Math.round(Util.dist(Input.x,Input.y,tank.x,tank.y));
+			var pow = Math.round(Util.dist(Input.x,Input.y,tank.x,tank.y) * 2);
 
 			pow = Math.min(100,pow);
 
@@ -127,7 +127,7 @@ ctx.clearRect(0,0,1000,1000);
 				ang += 360;
 			}
 
-			var pow = Math.round(Util.dist(Input.x,Input.y,tank.x,tank.y));
+			var pow = Math.round(Util.dist(Input.x,Input.y,tank.x,tank.y) / 2);
 
 			pow = Math.min(100,pow);
 
@@ -269,17 +269,17 @@ ctx.clearRect(0,0,1000,1000);
 				ctx.beginPath();
 			ctx.strokeStyle = "rgba(255,255,255,0.1)";
 			ctx.lineWidth = 3;
-			ctx.arc(0,0,100,0,Math.PI*2, 1);
+			ctx.arc(0,0,200,0,Math.PI*2, 1);
 			ctx.stroke();
 
 			ctx.beginPath();
 			ctx.fillStyle = "rgba(255,255,255,0.3)";
 			ctx.moveTo(x,y);
-			ctx.lineTo(Math.cos(tank.turret + 0.25) * tank.power,Math.sin(tank.turret + 0.25) * tank.power);
-			ctx.lineTo(Math.cos(tank.turret + 0.1) * tank.power,Math.sin(tank.turret + 0.1) * tank.power);
-			ctx.lineTo(Math.cos(tank.turret) * tank.power,Math.sin(tank.turret) * tank.power);
-			ctx.lineTo(Math.cos(tank.turret - 0.1) * tank.power,Math.sin(tank.turret - 0.1) * tank.power);
-			ctx.lineTo(Math.cos(tank.turret - 0.25) * tank.power,Math.sin(tank.turret - 0.25) * tank.power);
+			ctx.lineTo(Math.cos(tank.turret + 0.25) * 2*tank.power,Math.sin(tank.turret + 0.25) * 2*tank.power);
+			ctx.lineTo(Math.cos(tank.turret + 0.1) * 2*tank.power,Math.sin(tank.turret + 0.1) * 2*tank.power);
+			ctx.lineTo(Math.cos(tank.turret) * 2*tank.power,Math.sin(tank.turret) * 2*tank.power);
+			ctx.lineTo(Math.cos(tank.turret - 0.1) * 2*tank.power,Math.sin(tank.turret - 0.1) * 2*tank.power);
+			ctx.lineTo(Math.cos(tank.turret - 0.25) * 2*tank.power,Math.sin(tank.turret - 0.25) * 2*tank.power);
 			ctx.lineTo(x,y);
 			ctx.closePath();
 			ctx.fill();

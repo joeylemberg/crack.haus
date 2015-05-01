@@ -19,6 +19,9 @@ var chat = {
 		$("#chat-form").submit(function(e){
 			e.preventDefault();
 			var message = $("#chat-input").val();
+			if(!message.length){
+				return;
+			}
 			var data = {
 				type: "chat",
 				sender: lobby.tag,
