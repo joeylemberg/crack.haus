@@ -38,6 +38,7 @@ var chat = {
 
 	log: function(data){
 		var chatter = $("<p class='them-chat'><b>" + data.sender + ":</b> " + data.message + "</p>");
+		$("#chat-form, #chat-box").show();
 		$("#chat-box").append(chatter);
 		$("#chat-box").scrollTop(100000000);
 	
