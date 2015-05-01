@@ -45,8 +45,8 @@ var Tanks = {
 		return false;
 	},
 
-	units: [{id: 0, name: "tank1", gas: 100, score: 0, speed: 1, weaponIndex: 0, weapons: ["shell", "nuke", "mine shaft", "booster jets", "machine gun"],x:100,y:100,dx:0,dy:0,theta:0,turret:-45,fill:'#995d95',stroke:'#000000', grounded:false, power:100},
-	{id: 1, name: "tank2", gas: 100, score: 0, speed: 1, weaponIndex: 0, weapons: ["shell", "nuke", "mine shaft", "booster jets", "machine gun"],x:400,y:100,dx:-0.2,dy:-1,theta:0.5,turret:3,fill:'#eeeeee',stroke:'#000000', grounded:false}],
+	units: [{id: 0, name: "tank1", gas: 100, score: 0, speed: 1, weaponIndex: 0, weapons: ["shell","shell","shell", "nuke", "mine shaft", "booster jets", "machine gun","machine gun", "shotgun", "1-2-punch"],x:100,y:100,dx:0,dy:0,theta:0,turret:-45,fill:'#995d95',stroke:'#000000', grounded:false, power:100},
+	{id: 1, name: "tank2", gas: 100, score: 0, speed: 1, weaponIndex: 0, weapons: ["shell","shell","shell", "nuke", "mine shaft", "booster jets", "machine gun","machine gun", "shotgun", "1-2-punch"],x:400,y:100,dx:-0.2,dy:-1,theta:0.5,turret:3,fill:'#eeeeee',stroke:'#000000', grounded:false}],
 	
 	
 	drawTank: function(ctx, x, y, theta, turret, fill, stroke){
