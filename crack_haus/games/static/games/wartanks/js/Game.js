@@ -99,6 +99,10 @@ var Game = {
 	},
 	drawThings: function(){
 		ctx.clearRect(0,0,1000,600);
+		if(warTanks.state == "gameOver"){
+			warTanks.gameOver();
+			return;
+		}
 		Map.draw();
 		Tanks.draw();
 		Weapons.draw();

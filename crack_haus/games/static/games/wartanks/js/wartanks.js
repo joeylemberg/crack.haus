@@ -114,6 +114,13 @@ var warTanks = {
 	},
 
 	checkState: function(){
+
+				if(Game.round >= 11){
+						//warTanks.gameOver();
+						warTanks.state = "gameOver";
+						return;
+				}
+
 		switch(warTanks.state){
 			case "myTurnEnd":
 			case "hisTurnEnd":
@@ -126,11 +133,7 @@ var warTanks = {
 
 					Game.round += 0.5;
 
-					if(Game.round >= 11){
-						warTanks.gameOver();
-						warTanks.state = "gameOver";
-						return;
-					}
+					
 					if(warTanks.state == "myTurnEnd"){
 						warTanks.state = "hisTurn";
 					}else{
@@ -175,13 +178,28 @@ var warTanks = {
 		var p1 = Tanks.units[0];
 		var p2 = Tanks.units[1];
 
+		var message;
+		var tank;
+
 		if(p1.score > p2.score){
-			alert(p1.name + " wins!");
+			tank = Tanks.units[0];
 		}else if(p1.score < p2.score){
-			alert(p2.name + " wins!");
+			tank = Tanks.units[1];
 		}else{
 			alert("No one wins!");
 		}
+
+		ctx.beginPath();
+				ctx.font = "bold 24px tahoma";
+				ctx.lineJoin = "round";
+				ctx.textAlign = "center";
+				ctx.strokeStyle = tank.stroke;
+				ctx.fillStyle = tank.fill;
+				ctx.font = "bold 30px tahoma";
+				ctx.lineWidth = 5;
+				var seed = Date.now() * Date.now();
+				ctx.strokeText(tank.name + " wins !!!", 100 + seed % 13,300 + seed % 11);
+				ctx.fillText(tank.name + " wins !!!", 100 + seed % 13,300 + seed % 11);
 
 	}
 }

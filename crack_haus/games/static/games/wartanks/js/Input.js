@@ -19,7 +19,7 @@ var Input = {
 	deactivate: function(){
 //		this.x = -100;
 //		this.y = -100;
-ctx.clearRect(0,0,1000,1000);
+		ctx.clearRect(0,0,1000,1000);
 		this.active = false;
 		$(".game-canvas").removeClass("hide-mouse");
 	},
@@ -78,7 +78,10 @@ ctx.clearRect(0,0,1000,1000);
 
 		$("#game-canvas").click(function(e){
 
-								$("#chat-form, #chat-box").hide();
+			if($("#chat-form").css("display") != "none"){
+				$("#chat-form, #chat-box").hide();
+				return;
+			}
 
 			//if(!Input.active || !$("#input-lock").prop("checked")){
 			if(!Input.active){
@@ -199,7 +202,13 @@ ctx.clearRect(0,0,1000,1000);
 				Tanks.fire();
 			break;
 		
+			case 27:
+				$("#chat-form, #chat-box").hide();
+				$(":focus").blur();
+				break;
+
 			case 37:
+			case 65:
 				e.preventDefault();
 				var tank = Tanks.units[Game.turn];
 				if(!Tanks.useGas(tank)){
@@ -211,6 +220,7 @@ ctx.clearRect(0,0,1000,1000);
 				$("#tank-pos").val(tank.x);
 			break;
 				case 39:
+				case 68:
 					e.preventDefault();
 					var tank = Tanks.units[Game.turn];
 					if(!Tanks.useGas(tank)){
@@ -222,12 +232,14 @@ ctx.clearRect(0,0,1000,1000);
 					$("#tank-pos").val(tank.x);
 				break;
 				case 38:
+				case 87:
 					e.preventDefault();
 					var tank = Tanks.units[Game.turn];
 					$('#tank-ang').val(parseInt($('#tank-ang').val()) - 5);
 					tank.turret = $('#tank-ang').val() / 180 * Math.PI;
 				break;
 				case 40:
+				case 87:
 					e.preventDefault();
 					var tank = Tanks.units[Game.turn];
 					$('#tank-ang').val(parseInt($('#tank-ang').val()) + 5);
