@@ -17,6 +17,8 @@ urlpatterns = patterns('',
     url(r'^api/', include(router.get_urls())),
     # url(r'^', include('games.urls')),
 
+    url(r'', include('social_auth.urls')),
+
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
 
