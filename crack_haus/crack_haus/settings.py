@@ -57,8 +57,12 @@ LOGIN_URL          = '/login-form/'
 LOGIN_REDIRECT_URL = '/logged-in/'
 LOGIN_ERROR_URL    = '/login-error/'
 
-GITHUB_APP_ID = os.environ['GITHUB_APP_ID']
-GITHUB_API_SECRET = os.environ['GITHUB_API_SECRET']
+try:
+    GITHUB_APP_ID = os.environ['GITHUB_APP_ID']
+    GITHUB_API_SECRET = os.environ['GITHUB_API_SECRET']
+except KeyError as e:
+    GITHUB_APP_ID = ''
+    GITHUB_API_SECRET = ''
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
