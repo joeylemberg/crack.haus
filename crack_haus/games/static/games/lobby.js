@@ -285,17 +285,17 @@ var lobby = {
 }
 
 
-window.onbeforeunload = function (evt) {
- var message = 'Hope to see you again.';
-if (typeof evt == 'undefined') {
- evt = window.event;
-
-}
- if (evt ) {
-   evt.returnValue = message;
- }
-
-    return message;
-
-}
+//window.onbeforeunload = function (evt) {
+// var message = 'Hope to see you again.';
+//if (typeof evt == 'undefined') {
+// evt = window.event;
+//
+//}
+// if (evt ) {
+//   evt.returnValue = message;
+// }
+//
+//    return message;
+//
+//}
 
