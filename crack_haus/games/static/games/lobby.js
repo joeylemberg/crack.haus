@@ -214,6 +214,11 @@ var lobby = {
 				dragKings();
 				break;
 				
+			case "Ice":
+				$("body").html("<div id='game-wrapper'></div>");
+				Ice.init();
+				break;
+				
 			case "Tanx":
 			case "Tanks":
 			case "WarTanks":

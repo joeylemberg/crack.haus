@@ -114,7 +114,7 @@ var Input = {
 		$("#game-canvas").mousemove(function(e){
 			//if(!Input.active || !$("#input-lock").prop("checked")){
 
-				Input.mouseX = e.pageX * 1000 / $("#game-canvas").width();		
+			Input.mouseX = e.pageX * 1000 / $("#game-canvas").width();		
 			Input.mouseY = e.pageY * 600 / $("#game-canvas").height();
 
 			if(!Input.active || !Input.mousedown){
