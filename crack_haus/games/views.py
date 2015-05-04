@@ -1,6 +1,7 @@
 from games.models import *
 from games.serializer import *
 from rest_framework.response import Response
+from rest_framework.exceptions import APIException
 from rest_framework.permissions import AllowAny
 from rest_framework import generics, viewsets
 from rest_framework import mixins
@@ -29,11 +30,23 @@ class ProfileViewSet(viewsets.ReadOnlyModelViewSet):
     #     res = super(ProfileViewSet, self).create(request, *args, **kwargs)
     #     return res
 
+class NotInMatchException(APIException):
+    status_code = 400
+    default_detail = "user is not in this match"
 
 class MatchViewSet(CreateListRetrieveViewSet):
     queryset = Match.objects.all()
     serializer_class = MatchSerializer
 
+    def retrieve(self, request, *args, **kwargs):
+        res = super(MatchViewSet, self).retrieve(request, *args, **kwargs)
+        print request, args, kwargs
+        profile = request.user.profile
+        try:
+            Player.objects.get(profile=profile, match_id=kwargs['pk'])
+        except Player.DoesNotExist as e:
+            raise NotInMatchException
+        return res
 
 class PlayerViewSet(viewsets.ModelViewSet):
     queryset = Player.objects.all()
