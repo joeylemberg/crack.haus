@@ -15,13 +15,26 @@ class ProfileSerializer(serializers.ModelSerializer):
         depth = 1
 
 class PlayerSerializer(serializers.ModelSerializer):
-    profile = serializers.HyperlinkedRelatedField(queryset=Profile.objects.all(), view_name='profile-detail')
+    # profile = serializers.HyperlinkedRelatedField(queryset=Profile.objects.all(), view_name='profile-detail')
     match = serializers.HyperlinkedRelatedField(queryset=Match.objects.all(), view_name='match-detail')
     # profile = serializers.StringRelatedField()
 
     class Meta:
         model = Player
-        fields = ('peer_id', 'profile', 'score', 'result', 'team', 'match')
+        fields = ('profile', 'peer_id', 'score', 'result', 'team', 'match', 'id')
+        read_only_fields = ('profile',)
+
+
+
+    # def create(self, validated_data):
+    #     print 'a'
+    #     print validated_data
+    #     validated_data['profile'] = self.request.user.profile
+    #     res = super(PlayerSerializer, self).create(validated_data)
+    #     print 'hi'
+    #     return res
+
+
 
 class MatchSerializer(serializers.ModelSerializer):
     # game = serializers.StringRelatedField()

@@ -40,12 +40,12 @@ class MatchViewSet(CreateListRetrieveViewSet):
 
     def retrieve(self, request, *args, **kwargs):
         res = super(MatchViewSet, self).retrieve(request, *args, **kwargs)
-        print request, args, kwargs
-        profile = request.user.profile
         try:
-            Player.objects.get(profile=profile, match_id=kwargs['pk'])
-        except Player.DoesNotExist as e:
-            raise NotInMatchException
+            player = Player.objects.get(id=request.session['player_id'])
+            player.ping()
+            print 'got profile'
+        except (Player.DoesNotExist, KeyError) as e:
+            raise NotInMatchException(e)
         return res
 
 class PlayerViewSet(viewsets.ModelViewSet):
@@ -53,13 +53,14 @@ class PlayerViewSet(viewsets.ModelViewSet):
     serializer_class = PlayerSerializer
     permission_classes = (AllowAny,)
 
-    # def pre_save(self, obj):
-    #     obj.profile = self.request.user.profile
-    #     super(PlayerViewSet, self).pre_save(obj)
+    def pre_save(self, obj):
+        print 'hi there'
+        obj.profile = self.request.user.profile
+        # super(PlayerSerializer, self).pre_save(obj)
 
     def create(self, request, **kwargs):
         res = super(PlayerViewSet, self).create(request, **kwargs)
-        print 'hello world'
+        request.session['player_id'] = res.data['id']
         return res
 
 

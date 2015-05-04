@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save, pre_delete
+from django.db.models.signals import post_save, pre_delete, pre_save
 from django.dispatch import receiver
 from django.utils import timezone
 
@@ -59,8 +59,8 @@ class Player(models.Model):
 
     peer_id = models.CharField(max_length=32, unique=True)
 
-    profile = models.ForeignKey('Profile', editable=False)
-    match = models.ForeignKey('Match', related_name='players', editable=False, unique=True)
+    profile = models.ForeignKey('Profile', null=True, blank=True)
+    match = models.ForeignKey('Match', related_name='players', editable=False)
 
     last_ping = models.DateTimeField(auto_now_add=True)
 
@@ -72,6 +72,21 @@ class Player(models.Model):
 
     def __unicode__(self):
         return unicode(self.profile)
+
+    def purge(self):
+        for player in self.match.players.all():
+            if player.last_ping >= timezone.now() - timezone.timedelta(seconds=30):
+                # player.delete()
+                pass
+
+    def ping(self):
+        print 'ping'
+        self.last_ping = timezone.now()
+        self.save()
+        self.purge()
+
+
+
 
 class Game(models.Model):
     name = models.CharField(max_length=128)
