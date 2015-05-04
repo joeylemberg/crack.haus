@@ -1,31 +1,57 @@
-from games.models import Game, Player, Match, Profile, Lobby
-from games.serializer import GameSerializer, PlayerSerializer, MatchSerializer, ProfileSerializer, LobbySerializer
+from games.models import *
+from games.serializer import *
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from rest_framework import generics, viewsets
+from rest_framework import mixins
+from rest_framework.decorators import api_view
 from django.utils import timezone
 import datetime
 
-class ProfileViewSet(viewsets.ModelViewSet):
+class CreateListRetrieveViewSet(mixins.CreateModelMixin,
+                                mixins.ListModelMixin,
+                                mixins.RetrieveModelMixin,
+                                viewsets.GenericViewSet):
+    """
+    A viewset that provides `retrieve`, `create`, and `list` actions.
+
+    To use it, override the class and set the `.queryset` and
+    `.serializer_class` attributes.
+    """
+    pass
+
+class ProfileViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
 
-class MatchViewSet(viewsets.ReadOnlyModelViewSet):
+    # def create(self, request, *args, **kwargs):
+    #     print request
+    #     res = super(ProfileViewSet, self).create(request, *args, **kwargs)
+    #     return res
+
+
+class MatchViewSet(CreateListRetrieveViewSet):
     queryset = Match.objects.all()
     serializer_class = MatchSerializer
 
-class LobbyViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Lobby.objects.all()
-    serializer_class = LobbySerializer
+    def retrieve(self, request, *args, **kwargs):
+        res = super(MatchViewSet, self).retrieve(request, *args, **kwargs)
+        print 'match retrieve'
+
+        return res
 
 class PlayerViewSet(viewsets.ModelViewSet):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
     permission_classes = (AllowAny,)
 
+    # def pre_save(self, obj):
+    #     obj.profile = self.request.user.profile
+    #     super(PlayerViewSet, self).pre_save(obj)
+
     def create(self, request, **kwargs):
         res = super(PlayerViewSet, self).create(request, **kwargs)
-        request.session['player_id'] = res.data['id']
+        print 'hello world'
         return res
 
 

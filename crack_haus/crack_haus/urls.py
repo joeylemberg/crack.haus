@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from games.views import GameViewSet, PlayerViewSet, MatchViewSet, ProfileViewSet, LobbyViewSet
+from games.views import *
 from rest_framework import routers
 from django.views.generic import TemplateView
 
@@ -9,7 +9,7 @@ router = routers.DefaultRouter()
 router.register(r'players', PlayerViewSet)
 router.register(r'games', GameViewSet)
 router.register(r'matches', MatchViewSet)
-router.register(r'lobbies', LobbyViewSet)
+# router.register(r'lobbies', LobbyViewSet)
 router.register(r'profiles', ProfileViewSet)
 
 urlpatterns = patterns('',
