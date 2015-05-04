@@ -30,8 +30,8 @@ class MatchSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Match
-        fields = ('game', 'players', 'url','state', 'created_at', 'started_at', 'done_at',)
-        read_only_fields = ('state','created_at', 'started_at', 'done_at',)
+        fields = ('name', 'game', 'players', 'url','state', 'created_at', 'started_at', 'done_at',)
+        read_only_fields = ('name', 'state','created_at', 'started_at', 'done_at',)
 
     def create(self, validated_data):
         res = super(MatchSerializer, self).create(validated_data)
@@ -55,7 +55,7 @@ class MatchSerializer(serializers.ModelSerializer):
 
 class GameSerializer(serializers.ModelSerializer):
     lobby_size = serializers.IntegerField(source='get_lobby_size', read_only=True)
-    lobby_set = serializers.HyperlinkedRelatedField(many=True, source='get_lobbies', view_name='match-detail', read_only=True)
+    lobby_set = MatchSerializer(many=True, source='get_lobbies', read_only=True)
     # lobbies = serializers.HyperlinkedRelatedField(source="match_set.filter(state='j')", view_name='match-detail', queryset=Match.objects.all())
     # match_set = serializers.HyperlinkedRelatedField(many=True, view_name='lobby-detail', lookup_field='game')
     # lobbies = serializers.PrimaryKeyRelatedField(source='get_lobbies', read_only=True)

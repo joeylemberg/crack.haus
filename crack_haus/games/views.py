@@ -36,6 +36,10 @@ class MatchViewSet(CreateListRetrieveViewSet):
 
     def retrieve(self, request, *args, **kwargs):
         res = super(MatchViewSet, self).retrieve(request, *args, **kwargs)
+        print request, args, kwargs
+        profile = request.user.profile
+        Player.objects.get_or_create(profile=profile, match_id=kwargs['pk'])
+
         print 'match retrieve'
 
         return res

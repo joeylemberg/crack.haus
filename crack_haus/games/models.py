@@ -37,7 +37,7 @@ class Match(models.Model):
         ('p', 'play'),
         ('d', 'done'),
     )
-
+    name = models.CharField(max_length=32)
     state = models.CharField(choices=STATE_CHOICES, default='j', max_length=3)
     game = models.ForeignKey('Game')
     # host = models.ForeignKey('Player', related_name='hosted_match')
