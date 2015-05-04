@@ -31,7 +31,7 @@ class MatchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Match
         fields = ('name', 'game', 'players', 'url','state', 'created_at', 'started_at', 'done_at',)
-        read_only_fields = ('name', 'state','created_at', 'started_at', 'done_at',)
+        read_only_fields = ('state','created_at', 'started_at', 'done_at',)
 
     def create(self, validated_data):
         res = super(MatchSerializer, self).create(validated_data)
