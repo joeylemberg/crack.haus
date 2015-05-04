@@ -34,15 +34,6 @@ class MatchViewSet(CreateListRetrieveViewSet):
     queryset = Match.objects.all()
     serializer_class = MatchSerializer
 
-    def retrieve(self, request, *args, **kwargs):
-        res = super(MatchViewSet, self).retrieve(request, *args, **kwargs)
-        print request, args, kwargs
-        profile = request.user.profile
-        Player.objects.get_or_create(profile=profile, match_id=kwargs['pk'])
-
-        print 'match retrieve'
-
-        return res
 
 class PlayerViewSet(viewsets.ModelViewSet):
     queryset = Player.objects.all()

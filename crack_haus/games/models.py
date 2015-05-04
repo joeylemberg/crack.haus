@@ -47,7 +47,7 @@ class Match(models.Model):
     done_at = models.DateTimeField(null=True, blank=True)
 
     def __unicode__(self):
-        return "{0} {1} {2}".format(unicode(self.game), 'lobby' if self.state == 'j' else 'match', self.id)
+        return "{0} ({1} {2})".format(self.name, unicode(self.game), 'lobby' if self.state == 'j' else 'match')
 
 class Player(models.Model):
     RESULT_CHOICES = (
@@ -60,7 +60,7 @@ class Player(models.Model):
     peer_id = models.CharField(max_length=32, unique=True)
 
     profile = models.ForeignKey('Profile', editable=False)
-    match = models.ForeignKey('Match', related_name='players', editable=False)
+    match = models.ForeignKey('Match', related_name='players', editable=False, unique=True)
 
     last_ping = models.DateTimeField(auto_now_add=True)
 
