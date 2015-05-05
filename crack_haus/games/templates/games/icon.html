@@ -67,7 +67,7 @@ ctx.beginPath();
 
 ctx.translate(0,20);
 ctx.fillStyle = outlineGrad;
-ctx.arc(0,0,35,0,Math.PI*2, 1);
+ctx.arc(0,7,33,0,Math.PI*2, 1);
 ctx.closePath();
 ctx.fill();
 
@@ -88,9 +88,29 @@ ctx.arc(0,0,35,0,Math.PI, 0);
 ctx.stroke();
 ctx.fillStyle= grd;
 ctx.fill();
-ctx.restore();
+ctx.closePath();
+ctx.clip();
 
-var handle = [[60, 79], [72, 55],[78, 52], [82, 53], [83, 53], [90, 60], [80, 78], [58, 85]];
+ctx.beginPath();
+
+//ctx.save();
+
+/*var grd4=ctx.createRadialGradient(0,30,20,0,30,50);
+grd4.addColorStop(0,"rgba(0,0,0,0)");
+grd4.addColorStop(1,"rgba(0,0,0,0.2)");
+
+ctx.beginPath();
+ctx.translate(0,30);
+ctx.scale(1,0.3);
+ctx.arc(0,0,15,0,Math.PI*2, 0);
+ctx.fillStyle = grd4;
+//ctx.fillRect(0,30,200,200);
+ctx.fill();
+//ctx.restore();
+
+ctx.restore();*/
+
+var handle = [[60, 79], [72, 55],[78, 52], [82, 52], [83, 52.5], [86, 53], [87, 54], [90, 60], [80, 78], [58, 85]];
 
 ctx.save();
 ctx.translate(5,0);
@@ -147,6 +167,8 @@ ctx.fill();
 ctx.restore();
 
 
+
+
 ctx.save();
 ctx.translate(60,90);
 ctx.scale(1, 0.18);
@@ -163,6 +185,8 @@ ctx.fill();
 ctx.restore();
 
 console.log(document.getElementById("canvas").toDataURL());
+
+ctx.save();
 
 /*ctx.moveTo(74, 55);
 ctx.quadraticCurveTo(74, 40, 100, 50);
