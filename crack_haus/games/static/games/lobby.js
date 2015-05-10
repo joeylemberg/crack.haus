@@ -212,7 +212,7 @@ var lobby = {
 		switch(lobby.game.name){
 			
 			case "Blue Ice":
-				Game.init();
+				IceGame.init();
 				game = Game;
 				break;
 			

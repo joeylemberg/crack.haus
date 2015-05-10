@@ -1,4 +1,4 @@
-var Input = {
+var IceInput = {
 	
 	x: 100,
 	y: 100,

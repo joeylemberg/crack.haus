@@ -12,7 +12,7 @@ var me = p0;
 var him = p1;
 var things = [p0,p1,puck];
 
-var Game = {
+var IceGame = {
 	
 	state: "new",
 	
@@ -20,6 +20,18 @@ var Game = {
 	shotClock: 12,
 	
 	init: function(){
+		
+		Game = IceGame;
+		Input = IceInput;
+		Util = IceUtil;
+		
+		p0 = {x: 400, y: 200, dx: 0, dy: 0, r: 40, mass: 40, fill: "blue", stroke: "black", score: 0};
+		p1 = {x: 400, y: 600, dx: 0, dy: 0, r: 40, mass: 40, fill: "red", stroke: "black", score: 0};
+		puck = {x: 500, y: 250, dx: 2, dy: 0, r: 20, mass: 15, color: "black", trail: [], lastCross: Date.now(), side: "left"};
+		rink = {w: 900, h: 400, r: 50, margin: 50};
+		me = p0;
+		him = p1;
+		things = [p0,p1,puck];
 		
 		if(playerId == 1){
 			me = p1;

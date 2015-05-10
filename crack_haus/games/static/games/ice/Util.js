@@ -1,4 +1,4 @@
-var Util = {
+var IceUtil = {
 	
 	dist: function(a,b){
 		var dx = a.x - b.x;
