@@ -7,8 +7,6 @@ var chat = {
 
 	/*	var chatWrapper = $("<div id='chat-wrapper'></div>");
 
-		
-
 		chatWrapper.append(chatInput);
 
 		chatWrapper.append(chatLog);*/
