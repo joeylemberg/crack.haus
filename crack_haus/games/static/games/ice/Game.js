@@ -16,7 +16,7 @@ var Game = {
 	
 	state: "new",
 	
-	timeLimit: 20,
+	timeLimit: 120,
 	shotClock: 12,
 	
 	init: function(){
@@ -261,7 +261,7 @@ var Game = {
 			p1.score++;
 			setTimeout(function(){
 				Game.resetPuck();
-				Game.start -= 5000;
+				Game.start += 5000;
 			}, 5000);
 		}
 		
@@ -271,6 +271,7 @@ var Game = {
 			p0.score++;
 			setTimeout(function(){
 				Game.resetPuck();
+				Game.start += 5000;
 			}, 5000);
 		}
 		
