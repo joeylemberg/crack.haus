@@ -16,7 +16,7 @@ var Game = {
 	
 	state: "new",
 	
-	timeLimit: 60,
+	timeLimit: 20,
 	shotClock: 12,
 	
 	init: function(){
@@ -33,7 +33,17 @@ var Game = {
 		Input.init();
 		Game.resize();
 		$(window).resize(Game.resize);
-		Game.loop();	
+		
+		Game.loop();
+		Game.replay();
+	},
+	
+	replay: function(){
+		clearTimeout(Game.countdown);
+		p0.score = 0;
+		p1.score = 0;
+		Game.start = Date.now();
+		Game.resetPuck();
 	},
 	
 	resize: function(){
@@ -133,6 +143,9 @@ var Game = {
 		//puck.t--;
 		//Game.moveMe();
 		//Game.movePuck();
+		
+		//him.x += him.dx;
+		//him.y += him.dy;
 		
 		if((Date.now() - puck.lastCross) > Game.shotClock * 1000){
 			if(puck.side == "left" && playerId == 0){
@@ -248,7 +261,7 @@ var Game = {
 			p1.score++;
 			setTimeout(function(){
 				Game.resetPuck();
-				
+				Game.start -= 5000;
 			}, 5000);
 		}
 		
@@ -269,6 +282,8 @@ var Game = {
 		}*/
 		
 		if(puck.free){
+			puck.dx *= 0.95;
+			puck.dy *= 0.95;
 			return;
 		}
 		
@@ -398,18 +413,14 @@ var Game = {
 						Game.state = "finished";
 						puck.free = true;
 						time = "GAME OVER";
-						if(!Game.countDown){
-							Game.countDown = setTimeout(Game.init, 5000);
-						}
+						Game.countdown = setTimeout(Game.replay, 5000);
 					//	return;
 					}else if(p1.score > p0.score){
 						Game.scorer = p1;
 						Game.state = "finished";
 						puck.free = true;
 						time = "GAME OVER";
-						if(!Game.countDown){
-							Game.countDown = setTimeout(Game.init, 5000);
-						}
+						Game.countdown = setTimeout(Game.replay, 5000);
 				//		return;
 					}else{
 						time = "OVERTIME";
