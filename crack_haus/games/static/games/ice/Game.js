@@ -4,9 +4,9 @@
 // for crack.haus, all rights reserved
 // joeylemberg@gmail.com
 
-var p0 = {x: 400, y: 200, dx: 0, dy: 0, r: 40, mass: 40, color: "blue"};
-var p1 = {x: 400, y: 600, dx: 0, dy: 0, r: 40, mass: 40, color: "red"};
-var puck = {x: 500, y: 250, dx: 2, dy: 0, r: 20, mass: 15, color: "black"};
+var p0 = {x: 400, y: 200, dx: 0, dy: 0, r: 40, mass: 40, fill: "blue", stroke: "black", score: 0};
+var p1 = {x: 400, y: 600, dx: 0, dy: 0, r: 40, mass: 40, fill: "red", stroke: "black", score: 0};
+var puck = {x: 500, y: 250, dx: 2, dy: 0, r: 20, mass: 15, color: "black", trail: []};
 var rink = {w: 900, h: 400, r: 50, margin: 50};
 var me = p0;
 var him = p1;
@@ -16,27 +16,53 @@ var Game = {
 	
 	state: "new",
 	
+	timeLimit: 60,
+	
 	init: function(){
 		
 		if(playerId == 1){
 			me = p1;
 			him = p0;
-			Game.resetPuck();
 		}
+		
+		Game.resetPuck();
 		
 		
 		Game.initHtml();
+		Game.start = Date.now();
 		Input.init();
+		Game.resize();
+		$(window).resize(Game.resize);
 		Game.loop();	
+	},
+	
+	resize: function(){
+		Game.w = $("#game-wrapper").width() * window.devicePixelRatio;
+		Game.h = $("#game-wrapper").height() * window.devicePixelRatio;
+		Game.canvas.width = Game.w;
+		Game.canvas.height = Game.h;
+		Game.ctx.restore();
+		Game.ctx.save();
+		Game.ctx.scale(Game.w/1000, Game.h/500);
 	},
 	
 	resetPuck: function(){
 		puck.free = false;
 		puck.hit = true;
 			puck.x = 500;
+			if(Game.scorer == p0){
+				puck.x += 250
+			}else{
+				puck.x -= 250;
+			}
+			Game.scorer = null;
 			puck.y = 250;
 			puck.dx = -1 + Math.random() * 2;
 			puck.dy = -1 + Math.random() * 2;
+		puck.trail = [];
+		for(var i = 0; i < 10; i++){
+			puck.trail.push([puck.x, puck.y]);
+		}
 	},
 	
 	onMessage: function(data){
@@ -54,10 +80,13 @@ var Game = {
 	},
 	
 	initHtml: function(){
-		$("body").html("<div id='game-wrapper'></div>");
+		$("body").html("<div id='game-wrapper' style='width:100%;height:100%;'></div>");
 		Game.canvas = document.createElement("canvas");
 		Game.canvas.width = 1000;
 		Game.canvas.height = 500;
+		$(Game.canvas).css({
+			"width": "100%",
+			"height": "100%" });
 		$(Game.canvas).css("background-color", "#d1f8ff");
 		Game.ctx = Game.canvas.getContext("2d");
 		$("#game-wrapper").append(Game.canvas);
@@ -83,6 +112,8 @@ var Game = {
 		}
 		puck.hit = false;
 		
+		puck.trail.pop();
+		puck.trail.unshift([puck.x, puck.y]);
 	},
 	
 	speedLimit: 60,
@@ -168,17 +199,30 @@ var Game = {
 		//if(puck.x < rink.margin){
 			
 		//}
-		
-		if((puck.x - puck.r < 50 || puck.x + puck.r > 950) && puck.y + puck.r > 200 + puck.r && puck.y - puck.r < 300 - puck.r){
+		if(!puck.free && puck.x - puck.r < 50 && puck.y + puck.r > 200 + puck.r && puck.y - puck.r < 300 - puck.r){
 			puck.free = true;
+			Game.scorer = p1;
+			p1.score++;
+			setTimeout(function(){
+				Game.resetPuck();
+			}, 5000);
 		}
 		
-		if(puck.x < -100 || puck.x > 1100 || puck.y < -100 || puck.y > 600 ){
-			if(playerId == 1){
+		if(!puck.free && puck.x + puck.r > 950 && puck.y + puck.r > 200 + puck.r && puck.y - puck.r < 300 - puck.r){
+			puck.free = true;
+			Game.scorer = p0;
+			p0.score++;
+			setTimeout(function(){
 				Game.resetPuck();
+			}, 5000);
+		}
+		
+		/*if(puck.x < -100 || puck.x > 1100 || puck.y < -100 || puck.y > 600 ){
+			if(playerId == 1){
+				
 			}
 			
-		}
+		}*/
 		
 		if(puck.free){
 			return;
@@ -212,34 +256,7 @@ var Game = {
 			}
 		}
 		
-		
-		
-		//Game.fitInRink(puck);
-		
-		//Game.movePuck();
-		
-		/*p0.speed = Util.speed(p0);
-		p1.speed = Util.speed(p1);
-		puck.speed = Util.speed(puck);
-		
-		var frames = Math.max(puck.speed, Math.max(p0.speed, p1.speed));
-		
-		for(var i = 0; i < things.length; i++){
-			var a = things[i];
-			for(var j = 0; i < things.length; i++){
-				if(i == j){
-					continue;
-				}
-				var b = things[j];
-				if(Util.dist(a, b) < a.r + b.r){
-					a.x += a.r + b.r + 10;
-					return;
-				}
-			}
-			a.x += a.dx/frames;
-			a.y += a.dy/frames;
-		}*/
-		
+		Game.fitInRink(puck);
 	},
 	
 	moveMe: function(){
@@ -261,32 +278,6 @@ var Game = {
 		me.y += me.dy;
 		
 		Game.fitInRink(me);
-		
-		
-		
-		/*var frames = Math.ceil(Util.speed(me));
-		if(!frames){
-			return;
-		}
-		
-		var fdx = dx / frames;
-		var fdy = dy / frames;
-		var pdx = puck.dx / frames;
-		var pdy = puck.dy / frames;
-		
-		for(var i = 0; i < frames; i++){
-			if(puck.t < 0 && Util.dist(me, puck) < me.r + puck.r){
-				Util.collide(me, puck);
-				puck.t = 5;
-				puck.x += puck.dx;
-				puck.y += puck.dy;
-				return;
-			}
-			me.x += fdx;
-			me.y += fdy;
-			puck.x += pdx;
-			puck.y += pdy;
-		}*/
 	},
 	
 	movePuck: function(){
@@ -313,11 +304,7 @@ var Game = {
 			y1 = rink.h + rink.margin - puck.r;
 			puck.dy *= -1;
 		}
-
-		/*var d = Ice.dist(x1, y1, Ice.p0.x, Ice.p0.y);
-		if(d < puck.r + Ice.p0.r){
-			return;
-		}*/
+		
 		puck.x = x1;
 		puck.y = y1;
 	},
@@ -341,10 +328,87 @@ var Game = {
 		}
 	},
 	
+	drawScoreBoard: function(){
+		
+		var ctx = Game.ctx;
+		
+		ctx.save();
+			ctx.beginPath();
+			ctx.font = "bold 28px sans-serif";
+			ctx.lineJoin = "round";
+			//ctx.strokeStyle = Tanks.units[i].stroke;
+			//ctx.fillStyle = Tanks.units[i].fill;
+			ctx.strokeStyle = "black";
+			ctx.fillStyle = "white";
+			ctx.lineWidth = 6;
+			
+				ctx.textAlign = "center";
+				var time = Math.round((Game.timeLimit * 1000 - (Date.now() - Game.start))/1000);
+				if(time < 0){
+					if(p0.score > p1.score){
+						Game.scorer = p0;
+						Game.state = "finished";
+						puck.free = true;
+						time = "GAME OVER";
+					//	return;
+					}else if(p1.score > p0.score){
+						Game.scorer = p1;
+						Game.state = "finished";
+						puck.free = true;
+						time = "GAME OVER";
+				//		return;
+					}else{
+						time = "OVERTIME";
+					}
+				}
+				ctx.strokeText(time, 500,40);
+				ctx.fillText(time, 500,40);
+				
+				
+			
+				ctx.textAlign = "left";
+				ctx.strokeStyle = p0.stroke;
+				ctx.fillStyle = p0.fill;
+				ctx.strokeText(p0.score, 25,40);
+				ctx.fillText(p0.score, 25,40);
+				
+				ctx.textAlign = "right";
+				ctx.strokeStyle = p1.stroke;
+				ctx.fillStyle = p1.fill;
+				ctx.strokeText(p1.score, 975,40);
+				ctx.fillText(p1.score, 975,40);
+				
+				if(puck.free){
+					ctx.translate(500, 250);
+					ctx.scale(5,5);
+					ctx.textAlign = "right";
+					ctx.strokeStyle = p0.stroke;
+					ctx.fillStyle = p0.fill;
+					ctx.strokeText(p0.score, -20,0);
+					ctx.fillText(p0.score, -20,0);
+					
+					ctx.textAlign = "left";
+					ctx.strokeStyle = p1.stroke;
+					ctx.fillStyle = p1.fill;
+					ctx.strokeText(p1.score, 20,0);
+					ctx.fillText(p1.score, 20,0);
+				}
+				
+
+			ctx.restore();
+	},
+	
+	
+	
 	draw: function(){
 		
 		var ctx = Game.ctx;
+		
+		
+		
 		ctx.clearRect(0,0,1000,500);
+		
+		
 		
 		ctx.lineWidth = 3;
 		ctx.beginPath();
@@ -380,26 +444,56 @@ var Game = {
 		
 		
 		ctx.beginPath();
-		ctx.fillStyle = p0.color;
+		ctx.lineWidth = 3;
+		ctx.fillStyle = p0.fill;
+		ctx.strokeStyle = p0.stroke;
 		ctx.arc(p0.x, p0.y, p0.r, 0, Math.PI*2, 1);
+		ctx.stroke();
 		ctx.fill();
+		ctx.beginPath();
+		ctx.arc(p0.x, p0.y, p0.r * 0.4, 0, Math.PI*2, 1);
+		ctx.fillStyle = "rgba(0,0,0,0.1)";
+		ctx.fill();
+		ctx.stroke();
 		
 		ctx.beginPath();
-		ctx.fillStyle = p1.color;
-		ctx.arc(p1.x, p1.y, p0.r, 0, Math.PI*2, 1);
+		ctx.fillStyle = p1.fill;
+		ctx.strokeStyle = p1.stroke;
+		ctx.arc(p1.x, p1.y, p1.r, 0, Math.PI*2, 1);
+		ctx.stroke();
 		ctx.fill();
+		ctx.beginPath();
+		ctx.arc(p1.x, p1.y, p1.r * 0.4, 0, Math.PI*2, 1);
+		ctx.fillStyle = "rgba(0,0,0,0.2)";
+		ctx.fill();
+		ctx.stroke();
 		
 		ctx.beginPath();
 		ctx.fillStyle = puck.color;
 		ctx.arc(puck.x, puck.y, puck.r, 0, Math.PI*2, 1);
 		ctx.fill();
 		
+		/*for(var i = 0; i < puck.trail.length; i++){
+			ctx.beginPath();
+			ctx.globalAlpha = (10-i) / 10;
+			ctx.fillStyle = puck.color;
+			ctx.arc(puck.trail[i][0], puck.trail[i][1], puck.r, 0, Math.PI*2, 1);
+			ctx.fill();
+		}*/
+		
 		if(puck.free){
-			ctx.fillStyle= "rgba(200,0,0,0.5)";
+			//ctx.globalAlpha = 1 / Math.floor(Date.now() % 11);
+			ctx.save();
+			ctx.fillStyle = Game.scorer.fill;
+			ctx.globalAlpha = (Math.round(Date.now() / 5) % 100) / 100;
+			
 			ctx.fillRect(0,0,1000,500);
+			ctx.restore();
 		}
 		
+		ctx.globalAlpha = 1;
 		
+		Game.drawScoreBoard();
 	}
 	
 	

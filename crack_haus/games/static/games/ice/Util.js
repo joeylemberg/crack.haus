@@ -42,6 +42,9 @@ var Util = {
 		
 		
 		
+		//b.x -= b.dx;
+		//b.y -= b.dy;
+		
 		
 		var fa = Util.force(a,b);
 		var fb = Util.force(b,a);
@@ -65,8 +68,6 @@ var Util = {
 		b.y += b.dy;*/
 		
 		Util.spread(a,b);
-		
-		
 		
 		
 	},
