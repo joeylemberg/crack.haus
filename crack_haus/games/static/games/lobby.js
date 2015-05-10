@@ -8,6 +8,11 @@ $(document).ready(function(){
 	lobby.init();
 });
 
+function csrfSafeMethod(method) {
+    		// these HTTP methods do not require CSRF protection
+    		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+		}
+
 var lobby = {
 
 	game: null,
@@ -80,7 +85,7 @@ var lobby = {
 
 		for(i = 0; i < games.length; i++){
 			game = games[i];
-			html += "<tr class='listed-game' data-id='" + game.id + "' data-name='" + game.name + "'>";
+			html += "<tr class='listed-game' data-url='" + game.url + "' data-id='" + game.id + "' data-name='" + game.name + "'>";
 			html += "<td>" + game.name + "</td>";
 			html += "<td>" + game.description + "</td>";
 		        html += "<td>" + game.lobby_size + "</td>";
@@ -93,22 +98,22 @@ var lobby = {
 	setGame: function(e){
 		var clickedRow = $(e.target).closest(".listed-game");
 		lobby.game = {
+            url: clickedRow.attr("data-url"),
 			name: clickedRow.attr("data-name"),
 			id: clickedRow.attr("data-id")
 		};
 		$(".lobby-name").html(lobby.game.name+ " lobby");
 		$("#all-games").empty();
-		lobby.sendUserData();
+         var hostMatch = $("<div class='host-game' >Host Game</div>");
+        $("#all-games").after(hostMatch);
+        $(".host-game").click(lobby.hostMatch);
+        lobby.interval = setInterval(lobby.getHostedGames, 1000);
+		//lobby.sendUserData();
 	},
 
 	sendUserData: function(e){
-		function csrfSafeMethod(method) {
-    		// these HTTP methods do not require CSRF protection
-    		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-		}
-		lobby.peer = new Peer({key: 'j12fo2q0wvwvcxr'});
-		lobby.peer.on('connection', lobby.peerConnect);
-		lobby.tag = prompt("Please enter your name", "player" + Math.round(Math.random() * 1000));
+
+
 		function postIt(){
 			if(lobby.peer.id){
 				$.ajax({
@@ -119,16 +124,20 @@ var lobby = {
 			    data: JSON.stringify({
 			    	peer_id: lobby.peer.id,
 			    	tag: lobby.tag,
-			    	game: lobby.game.id
+			    	"score": 0,
+                    "result": "",
+                    "team": null,
+                    "match": lobby.match.url
 			    }),
-			    beforeSend: function(xhr, settings) {
+                beforeSend: function(xhr, settings) {
 			        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
 			            xhr.setRequestHeader("X-CSRFToken", $("body").attr("data-token"));
 			        }
 			    },
 			    success: function (data) {
-			    	lobby.userId = data.id;
-			        lobby.interval = setInterval(lobby.getPlayers, 1000);
+			    	//lobby.userId = data.id;
+			        lobby.interval = setInterval(lobby.refreshMatch, 1000);
+                    console.log(data);
 			    },
 			    failure: function(data){
 			    	console.log(data);
@@ -148,7 +157,37 @@ var lobby = {
 		
 	},
 
-	getPlayers: function(){
+    refreshMatch: function(){
+        $.ajax({
+		    type: "GET",
+		    contentType: "application/json",
+		    url: lobby.match.url,
+		    data: {},
+		    success: function (data) {
+		        console.log(data);
+                lobby.renderMatch(data);
+		    },
+		    failure: function(data){
+		    	console.log(data);
+		    },
+		    complete: function(data){
+		    	console.log("data");
+		    }
+		});
+    },
+
+    renderMatch: function(data){
+        $("#all-games").empty();
+        $(".host-game").remove();
+
+        var html = "<div class='hosted-match'>";
+        html += JSON.stringify(data);
+        html += "</div>";
+
+        $("#all-games").html(html);
+    },
+
+	getHostedGames: function(){
 		$.ajax({
 		    type: "GET",
 		    contentType: "application/json",
@@ -163,7 +202,12 @@ var lobby = {
 	},
 
 	renderLobby: function(data){
-		var i, player;
+        console.log(data);
+		var i, lobby;
+
+       // var html = "<div>lobbies: " + data.JSON.stringify(lobby_set) + "</div>";
+
+       // html += "<div class='host-a-game'>HOST A GAME</div>";
 
 		var html = "<table class='game-table' cellspacing='0' >";
  
@@ -171,15 +215,52 @@ var lobby = {
 		html += "<th>Tag</th>";
 		html += "</tr>";
 
-		for(i = 0; i < data.players.length; i++){
-			player = data.players[i];
-			html += "<tr class='open-game " + (player.id == lobby.userId ? "self-listing" : "") + "' data-id='" + player.id + " data-tag='" + player.tag + "' data-peer-id='" + player.peer_id + "'>";
-			html += "<td>" + player.tag + (player.id == lobby.userId ? "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>(you)</i>" : "") + "</td>";
+		for(i = 0; i < data.lobby_set.length; i++){
+			lobby = data.lobby_set[i];
+			html += "<tr class='open-lobby' data-url='" + lobby.url + "'>";
+			html += "<td>" + lobby.name + "</td>";
 			html += "</tr>"
 		}
 		$("#all-games").empty();
 		$("#all-games").append(html);
+
+
 	},
+
+    hostMatch: function(){
+
+    lobby.peer = new Peer({key: 'j12fo2q0wvwvcxr'});
+		lobby.peer.on('connection', lobby.peerConnect);
+		lobby.tag = prompt("Please enter your name", "player" + Math.round(Math.random() * 1000));
+
+
+        $.ajax({
+		    type: "POST",
+		    contentType: "application/json",
+            accepts: "application/json",
+		    url: "api/matches/",
+            data: JSON.stringify({
+                "name": lobby.tag + "'s game" ,
+                "game": lobby.game.id
+            }),
+            beforeSend: function(xhr, settings) {
+			        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+			            xhr.setRequestHeader("X-CSRFToken", $("body").attr("data-token"));
+			        }
+			    },
+		    success: function (data) {
+               lobby.match = data;
+                clearInterval(lobby.interval);
+               // lobby.interval = setInterval(lobby.refreshHostedMatch);
+               lobby.sendUserData();
+		       console.log(data);
+		       // lobby.renderLobby(data);
+		    },
+		    failure: function(data){
+		    	console.log(data);
+		    }
+		});
+    },
 
 	acceptGame: function(e){
 		
