@@ -210,6 +210,12 @@ var lobby = {
 		$("#all-games, .lobby-name, .main-title").remove();
 
 		switch(lobby.game.name){
+			
+			case "Blue Ice":
+				Game.init();
+				game = Game;
+				break;
+			
 			case "Dragkings":
 				dragKings();
 				break;
