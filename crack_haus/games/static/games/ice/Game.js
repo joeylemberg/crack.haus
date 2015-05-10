@@ -6,7 +6,7 @@
 
 var p0 = {x: 400, y: 200, dx: 0, dy: 0, r: 40, mass: 40, fill: "blue", stroke: "black", score: 0};
 var p1 = {x: 400, y: 600, dx: 0, dy: 0, r: 40, mass: 40, fill: "red", stroke: "black", score: 0};
-var puck = {x: 500, y: 250, dx: 2, dy: 0, r: 20, mass: 15, color: "black", trail: []};
+var puck = {x: 500, y: 250, dx: 2, dy: 0, r: 20, mass: 15, color: "black", trail: [], lastCross: Date.now(), side: "left"};
 var rink = {w: 900, h: 400, r: 50, margin: 50};
 var me = p0;
 var him = p1;
@@ -17,6 +17,7 @@ var Game = {
 	state: "new",
 	
 	timeLimit: 60,
+	shotClock: 12,
 	
 	init: function(){
 		
@@ -26,7 +27,6 @@ var Game = {
 		}
 		
 		Game.resetPuck();
-		
 		
 		Game.initHtml();
 		Game.start = Date.now();
@@ -49,17 +49,28 @@ var Game = {
 	resetPuck: function(){
 		puck.free = false;
 		puck.hit = true;
-			puck.x = 500;
+			puck.x = 400 + 200 * Math.random();
 			if(Game.scorer == p0){
 				puck.x += 250
 			}else{
 				puck.x -= 250;
 			}
-			Game.scorer = null;
-			puck.y = 250;
+			puck.y = 150 + 200 * Math.random();
 			puck.dx = -1 + Math.random() * 2;
 			puck.dy = -1 + Math.random() * 2;
 		puck.trail = [];
+		puck.lastCross = Date.now();
+		
+		if(Util.dist(puck, p0) < puck.r + p0.r + 2 || Util.dist(puck, p1) < puck.r + p1.r + 2){
+			Game.resetPuck();
+			return;
+		}
+		
+		if(puck.x < 500){
+			puck.side = "left";
+		}else{
+			puck.side = "right";
+		}
 		for(var i = 0; i < 10; i++){
 			puck.trail.push([puck.x, puck.y]);
 		}
@@ -122,6 +133,38 @@ var Game = {
 		//puck.t--;
 		//Game.moveMe();
 		//Game.movePuck();
+		
+		if((Date.now() - puck.lastCross) > Game.shotClock * 1000){
+			if(puck.side == "left" && playerId == 0){
+				puck.x = 750;
+				puck.y = 250;
+				puck.dx = 0;
+				puck.dy = 0;
+				puck.lastCross = Date.now();
+				puck.hit = true;
+				//return;
+			}else if(puck.side == "right" && playerId == 1){
+				puck.x = 250;
+				puck.y = 250;
+				puck.dx = 0;
+				puck.dy = 0;
+				puck.lastCross = Date.now();
+				puck.hit = true;
+				//return;
+			}
+		}
+		
+		if(puck.side == "left"){
+				if(puck.x > 500){
+					puck.side = "right";
+					puck.lastCross = Date.now();
+				}
+			}else if(puck.side == "right"){
+				if(puck.x < 500){
+					puck.side = "left";
+					puck.lastCross = Date.now();
+				}
+			}
 		
 		
 		var dx = Input.x - me.x;
@@ -205,6 +248,7 @@ var Game = {
 			p1.score++;
 			setTimeout(function(){
 				Game.resetPuck();
+				
 			}, 5000);
 		}
 		
@@ -328,6 +372,10 @@ var Game = {
 		}
 	},
 	
+	countDown: function(){
+		
+	},
+	
 	drawScoreBoard: function(){
 		
 		var ctx = Game.ctx;
@@ -350,48 +398,91 @@ var Game = {
 						Game.state = "finished";
 						puck.free = true;
 						time = "GAME OVER";
+						if(!Game.countDown){
+							Game.countDown = setTimeout(Game.init, 5000);
+						}
 					//	return;
 					}else if(p1.score > p0.score){
 						Game.scorer = p1;
 						Game.state = "finished";
 						puck.free = true;
 						time = "GAME OVER";
+						if(!Game.countDown){
+							Game.countDown = setTimeout(Game.init, 5000);
+						}
 				//		return;
 					}else{
 						time = "OVERTIME";
 					}
 				}
-				ctx.strokeText(time, 500,40);
-				ctx.fillText(time, 500,40);
+				ctx.strokeText(time, 500,35);
+				ctx.fillText(time, 500,35);
 				
+				var shotClock = Math.round((Game.shotClock * 1000 - (Date.now() - puck.lastCross))/1000);
+				if(shotClock < 0 || shotClock > 10){
+					shotClock = "";
+				}
+				
+				if(time < 10){
+					ctx.strokeStyle = "rgba(0,0,0,0.8)";
+					ctx.fillStyle = "rgba(255,255,255,0.8)";
+					ctx.font = "bold 120px sans-serif";
+					ctx.strokeText(time, 500,290);
+					ctx.fillText(time, 500,290);
+				}else if(shotClock < 4){
+					ctx.strokeStyle = "rgba(0,0,0,0.8)";
+					ctx.fillStyle = "rgba(255,255,255,0.8)";
+					ctx.font = "bold 120px sans-serif";
+					ctx.strokeText(shotClock, 500,290);
+					ctx.fillText(shotClock, 500,290);
+				}
+				ctx.font = "bold 28px sans-serif";
 				
 			
+				
+				
 				ctx.textAlign = "left";
+				ctx.font = "bold 50px sans-serif";
 				ctx.strokeStyle = p0.stroke;
 				ctx.fillStyle = p0.fill;
-				ctx.strokeText(p0.score, 25,40);
-				ctx.fillText(p0.score, 25,40);
+				ctx.strokeText(p0.score, 10,200);
+				ctx.fillText(p0.score, 10,200);
+				
+				if(puck.side == "left"){
+					ctx.font = "bold 28px sans-serif";
+					ctx.strokeText(shotClock, 350,35);
+					ctx.fillText(shotClock, 350,35);
+				}
+				
 				
 				ctx.textAlign = "right";
+				ctx.font = "bold 50px sans-serif";
 				ctx.strokeStyle = p1.stroke;
 				ctx.fillStyle = p1.fill;
-				ctx.strokeText(p1.score, 975,40);
-				ctx.fillText(p1.score, 975,40);
+				ctx.strokeText(p1.score, 990,200);
+				ctx.fillText(p1.score, 990,200);
+				
+				if(puck.side == "right"){
+					ctx.font = "bold 28px sans-serif";
+					ctx.strokeText(shotClock, 650,35);
+					ctx.fillText(shotClock, 650,35);
+				}
 				
 				if(puck.free){
-					ctx.translate(500, 250);
+					ctx.font = "bold 28px sans-serif";
+					ctx.translate(500, 300);
 					ctx.scale(5,5);
 					ctx.textAlign = "right";
 					ctx.strokeStyle = p0.stroke;
 					ctx.fillStyle = p0.fill;
-					ctx.strokeText(p0.score, -20,0);
-					ctx.fillText(p0.score, -20,0);
+					ctx.strokeText(p0.score, -10,0);
+					ctx.fillText(p0.score, -10,0);
 					
 					ctx.textAlign = "left";
 					ctx.strokeStyle = p1.stroke;
 					ctx.fillStyle = p1.fill;
-					ctx.strokeText(p1.score, 20,0);
-					ctx.fillText(p1.score, 20,0);
+					ctx.strokeText(p1.score, 10,0);
+					ctx.fillText(p1.score, 10,0);
 				}
 				
 
@@ -408,6 +499,21 @@ var Game = {
 		
 		ctx.clearRect(0,0,1000,500);
 		
+				ctx.beginPath();
+		ctx.strokeStyle = "#59b7f2";
+		ctx.fillStyle = "#59b7f2";
+		ctx.lineWidth = 10;
+		ctx.arc(500, 250, 65, 0, Math.PI*2, 1);
+		
+		ctx.moveTo(250,50);
+		ctx.lineTo(250,450);
+		
+		ctx.moveTo(750,50);
+		ctx.lineTo(750,450);
+		
+		ctx.moveTo(500,50);
+		ctx.lineTo(500,450);
+		ctx.stroke();
 		
 		
 		ctx.lineWidth = 3;
@@ -426,22 +532,7 @@ var Game = {
 		ctx.arc(100, 100, 50, Math.PI, Math.PI*1.5, 0);
 		ctx.stroke();
 		
-		ctx.beginPath();
-		ctx.strokeStyle = "#59b7f2";
-		ctx.fillStyle = "#59b7f2";
-		ctx.lineWidth = 10;
-		ctx.arc(500, 250, 65, 0, Math.PI*2, 1);
-		
-		ctx.moveTo(250,50);
-		ctx.lineTo(250,450);
-		
-		ctx.moveTo(750,50);
-		ctx.lineTo(750,450);
-		
-		ctx.moveTo(500,50);
-		ctx.lineTo(500,450);
-		ctx.stroke();
-		
+
 		
 		ctx.beginPath();
 		ctx.lineWidth = 3;
