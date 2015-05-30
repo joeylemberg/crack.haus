@@ -19,6 +19,7 @@ class PlayerSerializer(PartialUpdateSerializerMixin, serializers.ModelSerializer
     # profile = serializers.HyperlinkedRelatedField(queryset=Profile.objects.all(), view_name='profile-detail')
     match = serializers.HyperlinkedRelatedField(queryset=Match.objects.all(), view_name='match-detail')
     # profile = serializers.StringRelatedField()
+    #profile = ProfileSerializer(read_only=True)
 
     class Meta:
         model = Player

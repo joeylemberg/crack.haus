@@ -1,6 +1,0 @@
-1. void setupGame()  //called on p1. generate map, initialize p1 1 state
-2. void joinGame()     //called on p2. 
-3. map_data getMapData() //called on p1, packages together data that only needs to be sent once per session
-4. void setMapData(map_data) //called on p2, sets map data
-5. p2_game_data p1ApplyTurn(p1_game_data)  //called on p1
-6. p1_game_data p2ApplyTurn(p2_game_data)  //called on p2
