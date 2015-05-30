@@ -7,6 +7,7 @@ from rest_framework import generics, viewsets
 from rest_framework import mixins
 from rest_framework.decorators import api_view
 from django.utils import timezone
+from django.db import IntegrityError
 import datetime
 
 class CreateListRetrieveViewSet(mixins.CreateModelMixin,
@@ -89,8 +90,11 @@ class PlayerViewSet(viewsets.ModelViewSet):
             print 'not logged in'
             if 'tag' not in request.data:
                 print 'no tag data included'
-                raise ValidationError('Not logged in. Tag is required')
-            profile = Profile.objects.create(tag=request.data['tag'])
+                raise serializers.ValidationError('Not logged in. Tag is required')
+            try:
+                profile = Profile.objects.create(tag=request.data['tag'])
+            except IntegrityError as e:
+                raise serializers.ValidationError(e)
             request.data['profile'] = profile.id
         res = super(PlayerViewSet, self).create(request, **kwargs)
         request.session['player_id'] = res.data['id']
