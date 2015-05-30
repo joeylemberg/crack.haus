@@ -49,7 +49,7 @@ var lobby = {
 		$.ajax({
 		    type: "GET",
 		    contentType: "application/json",
-		    url: "http://192.168.0.101:8000/api/profiles/",
+		    url: "api/profiles/",
 		    success: function (data) {
 		        if(data && data.tag && data.tag != null){
 					lobby.tag = data.tag;
@@ -84,24 +84,6 @@ var lobby = {
 		    },
 		    failure: function(data){
 		    	console.log(data);
-		    }
-		});
-	},
-
-	getGame: function(){
-		$.ajax({
-		    type: "GET",
-		    contentType: "application/json",
-		    url: "http://192.168.1.7:8000/games/",
-		    data: {},
-		    success: function (data) {
-		        console.log(data);
-		    },
-		    failure: function(data){
-		    	console.log(data);
-		    },
-		    complete: function(data){
-		    	console.log("data");
 		    }
 		});
 	},
