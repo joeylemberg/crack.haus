@@ -14,6 +14,8 @@ router.register(r'profiles', ProfileViewSet)
 
 urlpatterns = patterns('',
     # Examples:
+    url(r'^docs/', include('rest_framework_swagger.urls')),
+
     url(r'^$', TemplateView.as_view(template_name='games/index.html'), name='home'),
     url(r'^lobby/$', TemplateView.as_view(template_name='games/lobby.html'), name='lobby'),
                      

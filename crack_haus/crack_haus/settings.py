@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'games',
     'social_auth',
     'django_extensions',
+    'rest_framework_swagger',
 )
 
 AUTHENTICATION_BACKENDS = (
