@@ -19,12 +19,11 @@ function csrfSafeMethod(method) {
 
 var lobby = {
 
-
 	game: null,
 
 	matchPlayer: null,
 	
-	tag: "notag",
+	tag: null,
 		
 	userId: null,
 
@@ -47,6 +46,23 @@ var lobby = {
 	},
 	
 	getProfile: function(){
+		$.ajax({
+		    type: "GET",
+		    contentType: "application/json",
+		    url: "http://192.168.0.101:8000/api/profiles/",
+		    success: function (data) {
+		        if(data && data.tag && data.tag != null){
+					lobby.tag = data.tag;
+				}
+		    	console.log(data);
+		    },
+		    failure: function(data){
+		    	console.log(data);
+		    },
+		    complete: function(data){
+		    	console.log("data");
+		    }
+		});
 		
 	},
 
@@ -300,9 +316,14 @@ var lobby = {
     hostMatch: function(m, url){
 		//url for joiners
 		
-    	lobby.peer = new Peer({key: 'j12fo2q0wvwvcxr'});
-		lobby.peer.on('connection', lobby.peerConnect);
-		lobby.tag = prompt("Please enter your name", "player" + Math.round(Math.random() * 1000));
+		
+			lobby.peer = new Peer({key: 'j12fo2q0wvwvcxr'});
+			lobby.peer.on('connection', lobby.peerConnect);
+			if(!lobby.tag){
+			lobby.tag = prompt("Please enter your name", "player" + Math.round(Math.random() * 1000));
+		}
+		
+    	
 
 	console.log(lobby);
 
