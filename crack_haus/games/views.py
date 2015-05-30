@@ -26,7 +26,9 @@ class ProfileViewSet(viewsets.ModelViewSet):
     serializer_class = ProfileSerializer
     
     def list(self, request):
-        return Response(ProfileSerializer(request.user.profile).data)
+        if hasattr(request.user, 'profile'):
+            return Response(ProfileSerializer(request.user.profile).data)
+        return Response({'null'})
     
 
     # def create(self, request, *args, **kwargs):

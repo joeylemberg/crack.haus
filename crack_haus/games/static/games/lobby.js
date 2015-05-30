@@ -41,7 +41,13 @@ var lobby = {
 			lobby.hostMatch("joiner", $(e.target).closest(".open-lobby").data("url"));
 		});
 		lobby.getGamesList();
+		
+		lobby.getProfile();
 		//window.onbeforeunload = lobby.deleteMe();
+	},
+	
+	getProfile: function(){
+		
 	},
 
 	getGames: function(){
