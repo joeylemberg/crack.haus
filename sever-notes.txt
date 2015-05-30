@@ -10,3 +10,13 @@ cd crack.haus/crack_haus/
 git pull
 python manage.py collectstatic
 sudo service apache2 restart
+
+
+If there are errors running:
+	sudo python manage.py migrate
+try wiping the database with:
+	rm db.sqlite3
+
+
+
+sudo chown joeylemberg:staff db.sqlite3 

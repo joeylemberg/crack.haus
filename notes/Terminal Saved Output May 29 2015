@@ -1,0 +1,3335 @@
+Last login: Tue May 26 20:54:00 on console
+Joeys-MacBook-Pro:~ joeylemberg$ cd
+Joeys-MacBook-Pro:~ joeylemberg$ cd crack.haus/
+Joeys-MacBook-Pro:crack.haus joeylemberg$ git status
+On branch blue-ice
+Your branch is up-to-date with 'origin/blue-ice'.
+
+nothing to commit, working directory clean
+Joeys-MacBook-Pro:crack.haus joeylemberg$ pwd
+/Users/joeylemberg/crack.haus
+Joeys-MacBook-Pro:crack.haus joeylemberg$ pwd
+/Users/joeylemberg/crack.haus
+Joeys-MacBook-Pro:crack.haus joeylemberg$ pwd
+/Users/joeylemberg/crack.haus
+Joeys-MacBook-Pro:crack.haus joeylemberg$ ls
+API-notes.txt	crack_haus	games		node_modules	sever-notes.txt	tanx
+Joeys-MacBook-Pro:crack.haus joeylemberg$ cd crack_haus
+Joeys-MacBook-Pro:crack_haus joeylemberg$ ls
+crack_haus		db.sqlite3		games			manage.py		requirements.txt
+Joeys-MacBook-Pro:crack_haus joeylemberg$ ls
+crack_haus		db.sqlite3		games			manage.py		requirements.txt
+Joeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have unapplied migrations; your app may not work properly until they are applied.
+Run 'python manage.py migrate' to apply them.
+
+May 29, 2015 - 22:29:30
+Django version 1.7.6, using settings 'crack_haus.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[29/May/2015 22:29:36] "GET / HTTP/1.1" 200 5872
+[29/May/2015 22:29:36] "GET /static/games/wartanks/css/main.css HTTP/1.1" 200 97
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/wartanks.js HTTP/1.1" 200 3836
+[29/May/2015 22:29:36] "GET /static/games/wartanks/lib/underscore.js HTTP/1.1" 200 15626
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/Game.js HTTP/1.1" 200 2460
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/Map.js HTTP/1.1" 200 8184
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/Trees.js HTTP/1.1" 200 5713
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/Tanks.js HTTP/1.1" 200 5609
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/Weapons.js HTTP/1.1" 200 8682
+[29/May/2015 22:29:36] "GET /static/games/wartanks/css/scoreboard.css HTTP/1.1" 200 470
+[29/May/2015 22:29:36] "GET /static/games/lobby.css HTTP/1.1" 200 3857
+[29/May/2015 22:29:36] "GET /static/games/wartanks/css/controls.css HTTP/1.1" 200 3086
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/Panels.js HTTP/1.1" 200 3443
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/Util.js HTTP/1.1" 200 2670
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/Input.js HTTP/1.1" 200 6681
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/weapons/1-2-punch.js HTTP/1.1" 200 2466
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/weapons/wheel.js HTTP/1.1" 200 1268
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/weapons/shell.js HTTP/1.1" 200 1737
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/weapons/burial.js HTTP/1.1" 200 2397
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/weapons/mine-shaft.js HTTP/1.1" 200 2539
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/weapons/nuke.js HTTP/1.1" 200 3920
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/weapons/booster.js HTTP/1.1" 200 2598
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/weapons/shotgun.js HTTP/1.1" 200 2574
+[29/May/2015 22:29:36] "GET /static/games/wartanks/js/weapons/machine-gun.js HTTP/1.1" 200 2309
+[29/May/2015 22:29:36] "GET /static/games/lobby.js HTTP/1.1" 200 6460
+[29/May/2015 22:29:36] "GET /static/games/dragkings.js HTTP/1.1" 200 3075
+[29/May/2015 22:29:36] "GET /static/games/chat.js HTTP/1.1" 200 1143
+[29/May/2015 22:29:36] "GET /static/games/intro.js HTTP/1.1" 200 3255
+[29/May/2015 22:29:36] "GET /static/games/ice/Game.js HTTP/1.1" 200 12375
+[29/May/2015 22:29:36] "GET /static/games/ice/Input.js HTTP/1.1" 200 482
+[29/May/2015 22:29:36] "GET /static/games/jquery.js HTTP/1.1" 200 95931
+[29/May/2015 22:29:36] "GET /static/favicon.ico HTTP/1.1" 200 2673
+[29/May/2015 22:29:36] "GET /static/games/ice/Util.js HTTP/1.1" 200 3680
+[29/May/2015 22:29:36] "GET /api/games/ HTTP/1.1" 500 13272
+[29/May/2015 22:29:39] "GET /static/games/wartanks/lib/underscore-min.map HTTP/1.1" 404 1715
+^CJoeys-MacBook-Pro:crack_haus joeylemberg$ cd
+Joeys-MacBook-Pro:~ joeylemberg$ cd crack.haus/
+Joeys-MacBook-Pro:crack.haus joeylemberg$ open .
+Joeys-MacBook-Pro:crack.haus joeylemberg$ git status
+On branch dev
+Your branch is behind 'origin/dev' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   crack_haus/games/static/games/ice/Game.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Joeys-MacBook-Pro:crack.haus joeylemberg$ git checkout .
+Joeys-MacBook-Pro:crack.haus joeylemberg$ git status
+On branch dev
+Your branch is behind 'origin/dev' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working directory clean
+Joeys-MacBook-Pro:crack.haus joeylemberg$ sudo python manage.py migrate
+Password:
+python: can't open file 'manage.py': [Errno 2] No such file or directory
+Joeys-MacBook-Pro:crack.haus joeylemberg$ cd crack_haus/
+Joeys-MacBook-Pro:crack_haus joeylemberg$ sudo python manage.py migrate
+Operations to perform:
+  Synchronize unmigrated apps: rest_framework, social_auth
+  Apply all migrations: admin, contenttypes, games, auth, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+  Installing custom SQL...
+  Installing indexes...
+Running migrations:
+  Applying games.0002_remove_match_host...Traceback (most recent call last):
+  File "manage.py", line 10, in <module>
+    execute_from_command_line(sys.argv)
+  File "/Library/Python/2.7/site-packages/django/core/management/__init__.py", line 385, in execute_from_command_line
+    utility.execute()
+  File "/Library/Python/2.7/site-packages/django/core/management/__init__.py", line 377, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/Library/Python/2.7/site-packages/django/core/management/base.py", line 288, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File "/Library/Python/2.7/site-packages/django/core/management/base.py", line 338, in execute
+    output = self.handle(*args, **options)
+  File "/Library/Python/2.7/site-packages/django/core/management/commands/migrate.py", line 161, in handle
+    executor.migrate(targets, plan, fake=options.get("fake", False))
+  File "/Library/Python/2.7/site-packages/django/db/migrations/executor.py", line 68, in migrate
+    self.apply_migration(migration, fake=fake)
+  File "/Library/Python/2.7/site-packages/django/db/migrations/executor.py", line 102, in apply_migration
+    migration.apply(project_state, schema_editor)
+  File "/Library/Python/2.7/site-packages/django/db/migrations/migration.py", line 108, in apply
+    operation.database_forwards(self.app_label, schema_editor, project_state, new_state)
+  File "/Library/Python/2.7/site-packages/django/db/migrations/operations/fields.py", line 84, in database_forwards
+    schema_editor.remove_field(from_model, from_model._meta.get_field_by_name(self.name)[0])
+  File "/Library/Python/2.7/site-packages/django/db/backends/sqlite3/schema.py", line 197, in remove_field
+    self._remake_table(model, delete_fields=[field])
+  File "/Library/Python/2.7/site-packages/django/db/backends/sqlite3/schema.py", line 146, in _remake_table
+    self.quote_name(model._meta.db_table),
+  File "/Library/Python/2.7/site-packages/django/db/backends/schema.py", line 103, in execute
+    cursor.execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/backends/utils.py", line 81, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/Library/Python/2.7/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/backends/sqlite3/base.py", line 485, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: games_match
+Joeys-MacBook-Pro:crack_haus joeylemberg$ ls
+crack_haus		db.sqlite3		games			manage.py		requirements.txt
+Joeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have unapplied migrations; your app may not work properly until they are applied.
+Run 'python manage.py migrate' to apply them.
+
+May 29, 2015 - 22:32:32
+Django version 1.7.6, using settings 'crack_haus.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+^CJoeys-MacBook-Pro:crack_haus joeylemberg$ git pull
+Updating 3c57a10..021774e
+Fast-forward
+ crack_haus/games/serializer.py         |   2 +-
+ crack_haus/games/static/games/lobby.js | 119 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-------------------
+ 2 files changed, 101 insertions(+), 20 deletions(-)
+Joeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have unapplied migrations; your app may not work properly until they are applied.
+Run 'python manage.py migrate' to apply them.
+
+May 29, 2015 - 22:32:51
+Django version 1.7.6, using settings 'crack_haus.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+^CJoeys-MacBook-Pro:crack_haus joeylemberg$ sudo python manage.py migrate
+Operations to perform:
+  Synchronize unmigrated apps: rest_framework, social_auth
+  Apply all migrations: admin, contenttypes, games, auth, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+  Installing custom SQL...
+  Installing indexes...
+Running migrations:
+  Applying games.0002_remove_match_host...Traceback (most recent call last):
+  File "manage.py", line 10, in <module>
+    execute_from_command_line(sys.argv)
+  File "/Library/Python/2.7/site-packages/django/core/management/__init__.py", line 385, in execute_from_command_line
+    utility.execute()
+  File "/Library/Python/2.7/site-packages/django/core/management/__init__.py", line 377, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/Library/Python/2.7/site-packages/django/core/management/base.py", line 288, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File "/Library/Python/2.7/site-packages/django/core/management/base.py", line 338, in execute
+    output = self.handle(*args, **options)
+  File "/Library/Python/2.7/site-packages/django/core/management/commands/migrate.py", line 161, in handle
+    executor.migrate(targets, plan, fake=options.get("fake", False))
+  File "/Library/Python/2.7/site-packages/django/db/migrations/executor.py", line 68, in migrate
+    self.apply_migration(migration, fake=fake)
+  File "/Library/Python/2.7/site-packages/django/db/migrations/executor.py", line 102, in apply_migration
+    migration.apply(project_state, schema_editor)
+  File "/Library/Python/2.7/site-packages/django/db/migrations/migration.py", line 108, in apply
+    operation.database_forwards(self.app_label, schema_editor, project_state, new_state)
+  File "/Library/Python/2.7/site-packages/django/db/migrations/operations/fields.py", line 84, in database_forwards
+    schema_editor.remove_field(from_model, from_model._meta.get_field_by_name(self.name)[0])
+  File "/Library/Python/2.7/site-packages/django/db/backends/sqlite3/schema.py", line 197, in remove_field
+    self._remake_table(model, delete_fields=[field])
+  File "/Library/Python/2.7/site-packages/django/db/backends/sqlite3/schema.py", line 146, in _remake_table
+    self.quote_name(model._meta.db_table),
+  File "/Library/Python/2.7/site-packages/django/db/backends/schema.py", line 103, in execute
+    cursor.execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/backends/utils.py", line 81, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/Library/Python/2.7/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/backends/sqlite3/base.py", line 485, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: games_match
+Joeys-MacBook-Pro:crack_haus joeylemberg$ sudo python manage.py migrate
+Operations to perform:
+  Synchronize unmigrated apps: rest_framework, social_auth
+  Apply all migrations: admin, contenttypes, games, auth, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+  Installing custom SQL...
+  Installing indexes...
+Running migrations:
+  Applying games.0002_remove_match_host...Traceback (most recent call last):
+  File "manage.py", line 10, in <module>
+    execute_from_command_line(sys.argv)
+  File "/Library/Python/2.7/site-packages/django/core/management/__init__.py", line 385, in execute_from_command_line
+    utility.execute()
+  File "/Library/Python/2.7/site-packages/django/core/management/__init__.py", line 377, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/Library/Python/2.7/site-packages/django/core/management/base.py", line 288, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File "/Library/Python/2.7/site-packages/django/core/management/base.py", line 338, in execute
+    output = self.handle(*args, **options)
+  File "/Library/Python/2.7/site-packages/django/core/management/commands/migrate.py", line 161, in handle
+    executor.migrate(targets, plan, fake=options.get("fake", False))
+  File "/Library/Python/2.7/site-packages/django/db/migrations/executor.py", line 68, in migrate
+    self.apply_migration(migration, fake=fake)
+  File "/Library/Python/2.7/site-packages/django/db/migrations/executor.py", line 102, in apply_migration
+    migration.apply(project_state, schema_editor)
+  File "/Library/Python/2.7/site-packages/django/db/migrations/migration.py", line 108, in apply
+    operation.database_forwards(self.app_label, schema_editor, project_state, new_state)
+  File "/Library/Python/2.7/site-packages/django/db/migrations/operations/fields.py", line 84, in database_forwards
+    schema_editor.remove_field(from_model, from_model._meta.get_field_by_name(self.name)[0])
+  File "/Library/Python/2.7/site-packages/django/db/backends/sqlite3/schema.py", line 197, in remove_field
+    self._remake_table(model, delete_fields=[field])
+  File "/Library/Python/2.7/site-packages/django/db/backends/sqlite3/schema.py", line 146, in _remake_table
+    self.quote_name(model._meta.db_table),
+  File "/Library/Python/2.7/site-packages/django/db/backends/schema.py", line 103, in execute
+    cursor.execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/backends/utils.py", line 81, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/Library/Python/2.7/site-packages/django/db/backends/utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Python/2.7/site-packages/django/db/backends/sqlite3/base.py", line 485, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: games_match
+Joeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have unapplied migrations; your app may not work properly until they are applied.
+Run 'python manage.py migrate' to apply them.
+
+May 29, 2015 - 22:33:12
+Django version 1.7.6, using settings 'crack_haus.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+^CJoeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have unapplied migrations; your app may not work properly until they are applied.
+Run 'python manage.py migrate' to apply them.
+
+May 29, 2015 - 22:33:16
+Django version 1.7.6, using settings 'crack_haus.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[29/May/2015 22:33:23] "GET /admin HTTP/1.1" 301 0
+[29/May/2015 22:33:23] "GET /admin/ HTTP/1.1" 302 0
+[29/May/2015 22:33:23] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1914
+[29/May/2015 22:33:23] "GET /static/admin/css/login.css HTTP/1.1" 200 940
+[29/May/2015 22:33:23] "GET /static/admin/css/base.css HTTP/1.1" 200 13995
+[29/May/2015 22:33:23] "GET /static/admin/img/nav-bg.gif HTTP/1.1" 200 265
+[29/May/2015 22:33:23] "GET /favicon.ico HTTP/1.1" 404 3600
+[29/May/2015 22:33:27] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2073
+[29/May/2015 22:33:27] "GET /static/admin/img/icon_error.gif HTTP/1.1" 200 319
+[29/May/2015 22:33:34] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[29/May/2015 22:33:34] "GET /admin/ HTTP/1.1" 200 6566
+[29/May/2015 22:33:34] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 434
+[29/May/2015 22:33:34] "GET /static/admin/img/icon_addlink.gif HTTP/1.1" 200 119
+[29/May/2015 22:33:34] "GET /static/admin/img/default-bg.gif HTTP/1.1" 200 836
+[29/May/2015 22:33:34] "GET /static/admin/img/icon_changelink.gif HTTP/1.1" 200 119
+^CJoeys-MacBook-Pro:crack_haus joeylemberg$ ls
+crack_haus		db.sqlite3		games			manage.py		requirements.txt
+Joeys-MacBook-Pro:crack_haus joeylemberg$ rm db.sqlite3 
+Joeys-MacBook-Pro:crack_haus joeylemberg$ sudo python manage.py migrate
+Operations to perform:
+  Synchronize unmigrated apps: rest_framework, social_auth
+  Apply all migrations: admin, contenttypes, games, auth, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Creating table social_auth_usersocialauth
+    Creating table social_auth_nonce
+    Creating table social_auth_association
+  Installing custom SQL...
+  Installing indexes...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying games.0001_initial... OK
+  Applying games.0002_remove_match_host... OK
+  Applying games.0003_auto_20150504_0125... OK
+  Applying games.0004_match_name... OK
+  Applying games.0005_auto_20150504_0229... OK
+  Applying games.0006_auto_20150504_0334... OK
+  Applying games.0007_auto_20150504_0338... OK
+  Applying sessions.0001_initial... OK
+Joeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 29, 2015 - 22:34:39
+Django version 1.7.6, using settings 'crack_haus.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[29/May/2015 22:34:44] "GET / HTTP/1.1" 200 5872
+[29/May/2015 22:34:44] "GET /static/games/ice/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:34:44] "GET /static/games/ice/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:34:44] "GET /static/games/lobby.js HTTP/1.1" 200 8485
+[29/May/2015 22:34:44] "GET /static/games/ice/Game.js HTTP/1.1" 200 12375
+[29/May/2015 22:34:44] "GET /api/games/ HTTP/1.1" 500 14893
+[29/May/2015 22:34:47] "GET /static/games/wartanks/lib/underscore-min.map HTTP/1.1" 404 1715
+^CJoeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 29, 2015 - 22:35:13
+Django version 1.7.6, using settings 'crack_haus.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[29/May/2015 22:35:13] "GET /api/games/ HTTP/1.1" 500 197822
+[29/May/2015 22:35:18] "GET / HTTP/1.1" 200 5872
+[29/May/2015 22:35:18] "GET /static/games/ice/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:35:18] "GET /static/games/lobby.js HTTP/1.1" 304 0
+[29/May/2015 22:35:18] "GET /api/games/ HTTP/1.1" 500 14893
+^CJoeys-MacBook-Pro:crack_haus joeylemberg$ git status
+On branch dev
+Your branch is up-to-date with 'origin/dev'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   ../sever-notes.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Joeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 29, 2015 - 22:35:45
+Django version 1.7.6, using settings 'crack_haus.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[29/May/2015 22:35:49] "GET /admin HTTP/1.1" 301 0
+[29/May/2015 22:35:49] "GET /admin/ HTTP/1.1" 500 190739
+^CJoeys-MacBook-Pro:crack_haus joeylemberg$ ls
+crack_haus		db.sqlite3		games			manage.py		requirements.txt
+Joeys-MacBook-Pro:crack_haus joeylemberg$ ls -alh
+total 472
+drwxr-xr-x   9 joeylemberg  staff   306B May 29 18:34 .
+drwxr-xr-x  11 joeylemberg  staff   374B May 29 18:34 ..
+-rw-r--r--@  1 joeylemberg  staff   8.0K May  9 18:35 .DS_Store
+-rw-r--r--   1 joeylemberg  staff    20B May 29 18:28 .gitignore
+drwxr-xr-x  10 joeylemberg  staff   340B May 29 18:29 crack_haus
+-rw-r--r--   1 root         staff   212K May 29 18:34 db.sqlite3
+drwxr-xr-x  17 joeylemberg  staff   578B May 29 18:33 games
+-rwxr-xr-x   1 joeylemberg  staff   253B Apr 18 19:27 manage.py
+-rw-r--r--   1 joeylemberg  staff   172B May 29 18:28 requirements.txt
+Joeys-MacBook-Pro:crack_haus joeylemberg$ sudo python manage.py createsuperuser
+Username (leave blank to use 'root'): joeylemberg
+Email address: 
+Password: 
+Password (again): 
+Superuser created successfully.
+Joeys-MacBook-Pro:crack_haus joeylemberg$ sudo chown joeylemberg:staff
+usage: chown [-fhv] [-R [-H | -L | -P]] owner[:group] file ...
+       chown [-fhv] [-R [-H | -L | -P]] :group file ...
+Joeys-MacBook-Pro:crack_haus joeylemberg$ sudo chown joeylemberg:staff db.sqlite3 
+Joeys-MacBook-Pro:crack_haus joeylemberg$ ls -lah
+total 472
+drwxr-xr-x   9 joeylemberg  staff   306B May 29 18:36 .
+drwxr-xr-x  11 joeylemberg  staff   374B May 29 18:34 ..
+-rw-r--r--@  1 joeylemberg  staff   8.0K May  9 18:35 .DS_Store
+-rw-r--r--   1 joeylemberg  staff    20B May 29 18:28 .gitignore
+drwxr-xr-x  10 joeylemberg  staff   340B May 29 18:29 crack_haus
+-rw-r--r--   1 joeylemberg  staff   212K May 29 18:36 db.sqlite3
+drwxr-xr-x  17 joeylemberg  staff   578B May 29 18:33 games
+-rwxr-xr-x   1 joeylemberg  staff   253B Apr 18 19:27 manage.py
+-rw-r--r--   1 joeylemberg  staff   172B May 29 18:28 requirements.txt
+Joeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 29, 2015 - 22:37:13
+Django version 1.7.6, using settings 'crack_haus.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[29/May/2015 22:37:16] "GET /admin/ HTTP/1.1" 302 0
+[29/May/2015 22:37:16] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1914
+[29/May/2015 22:37:16] "GET /static/admin/css/base.css HTTP/1.1" 200 13995
+[29/May/2015 22:37:16] "GET /static/admin/css/login.css HTTP/1.1" 200 940
+[29/May/2015 22:37:16] "GET /static/admin/img/nav-bg.gif HTTP/1.1" 200 265
+[29/May/2015 22:37:16] "GET /favicon.ico HTTP/1.1" 404 3600
+[29/May/2015 22:37:19] "GET / HTTP/1.1" 200 5872
+[29/May/2015 22:37:19] "GET /static/games/ice/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:37:19] "GET /static/games/ice/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:37:19] "GET /static/games/ice/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:37:19] "GET /static/games/lobby.js HTTP/1.1" 304 0
+[29/May/2015 22:37:19] "GET /api/games/ HTTP/1.1" 200 2
+^CJoeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 29, 2015 - 22:43:25
+Django version 1.7.6, using settings 'crack_haus.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[29/May/2015 22:43:26] "GET /admin HTTP/1.1" 301 0
+[29/May/2015 22:43:26] "GET /admin/ HTTP/1.1" 302 0
+[29/May/2015 22:43:26] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1914
+[29/May/2015 22:43:26] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[29/May/2015 22:43:26] "GET /static/admin/css/login.css HTTP/1.1" 304 0
+[29/May/2015 22:43:34] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[29/May/2015 22:43:34] "GET /admin/ HTTP/1.1" 200 6258
+[29/May/2015 22:45:17] "GET /admin/games/game/ HTTP/1.1" 200 3004
+[29/May/2015 22:45:18] "GET /admin/jsi18n/ HTTP/1.1" 200 2372
+[29/May/2015 22:45:18] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 3232
+[29/May/2015 22:45:18] "GET /static/admin/js/core.js HTTP/1.1" 200 6899
+[29/May/2015 22:45:18] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 326
+[29/May/2015 22:45:18] "GET /static/admin/css/changelists.css HTTP/1.1" 200 5254
+[29/May/2015 22:45:18] "GET /static/admin/js/actions.js HTTP/1.1" 200 4910
+[29/May/2015 22:45:18] "GET /static/admin/js/jquery.js HTTP/1.1" 200 268381
+[29/May/2015 22:45:18] "GET /static/admin/img/nav-bg-reverse.gif HTTP/1.1" 200 178
+[29/May/2015 22:45:18] "GET /static/admin/img/tooltag-add.png HTTP/1.1" 200 119
+[29/May/2015 22:45:21] "GET /admin/games/game/add/ HTTP/1.1" 200 4036
+[29/May/2015 22:45:21] "GET /static/admin/css/forms.css HTTP/1.1" 200 5928
+[29/May/2015 22:45:21] "GET /admin/jsi18n/ HTTP/1.1" 200 2372
+[29/May/2015 22:45:21] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10293
+[29/May/2015 22:47:05] "GET /static/admin/img/default-bg-reverse.gif HTTP/1.1" 200 835
+[29/May/2015 22:47:05] "POST /admin/games/game/add/ HTTP/1.1" 302 0
+[29/May/2015 22:47:05] "GET /admin/games/game/ HTTP/1.1" 200 4325
+[29/May/2015 22:47:05] "GET /admin/jsi18n/ HTTP/1.1" 200 2372
+[29/May/2015 22:47:05] "GET /static/admin/img/icon_success.gif HTTP/1.1" 200 341
+[29/May/2015 22:47:07] "GET /admin/games/game/1/ HTTP/1.1" 200 4135
+[29/May/2015 22:47:07] "GET /admin/jsi18n/ HTTP/1.1" 200 2372
+[29/May/2015 22:47:07] "GET /static/admin/img/icon_deletelink.gif HTTP/1.1" 200 181
+[29/May/2015 22:47:10] "POST /admin/games/game/1/ HTTP/1.1" 302 0
+[29/May/2015 22:47:10] "GET /admin/games/game/ HTTP/1.1" 200 4327
+[29/May/2015 22:47:10] "GET /admin/jsi18n/ HTTP/1.1" 200 2372
+[29/May/2015 22:47:14] "GET / HTTP/1.1" 200 5872
+[29/May/2015 22:47:14] "GET /static/games/wartanks/lib/underscore.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/lobby.css HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/wartanks.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/css/scoreboard.css HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/css/controls.css HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/css/main.css HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/Weapons.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/Map.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/Trees.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/Tanks.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/Panels.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/weapons/shell.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/weapons/burial.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/weapons/1-2-punch.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/weapons/wheel.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/weapons/booster.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/weapons/machine-gun.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/weapons/mine-shaft.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/weapons/nuke.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/wartanks/js/weapons/shotgun.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/jquery.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/dragkings.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/lobby.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/chat.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/intro.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/ice/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/ice/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/games/ice/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:47:14] "GET /static/favicon.ico HTTP/1.1" 304 0
+[29/May/2015 22:47:15] "GET /api/games/ HTTP/1.1" 200 150
+[29/May/2015 22:47:15] "GET /static/favicon.ico HTTP/1.1" 200 2673
+[29/May/2015 22:47:18] "GET /api/games/1 HTTP/1.1" 301 0
+[29/May/2015 22:47:18] "GET /api/games/1/ HTTP/1.1" 200 148
+[29/May/2015 22:47:19] "GET /api/games/1/ HTTP/1.1" 200 148
+hello
+player231's game (Rainbow Buffet lobby)
+[29/May/2015 22:47:20] "POST /api/matches/ HTTP/1.1" 201 192
+[29/May/2015 22:47:20] "POST /api/players/ HTTP/1.1" 201 133
+ping
+got profile
+[29/May/2015 22:47:21] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:22] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:23] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:24] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:25] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:26] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:27] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:28] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:29] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:30] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:31] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:32] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:33] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:34] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:36] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:37] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:39] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:41] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:43] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:45] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:47] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:49] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:51] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:53] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:55] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:57] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:47:59] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:01] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:03] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:05] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:07] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:08] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:10] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:12] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:14] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:16] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:18] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:20] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:22] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:24] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:26] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:28] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:30] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:32] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:34] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:36] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:38] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:40] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:42] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:44] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:45] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:47] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:49] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:51] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:53] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:55] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:57] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:48:59] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:01] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:03] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:05] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:07] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:09] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:10] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:12] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:13] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:14] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:15] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:16] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:17] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:18] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:19] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:20] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:21] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:22] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:23] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:24] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:25] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:26] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:27] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:28] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:29] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:30] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:31] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:32] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:33] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:34] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:35] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:36] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:37] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:38] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:39] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:40] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:41] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:42] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:43] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:44] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:46] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:48] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:50] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:52] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:53] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:54] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:55] "GET /api/matches/1/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:49:56] "GET /api/matches/1/ HTTP/1.1" 200 325
+[29/May/2015 22:49:56] "GET / HTTP/1.1" 200 5872
+[29/May/2015 22:49:56] "GET /static/games/wartanks/css/controls.css HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/lib/underscore.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/wartanks.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/css/scoreboard.css HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/css/main.css HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/lobby.css HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/Trees.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/Map.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/Tanks.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/Weapons.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/Panels.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/weapons/wheel.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/weapons/1-2-punch.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/weapons/mine-shaft.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/weapons/burial.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/weapons/shell.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/weapons/nuke.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/weapons/booster.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/weapons/machine-gun.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/wartanks/js/weapons/shotgun.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/lobby.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/jquery.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/dragkings.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/chat.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/intro.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/ice/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/ice/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/games/ice/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /static/favicon.ico HTTP/1.1" 304 0
+[29/May/2015 22:49:56] "GET /api/games/ HTTP/1.1" 200 475
+[29/May/2015 22:49:56] "GET /static/favicon.ico HTTP/1.1" 200 2673
+[29/May/2015 22:53:31] "GET / HTTP/1.1" 200 5872
+[29/May/2015 22:53:31] "GET /static/games/lobby.css HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/css/main.css HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/css/scoreboard.css HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/css/controls.css HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/lib/underscore.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/wartanks.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/Trees.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/Map.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/Tanks.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/Weapons.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/Panels.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/weapons/wheel.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/weapons/1-2-punch.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/weapons/shell.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/weapons/burial.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/weapons/mine-shaft.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/weapons/nuke.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/weapons/shotgun.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/weapons/booster.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/jquery.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/wartanks/js/weapons/machine-gun.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/lobby.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/dragkings.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/chat.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/ice/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/ice/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/intro.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/games/ice/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:53:31] "GET /static/favicon.ico HTTP/1.1" 304 0
+[29/May/2015 22:53:32] "GET /api/games/ HTTP/1.1" 200 475
+[29/May/2015 22:53:32] "GET /static/cupicon.png HTTP/1.1" 200 6633
+[29/May/2015 22:53:48] "GET /api/games/1/ HTTP/1.1" 200 473
+[29/May/2015 22:53:49] "GET /api/games/1/ HTTP/1.1" 200 473
+[29/May/2015 22:53:50] "GET /api/games/1/ HTTP/1.1" 200 473
+[29/May/2015 22:53:51] "GET /api/games/1/ HTTP/1.1" 200 473
+[29/May/2015 22:53:52] "GET /api/games/1/ HTTP/1.1" 200 473
+hello
+player422's game (Rainbow Buffet lobby)
+[29/May/2015 22:53:54] "POST /api/matches/ HTTP/1.1" 201 192
+[29/May/2015 22:53:54] "POST /api/players/ HTTP/1.1" 201 133
+ping
+got profile
+[29/May/2015 22:53:55] "GET /api/matches/2/ HTTP/1.1" 200 325
+ping
+got profile
+[29/May/2015 22:53:56] "GET /api/matches/2/ HTTP/1.1" 200 325
+[29/May/2015 22:53:57] "GET / HTTP/1.1" 200 5872
+[29/May/2015 22:53:57] "GET /static/games/lobby.css HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/lib/underscore.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/css/scoreboard.css HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/wartanks.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/css/main.css HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/css/controls.css HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/Tanks.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/Map.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/Trees.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/Weapons.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/Panels.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/weapons/1-2-punch.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/weapons/shell.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/weapons/wheel.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/weapons/burial.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/weapons/mine-shaft.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/weapons/nuke.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/weapons/machine-gun.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/weapons/booster.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/wartanks/js/weapons/shotgun.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/jquery.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/dragkings.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/lobby.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/chat.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/intro.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/ice/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/ice/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/games/ice/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:53:57] "GET /static/favicon.ico HTTP/1.1" 304 0
+[29/May/2015 22:53:58] "GET /api/games/ HTTP/1.1" 200 801
+[29/May/2015 22:53:58] "GET /static/cupicon.png HTTP/1.1" 200 6633
+[29/May/2015 22:53:59] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:00] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:01] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:02] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:03] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:05] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:07] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:09] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:11] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:13] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:15] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:17] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:19] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:21] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:22] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:24] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:26] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:28] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:30] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:32] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:34] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:36] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:38] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:40] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:42] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:44] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:46] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:48] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:50] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:52] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:54] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:56] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:54:58] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:00] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:02] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:04] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:06] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:08] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:10] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:12] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:13] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:15] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:17] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:19] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:21] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:23] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:25] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:27] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:29] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:31] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:33] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:35] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:36] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:37] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:39] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:41] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:43] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:45] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:47] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:49] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:51] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:53] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:55] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:57] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:55:59] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:01] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:03] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:05] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:07] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:09] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:11] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:13] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:15] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:17] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:19] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:21] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:23] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:25] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:27] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:29] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:31] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:33] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:35] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:37] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:39] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:41] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:43] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:45] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:47] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:49] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:51] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:53] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:55] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:57] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:56:59] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:01] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:03] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:05] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:07] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:09] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:11] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:13] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:15] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:16] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:17] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:18] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:20] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:22] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:24] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:26] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:28] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:30] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:31] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:32] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:33] "GET / HTTP/1.1" 200 5872
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/wartanks.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/lobby.css HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/css/controls.css HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/css/scoreboard.css HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/lib/underscore.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/css/main.css HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/Map.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/Trees.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/Tanks.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/Weapons.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/Panels.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/weapons/shell.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/weapons/1-2-punch.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/weapons/burial.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/weapons/wheel.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/weapons/mine-shaft.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/weapons/nuke.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/weapons/booster.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/weapons/shotgun.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/wartanks/js/weapons/machine-gun.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/jquery.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/lobby.js HTTP/1.1" 200 8536
+[29/May/2015 22:57:33] "GET /static/games/dragkings.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/chat.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/intro.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/ice/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/ice/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/games/ice/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /static/favicon.ico HTTP/1.1" 304 0
+[29/May/2015 22:57:33] "GET /api/games/ HTTP/1.1" 200 801
+[29/May/2015 22:57:33] "GET /static/cupicon.png HTTP/1.1" 200 6633
+[29/May/2015 22:57:35] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:36] "GET /static/games/wartanks/lib/underscore-min.map HTTP/1.1" 404 1715
+[29/May/2015 22:57:36] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:37] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:38] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:39] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:40] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:41] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:42] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:43] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:44] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:45] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:46] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:47] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:48] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:49] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:50] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:51] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:52] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:53] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:54] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:55] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:56] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:57] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:57:59] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:01] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:02] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:03] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:04] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:05] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:06] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:07] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:08] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:09] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:10] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:11] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:11] "GET /bluespin.gif HTTP/1.1" 404 3603
+[29/May/2015 22:58:12] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:13] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:14] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:15] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:16] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:17] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:18] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:19] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:20] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:21] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:22] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:23] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:24] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:25] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:26] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:27] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:28] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:30] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:32] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:34] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:35] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:36] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:36] "GET / HTTP/1.1" 200 5872
+[29/May/2015 22:58:36] "GET /static/games/wartanks/css/scoreboard.css HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/css/controls.css HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/lobby.css HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/lib/underscore.js HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/js/wartanks.js HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/css/main.css HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/js/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/js/Trees.js HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/js/Panels.js HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/js/Map.js HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/js/Weapons.js HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/js/Tanks.js HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/js/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/js/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/js/weapons/mine-shaft.js HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/js/weapons/burial.js HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/js/weapons/wheel.js HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/js/weapons/1-2-punch.js HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/js/weapons/nuke.js HTTP/1.1" 304 0
+[29/May/2015 22:58:36] "GET /static/games/wartanks/js/weapons/shell.js HTTP/1.1" 304 0
+[29/May/2015 22:58:37] "GET /static/games/wartanks/js/weapons/booster.js HTTP/1.1" 304 0
+[29/May/2015 22:58:37] "GET /static/games/wartanks/js/weapons/machine-gun.js HTTP/1.1" 304 0
+[29/May/2015 22:58:37] "GET /static/games/wartanks/js/weapons/shotgun.js HTTP/1.1" 304 0
+[29/May/2015 22:58:37] "GET /static/games/jquery.js HTTP/1.1" 304 0
+[29/May/2015 22:58:37] "GET /static/games/dragkings.js HTTP/1.1" 304 0
+[29/May/2015 22:58:37] "GET /static/games/intro.js HTTP/1.1" 304 0
+[29/May/2015 22:58:37] "GET /static/games/lobby.js HTTP/1.1" 200 8545
+[29/May/2015 22:58:37] "GET /static/games/ice/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:58:37] "GET /static/games/chat.js HTTP/1.1" 304 0
+[29/May/2015 22:58:37] "GET /static/games/ice/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:58:37] "GET /static/games/ice/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:58:37] "GET /static/favicon.ico HTTP/1.1" 304 0
+[29/May/2015 22:58:37] "GET /static/bluespin.gif HTTP/1.1" 200 22930
+[29/May/2015 22:58:37] "GET /static/games/wartanks/lib/underscore-min.map HTTP/1.1" 404 1715
+[29/May/2015 22:58:37] "GET /api/games/ HTTP/1.1" 200 801
+[29/May/2015 22:58:37] "GET /static/cupicon.png HTTP/1.1" 200 6633
+[29/May/2015 22:58:39] "GET /api/games/1/ HTTP/1.1" 200 799
+[29/May/2015 22:58:40] "GET /api/games/1/ HTTP/1.1" 200 799
+hello
+null's game (Rainbow Buffet lobby)
+[29/May/2015 22:58:42] "POST /api/matches/ HTTP/1.1" 201 187
+[29/May/2015 22:58:42] "POST /api/players/ HTTP/1.1" 201 133
+ping
+got profile
+[29/May/2015 22:58:43] "GET /api/matches/3/ HTTP/1.1" 200 320
+[29/May/2015 22:58:43] "GET / HTTP/1.1" 200 5872
+[29/May/2015 22:58:43] "GET /static/games/wartanks/lib/underscore.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/css/scoreboard.css HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/css/main.css HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/lobby.css HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/wartanks.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/css/controls.css HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/Map.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/Trees.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/Panels.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/Weapons.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/Tanks.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/weapons/shell.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/weapons/1-2-punch.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/weapons/wheel.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/weapons/burial.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/weapons/mine-shaft.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/weapons/nuke.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/weapons/booster.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/weapons/machine-gun.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/wartanks/js/weapons/shotgun.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/jquery.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/lobby.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/dragkings.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/chat.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/intro.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/ice/Game.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/ice/Input.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/games/ice/Util.js HTTP/1.1" 304 0
+[29/May/2015 22:58:43] "GET /static/favicon.ico HTTP/1.1" 304 0
+[29/May/2015 22:58:44] "GET /static/games/wartanks/lib/underscore-min.map HTTP/1.1" 404 1715
+[29/May/2015 22:58:44] "GET /static/bluespin.gif HTTP/1.1" 304 0
+[29/May/2015 22:58:44] "GET /api/games/ HTTP/1.1" 200 1122
+[29/May/2015 22:58:44] "GET /static/cupicon.png HTTP/1.1" 200 6633
+[29/May/2015 22:58:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 22:58:48] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 22:58:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 22:58:49] "GET /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[29/May/2015 22:58:49] "GET /admin/ HTTP/1.1" 200 6856
+[29/May/2015 22:59:43] "GET / HTTP/1.1" 200 5872
+[29/May/2015 22:59:43] "GET /static/games/lobby.js HTTP/1.1" 200 8546
+[29/May/2015 22:59:43] "GET /api/games/ HTTP/1.1" 200 1122
+[29/May/2015 22:59:45] "GET /static/bluespin.gif HTTP/1.1" 304 0
+[29/May/2015 22:59:46] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 22:59:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:00:59] "GET / HTTP/1.1" 200 5872
+[29/May/2015 23:00:59] "GET /static/games/lobby.js HTTP/1.1" 304 0
+[29/May/2015 23:00:59] "GET /static/games/wartanks/lib/underscore-min.map HTTP/1.1" 404 1715
+[29/May/2015 23:01:00] "GET /api/games/ HTTP/1.1" 200 1122
+[29/May/2015 23:01:01] "GET /static/bluespin.gif HTTP/1.1" 304 0
+[29/May/2015 23:01:02] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:04] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:06] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:10] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:12] "GET / HTTP/1.1" 200 5872
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/wartanks.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/css/scoreboard.css HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/css/main.css HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/lib/underscore.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/lobby.css HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/css/controls.css HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/Game.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/Map.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/Weapons.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/Tanks.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/Trees.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/Panels.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/Util.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/Input.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/weapons/shell.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/weapons/1-2-punch.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/weapons/wheel.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/weapons/burial.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/weapons/nuke.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/weapons/mine-shaft.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/weapons/booster.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/weapons/shotgun.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/jquery.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/lobby.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/weapons/machine-gun.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/dragkings.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/chat.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/intro.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/ice/Game.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/ice/Input.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/ice/Util.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/favicon.ico HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/Trees.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/lib/underscore-min.map HTTP/1.1" 404 1715
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/Weapons.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/Input.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/weapons/burial.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/weapons/nuke.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/wartanks/js/weapons/shotgun.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/jquery.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/dragkings.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/chat.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/intro.js HTTP/1.1" 304 0
+[29/May/2015 23:01:12] "GET /static/games/ice/Game.js HTTP/1.1" 304 0
+[29/May/2015 23:01:13] "GET /api/games/ HTTP/1.1" 200 1122
+[29/May/2015 23:01:13] "GET /static/cupicon.png HTTP/1.1" 200 6633
+[29/May/2015 23:01:14] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:18] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:20] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:22] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:28] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:30] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:32] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:34] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:36] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:40] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:01:42] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:40] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:42] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:44] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:46] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:48] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:50] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:52] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:54] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:56] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:58] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:37:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:00] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:02] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:04] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:06] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:08] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:10] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:12] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:14] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:16] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:18] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:20] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:22] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:24] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:26] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:28] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:30] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:32] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:34] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:36] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:40] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:42] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:44] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:46] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:48] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:50] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:52] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:54] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:56] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:58] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:38:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:00] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:02] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:04] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:06] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:08] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:10] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:12] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:14] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:16] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:18] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:20] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:22] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:24] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:26] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:28] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:30] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:32] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:34] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:36] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:40] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:42] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:44] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:46] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:48] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:50] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:52] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:54] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:56] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:58] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:39:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:00] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:02] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:04] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:08] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:10] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:12] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:14] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:16] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:18] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:20] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:22] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:24] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:26] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:28] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:30] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:32] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:34] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:36] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:40] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:42] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:44] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:46] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:48] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:50] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:52] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:54] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:56] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:58] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:40:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:00] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:02] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:04] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:06] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:08] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:10] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:12] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:14] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:16] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:18] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:20] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:22] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:24] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:26] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:28] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:30] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:32] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:34] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:36] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:40] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:42] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:44] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:46] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:48] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:50] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:52] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:54] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:56] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:58] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:41:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:00] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:02] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:04] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:06] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:08] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:10] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:12] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:14] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:16] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:18] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:20] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:22] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:24] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:26] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:28] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:30] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:32] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:34] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:36] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:40] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:42] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:44] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:46] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:48] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:50] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:52] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:54] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:56] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:58] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:42:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:00] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:02] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:04] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:06] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:08] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:10] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:12] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:14] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:16] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:18] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:20] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:22] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:24] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:26] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:28] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:30] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:32] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:34] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:36] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:40] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:42] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:44] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:46] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:48] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:50] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:52] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:54] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:56] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:58] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:43:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:00] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:02] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:04] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:06] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:08] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:10] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:12] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:14] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:16] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:18] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:20] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:22] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:24] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:26] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:28] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:30] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:32] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:34] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:36] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:40] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:42] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:44] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:46] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:48] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:50] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:52] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:54] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:56] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:58] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:44:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:00] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:02] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:04] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:06] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:08] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:10] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:12] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:14] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:16] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:18] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:20] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:22] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:24] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:26] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:28] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:30] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:32] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:34] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:36] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:40] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:42] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:44] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:46] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:48] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:50] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:52] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:54] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:56] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:58] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:45:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:00] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:02] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:04] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:06] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:08] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:10] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:12] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:14] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:16] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:18] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:20] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:22] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:24] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:26] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:28] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:30] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:32] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:34] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:36] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:40] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:42] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:44] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:46] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:48] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:50] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:52] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:54] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:56] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:58] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:46:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:00] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:02] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:04] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:06] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:08] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:10] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:12] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:14] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:16] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:18] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:20] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:22] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:24] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:26] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:28] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:30] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:32] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:34] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:36] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:40] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:42] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:44] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:46] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:48] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:50] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:52] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:54] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:56] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:58] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:47:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:00] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:02] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:04] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:06] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:08] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:10] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:12] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:14] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:16] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:18] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:20] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:22] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:24] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:26] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:28] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:30] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:32] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:34] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:48:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:49:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:50:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:08] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:10] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:12] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:14] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:16] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:18] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:20] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:22] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:24] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:26] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:28] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:30] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:34] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:36] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:40] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:42] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:51:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:52:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:53:58] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:00] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:02] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:08] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:10] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:12] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:14] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:16] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:18] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:20] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:54:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:55:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:56:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:57:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:00] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:02] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:58:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[29/May/2015 23:59:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:28] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:30] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:32] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:34] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:36] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:00:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:01:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:43] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:51] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:52] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:53] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:55] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:57] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:02:59] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:00] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:01] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:02] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:03] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:04] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:05] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:06] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:07] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:08] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:09] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:10] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:11] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:12] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:13] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:14] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:15] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:16] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:17] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:18] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:19] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:20] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:21] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:22] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:23] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:24] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:25] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:26] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:27] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:28] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:29] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:30] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:31] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:32] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:33] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:34] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:35] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:36] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:37] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:38] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:39] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:40] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:41] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:42] "GET / HTTP/1.1" 200 5872
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/wartanks.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/css/main.css HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/lobby.css HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/css/scoreboard.css HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/css/controls.css HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/lib/underscore.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/Game.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/Map.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/Trees.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/Weapons.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/Tanks.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/Panels.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/Util.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/Input.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/weapons/shell.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/weapons/1-2-punch.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/weapons/wheel.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/weapons/burial.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/weapons/mine-shaft.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/weapons/nuke.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/weapons/booster.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/weapons/machine-gun.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/wartanks/js/weapons/shotgun.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/jquery.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/lobby.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/chat.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/dragkings.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/intro.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/ice/Game.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/ice/Util.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/games/ice/Input.js HTTP/1.1" 304 0
+[30/May/2015 00:03:42] "GET /static/favicon.ico HTTP/1.1" 304 0
+[30/May/2015 00:03:43] "GET /api/games/ HTTP/1.1" 200 1122
+[30/May/2015 00:03:43] "GET /static/cupicon.png HTTP/1.1" 200 6633
+[30/May/2015 00:03:44] "GET /static/bluespin.gif HTTP/1.1" 304 0
+[30/May/2015 00:03:45] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:46] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:47] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:48] "GET /api/games/1/ HTTP/1.1" 200 1120
+[30/May/2015 00:03:49] "GET /api/games/1/ HTTP/1.1" 200 1120
+hello
+JOPA's game (Rainbow Buffet lobby)
+[30/May/2015 00:03:54] "POST /api/matches/ HTTP/1.1" 201 187
+[30/May/2015 00:03:54] "POST /api/players/ HTTP/1.1" 201 132
+ping
+got profile
+[30/May/2015 00:03:55] "GET /api/matches/4/ HTTP/1.1" 200 319
+ping
+got profile
+[30/May/2015 00:03:56] "GET /api/matches/4/ HTTP/1.1" 200 319
+ping
+got profile
+[30/May/2015 00:03:57] "GET /api/matches/4/ HTTP/1.1" 200 319
+ping
+got profile
+[30/May/2015 00:03:58] "GET /api/matches/4/ HTTP/1.1" 200 319
+ping
+got profile
+[30/May/2015 00:03:59] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:00] "GET / HTTP/1.1" 200 5872
+[30/May/2015 00:04:01] "GET /static/games/wartanks/lib/underscore-min.map HTTP/1.1" 404 1715
+[30/May/2015 00:04:01] "GET /api/games/ HTTP/1.1" 200 1442
+ping
+got profile
+[30/May/2015 00:04:01] "GET /api/matches/4/ HTTP/1.1" 200 319
+ping
+got profile
+[30/May/2015 00:04:03] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:03] "GET /api/games/1/ HTTP/1.1" 200 1440
+[30/May/2015 00:04:04] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:05] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:05] "GET /api/games/1/ HTTP/1.1" 200 1440
+[30/May/2015 00:04:06] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:07] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:07] "GET /api/games/1/ HTTP/1.1" 200 1440
+[30/May/2015 00:04:08] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:09] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:09] "GET /api/games/1/ HTTP/1.1" 200 1440
+[30/May/2015 00:04:10] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:11] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:11] "GET /api/games/1/ HTTP/1.1" 200 1440
+[30/May/2015 00:04:12] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:13] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:13] "GET /api/games/1/ HTTP/1.1" 200 1440
+[30/May/2015 00:04:14] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:15] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:15] "GET /api/games/1/ HTTP/1.1" 200 1440
+[30/May/2015 00:04:16] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:17] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:17] "GET /api/games/1/ HTTP/1.1" 200 1440
+[30/May/2015 00:04:19] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:19] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:21] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:21] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:23] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:23] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:25] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:25] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:27] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:27] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:28] "GET /api/games/1/ HTTP/1.1" 200 1440
+[30/May/2015 00:04:29] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:29] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:30] "GET /api/games/1/ HTTP/1.1" 200 1440
+[30/May/2015 00:04:31] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:31] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:32] "GET /api/games/1/ HTTP/1.1" 200 1440
+[30/May/2015 00:04:33] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:33] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:34] "GET /api/games/1/ HTTP/1.1" 200 1440
+[30/May/2015 00:04:35] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:35] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:36] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:37] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:38] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:39] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:40] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:41] "GET /api/matches/4/ HTTP/1.1" 200 319
+ping
+got profile
+[30/May/2015 00:04:42] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:42] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:43] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:44] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:44] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:45] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:46] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:46] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:47] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:48] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:49] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:50] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:51] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:52] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:53] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:54] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:54] "GET /api/matches/4/ HTTP/1.1" 200 319
+[30/May/2015 00:04:55] "GET /api/games/1/ HTTP/1.1" 200 1440
+ping
+got profile
+[30/May/2015 00:04:55] "GET /api/matches/4/ HTTP/1.1" 200 319
+ping
+got profile
+[30/May/2015 00:04:56] "GET /api/matches/4/ HTTP/1.1" 200 319
+^CJoeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py runserver 192.168.0.101:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 30, 2015 - 00:05:22
+Django version 1.7.6, using settings 'crack_haus.settings'
+Starting development server at http://192.168.0.101:8000/
+Quit the server with CONTROL-C.
+[30/May/2015 00:05:37] "GET / HTTP/1.1" 200 5872
+[30/May/2015 00:05:37] "GET /static/games/lobby.css HTTP/1.1" 200 3857
+[30/May/2015 00:05:37] "GET /static/games/wartanks/lib/underscore.js HTTP/1.1" 200 15626
+[30/May/2015 00:05:37] "GET /static/games/wartanks/css/scoreboard.css HTTP/1.1" 200 470
+[30/May/2015 00:05:37] "GET /static/games/wartanks/css/main.css HTTP/1.1" 200 97
+[30/May/2015 00:05:37] "GET /static/games/wartanks/css/controls.css HTTP/1.1" 200 3086
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/wartanks.js HTTP/1.1" 200 3836
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/Game.js HTTP/1.1" 200 2460
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/Map.js HTTP/1.1" 200 8184
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/Trees.js HTTP/1.1" 200 5713
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/Weapons.js HTTP/1.1" 200 8682
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/Tanks.js HTTP/1.1" 200 5609
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/Panels.js HTTP/1.1" 200 3443
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/Util.js HTTP/1.1" 200 2670
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/Input.js HTTP/1.1" 200 6681
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/weapons/shell.js HTTP/1.1" 200 1737
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/weapons/1-2-punch.js HTTP/1.1" 200 2466
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/weapons/wheel.js HTTP/1.1" 200 1268
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/weapons/burial.js HTTP/1.1" 200 2397
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/weapons/nuke.js HTTP/1.1" 200 3920
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/weapons/mine-shaft.js HTTP/1.1" 200 2539
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/weapons/booster.js HTTP/1.1" 200 2598
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/weapons/machine-gun.js HTTP/1.1" 200 2309
+[30/May/2015 00:05:37] "GET /static/games/wartanks/js/weapons/shotgun.js HTTP/1.1" 200 2574
+[30/May/2015 00:05:37] "GET /static/games/jquery.js HTTP/1.1" 200 95931
+[30/May/2015 00:05:38] "GET /static/games/lobby.js HTTP/1.1" 200 8546
+[30/May/2015 00:05:38] "GET /static/games/chat.js HTTP/1.1" 200 1143
+[30/May/2015 00:05:38] "GET /static/games/dragkings.js HTTP/1.1" 200 3075
+[30/May/2015 00:05:38] "GET /static/games/intro.js HTTP/1.1" 200 3255
+[30/May/2015 00:05:38] "GET /static/games/ice/Game.js HTTP/1.1" 200 12375
+[30/May/2015 00:05:38] "GET /static/games/ice/Input.js HTTP/1.1" 200 482
+[30/May/2015 00:05:38] "GET /static/games/ice/Util.js HTTP/1.1" 200 3680
+[30/May/2015 00:05:38] "GET /static/favicon.ico HTTP/1.1" 200 2673
+[30/May/2015 00:05:38] "GET /api/games/ HTTP/1.1" 200 1478
+[30/May/2015 00:05:38] "GET /static/cupicon.png HTTP/1.1" 200 6633
+[30/May/2015 00:05:38] "GET / HTTP/1.1" 200 5872
+[30/May/2015 00:05:39] "GET /static/games/lobby.css HTTP/1.1" 200 3857
+[30/May/2015 00:05:39] "GET /static/games/wartanks/css/scoreboard.css HTTP/1.1" 200 470
+[30/May/2015 00:05:39] "GET /static/games/wartanks/css/controls.css HTTP/1.1" 200 3086
+[30/May/2015 00:05:39] "GET /static/games/wartanks/css/main.css HTTP/1.1" 200 97
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/wartanks.js HTTP/1.1" 200 3836
+[30/May/2015 00:05:39] "GET /static/games/wartanks/lib/underscore.js HTTP/1.1" 200 15626
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/Game.js HTTP/1.1" 200 2460
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/Map.js HTTP/1.1" 200 8184
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/Weapons.js HTTP/1.1" 200 8682
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/Tanks.js HTTP/1.1" 200 5609
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/Panels.js HTTP/1.1" 200 3443
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/Trees.js HTTP/1.1" 200 5713
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/Input.js HTTP/1.1" 200 6681
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/Util.js HTTP/1.1" 200 2670
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/weapons/shell.js HTTP/1.1" 200 1737
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/weapons/wheel.js HTTP/1.1" 200 1268
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/weapons/burial.js HTTP/1.1" 200 2397
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/weapons/1-2-punch.js HTTP/1.1" 200 2466
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/weapons/nuke.js HTTP/1.1" 200 3920
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/weapons/mine-shaft.js HTTP/1.1" 200 2539
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/weapons/booster.js HTTP/1.1" 200 2598
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/weapons/machine-gun.js HTTP/1.1" 200 2309
+[30/May/2015 00:05:39] "GET /static/games/wartanks/js/weapons/shotgun.js HTTP/1.1" 200 2574
+[30/May/2015 00:05:39] "GET /static/games/lobby.js HTTP/1.1" 200 8546
+[30/May/2015 00:05:39] "GET /static/games/dragkings.js HTTP/1.1" 200 3075
+[30/May/2015 00:05:39] "GET /static/games/intro.js HTTP/1.1" 200 3255
+[30/May/2015 00:05:39] "GET /static/games/chat.js HTTP/1.1" 200 1143
+[30/May/2015 00:05:39] "GET /static/games/jquery.js HTTP/1.1" 200 95931
+[30/May/2015 00:05:39] "GET /static/games/ice/Input.js HTTP/1.1" 200 482
+[30/May/2015 00:05:39] "GET /static/games/ice/Game.js HTTP/1.1" 200 12375
+[30/May/2015 00:05:39] "GET /static/games/ice/Util.js HTTP/1.1" 200 3680
+[30/May/2015 00:05:39] "GET /static/favicon.ico HTTP/1.1" 200 2673
+[30/May/2015 00:05:39] "GET /static/games/wartanks/lib/underscore-min.map HTTP/1.1" 404 1719
+[30/May/2015 00:05:39] "GET /api/games/ HTTP/1.1" 200 1478
+[30/May/2015 00:05:39] "GET /static/cupicon.png HTTP/1.1" 200 6633
+[30/May/2015 00:05:40] "GET /static/bluespin.gif HTTP/1.1" 200 22930
+[30/May/2015 00:05:41] "GET /api/games/1 HTTP/1.1" 301 0
+[30/May/2015 00:05:41] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:42] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:43] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:44] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:45] "GET /static/bluespin.gif HTTP/1.1" 200 22930
+[30/May/2015 00:05:45] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:46] "GET /api/games/1 HTTP/1.1" 301 0
+[30/May/2015 00:05:46] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:46] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:47] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:47] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:48] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:48] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:49] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:49] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:50] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:50] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:51] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:52] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:52] "GET / HTTP/1.1" 200 5872
+[30/May/2015 00:05:53] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:54] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:55] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:55] "GET /api HTTP/1.1" 301 0
+[30/May/2015 00:05:55] "GET /api/ HTTP/1.1" 200 6685
+[30/May/2015 00:05:56] "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3058
+[30/May/2015 00:05:56] "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+[30/May/2015 00:05:56] "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1028
+[30/May/2015 00:05:56] "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 109518
+[30/May/2015 00:05:56] "GET /static/rest_framework/js/jquery-1.8.1-min.js HTTP/1.1" 200 92791
+[30/May/2015 00:05:56] "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 31819
+[30/May/2015 00:05:56] "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+[30/May/2015 00:05:56] "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1603
+[30/May/2015 00:05:56] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:56] "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+[30/May/2015 00:05:56] "GET /favicon.ico HTTP/1.1" 404 3604
+[30/May/2015 00:05:58] "POST /api/matches/ HTTP/1.1" 403 58
+[30/May/2015 00:05:58] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:05:59] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:00] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:01] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:02] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:03] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:04] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:05] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:06] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:07] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:08] "POST /api/matches/ HTTP/1.1" 403 58
+[30/May/2015 00:06:09] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:10] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:11] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:12] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:13] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:14] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:15] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:16] "GET /api/games/1/ HTTP/1.1" 200 1476
+^CJoeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py runserver 192.168.0.101:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 30, 2015 - 00:06:27
+Django version 1.7.6, using settings 'crack_haus.settings'
+Starting development server at http://192.168.0.101:8000/
+Quit the server with CONTROL-C.
+[30/May/2015 00:06:27] "GET /api/matches/ HTTP/1.1" 200 10184
+[30/May/2015 00:06:29] "GET / HTTP/1.1" 200 5872
+[30/May/2015 00:06:29] "GET /static/games/lobby.css HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/css/controls.css HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/css/scoreboard.css HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/css/main.css HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/lib/underscore.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/wartanks.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/Game.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/Panels.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/Map.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/Weapons.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/Trees.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/Util.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/Tanks.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/Input.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/weapons/wheel.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/weapons/1-2-punch.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/weapons/mine-shaft.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/weapons/shell.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/weapons/burial.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/weapons/nuke.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/jquery.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/weapons/booster.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/lobby.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/weapons/shotgun.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/dragkings.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/js/weapons/machine-gun.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/chat.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/intro.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/ice/Input.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/ice/Game.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/ice/Util.js HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/favicon.ico HTTP/1.1" 304 0
+[30/May/2015 00:06:29] "GET /static/games/wartanks/lib/underscore-min.map HTTP/1.1" 404 1719
+[30/May/2015 00:06:29] "GET /api/games/ HTTP/1.1" 200 1478
+[30/May/2015 00:06:29] "GET /static/cupicon.png HTTP/1.1" 200 6633
+[30/May/2015 00:06:34] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:35] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:35] "GET /api-auth/login/?next=/api/matches/ HTTP/1.1" 200 3645
+[30/May/2015 00:06:36] "POST /api/matches/ HTTP/1.1" 403 58
+[30/May/2015 00:06:37] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:38] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:39] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:40] "POST /api-auth/login/ HTTP/1.1" 200 3961
+[30/May/2015 00:06:40] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:41] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:42] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:43] "POST /api-auth/login/ HTTP/1.1" 200 3961
+[30/May/2015 00:06:43] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:44] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:45] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:46] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:46] "GET /admin HTTP/1.1" 301 0
+[30/May/2015 00:06:47] "GET /admin/ HTTP/1.1" 302 0
+[30/May/2015 00:06:47] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1914
+[30/May/2015 00:06:47] "GET /api/games/1/ HTTP/1.1" 200 1476
+[30/May/2015 00:06:47] "GET /static/admin/css/login.css HTTP/1.1" 200 940
+[30/May/2015 00:06:47] "GET /static/admin/css/base.css HTTP/1.1" 200 13995
+[30/May/2015 00:06:47] "GET /static/admin/img/nav-bg.gif HTTP/1.1" 200 265
+^CJoeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 30, 2015 - 00:06:51
+Django version 1.7.6, using settings 'crack_haus.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[30/May/2015 00:06:56] "GET / HTTP/1.1" 200 5872
+[30/May/2015 00:06:56] "GET /static/games/wartanks/lib/underscore-min.map HTTP/1.1" 404 1715
+[30/May/2015 00:06:56] "GET /api/games/ HTTP/1.1" 200 1442
+[30/May/2015 00:06:58] "GET /api/games/1/ HTTP/1.1" 200 1440
+[30/May/2015 00:06:59] "GET /api/games/1/ HTTP/1.1" 200 1440
+[30/May/2015 00:07:00] "GET /api/games/1/ HTTP/1.1" 200 1440
+hello
+asss's game (Rainbow Buffet lobby)
+[30/May/2015 00:07:02] "POST /api/matches/ HTTP/1.1" 201 187
+[30/May/2015 00:07:02] "POST /api/players/ HTTP/1.1" 201 133
+ping
+got profile
+[30/May/2015 00:07:03] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:04] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:05] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:06] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:07] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:08] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:09] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:10] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:11] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:12] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:13] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:14] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:15] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:16] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:17] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:18] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:19] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:20] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:21] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:22] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:23] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:24] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:25] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:26] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:27] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:28] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:29] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:30] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:31] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:32] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:33] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:34] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:35] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:36] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:37] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:38] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:39] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:40] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:41] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:42] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:43] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:44] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:45] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:46] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:47] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:48] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:49] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:50] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:51] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:52] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:53] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:54] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:55] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:56] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:57] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:58] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:07:59] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:08:00] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:08:01] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:08:02] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:08:03] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:08:04] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:08:05] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:08:06] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:08:07] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:08:08] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:08:09] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:08:10] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:08:11] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:08:12] "GET /api/matches/5/ HTTP/1.1" 200 320
+ping
+got profile
+[30/May/2015 00:08:13] "GET /api/matches/5/ HTTP/1.1" 200 320
+^CJoeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py runserver 192.168.0.101:8000
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 30, 2015 - 00:08:16
+Django version 1.7.6, using settings 'crack_haus.settings'
+Starting development server at http://192.168.0.101:8000/
+Quit the server with CONTROL-C.
+[30/May/2015 00:08:17] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1914
+[30/May/2015 00:08:21] "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2074
+[30/May/2015 00:08:21] "GET /static/admin/img/icon_error.gif HTTP/1.1" 200 319
+[30/May/2015 00:08:29] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[30/May/2015 00:08:29] "GET /admin/ HTTP/1.1" 200 6856
+[30/May/2015 00:08:29] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 434
+[30/May/2015 00:08:30] "GET /static/admin/img/default-bg.gif HTTP/1.1" 200 836
+[30/May/2015 00:08:30] "GET /static/admin/img/icon_changelink.gif HTTP/1.1" 200 119
+[30/May/2015 00:08:30] "GET /static/admin/img/icon_addlink.gif HTTP/1.1" 200 119
+^CJoeys-MacBook-Pro:crack_haus joeylemberg$ pip install django-extensions
+You are using pip version 6.0.8, however version 7.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Collecting django-extensions
+  Downloading django_extensions-1.5.5-py2.py3-none-any.whl (245kB)
+    100% |################################| 245kB 872kB/s 
+Requirement already satisfied (use --upgrade to upgrade): six>=1.2 in /Library/Python/2.7/site-packages (from django-extensions)
+Installing collected packages: django-extensions
+
+  Exception:
+  Traceback (most recent call last):
+    File "/Library/Python/2.7/site-packages/pip-6.0.8-py2.7.egg/pip/basecommand.py", line 232, in main
+      status = self.run(options, args)
+    File "/Library/Python/2.7/site-packages/pip-6.0.8-py2.7.egg/pip/commands/install.py", line 347, in run
+      root=options.root_path,
+    File "/Library/Python/2.7/site-packages/pip-6.0.8-py2.7.egg/pip/req/req_set.py", line 549, in install
+      **kwargs
+    File "/Library/Python/2.7/site-packages/pip-6.0.8-py2.7.egg/pip/req/req_install.py", line 754, in install
+      self.move_wheel_files(self.source_dir, root=root)
+    File "/Library/Python/2.7/site-packages/pip-6.0.8-py2.7.egg/pip/req/req_install.py", line 963, in move_wheel_files
+      isolated=self.isolated,
+    File "/Library/Python/2.7/site-packages/pip-6.0.8-py2.7.egg/pip/wheel.py", line 234, in move_wheel_files
+      clobber(source, lib_dir, True)
+    File "/Library/Python/2.7/site-packages/pip-6.0.8-py2.7.egg/pip/wheel.py", line 205, in clobber
+      os.makedirs(destdir)
+    File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/os.py", line 157, in makedirs
+      mkdir(name, mode)
+  OSError: [Errno 13] Permission denied: '/Library/Python/2.7/site-packages/django_extensions'
+
+Joeys-MacBook-Pro:crack_haus joeylemberg$ sudo pip install django-extensions
+Password:
+The directory '/Users/joeylemberg/Library/Logs/pip' or its parent directory is not owned by the current user and the debug log has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want the -H flag.
+The directory '/Users/joeylemberg/Library/Caches/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want the -H flag.
+You are using pip version 6.0.8, however version 7.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+The directory '/Users/joeylemberg/Library/Caches/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want the -H flag.
+Collecting django-extensions
+  Downloading django_extensions-1.5.5-py2.py3-none-any.whl (245kB)
+    100% |################################| 245kB 901kB/s 
+Requirement already satisfied (use --upgrade to upgrade): six>=1.2 in /Library/Python/2.7/site-packages (from django-extensions)
+Installing collected packages: django-extensions
+
+Successfully installed django-extensions-1.5.5
+Joeys-MacBook-Pro:crack_haus joeylemberg$ pwd
+/Users/joeylemberg/crack.haus/crack_haus
+Joeys-MacBook-Pro:crack_haus joeylemberg$ ls
+crack_haus		db.sqlite3		games			manage.py		requirements.txt
+Joeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py shell_plus --notebook
+Unknown command: 'shell_plus'
+Type 'manage.py help' for usage.
+Joeys-MacBook-Pro:crack_haus joeylemberg$ mate crack_haus/settings.py
+^C
+Joeys-MacBook-Pro:crack_haus joeylemberg$ open crack_haus/settings.py
+Joeys-MacBook-Pro:crack_haus joeylemberg$ open crack_haus/
+Joeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py shell_plus --notebook
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django_extensions/management/commands/shell_plus.py", line 120, in get_notebook
+    from IPython.frontend.html.notebook import notebookapp
+ImportError: No module named IPython.frontend.html.notebook
+
+Could not load IPython Notebook interactive Python environment.
+Joeys-MacBook-Pro:crack_haus joeylemberg$ sudo pip install ipython
+The directory '/Users/joeylemberg/Library/Logs/pip' or its parent directory is not owned by the current user and the debug log has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want the -H flag.
+The directory '/Users/joeylemberg/Library/Caches/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want the -H flag.
+You are using pip version 6.0.8, however version 7.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+The directory '/Users/joeylemberg/Library/Caches/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want the -H flag.
+Collecting ipython
+  Downloading ipython-3.1.0-py2-none-any.whl (3.4MB)
+    100% |################################| 3.4MB 143kB/s 
+Collecting gnureadline (from ipython)
+  Downloading gnureadline-6.3.3-cp27-none-macosx_10_6_intel.whl (262kB)
+    100% |################################| 262kB 1.2MB/s 
+Installing collected packages: gnureadline, ipython
+
+
+Successfully installed gnureadline-6.3.3 ipython-3.1.0
+Joeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py shell_plus --notebook
+/Library/Python/2.7/site-packages/IPython/frontend.py:30: UserWarning: The top-level `frontend` package has been deprecated. All its subpackages have been moved to the top `IPython` level.
+  warn("The top-level `frontend` package has been deprecated. "
+
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django_extensions/management/commands/shell_plus.py", line 120, in get_notebook
+    from IPython.frontend.html.notebook import notebookapp
+  File "/Library/Python/2.7/site-packages/IPython/html/notebookapp.py", line 30, in <module>
+    check_for_zmq('13', 'IPython.html')
+  File "/Library/Python/2.7/site-packages/IPython/utils/zmqrelated.py", line 12, in check_for_zmq
+    raise ImportError("%s requires pyzmq >= %s"%(required_by, minimum_version))
+ImportError: IPython.html requires pyzmq >= 13
+
+Could not load IPython Notebook interactive Python environment.
+Joeys-MacBook-Pro:crack_haus joeylemberg$ pip install "ipython[notebook]"
+You are using pip version 6.0.8, however version 7.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Requirement already satisfied (use --upgrade to upgrade): ipython[notebook] in /Library/Python/2.7/site-packages
+Requirement already satisfied (use --upgrade to upgrade): gnureadline in /Library/Python/2.7/site-packages (from ipython[notebook])
+Collecting pygments (from ipython[notebook])
+  Downloading Pygments-2.0.2-py2-none-any.whl (672kB)
+    100% |################################| 675kB 506kB/s 
+Collecting jinja2 (from ipython[notebook])
+  Downloading Jinja2-2.7.3.tar.gz (378kB)
+    100% |################################| 380kB 744kB/s 
+Collecting jsonschema>=2.0 (from ipython[notebook])
+  Downloading jsonschema-2.4.0-py2.py3-none-any.whl
+Collecting terminado>=0.3.3 (from ipython[notebook])
+  Downloading terminado-0.5.tar.gz
+Collecting mistune>=0.5 (from ipython[notebook])
+  Downloading mistune-0.5.1-cp27-none-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (398kB)
+    100% |################################| 401kB 929kB/s 
+Collecting tornado>=4.0 (from ipython[notebook])
+  Downloading tornado-4.2.tar.gz (433kB)
+    100% |################################| 434kB 1.0MB/s 
+Collecting pyzmq>=13 (from ipython[notebook])
+  Downloading pyzmq-14.6.0-cp27-none-macosx_10_6_intel.whl (1.2MB)
+    100% |################################| 1.2MB 296kB/s 
+Collecting markupsafe (from jinja2->ipython[notebook])
+  Downloading MarkupSafe-0.23.tar.gz
+Collecting ptyprocess (from terminado>=0.3.3->ipython[notebook])
+  Downloading ptyprocess-0.5.tar.gz
+Collecting backports.ssl-match-hostname (from tornado>=4.0->ipython[notebook])
+  Downloading backports.ssl_match_hostname-3.4.0.2.tar.gz
+Collecting certifi (from tornado>=4.0->ipython[notebook])
+  Downloading certifi-2015.04.28-py2.py3-none-any.whl (373kB)
+    100% |################################| 376kB 955kB/s 
+Installing collected packages: certifi, backports.ssl-match-hostname, ptyprocess, markupsafe, pyzmq, tornado, mistune, terminado, jsonschema, jinja2, pygments
+
+  Exception:
+  Traceback (most recent call last):
+    File "/Library/Python/2.7/site-packages/pip-6.0.8-py2.7.egg/pip/basecommand.py", line 232, in main
+      status = self.run(options, args)
+    File "/Library/Python/2.7/site-packages/pip-6.0.8-py2.7.egg/pip/commands/install.py", line 347, in run
+      root=options.root_path,
+    File "/Library/Python/2.7/site-packages/pip-6.0.8-py2.7.egg/pip/req/req_set.py", line 549, in install
+      **kwargs
+    File "/Library/Python/2.7/site-packages/pip-6.0.8-py2.7.egg/pip/req/req_install.py", line 754, in install
+      self.move_wheel_files(self.source_dir, root=root)
+    File "/Library/Python/2.7/site-packages/pip-6.0.8-py2.7.egg/pip/req/req_install.py", line 963, in move_wheel_files
+      isolated=self.isolated,
+    File "/Library/Python/2.7/site-packages/pip-6.0.8-py2.7.egg/pip/wheel.py", line 234, in move_wheel_files
+      clobber(source, lib_dir, True)
+    File "/Library/Python/2.7/site-packages/pip-6.0.8-py2.7.egg/pip/wheel.py", line 205, in clobber
+      os.makedirs(destdir)
+    File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/os.py", line 157, in makedirs
+      mkdir(name, mode)
+  OSError: [Errno 13] Permission denied: '/Library/Python/2.7/site-packages/certifi'
+
+Joeys-MacBook-Pro:crack_haus joeylemberg$ sudo pip install "ipython[notebook]"
+The directory '/Users/joeylemberg/Library/Logs/pip' or its parent directory is not owned by the current user and the debug log has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want the -H flag.
+The directory '/Users/joeylemberg/Library/Caches/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want the -H flag.
+You are using pip version 6.0.8, however version 7.0.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+The directory '/Users/joeylemberg/Library/Caches/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want the -H flag.
+Requirement already satisfied (use --upgrade to upgrade): ipython[notebook] in /Library/Python/2.7/site-packages
+Requirement already satisfied (use --upgrade to upgrade): gnureadline in /Library/Python/2.7/site-packages (from ipython[notebook])
+Collecting pygments (from ipython[notebook])
+  Downloading Pygments-2.0.2-py2-none-any.whl (672kB)
+    100% |################################| 675kB 695kB/s 
+Collecting jinja2 (from ipython[notebook])
+  Downloading Jinja2-2.7.3.tar.gz (378kB)
+    100% |################################| 380kB 625kB/s 
+Collecting jsonschema>=2.0 (from ipython[notebook])
+  Downloading jsonschema-2.4.0-py2.py3-none-any.whl
+Collecting terminado>=0.3.3 (from ipython[notebook])
+  Downloading terminado-0.5.tar.gz
+Collecting mistune>=0.5 (from ipython[notebook])
+  Downloading mistune-0.5.1-cp27-none-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (398kB)
+    100% |################################| 401kB 1.3MB/s 
+Collecting tornado>=4.0 (from ipython[notebook])
+  Downloading tornado-4.2.tar.gz (433kB)
+    100% |################################| 434kB 852kB/s 
+Collecting pyzmq>=13 (from ipython[notebook])
+  Downloading pyzmq-14.6.0-cp27-none-macosx_10_6_intel.whl (1.2MB)
+    100% |################################| 1.2MB 312kB/s 
+Collecting markupsafe (from jinja2->ipython[notebook])
+  Downloading MarkupSafe-0.23.tar.gz
+Collecting ptyprocess (from terminado>=0.3.3->ipython[notebook])
+  Downloading ptyprocess-0.5.tar.gz
+Collecting backports.ssl-match-hostname (from tornado>=4.0->ipython[notebook])
+  Downloading backports.ssl_match_hostname-3.4.0.2.tar.gz
+Collecting certifi (from tornado>=4.0->ipython[notebook])
+  Downloading certifi-2015.04.28-py2.py3-none-any.whl (373kB)
+    100% |################################| 376kB 830kB/s 
+Installing collected packages: certifi, backports.ssl-match-hostname, ptyprocess, markupsafe, pyzmq, tornado, mistune, terminado, jsonschema, jinja2, pygments
+
+  Running setup.py install for backports.ssl-match-hostname
+  Running setup.py install for ptyprocess
+  Running setup.py install for markupsafe
+    building 'markupsafe._speedups' extension
+    cc -fno-strict-aliasing -fno-common -dynamic -arch x86_64 -arch i386 -g -Os -pipe -fno-common -fno-strict-aliasing -fwrapv -DENABLE_DTRACE -DMACOSX -DNDEBUG -Wall -Wstrict-prototypes -Wshorten-64-to-32 -DNDEBUG -g -fwrapv -Os -Wall -Wstrict-prototypes -DENABLE_DTRACE -arch x86_64 -arch i386 -pipe -I/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7 -c markupsafe/_speedups.c -o build/temp.macosx-10.10-intel-2.7/markupsafe/_speedups.o
+    cc -bundle -undefined dynamic_lookup -arch x86_64 -arch i386 -Wl,-F. build/temp.macosx-10.10-intel-2.7/markupsafe/_speedups.o -o build/lib.macosx-10.10-intel-2.7/markupsafe/_speedups.so
+
+  Running setup.py install for tornado
+    building 'tornado.speedups' extension
+    cc -fno-strict-aliasing -fno-common -dynamic -arch x86_64 -arch i386 -g -Os -pipe -fno-common -fno-strict-aliasing -fwrapv -DENABLE_DTRACE -DMACOSX -DNDEBUG -Wall -Wstrict-prototypes -Wshorten-64-to-32 -DNDEBUG -g -fwrapv -Os -Wall -Wstrict-prototypes -DENABLE_DTRACE -arch x86_64 -arch i386 -pipe -I/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7 -c tornado/speedups.c -o build/temp.macosx-10.10-intel-2.7/tornado/speedups.o
+    cc -bundle -undefined dynamic_lookup -arch x86_64 -arch i386 -Wl,-F. build/temp.macosx-10.10-intel-2.7/tornado/speedups.o -o build/lib.macosx-10.10-intel-2.7/tornado/speedups.so
+
+  Running setup.py install for terminado
+
+  Running setup.py install for jinja2
+
+Successfully installed backports.ssl-match-hostname-3.4.0.2 certifi-2015.4.28 jinja2-2.7.3 jsonschema-2.4.0 markupsafe-0.23 mistune-0.5.1 ptyprocess-0.5 pygments-2.0.2 pyzmq-14.6.0 terminado-0.5 tornado-4.2
+Joeys-MacBook-Pro:crack_haus joeylemberg$ python manage.py shell_plus --notebook
+[I 00:12:21.984 NotebookApp] Created profile dir: u'/Users/joeylemberg/.ipython/profile_default'
+[I 00:12:21.987 NotebookApp] Writing notebook server cookie secret to /Users/joeylemberg/.ipython/profile_default/security/notebook_cookie_secret
+[I 00:12:21.988 NotebookApp] Using MathJax from CDN: https://cdn.mathjax.org/mathjax/latest/MathJax.js
+[I 00:12:22.005 NotebookApp] Serving notebooks from local directory: /Users/joeylemberg/crack.haus/crack_haus
+[I 00:12:22.005 NotebookApp] 0 active kernels 
+[I 00:12:22.005 NotebookApp] The IPython Notebook is running at: http://localhost:8888/
+[I 00:12:22.005 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+
