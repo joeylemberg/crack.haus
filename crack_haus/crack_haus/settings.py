@@ -8,6 +8,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
+NOTEBOOK_ARGUMENTS = [ '--ip=192.168.0.101', '--port=8888', ]
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -46,6 +48,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'games',
     'social_auth',
+    'django_extensions',
 )
 
 AUTHENTICATION_BACKENDS = (

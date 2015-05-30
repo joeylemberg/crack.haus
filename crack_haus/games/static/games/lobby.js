@@ -1,3 +1,5 @@
+//crack.haus
+
 var conn;
 
 var playerId = 0;
@@ -21,6 +23,8 @@ var lobby = {
 		
 	userId: null,
 
+	hosting: false,
+
 	peer: null,
 
 	interval: null,
@@ -28,6 +32,9 @@ var lobby = {
 	init: function(){
 		$("#all-games").on("click", ".listed-game", lobby.setGame);
 		$("#all-games").on("click", ".open-game", lobby.acceptGame);
+		$("#all-games").on("click", ".open-lobby", function(e){
+			lobby.hostMatch("joiner", $(e.target).closest(".open-lobby").data("url"));
+		});
 		lobby.getGamesList();
 		//window.onbeforeunload = lobby.deleteMe();
 	},
@@ -40,7 +47,7 @@ var lobby = {
 		}
 	},
 
-	getGamesList: function(){ 
+	getGamesList: function(){
 		$.ajax({
 		    type: "GET",
 		    contentType: "application/json",
@@ -96,6 +103,7 @@ var lobby = {
 	},
 
 	setGame: function(e){
+		
 		var clickedRow = $(e.target).closest(".listed-game");
 		lobby.game = {
             url: clickedRow.attr("data-url"),
@@ -107,12 +115,13 @@ var lobby = {
          var hostMatch = $("<div class='host-game' >Host Game</div>");
         $("#all-games").after(hostMatch);
         $(".host-game").click(lobby.hostMatch);
-        lobby.interval = setInterval(lobby.getHostedGames, 1000);
+		$("#all-games").append("<img src='/static/bluespin.gif' />'");
+		lobby.getHostedGames();
+        lobby.interval = setInterval(lobby.getHostedGames, 2500);
 		//lobby.sendUserData();
 	},
 
 	sendUserData: function(e){
-
 
 		function postIt(){
 			if(lobby.peer.id){
@@ -136,7 +145,8 @@ var lobby = {
 			    },
 			    success: function (data) {
 			    	//lobby.userId = data.id;
-			        lobby.interval = setInterval(lobby.refreshMatch, 1000);
+					lobby.refreshMatch();
+			        lobby.interval = setInterval(lobby.refreshMatch, 2500);
                     console.log(data);
 			    },
 			    failure: function(data){
@@ -177,14 +187,62 @@ var lobby = {
     },
 
     renderMatch: function(data){
+		
+		if(lobby.hosting && data.players.length > 1){
+			lobby.hisId = data.players[1].peer_id;
+		}
+		
+		var player;
+		
         $("#all-games").empty();
         $(".host-game").remove();
 
-        var html = "<div class='hosted-match'>";
-        html += JSON.stringify(data);
-        html += "</div>";
+        var html = "<table class='hosted-match'>";
+		
+		for(var i = 0; i < data.players.length; i++){
+			
+		}
+		
+		for(i = 0; i < data.players.length; i++){
+			player = data.players[i];
+			
+			if(i == 0){
+				html += "<tr class='listed-player'>";// data-url='" + game.url + "' data-id='" + game.id + "' data-name='" + game.name + "'>";
+			//html += "<td>" + game.name + "</td>";
+			//html += "<td>" + game.description + "</td>";
+		      //  html += "<td>" + game.lobby_size + "</td>";
+			  
+					  for(var k in player){
+						  html += "<th>" + k +  "</th>";
+					  }
+			  
+                   html += "</tr>";
+			}
+			
+			
+			html += "<tr class='listed-player'>";// data-url='" + game.url + "' data-id='" + game.id + "' data-name='" + game.name + "'>";
+			//html += "<td>" + game.name + "</td>";
+			//html += "<td>" + game.description + "</td>";
+		      //  html += "<td>" + game.lobby_size + "</td>";
+			  
+			  for(var k in player){
+				  html += "<td>" + player[k] + "</td>";
+			  }
+			  
+                        html += "</tr>";
+		}
+		
+     //   html += JSON.stringify(data);
+        html += "</table>";
 
         $("#all-games").html(html);
+		
+		if(lobby.hosting){
+			var startMatch = $("<div class='host-game' >Start Game</div>");
+	        $("#all-games").after(startMatch);
+	        $(".host-game").click(lobby.startMatch);
+		}
+		
     },
 
 	getHostedGames: function(){
@@ -223,22 +281,40 @@ var lobby = {
 		}
 		$("#all-games").empty();
 		$("#all-games").append(html);
-
-
 	},
 
-    hostMatch: function(){
-
-    lobby.peer = new Peer({key: 'j12fo2q0wvwvcxr'});
+    hostMatch: function(m, url){
+		//url for joiners
+    	lobby.peer = new Peer({key: 'j12fo2q0wvwvcxr'});
 		lobby.peer.on('connection', lobby.peerConnect);
 		lobby.tag = prompt("Please enter your name", "player" + Math.round(Math.random() * 1000));
 
+		if(m !== "joiner"){
+			lobby.hosting = true;
+		}else{
+			
+			lobby.hosting = false;
+			
+		/*	setTimeout(function(){
+				lobby.match = data;
+			
+			clearInterval(lobby.interval);
+               // lobby.interval = setInterval(lobby.refreshHostedMatch);
+               lobby.sendUserData();
+			}, 3000);
+			
+			   return;*/
+		}
+
+		console.log(url);
+		
+		
 
         $.ajax({
-		    type: "POST",
+		    type: m == "joiner" ? "PUT" : "POST",
 		    contentType: "application/json",
             accepts: "application/json",
-		    url: "api/matches/",
+		    url: m == "joiner" ? url : "api/matches/",
             data: JSON.stringify({
                 "name": lobby.tag + "'s game" ,
                 "game": lobby.game.id
@@ -250,17 +326,30 @@ var lobby = {
 			    },
 		    success: function (data) {
                lobby.match = data;
-                clearInterval(lobby.interval);
+               clearInterval(lobby.interval);
                // lobby.interval = setInterval(lobby.refreshHostedMatch);
                lobby.sendUserData();
 		       console.log(data);
 		       // lobby.renderLobby(data);
 		    },
+			error: function(e){
+				console.log("Error joining game");
+				console.log(e);
+				if(e.responseText){
+					alert("Error joining game:    " + e.responseText);
+				}	
+			},
 		    failure: function(data){
 		    	console.log(data);
 		    }
 		});
     },
+
+	startMatch: function(e){
+		var peerId = lobby.hisId;
+		conn = lobby.peer.connect(peerId);
+    	lobby.listen();
+	},
 
 	acceptGame: function(e){
 		
@@ -293,6 +382,7 @@ var lobby = {
 		switch(lobby.game.name){
 			
 			case "Blue Ice":
+			case "Rainbow Buffet":
 				Game.init();
 				game = Game;
 				break;

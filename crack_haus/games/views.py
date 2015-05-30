@@ -34,7 +34,7 @@ class NotInMatchException(APIException):
     status_code = 400
     default_detail = "user is not in this match"
 
-class MatchViewSet(CreateListRetrieveViewSet):
+class MatchViewSet(viewsets.ModelViewSet):
     queryset = Match.objects.all()
     serializer_class = MatchSerializer
 
@@ -45,7 +45,15 @@ class MatchViewSet(CreateListRetrieveViewSet):
             player.ping()
             print 'got profile'
         except (Player.DoesNotExist, KeyError) as e:
-            raise NotInMatchException(e)
+            pass
+            #raise NotInMatchException(e)
+        return res
+    
+    def update(self, request, pk=None):
+        print 'hello world'
+        print request
+        res = super(MatchViewSet, self).update(request, pk)
+        print 'update, pk=', pk
         return res
 
 class PlayerViewSet(viewsets.ModelViewSet):

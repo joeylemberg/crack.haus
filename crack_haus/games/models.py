@@ -74,11 +74,14 @@ class Player(models.Model):
         return unicode(self.profile)
 
     def purge(self):
+        print 'purging'
         for player in self.match.players.all():
-            if player.last_ping >= timezone.now() - timezone.timedelta(seconds=30):
-                # player.delete()
-                pass
-
+            if player.last_ping <= timezone.now() - timezone.timedelta(seconds=10):
+                try:
+                    player.delete()
+                except Exception:
+                    pass
+                
     def ping(self):
         print 'ping'
         self.last_ping = timezone.now()
