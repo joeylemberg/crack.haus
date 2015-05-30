@@ -26,13 +26,13 @@ class PlayerSerializer(PartialUpdateSerializerMixin, serializers.ModelSerializer
         fields = ('profile', 'peer_id', 'score', 'result', 'team', 'match', 'id', 'tag')
         #read_only_fields = ('profile',)
 
-    def create(self, validated_data):
-         #print self.request
-         #validated_data['profile'] = self.request.user.profile
-         print 'creating player in serializer'
-         print validated_data
-         res = super(PlayerSerializer, self).create(validated_data)
-         return res
+#    def create(self, validated_data):
+#         #print self.request
+##         #validated_data['profile'] = self.request.user.profile
+ #        print 'creating player in serializer'
+ #        print validated_data
+ #        res = super(PlayerSerializer, self).create(validated_data)
+ #        return res
 
 
 

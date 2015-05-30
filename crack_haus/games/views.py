@@ -24,6 +24,10 @@ class CreateListRetrieveViewSet(mixins.CreateModelMixin,
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+    
+    def list(self, request):
+        return Response(ProfileSerializer(request.user.profile).data)
+    
 
     # def create(self, request, *args, **kwargs):
     #     print request
@@ -71,21 +75,23 @@ class PlayerViewSet(viewsets.ModelViewSet):
         super(PlayerSerializer, self).pre_save(obj)
 
     def create(self, request, **kwargs):
-        print 'duh'
-        print request
+        print 'yo'
+        print request.auth
+        print request.user
+        print request.user.id
+        print 'profile id: ', request.user.profile.id
         if request.auth:
             print 'logged in'
             request.data['profile'] = request.user.profile.id
         else:
             print 'not logged in'
+            if 'tag' not in request.data:
+                print 'no tag data included'
+                raise ValidationError('Not logged in. Tag is required')
             profile = Profile.objects.create(tag=request.data['tag'])
             request.data['profile'] = profile.id
-            
-        print request.data['profile']
-        print 'hi'
         res = super(PlayerViewSet, self).create(request, **kwargs)
         request.session['player_id'] = res.data['id']
-        
         return res
     
     def partial_update(self, request, pk=None):
