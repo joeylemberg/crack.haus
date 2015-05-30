@@ -10,6 +10,8 @@ $(document).ready(function(){
 	lobby.init();
 });
 
+var matchPlayer;
+
 function csrfSafeMethod(method) {
     		// these HTTP methods do not require CSRF protection
     		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -17,8 +19,11 @@ function csrfSafeMethod(method) {
 
 var lobby = {
 
+
 	game: null,
 
+	matchPlayer: null,
+	
 	tag: "notag",
 		
 	userId: null,
@@ -188,6 +193,10 @@ var lobby = {
 
     renderMatch: function(data){
 		
+		
+	   
+	   lobby.match = data;
+		
 		if(lobby.hosting && data.players.length > 1){
 			lobby.hisId = data.players[1].peer_id;
 		}
@@ -264,7 +273,6 @@ var lobby = {
 		var i, lobby;
 
        // var html = "<div>lobbies: " + data.JSON.stringify(lobby_set) + "</div>";
-
        // html += "<div class='host-a-game'>HOST A GAME</div>";
 
 		var html = "<table class='game-table' cellspacing='0' >";
@@ -285,9 +293,12 @@ var lobby = {
 
     hostMatch: function(m, url){
 		//url for joiners
+		
     	lobby.peer = new Peer({key: 'j12fo2q0wvwvcxr'});
 		lobby.peer.on('connection', lobby.peerConnect);
 		lobby.tag = prompt("Please enter your name", "player" + Math.round(Math.random() * 1000));
+
+	console.log(lobby);
 
 		if(m !== "joiner"){
 			lobby.hosting = true;
@@ -317,7 +328,8 @@ var lobby = {
 		    url: m == "joiner" ? url : "api/matches/",
             data: JSON.stringify({
                 "name": lobby.tag + "'s game" ,
-                "game": lobby.game.id
+                "game": lobby.game.id,
+				"state": "j"
             }),
             beforeSend: function(xhr, settings) {
 			        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
@@ -373,12 +385,20 @@ var lobby = {
 
 	listen: function(){
 		
+		lobby.scorePatched = false;
+		
 		lobby.deleteMe();
 
 		lobby.peer.off('connection');
 		clearInterval(lobby.interval);
 		$("#all-games, .lobby-name, .main-title").remove();
-
+		lobby.matchPlayerId = lobby.match.players[playerId].id;
+		console.log("lobby.matchPlayerId" + "  " + lobby.matchPlayerId);
+		
+		if(lobby.hosting){
+			lobby.updateMatchState("p");
+		}
+		
 		switch(lobby.game.name){
 			
 			case "Blue Ice":
@@ -457,9 +477,81 @@ var lobby = {
 		}
 
 		conn.send(JSON.stringify(data));
+	},
+	
+	scoreMatch: function(score, result){
+		
+		lobby.updateMatchState("d");
+		
+		var matchData = {
+                "score": score,
+                "results": result
+            };
+			
+		$.ajax({
+		    type: "PATCH",
+		    contentType: "application/json",
+            accepts: "application/json",
+		    url: "api/players/" + lobby.matchPlayerId,
+			data: JSON.stringify(matchData),
+            beforeSend: function(xhr, settings) {
+			        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+			            xhr.setRequestHeader("X-CSRFToken", $("body").attr("data-token"));
+			        }
+			    },
+		    success: function (data) {
+               console.log(lobby.matchPlayer)
+		       console.log(data);
+			   alert(JSON.stringify(data));
+			   window.location = window.location;
+		       // lobby.renderLobby(data);
+		    },
+			error: function(e){
+				console.log("Error joining game");
+				console.log(e);
+				if(e.responseText){
+					alert("Error joining game:    " + e.responseText);
+				}	
+			},
+		    failure: function(data){
+		    	console.log(data);
+		    }
+		});
+	},
+	
+	updateMatchState: function(state){
+		$.ajax({
+		    type: "PATCH",
+		    contentType: "application/json",
+            accepts: "application/json",
+		    url: "api/matches/" + lobby.match.id,
+			data: JSON.stringify({
+                "state": state
+            }),
+            beforeSend: function(xhr, settings) {
+			        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+			            xhr.setRequestHeader("X-CSRFToken", $("body").attr("data-token"));
+			        }
+			    },
+		    success: function (data) {
+               console.log(lobby.matchPlayer);
+		       console.log(data);
+		       // lobby.renderLobby(data);
+		    },
+			error: function(e){
+				console.log("Error joining game");
+				console.log(e);
+				if(e.responseText){
+					alert("Error joining game:    " + e.responseText);
+				}	
+			},
+		    failure: function(data){
+		    	console.log(data);
+		    }
+		});
 	}
 
-}
+};
 
 
 //window.onbeforeunload = function (evt) {

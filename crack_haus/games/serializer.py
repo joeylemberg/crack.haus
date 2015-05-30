@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from django.utils import timezone
+from rest_framework_extensions.serializers import PartialUpdateSerializerMixin
 
 from rest_framework import viewsets
 
@@ -14,7 +15,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = ('user', 'description', 'colors',)
         depth = 1
 
-class PlayerSerializer(serializers.ModelSerializer):
+class PlayerSerializer(PartialUpdateSerializerMixin, serializers.ModelSerializer):
     # profile = serializers.HyperlinkedRelatedField(queryset=Profile.objects.all(), view_name='profile-detail')
     match = serializers.HyperlinkedRelatedField(queryset=Match.objects.all(), view_name='match-detail')
     # profile = serializers.StringRelatedField()
@@ -23,6 +24,7 @@ class PlayerSerializer(serializers.ModelSerializer):
         model = Player
         fields = ('profile', 'peer_id', 'score', 'result', 'team', 'match', 'id')
         read_only_fields = ('profile',)
+        partial=True
 
 
 
@@ -36,15 +38,16 @@ class PlayerSerializer(serializers.ModelSerializer):
 
 
 
-class MatchSerializer(serializers.ModelSerializer):
+class MatchSerializer(PartialUpdateSerializerMixin, serializers.ModelSerializer):
     # game = serializers.StringRelatedField()
-    state = serializers.CharField(source='get_state_display', read_only=True)
+    # state = serializers.CharField(source='get_state_display')
     players = PlayerSerializer(many=True, read_only=True)
 
     class Meta:
         model = Match
         fields = ('name', 'game', 'players', 'url','state', 'created_at', 'started_at', 'done_at', 'id',)
-        read_only_fields = ('state','created_at', 'started_at', 'done_at',)
+        read_only_fields = ('created_at', 'started_at', 'done_at',)
+        partial=True
 
     def create(self, validated_data):
         res = super(MatchSerializer, self).create(validated_data)

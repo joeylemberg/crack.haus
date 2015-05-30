@@ -37,6 +37,7 @@ class NotInMatchException(APIException):
 class MatchViewSet(viewsets.ModelViewSet):
     queryset = Match.objects.all()
     serializer_class = MatchSerializer
+    permission_classes = (AllowAny,)
 
     def retrieve(self, request, *args, **kwargs):
         res = super(MatchViewSet, self).retrieve(request, *args, **kwargs)
@@ -49,13 +50,17 @@ class MatchViewSet(viewsets.ModelViewSet):
             #raise NotInMatchException(e)
         return res
     
-    def update(self, request, pk=None):
-        print 'hello world'
-        print request
-        res = super(MatchViewSet, self).update(request, pk)
-        print 'update, pk=', pk
-        return res
-
+#    def update(self, request, pk=None, *args, **kwargs):
+#        print 'hello world'
+#        print request
+#        res = super(MatchViewSet, self).update(request, pk, *args, **kwargs)
+#        print 'update, pk=', pk
+#        return res
+    
+    def partial_update(self, request, pk=None):
+        print 'partial update match', pk, request
+        return super(MatchViewSet, self).partial_update(request, pk)
+    
 class PlayerViewSet(viewsets.ModelViewSet):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
@@ -70,6 +75,10 @@ class PlayerViewSet(viewsets.ModelViewSet):
         res = super(PlayerViewSet, self).create(request, **kwargs)
         request.session['player_id'] = res.data['id']
         return res
+    
+    def partial_update(self, request, pk=None):
+        print 'partial update', pk, request
+        return super(PlayerViewSet, self).partial_update(request, pk)
 
 
 class GameViewSet(viewsets.ReadOnlyModelViewSet):

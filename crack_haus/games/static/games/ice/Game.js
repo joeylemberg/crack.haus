@@ -408,7 +408,9 @@ var Game = {
 				ctx.textAlign = "center";
 				var time = Math.round((Game.timeLimit * 1000 - (Date.now() - Game.start))/1000);
 				if(time < 0){
+					var winnerId;
 					if(p0.score > p1.score){
+						winnerId = 0;
 						Game.scorer = p0;
 						Game.state = "finished";
 						puck.free = true;
@@ -416,6 +418,7 @@ var Game = {
 						Game.countdown = setTimeout(Game.replay, 5000);
 					//	return;
 					}else if(p1.score > p0.score){
+						winnerId = 1;
 						Game.scorer = p1;
 						Game.state = "finished";
 						puck.free = true;
@@ -425,6 +428,25 @@ var Game = {
 					}else{
 						time = "OVERTIME";
 					}
+					
+					if(time != "OVERTIME"){
+						var score;
+						var result;
+						if(playerId == 0){
+							score = p0.score;
+							result = (winnerId == 0) ? "w" : "l";
+						}else{
+							score = p1.score;
+							result = (winnerId == 1) ? "w" : "l";
+						}
+						
+						//lobby.matchPlayer = lobby.match.players[playerId];
+						if(!lobby.scorePatched){
+							lobby.scoreMatch(score, result);
+							lobby.scorePatched = true;
+						}
+					}
+					
 				}
 				ctx.strokeText(time, 500,35);
 				ctx.fillText(time, 500,35);
