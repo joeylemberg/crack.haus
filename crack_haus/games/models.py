@@ -37,12 +37,14 @@ class Match(models.Model):
         ('j', 'join'),
         ('p', 'play'),
         ('d', 'done'),
+        ('x', 'cancelled'),
     )
     name = models.CharField(max_length=32)
     state = models.CharField(choices=STATE_CHOICES, default='j', max_length=3)
     game = models.ForeignKey('Game')
-    # host = models.ForeignKey('Player', related_name='hosted_match')
-
+    
+    host_player = models.ForeignKey('Player', related_name='hosted_matches', null=True, blank=True)
+   
     created_at = models.DateTimeField(auto_now_add=True)
     started_at = models.DateTimeField(null=True, blank=True)
     done_at = models.DateTimeField(null=True, blank=True)
@@ -77,7 +79,6 @@ class Player(models.Model):
         return unicode(self.profile)
 
     def purge(self):
-        print 'purging'
         for player in self.match.players.all():
             if player.last_ping <= timezone.now() - timezone.timedelta(seconds=10):
                 try:
@@ -86,7 +87,6 @@ class Player(models.Model):
                     pass
                 
     def ping(self):
-        print 'ping'
         self.last_ping = timezone.now()
         self.save()
         self.purge()

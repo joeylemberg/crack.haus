@@ -43,8 +43,8 @@ class MatchSerializer(PartialUpdateSerializerMixin, serializers.ModelSerializer)
 
     class Meta:
         model = Match
-        fields = ('name', 'game', 'players', 'url','state', 'created_at', 'started_at', 'done_at', 'id',)
-        read_only_fields = ('created_at', 'started_at', 'done_at',)
+        fields = ('name', 'game', 'players', 'url','state', 'created_at', 'started_at', 'done_at', 'id','host_player',)
+        read_only_fields = ('created_at', 'started_at', 'done_at','host_player',)
         partial=True
 
     def create(self, validated_data):

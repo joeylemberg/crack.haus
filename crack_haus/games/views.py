@@ -10,7 +10,8 @@ from django.utils import timezone
 from django.db import IntegrityError
 import datetime
 
-class CreateListRetrieveViewSet(mixins.CreateModelMixin,
+class CreateListRetrieveViewSet(
+                                mixins.CreateModelMixin,
                                 mixins.ListModelMixin,
                                 mixins.RetrieveModelMixin,
                                 viewsets.GenericViewSet):
@@ -22,9 +23,12 @@ class CreateListRetrieveViewSet(mixins.CreateModelMixin,
     """
     pass
 
+#class NoDeleteViewSet(mixins.
+
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+    permission_classes = (AllowAny,)
     
     def list(self, request):
         print request.user
@@ -46,13 +50,18 @@ class MatchViewSet(viewsets.ModelViewSet):
     queryset = Match.objects.all()
     serializer_class = MatchSerializer
     permission_classes = (AllowAny,)
+    
+    def create(self, request, *args, **kwargs):
+        print 'abc 56'
+        res=super(MatchViewSet, self).create(request, *args, **kwargs)
+        print 'created'
+        return res
 
     def retrieve(self, request, *args, **kwargs):
         res = super(MatchViewSet, self).retrieve(request, *args, **kwargs)
         try:
             player = Player.objects.get(id=request.session['player_id'])
             player.ping()
-            print 'got profile'
         except (Player.DoesNotExist, KeyError) as e:
             pass
             #raise NotInMatchException(e)
