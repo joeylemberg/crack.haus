@@ -7,7 +7,7 @@ from rest_framework import viewsets
 
 from games.models import *
 
-class ProfileSerializer(serializers.ModelSerializer):
+class ProfileSerializer(PartialUpdateSerializerMixin, serializers.ModelSerializer):
     user = serializers.StringRelatedField()
 
     class Meta:
@@ -23,18 +23,15 @@ class PlayerSerializer(PartialUpdateSerializerMixin, serializers.ModelSerializer
     class Meta:
         model = Player
         fields = ('profile', 'peer_id', 'score', 'result', 'team', 'match', 'id')
-        read_only_fields = ('profile',)
-        partial=True
+        #read_only_fields = ('profile',)
 
-
-
-    # def create(self, validated_data):
-    #     print 'a'
-    #     print validated_data
-    #     validated_data['profile'] = self.request.user.profile
-    #     res = super(PlayerSerializer, self).create(validated_data)
-    #     print 'hi'
-    #     return res
+    def create(self, validated_data):
+         #print self.request
+         #validated_data['profile'] = self.request.user.profile
+         print 'creating player in serializer'
+         print validated_data
+         res = super(PlayerSerializer, self).create(validated_data)
+         return res
 
 
 

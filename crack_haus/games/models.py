@@ -59,7 +59,7 @@ class Player(models.Model):
 
     peer_id = models.CharField(max_length=32, unique=True)
 
-    profile = models.ForeignKey('Profile', null=True, blank=True)
+    profile = models.ForeignKey('Profile')
     match = models.ForeignKey('Match', related_name='players', editable=False)
 
     last_ping = models.DateTimeField(auto_now_add=True)

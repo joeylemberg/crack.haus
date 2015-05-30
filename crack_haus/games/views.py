@@ -21,7 +21,7 @@ class CreateListRetrieveViewSet(mixins.CreateModelMixin,
     """
     pass
 
-class ProfileViewSet(viewsets.ReadOnlyModelViewSet):
+class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
 
@@ -67,13 +67,19 @@ class PlayerViewSet(viewsets.ModelViewSet):
     permission_classes = (AllowAny,)
 
     def pre_save(self, obj):
-        print 'hi there'
         obj.profile = self.request.user.profile
-        # super(PlayerSerializer, self).pre_save(obj)
+        super(PlayerSerializer, self).pre_save(obj)
 
     def create(self, request, **kwargs):
+        print 'duh'
+        print request.user.profile
+        print request
+        request.data['profile'] = request.user.profile.id
+        print request.data['profile']
+        print 'hi'
         res = super(PlayerViewSet, self).create(request, **kwargs)
         request.session['player_id'] = res.data['id']
+        
         return res
     
     def partial_update(self, request, pk=None):
