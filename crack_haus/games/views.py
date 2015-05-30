@@ -26,6 +26,7 @@ class ProfileViewSet(viewsets.ModelViewSet):
     serializer_class = ProfileSerializer
     
     def list(self, request):
+        print request.user
         if hasattr(request.user, 'profile'):
             return Response(ProfileSerializer(request.user.profile).data)
         return Response({'null'})
@@ -81,8 +82,7 @@ class PlayerViewSet(viewsets.ModelViewSet):
         print request.auth
         print request.user
         print request.user.id
-        print 'profile id: ', request.user.profile.id
-        if request.auth:
+        if request.user.id is not None:
             print 'logged in'
             request.data['profile'] = request.user.profile.id
         else:
