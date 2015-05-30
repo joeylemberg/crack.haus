@@ -6,9 +6,10 @@ from django.utils import timezone
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, null=True, blank=True)
     # friends = models.ManyToManyField('Profile') # TODO integrate friends
     # picture = models.ImageField(upload_to="img/profile/%Y/%m/%d", null=True, blank=True) # TODO profile pic
+    tag = models.CharField(max_length=15, unique=True)
     description = models.TextField(null=True, blank=True)
     colors = models.TextField(null=True, blank=True)
     # favorites = models.ManyToManyField('Game') # TODO integrate favorites
@@ -19,7 +20,7 @@ class Profile(models.Model):
     @receiver(post_save, sender=User)
     def create_profile_for_user(sender, instance=None, created=False, **kwargs):
         if created:
-            Profile.objects.get_or_create(user=instance)
+            Profile.objects.get_or_create(user=instance, tag=instance.username[:15])
 
     @receiver(pre_delete, sender=User)
     def delete_profile_for_user(sender, instance=None, **kwargs):
@@ -58,6 +59,8 @@ class Player(models.Model):
     )
 
     peer_id = models.CharField(max_length=32, unique=True)
+    
+    tag = models.CharField(max_length=15, unique=True)
 
     profile = models.ForeignKey('Profile')
     match = models.ForeignKey('Match', related_name='players', editable=False)

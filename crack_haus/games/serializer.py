@@ -19,11 +19,11 @@ class PlayerSerializer(PartialUpdateSerializerMixin, serializers.ModelSerializer
     # profile = serializers.HyperlinkedRelatedField(queryset=Profile.objects.all(), view_name='profile-detail')
     match = serializers.HyperlinkedRelatedField(queryset=Match.objects.all(), view_name='match-detail')
     # profile = serializers.StringRelatedField()
-    #profile = ProfileSerializer(read_only=True)
+    #profile = ProfileSerializer()
 
     class Meta:
         model = Player
-        fields = ('profile', 'peer_id', 'score', 'result', 'team', 'match', 'id')
+        fields = ('profile', 'peer_id', 'score', 'result', 'team', 'match', 'id', 'tag')
         #read_only_fields = ('profile',)
 
     def create(self, validated_data):

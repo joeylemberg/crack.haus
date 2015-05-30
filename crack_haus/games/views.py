@@ -72,9 +72,15 @@ class PlayerViewSet(viewsets.ModelViewSet):
 
     def create(self, request, **kwargs):
         print 'duh'
-        print request.user.profile
         print request
-        request.data['profile'] = request.user.profile.id
+        if request.auth:
+            print 'logged in'
+            request.data['profile'] = request.user.profile.id
+        else:
+            print 'not logged in'
+            profile = Profile.objects.create(tag=request.data['tag'])
+            request.data['profile'] = profile.id
+            
         print request.data['profile']
         print 'hi'
         res = super(PlayerViewSet, self).create(request, **kwargs)

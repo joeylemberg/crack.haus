@@ -11,14 +11,20 @@
 <script src="http://cdn.peerjs.com/0.3/peer.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static "games/lobby.css" %}">
 
-<!-- wartanks -->
-
 	<link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css' />
 
 </head>
-<body>
-	
-	
+
+<body data-token="{{ csrf_token }}">
+
+<div class="main-title" >
+	<b>&#9749; crack.haus</b>
+	<span class='subtitle'>welcome home friend</span>
+</div>
+
+<div class="lobby-name">
+	<img src=="{% static "games/lobby.css" %}">
+</div>
 	
 </body>
 </html>
