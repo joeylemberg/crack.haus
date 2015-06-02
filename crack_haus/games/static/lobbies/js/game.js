@@ -14,12 +14,20 @@ var Game = {
 		Game.id = options.id;
 		
 		$("#lobby-title").html(Game.name);
-		$("#lobby").html("<div class='game-list'>Loading matches " + Util.loaderHtml() + "</div>");
-		$("#lobby").on("click", ".listed-match", Game.joinMatch);
+		
+		$("#lobby").html("<div class='game-room'></div>");
+		
+		$(".game-room").append($("<div class='game-room-title'>Open <em>" + Game.name + "</em> Matches</div>"));
+		
+		$(".game-room").append("<div class='game-list'>Loading matches " + Util.loaderHtml() + "</div>");
+		
 		
 		$(".game-list").after($("<div class='host-a-match button' >Host a Match</div>"));
         $(".host-a-match").click(lobby.hostMatch);
 		
+		
+		$("#lobby").on("click", ".open-match", Game.joinMatch);
+		$("#lobby").on("click", ".host-a-match", Game.hostMatch);
 		Game.getMatches();	
 	},
 	
@@ -56,10 +64,11 @@ var Game = {
 	},
 	
 	joinMatch: function(e){
-		console.log("ASDFDFASDf");	
-		$("#lobby").off("click");
-		var clickedRow = $(e.target).closest(".listed-game");
-		
+		console.log("ASDFDFASDf");
+	},
+	
+	hostMatch: function(e){
+		console.log("asdfasdf");
 	}
 	
 	
