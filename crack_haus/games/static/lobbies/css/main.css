@@ -20,3 +20,20 @@
 #lobby-footer{
 	display: none;
 }
+
+.clickable, .button{
+	cursor: pointer;
+}
+
+.clickable:hover, .button:hover{
+	background-color: #abcdef;
+}
+
+.button{
+	display: inline-block;
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid #c5c5c5;
+	border-radius: 5px;
+	font-size: 1.2em;
+}

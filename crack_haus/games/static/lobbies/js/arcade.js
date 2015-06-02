@@ -32,7 +32,7 @@ var Arcade = {
 
 		for(i = 0; i < games.length; i++){
 			game = games[i];
-			html += "<tr class='listed-game' data-url='" + game.url + "' data-id='" + game.id + "' data-name='" + game.name + "'>";
+			html += "<tr class='listed-game clickable' data-url='" + game.url + "' data-id='" + game.id + "' data-name='" + game.name + "'>";
 			html += "<td>" + game.name + "</td>";
 			html += "<td>" + game.description + "</td>";
 		        html += "<td>" + game.lobby_size + "</td>";

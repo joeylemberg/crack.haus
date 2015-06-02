@@ -1,0 +1,190 @@
+<html>
+<meta charset="utf-8">
+<title>crack.haus games</title>
+<!--<link rel="shortcut icon" href="//cdn.sstatic.net/stackoverflow/img/favicon.ico?v=6cd6089ee7f6">-->
+
+<head>
+{% load staticfiles %}
+
+<link rel="shortcut icon" href="{% static "cupicon.png" %}">
+
+
+<script src="http://cdn.peerjs.com/0.3/peer.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static "games/lobby.css" %}">
+
+<!-- wartanks -->
+
+	<link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css' />
+
+	<link rel="stylesheet" href="{% static "games/wartanks/css/main.css" %}"/>
+	<link rel="stylesheet" href="{% static "games/wartanks/css/scoreboard.css" %}"/>
+	<link rel="stylesheet" href="{% static "games/wartanks/css/controls.css" %}"/>
+			<script src="{% static "games/wartanks/lib/underscore.js" %}"></script>
+          <script src="{% static "games/wartanks/js/wartanks.js" %}"></script>
+		<script src="{% static "games/wartanks/js/Game.js" %}"></script>
+	<script src="{% static "games/wartanks/js/Map.js" %}"></script>
+  <script src="{% static "games/wartanks/js/Trees.js" %}"></script>
+	<script src="{% static "games/wartanks/js/Tanks.js" %}"></script>
+	<script src="{% static "games/wartanks/js/Weapons.js" %}"></script>
+
+	<script src="{% static "games/wartanks/js/Panels.js" %}"></script>
+	<script src="{% static "games/wartanks/js/Util.js" %}"></script>
+	<script src="{% static "games/wartanks/js/Input.js" %}"></script>
+
+	<script src="{% static "games/wartanks/js/weapons/shell.js" %}"></script>
+  <script src="{% static "games/wartanks/js/weapons/1-2-punch.js" %}"></script>
+	<script src="{% static "games/wartanks/js/weapons/wheel.js" %}"></script>
+	<script src="{% static "games/wartanks/js/weapons/burial.js" %}"></script>
+	<script src="{% static "games/wartanks/js/weapons/mine-shaft.js" %}"></script>
+	<script src="{% static "games/wartanks/js/weapons/nuke.js" %}"></script>
+  <script src="{% static "games/wartanks/js/weapons/booster.js" %}"></script>
+  <script src="{% static "games/wartanks/js/weapons/machine-gun.js" %}"></script>
+  <script src="{% static "games/wartanks/js/weapons/shotgun.js" %}"></script>
+
+</head>
+
+<body data-token="{{ csrf_token }}">
+
+<div class="main-title" >&#9749; crack.haus <span class='subtitle'>welcome home friend</span></div>
+<div class="lobby-name">All Game Lobbies</div>
+
+<div id="all-games" class="game-list">
+	Loading Games List...
+</div>
+
+<script>
+ 
+ var games = {
+ 	Tanks: null
+ };
+
+ </script>
+
+<script type="text/javascript" src="{% static "games/jquery.js" %}"></script>
+<script type="text/javascript" src="{% static "games/lobby.js" %}"></script>
+<script type="text/javascript" src="{% static "games/dragkings.js" %}"></script>
+<script type="text/javascript" src="{% static "games/chat.js" %}"></script>
+<script type="text/javascript" src="{% static "games/intro.js" %}"></script>
+
+<img id="crack-house-icon" class="animated tada" src="{% static "favicon.ico" %}"/>
+
+
+
+
+
+
+<div id="war-tanks-wrapper" style="display:none;">
+
+<div id="scoreboard">
+	  <div class="player-panel player-1" data-player-id="0">
+    <h3 class="player-name">P1</h3>
+    <span class="player-score" id="p1_score">100</span>
+    <div class="gas-meter-wrapper">
+      <span>Gas</span>
+      <div class="gas-meter">
+        <div class="meter"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="game-clock"></div>
+
+  <div id="game-state"></div>
+    <div id="game-round"></div>
+
+  <div class="player-panel player-2" data-player-id="1">
+    <span class="player-score" id="p2_score">100</span>
+    <h3 class="player-name">P2</h3>
+    <div class="gas-meter-wrapper">
+      <div class="gas-meter">
+        <div class="meter"></div>
+      </div>
+      <span>Gas</span>
+    </div>
+  </div>
+
+
+</div>
+
+<canvas id='bg-canvas' width='1000' height='600' class='game-canvas' style='z-index:2;'></canvas>
+<canvas id='map-canvas' width='1000' height='600' class='game-canvas' style='z-index:3;'></canvas>
+<canvas id='trees-canvas' width='1000' height='600' class='game-canvas' style='z-index:4;'></canvas>
+
+<canvas id='game-canvas' width='1000' height='600' class='game-canvas' style='z-index:5;'></canvas>
+
+<div id="controls">
+	  <div class="control-panel-widget">
+    <button id="trigger">Fire</button>
+  </div>
+
+  <div class="control-panel-widget">
+  <label class="move-button" id="move-left"> &#8592; </label>
+  <label class="move-title" > Move </label>
+  <label class="move-button" id="move-right"> &#8594; </label>
+  </div>
+  
+  <div class="control-panel-widget">
+    <label for='tank-ang'>Angle:</label>
+    <input id='tank-ang' name="tank-ang" type='number' value='300' min="0" max="359"> 
+  </div>
+
+  <div class="control-panel-widget">
+    <label for='tank-pow'>Power:</label>
+    <input id='tank-pow' name='tank-pow' type='number' value='100' min="1" max="100">
+  </div>
+
+
+
+
+  <div class="control-panel-widget">
+    <label for='weapon-select'>Weapon:</label>
+    <div id='weapon-list'></div>
+    <!--<select id="weapon-select">
+    <option>shell</option>
+    <option>shell</option>
+    <option>shell</option>
+      <option>machine gun</option>
+      <option>shotgun</option>
+      <option>mine shaft</option>
+      <option>mine shaft</option>
+      <!--<option>burial</option>
+      <option>1-2-punch</option>
+      <option>1-2-punch</option>
+      <option>1-2-punch</option>
+      <option>nuke</option>
+      <option>nuke</option>
+      <option>nuke</option>
+      <option>booster jets</option>
+            <option>booster jets</option>
+                  <option>booster jets</option>
+    </select>-->
+  </div>
+ <!-- <div class="control-panel-widget">
+    <label for='input-lock'>Mouse Aiming &amp; Firing</label>
+    <input id="input-lock" type="checkbox" />
+  </div>-->
+
+</div>
+
+
+</div>
+<!-- end wartanks -->
+
+<script type="text/javascript" src="{% static "games/ice/Game.js" %}"></script>
+<script type="text/javascript" src="{% static "games/ice/Input.js" %}"></script>
+ <script type="text/javascript" src="{% static "games/ice/Util.js" %}"></script>
+
+<script>
+  
+  //$(document).ready(function(){
+   // Game.init();
+  //});
+</script>
+
+
+
+</body>
+
+
+
+</html>
