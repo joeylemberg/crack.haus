@@ -1,7 +1,11 @@
 var Match = {
 	
-	init: function(options){
-		console.log(options);
+	peers: [],
+	
+	init: function(options, role){
+		
+		Match.role = role;
+		
 		Match.name = options.name;
 		Match.url = options.url;
 		
@@ -25,20 +29,59 @@ var Match = {
 		html += "<td colspan='2'><input class='match-chat-input' /><div class='send-match-chat button'>Send</td>";
 		html += "</tr></table>";
 		
-		
 		$(".match-room").append(html);
 		
-		$(".match-room").after($("<div class='start-match button' >Start Match</div>"));
-		$(".start-match").after($("<div class='cancel-match button' >Cancel Match</div>"));
+		if(Match.role == "host"){
+				
+				$(".match-room").after($("<div class='start-match button' >Start Match</div>"));
+				$(".start-match").after($("<div class='cancel-match button' >Cancel Match</div>"));
+				
+				$("#lobby").on("click", ".start-match", Match.startMatch);
+		}
         //$(".host-a-match").click(lobby.hostMatch);
 		
+		$("#lobby").on("keydown", ".match-chat-input", Match.chatKeyDown);
+		$("#lobby").on("click", ".send-match-chat", Match.sendChat);
 		
+		
+		Match.peers = {};
+		Match.him = null;
+		Match.conn = null;
 		//$("#lobby").on("click", ".open-match", Game.joinMatch);
 		//$("#lobby").on("click", ".host-a-match", Game.hostMatch);
 		//Match.joinAsHost();
 		//Match.getPlayers();
 		
 		Match.joinMatch();
+	},
+	
+	chatKeyDown: function(e){
+		if(e.keyCode == 13){
+				//enter
+			Match.sendChat(e);	
+		}	
+	},
+	
+	sendChat: function(){
+		var data = {
+			msg: $(".match-chat-input").val(),
+			profile: Profile
+		};
+		//TODO have the profiles remembers and send chats with just {msg: 'xxx', id: '123sdf'}
+		Match.chat(data);
+		Match.send({
+			type: "chat",
+			chat: data
+		});
+		
+		$(".match-chat-input").val("");
+	},
+	
+	chat: function(data){
+		var html = "<div class='chat-line'>";
+		html += "<b>" + data.profile.tag + "</b>: ";
+		html += data.msg;
+		$(".match-chat").append(html);
 	},
 	
 	joinMatch: function(){
@@ -48,6 +91,11 @@ var Match = {
 		
 		if(Match.peer && Match.peer.id){
 			console.info("peer_id: " + Match.peer.id);
+			Match.peer.on('connection', function(conn){
+				console.log("WTF");
+				Match.conn = conn;
+				Match.listen();
+			});
 			Match.createPlayer();
 		}else{
 			console.info("Waiting for peer_id");
@@ -69,7 +117,7 @@ var Match = {
                     "match": Match.url
 			},
 		    onSuccess: function (data) {
-				Match.getPlayers();
+				Main.interval = setInterval(Match.getPlayers, 500);
 		    }
 		});
 	},
@@ -79,15 +127,26 @@ var Match = {
 		    method: "GET",
 		    url: Match.url,
 		    onSuccess: function (data) {
+				Match.updatePlayers(data.players)
 		        Match.renderMatch(data);
 		    }
 		});
 	},
 	
-	renderMatch: function(data){
+	updatePlayers: function(players){
+		if(!Match.him && Match.role == "host" && players.length > 1){
+		//	 Match.peer.connect(players[1].peer_id);
+			Match.conn = Match.peer.connect(players[1].peer_id);
+			 Match.him = players[1];
+		Match.listen();
+		}
+	},
+	
+	addPeer: function(profile){
 		
-		console.log("WOLOLO");
-		console.log(data);
+	},
+	
+	renderMatch: function(data){
 		
 		var player;
 		
@@ -112,43 +171,44 @@ var Match = {
 		});
 	},
 	
-	renderPlayers: function(data){
-		console.log("wololo");
-	},
-	
-	renderMatches: function(data){
-		console.log(data);
-		var i, lobby;
-		
-		var html = "<table class='game-table' cellspacing='0' >";
- 
-		html += "<tr>";
-		html += "<th>Tag</th>";
-		html += "</tr>";
-		
-		for(i = 0; i < data.lobby_set.length; i++){
-			lobby = data.lobby_set[i];
-			html += "<tr class='open-match clickable' data-url='" + lobby.url + "'>";
-			html += "<td>" + lobby.name + "</td>";
-			html += "</tr>";
-		}
-		
-		$(".game-list").html(html);
-	},
-	
-	hostMatch: function(e){
-		Api.request({
-		    method: "POST",
-		    url: "api/matches/",
-			data: {
-                "name": Profile.tag + "'s game" ,
-                "game": Game.id,
-				"state": "j"
-            },
-		    onSuccess: function (data) {
-				Match.init(data);
-		    }
+	startMatch: function(){
+		IceGame.init();
+		Match.send({
+			type: "startGame"
 		});
+		game = IceGame;
+	},
+	
+	listen: function(){
+		Match.conn.on("data", function(str){
+			console.log(str);
+			try{
+				data = JSON.parse(str)
+			}catch(e){
+				console.log(e);
+				return;
+			}
+	
+			switch(data.type){
+				case "chat":
+					Match.chat(data.chat);
+					break;
+					
+				case "startGame":
+					IceGame.init();
+					break;
+					
+				case "gameData":
+					IceGame.onMessage(data);
+					break;
+			}
+			
+		});
+	},
+	
+	send: function(data){
+		console.log(data);
+		Match.conn.send(JSON.stringify(data));
 	}
 	
 }

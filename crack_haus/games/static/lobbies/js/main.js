@@ -7,6 +7,8 @@ var Main = {
 		
 	},
 	
+	interval: undefined,
+	
 	shakeCup: function(){
 		var rand = Math.round(Math.random() * 5);
 		var randy = Math.round(Math.random() * 5);

@@ -20,7 +20,7 @@ var Game = {
 		
 		$("#lobby").on("click", ".open-match", Game.joinMatch);
 		$("#lobby").on("click", ".host-a-match", Game.hostMatch);
-		Game.getMatches();	
+		Main.interval = setInterval(Game.getMatches, 500);	
 	},
 	
 	getMatches: function(){
@@ -33,10 +33,7 @@ var Game = {
 		});
 	},
 	
-	
-	
 	renderMatches: function(data){
-		console.log(data);
 		var i, lobby;
 		
 		var html = "<table class='game-table' cellspacing='0' >";
@@ -56,13 +53,15 @@ var Game = {
 	},
 	
 	joinMatch: function(e){
+		clearInterval(Main.interval);
 		Match.init({
 			url: $(e.target).closest(".open-match").data("url"),
 			name: $(e.target).closest(".open-match").text()
-		});
+		}, "join");
 	},
 	
 	hostMatch: function(e){
+		clearInterval(Main.interval);
 		Api.request({
 		    method: "POST",
 		    url: "api/matches/",
@@ -72,7 +71,7 @@ var Game = {
 				"state": "j"
             },
 		    onSuccess: function (data) {
-				Match.init(data);
+				Match.init(data, "host");
 		    }
 		});
 	}

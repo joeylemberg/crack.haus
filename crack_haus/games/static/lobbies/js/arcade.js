@@ -6,7 +6,7 @@ var Arcade = {
 		$("#lobby").html("<div class='arcade'>Loading games " + Util.loaderHtml() + "</div>");
 		$("#lobby").on("click", ".listed-game", Arcade.setGame);
 		
-		Arcade.getGames();	
+		Main.interval = setInterval(Arcade.getGames, 500);
 	},
 	
 	getGames: function(){
@@ -42,6 +42,7 @@ var Arcade = {
 	},
 	
 	setGame: function(e){
+		clearInterval(Main.interval);
 		$("#lobby").off("click");
 		var clickedRow = $(e.target).closest(".listed-game");
 		Game.init({

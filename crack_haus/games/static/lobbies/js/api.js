@@ -19,22 +19,22 @@ var Api = {
 		    },
 		    success: function (data) {
 				if(options.onSuccess){
-					console.info("success calling " + options.url);
-					console.info(data);
+			//		console.info("success calling " + options.url);
+			//		console.info(data);
 					options.onSuccess(data);
 				}
 		    },
 			error: function(e){
-				console.info("error calling " + options.url);
-				console.info(e);
+			//	console.info("error calling " + options.url);
+			//	console.info(e);
 				if(options.onError){
 					options.onError(e);
 				}
 			},
 			complete: function(data){
 				if(options.onComplete){
-					console.info("success calling " + options.url);
-					console.info(data);
+			//		console.info("success calling " + options.url);
+			//		console.info(data);
 					options.onComplete(data);
 				}
 			}

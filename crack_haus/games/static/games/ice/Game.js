@@ -12,7 +12,11 @@ var me = p0;
 var him = p1;
 var things = [p0,p1,puck];
 
-var Game = {
+var game;
+
+var playerId;
+
+var IceGame = {
 	
 	state: "new",
 	
@@ -21,46 +25,52 @@ var Game = {
 	
 	init: function(){
 		
+		if(Match.role == "host"){
+			playerId = 0;
+		}else{
+			playerId = 1;
+		}
+		
 		if(playerId == 1){
 			me = p1;
 			him = p0;
 		}
 		
-		Game.resetPuck();
+		IceGame.resetPuck();
 		
-		Game.initHtml();
-		Game.start = Date.now();
+		IceGame.initHtml();
+		IceGame.start = Date.now();
 		Input.init();
-		Game.resize();
-		$(window).resize(Game.resize);
+		IceGame.resize();
+		$(window).resize(IceGame.resize);
 		
-		Game.loop();
-		Game.replay();
+		IceGame.loop();
+		IceGame.replay();
 	},
 	
 	replay: function(){
-		clearTimeout(Game.countdown);
+		clearTimeout(IceGame.countdown);
 		p0.score = 0;
 		p1.score = 0;
-		Game.start = Date.now();
-		Game.resetPuck();
+		IceGame.start = Date.now();
+		IceGame.resetPuck();
 	},
 	
 	resize: function(){
-		Game.w = $("#game-wrapper").width() * window.devicePixelRatio;
-		Game.h = $("#game-wrapper").height() * window.devicePixelRatio;
-		Game.canvas.width = Game.w;
-		Game.canvas.height = Game.h;
-		Game.ctx.restore();
-		Game.ctx.save();
-		Game.ctx.scale(Game.w/1000, Game.h/500);
+		IceGame.w = $("#game-wrapper").width() * window.devicePixelRatio;
+		IceGame.h = $("#game-wrapper").height() * window.devicePixelRatio;
+		IceGame.canvas.width = IceGame.w;
+		IceGame.canvas.height = IceGame.h;
+		IceGame.ctx.restore();
+		IceGame.ctx.save();
+		IceGame.ctx.scale(IceGame.w/1000, IceGame.h/500);
 	},
 	
 	resetPuck: function(){
 		puck.free = false;
 		puck.hit = true;
 			puck.x = 400 + 200 * Math.random();
-			if(Game.scorer == p0){
+			if(IceGame.scorer == p0){
 				puck.x += 250
 			}else{
 				puck.x -= 250;
@@ -72,7 +82,7 @@ var Game = {
 		puck.lastCross = Date.now();
 		
 		if(Util.dist(puck, p0) < puck.r + p0.r + 2 || Util.dist(puck, p1) < puck.r + p1.r + 2){
-			Game.resetPuck();
+			IceGame.resetPuck();
 			return;
 		}
 		
@@ -88,7 +98,6 @@ var Game = {
 	
 	onMessage: function(data){
 		
-		var data = JSON.parse(data);
 		for(var k in data.player){
 			him[k] = data.player[k]
 		}
@@ -102,34 +111,36 @@ var Game = {
 	
 	initHtml: function(){
 		$("body").html("<div id='game-wrapper' style='width:100%;height:100%;'></div>");
-		Game.canvas = document.createElement("canvas");
-		Game.canvas.width = 1000;
-		Game.canvas.height = 500;
-		$(Game.canvas).css({
+		IceGame.canvas = document.createElement("canvas");
+		IceGame.canvas.width = 1000;
+		IceGame.canvas.height = 500;
+		$(IceGame.canvas).css({
 			"width": "100%",
 			"height": "100%" });
-		$(Game.canvas).css("background-color", "#d1f8ff");
-		Game.ctx = Game.canvas.getContext("2d");
-		$("#game-wrapper").append(Game.canvas);
+		$(IceGame.canvas).css("background-color", "#d1f8ff");
+		IceGame.ctx = IceGame.canvas.getContext("2d");
+		$("#game-wrapper").append(IceGame.canvas);
 	},
 	
 	loop: function(){
-		Game.move();
-		Game.draw();
-		requestAnimationFrame(Game.loop);
+		IceGame.move();
+		IceGame.draw();
+		requestAnimationFrame(IceGame.loop);
 		
 		
 		
 		if(puck.hit){
 			puck.hit = false;
-			lobby.send("gameData", JSON.stringify({
+			Match.send({
+				type: "gameData",
 				puck: puck,
 				player: me
-			}));
+			});
 		}else{
-			lobby.send("gameData", JSON.stringify({
+			Match.send({
+				type: "gameData",
 				player: me
-			}));
+			});
 		}
 		puck.hit = false;
 		
@@ -147,7 +158,7 @@ var Game = {
 		//him.x += him.dx;
 		//him.y += him.dy;
 		
-		if((Date.now() - puck.lastCross) > Game.shotClock * 1000){
+		if((Date.now() - puck.lastCross) > IceGame.shotClock * 1000){
 			if(puck.side == "left" && playerId == 0){
 				puck.x = 750;
 				puck.y = 250;
@@ -188,10 +199,10 @@ var Game = {
 		
 		var d = Util.dist(Input, me);
 		
-		if(d > Game.speedLimit){
-			dx *= Game.speedLimit / d;
-			dy *= Game.speedLimit / d;
-			d = Game.speedLimit;
+		if(d > IceGame.speedLimit){
+			dx *= IceGame.speedLimit / d;
+			dy *= IceGame.speedLimit / d;
+			d = IceGame.speedLimit;
 		}
 		
 		me.dx = dx;
@@ -238,7 +249,7 @@ var Game = {
 		//me.x += me.dx;
 		//me.y += me.dy;
 		
-		Game.fitInRink(me);
+		IceGame.fitInRink(me);
 		
 		if(playerId == 0 && me.x + me.r > 500){
 			me.x = 500 - me.r;
@@ -257,20 +268,20 @@ var Game = {
 		//}
 		if(!puck.free && puck.x - puck.r < 50 && puck.y + puck.r > 200 + puck.r && puck.y - puck.r < 300 - puck.r){
 			puck.free = true;
-			Game.scorer = p1;
+			IceGame.scorer = p1;
 			p1.score++;
 			setTimeout(function(){
-				Game.resetPuck();
-				Game.start -= 5000;
+				IceGame.resetPuck();
+				IceGame.start -= 5000;
 			}, 5000);
 		}
 		
 		if(!puck.free && puck.x + puck.r > 950 && puck.y + puck.r > 200 + puck.r && puck.y - puck.r < 300 - puck.r){
 			puck.free = true;
-			Game.scorer = p0;
+			IceGame.scorer = p0;
 			p0.score++;
 			setTimeout(function(){
-				Game.resetPuck();
+				IceGame.resetPuck();
 			}, 5000);
 		}
 		
@@ -315,7 +326,7 @@ var Game = {
 			}
 		}
 		
-		Game.fitInRink(puck);
+		IceGame.fitInRink(puck);
 	},
 	
 	moveMe: function(){
@@ -324,10 +335,10 @@ var Game = {
 		
 		var d = Util.dist(Input, me);
 		
-		if(d > Game.speedLimit){
-			dx *= Game.speedLimit / d;
-			dy *= Game.speedLimit / d;
-			d = Game.speedLimit;
+		if(d > IceGame.speedLimit){
+			dx *= IceGame.speedLimit / d;
+			dy *= IceGame.speedLimit / d;
+			d = IceGame.speedLimit;
 		}
 		
 		me.dx = dx;
@@ -336,7 +347,7 @@ var Game = {
 		me.x += me.dx;
 		me.y += me.dy;
 		
-		Game.fitInRink(me);
+		IceGame.fitInRink(me);
 	},
 	
 	movePuck: function(){
@@ -393,7 +404,7 @@ var Game = {
 	
 	drawScoreBoard: function(){
 		
-		var ctx = Game.ctx;
+		var ctx = IceGame.ctx;
 		
 		ctx.save();
 			ctx.beginPath();
@@ -406,24 +417,24 @@ var Game = {
 			ctx.lineWidth = 6;
 			
 				ctx.textAlign = "center";
-				var time = Math.round((Game.timeLimit * 1000 - (Date.now() - Game.start))/1000);
+				var time = Math.round((IceGame.timeLimit * 1000 - (Date.now() - IceGame.start))/1000);
 				if(time < 0){
 					var winnerId;
 					if(p0.score > p1.score){
 						winnerId = 0;
-						Game.scorer = p0;
-						Game.state = "finished";
+						IceGame.scorer = p0;
+						IceGame.state = "finished";
 						puck.free = true;
 						time = "GAME OVER";
-						Game.countdown = setTimeout(Game.replay, 5000);
+						IceGame.countdown = setTimeout(IceGame.replay, 5000);
 					//	return;
 					}else if(p1.score > p0.score){
 						winnerId = 1;
-						Game.scorer = p1;
-						Game.state = "finished";
+						IceGame.scorer = p1;
+						IceGame.state = "finished";
 						puck.free = true;
 						time = "GAME OVER";
-						Game.countdown = setTimeout(Game.replay, 5000);
+						IceGame.countdown = setTimeout(IceGame.replay, 5000);
 				//		return;
 					}else{
 						time = "OVERTIME";
@@ -441,17 +452,17 @@ var Game = {
 						}
 						
 						//lobby.matchPlayer = lobby.match.players[playerId];
-						if(!lobby.scorePatched){
+					/*	if(!lobby.scorePatched){
 							lobby.scoreMatch(score, result);
 							lobby.scorePatched = true;
-						}
+						}*/
 					}
 					
 				}
 				ctx.strokeText(time, 500,35);
 				ctx.fillText(time, 500,35);
 				
-				var shotClock = Math.round((Game.shotClock * 1000 - (Date.now() - puck.lastCross))/1000);
+				var shotClock = Math.round((IceGame.shotClock * 1000 - (Date.now() - puck.lastCross))/1000);
 				if(shotClock < 0 || shotClock > 10){
 					shotClock = "";
 				}
@@ -526,7 +537,7 @@ var Game = {
 	
 	draw: function(){
 		
-		var ctx = Game.ctx;
+		var ctx = IceGame.ctx;
 		
 		
 		
@@ -608,7 +619,7 @@ var Game = {
 		if(puck.free){
 			//ctx.globalAlpha = 1 / Math.floor(Date.now() % 11);
 			ctx.save();
-			ctx.fillStyle = Game.scorer.fill;
+			ctx.fillStyle = IceGame.scorer.fill;
 			ctx.globalAlpha = (Math.round(Date.now() / 5) % 100) / 100;
 			
 			ctx.fillRect(0,0,1000,500);
@@ -617,7 +628,7 @@ var Game = {
 		
 		ctx.globalAlpha = 1;
 		
-		Game.drawScoreBoard();
+		IceGame.drawScoreBoard();
 	}
 	
 	
