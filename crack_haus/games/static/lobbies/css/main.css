@@ -21,19 +21,54 @@
 	display: none;
 }
 
-.clickable, .button{
+.clickable, .button, .thin-button{
 	cursor: pointer;
 }
 
-.clickable:hover, .button:hover{
+.clickable:hover, .button:hover, .thin-button:hover{
 	background-color: #abcdef;
 }
 
-.button{
+.button, .thin-button{
 	display: inline-block;
 	padding: 10px;
 	margin: 10px;
 	border: 1px solid #c5c5c5;
 	border-radius: 5px;
 	font-size: 1.2em;
+}
+
+.thin-button{
+	padding: 4px 10px;
+	margin: 2px;
+	border-radius: 3px;
+	font-size: 1.1em;
+}
+
+.match-room-title{
+	margin-bottom: 10px;
+}
+
+.match-chat, .match-players, .match-settings{
+	width: 100%;
+	padding: 10px 5px;
+	margin: 5px;
+	border: 1px solid black;
+}
+
+.match-room table, .match-players, .match-settings{
+	width: 90%;
+}
+
+.match-chat{
+	height: 200px;
+}
+
+.match-chat-input{
+	width: 75%;
+	font-size: 1.1em;
+}
+
+.add-cpu{
+	margin-left: 20px;
 }

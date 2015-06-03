@@ -5,7 +5,6 @@ var Main = {
 		User.init();
 		History.init();
 		
-		Main.shakeCup();	
 	},
 	
 	shakeCup: function(){

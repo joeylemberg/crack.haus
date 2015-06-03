@@ -1,13 +1,6 @@
 var Game = {
 	
 	init: function(options){
-		console.log(options);
-		console.log(options);
-		
-		
-	},
-	
-	init: function(options){
 		
 		Game.url = options.url;
 		Game.name = options.name;
@@ -20,7 +13,6 @@ var Game = {
 		$(".game-room").append($("<div class='game-room-title'>Open <em>" + Game.name + "</em> Matches</div>"));
 		
 		$(".game-room").append("<div class='game-list'>Loading matches " + Util.loaderHtml() + "</div>");
-		
 		
 		$(".game-list").after($("<div class='host-a-match button' >Host a Match</div>"));
         $(".host-a-match").click(lobby.hostMatch);
@@ -64,11 +56,25 @@ var Game = {
 	},
 	
 	joinMatch: function(e){
-		console.log("ASDFDFASDf");
+		Match.init({
+			url: $(e.target).closest(".open-match").data("url"),
+			name: $(e.target).closest(".open-match").text()
+		});
 	},
 	
 	hostMatch: function(e){
-		console.log("asdfasdf");
+		Api.request({
+		    method: "POST",
+		    url: "api/matches/",
+			data: {
+                "name": Profile.tag + "'s game" ,
+                "game": Game.id,
+				"state": "j"
+            },
+		    onSuccess: function (data) {
+				Match.init(data);
+		    }
+		});
 	}
 	
 	
