@@ -20,7 +20,7 @@ var IceGame = {
 	
 	state: "new",
 	
-	timeLimit: 20,
+	timeLimit: 90,
 	shotClock: 12,
 	
 	init: function(){
