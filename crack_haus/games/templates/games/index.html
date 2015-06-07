@@ -6,8 +6,10 @@
 <head>
 {% load staticfiles %}
 
-<link rel="shortcut icon" href="{% static "cupicon.png" %}">
-
+	<link rel="shortcut icon" href="{% static "cupicon.png" %}">
+	<script type="text/javascript" src="{% static "games/jquery.js" %}"></script>
+	<!--<script data-main="{% static "lobbies/js/require-main.js" %}"="scripts/main" src="http://requirejs.org/docs/release/2.1.18/minified/require.js"></script>
+-->
 <script src="http://cdn.peerjs.com/0.3/peer.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static "games/lobby.css" %}">
 	
@@ -28,9 +30,8 @@
 	
 <div id='lobby' class='lobby-section'>
 </div>
-	
-	<script type="text/javascript" src="{% static "games/jquery.js" %}"></script>
-		<script src="{% static "lobbies/js/main.js" %}"></script>
+
+		<script src="{% static "lobbies/js/main.js" %}"></script></script>
 		<script src="{% static "lobbies/js/user.js" %}"></script>
 			<script src="{% static "lobbies/js/history.js" %}"></script>
 				<script src="{% static "lobbies/js/profile.js" %}"></script>
@@ -42,12 +43,9 @@
 			<script src="{% static "lobbies/js/notification.js" %}"></script>
 				
 				<script>
-					
-					$(document).ready(function(){
-						Main.init();
-					});
-					
-				</script>
+				$(document).ready(function(){
+					Main.init();
+				});</script>
 	
 	
 	<script type="text/javascript" src="{% static "games/ice/Game.js" %}"></script>

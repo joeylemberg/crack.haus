@@ -1,6 +1,5 @@
 var Main = {
-	
-	init: function(){
+    init: function(){
 		
 		User.init();
 		History.init();
@@ -18,6 +17,4 @@ var Main = {
 		});
 		setTimeout(Main.shakeCup, rand);	
 	}
-	
-	
-}
+};

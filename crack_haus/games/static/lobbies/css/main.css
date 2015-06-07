@@ -73,3 +73,8 @@
 	margin-left: 20px;
 	opacity: 0.4;
 }
+
+.big-message{
+	text-align: center;
+	padding: 15px;
+}

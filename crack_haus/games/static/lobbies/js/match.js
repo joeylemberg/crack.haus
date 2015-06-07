@@ -2,9 +2,15 @@ var Match = {
 	
 	peers: [],
 	
-	init: function(options, role){
+	init: function(options){
 		
-		Match.role = role;
+		
+		clearInterval(Main.interval);
+		$("#lobby").off("click");
+		$("#lobby").off("keydown");
+		Match.peer = undefined;
+		
+		Match.role = options.role;
 		
 		Match.name = options.name;
 		Match.url = options.url;
@@ -53,6 +59,17 @@ var Match = {
 		//Match.getPlayers();
 		
 		Match.joinMatch();
+	},
+	
+	showOutOfDate: function(){
+		clearInterval(Main.interval);
+		var html = "<div class='big-message'>";
+		html += "<h3>Matches cannot be joined through browser navigation.</h3>";
+		html += "<h3>Please host a new match or try joining a match through the game lobby.</h3>";
+		html += "<div class='back-to-game-lobby button' >Back</div>";
+		html += "</div>";
+		$("#lobby").on("click", ".back-to-game-lobby", function(){history.go(-1);});
+		$("#lobby").html(html);
 	},
 	
 	chatKeyDown: function(e){
@@ -211,4 +228,4 @@ var Match = {
 		Match.conn.send(JSON.stringify(data));
 	}
 	
-}
+};

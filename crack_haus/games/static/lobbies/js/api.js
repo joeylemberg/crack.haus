@@ -1,16 +1,18 @@
 var Api = {
-	
-	get: function(){
+
+	init: function(){
 		//Api.request(options)
 	},
 	
 	request: function(options){
 		
+		var urlPrefix = options.url.substr(0,4) == "http" ? "" : ("http://" + window.location.host + "/");
+		
 		$.ajax({
 		    type: options.method,
 		    contentType: "application/json",
             accepts: "application/json",
-			url: options.url,
+			url: urlPrefix + options.url,
 			data: JSON.stringify(options.data),
             beforeSend: function(xhr, settings) {
 	        if (!(/^(GET|HEAD|OPTIONS|TRACE)$/.test(options.method))&& !this.crossDomain) {

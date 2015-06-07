@@ -31,4 +31,5 @@ var Profile = {
 			Profile[k] = data[k];
 		}
 	}
-}
+	
+};

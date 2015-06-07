@@ -1,6 +1,0 @@
-var Peers = {
-	
-	tag: "notag"
-	
-	
-};

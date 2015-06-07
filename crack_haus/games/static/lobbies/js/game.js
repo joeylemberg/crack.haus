@@ -2,6 +2,11 @@ var Game = {
 	
 	init: function(options){
 		
+		
+		clearInterval(Main.interval);
+		$("#lobby").off("click");
+		$("#lobby").off("keydown");
+		
 		Game.url = options.url;
 		Game.name = options.name;
 		Game.id = options.id;
@@ -53,28 +58,41 @@ var Game = {
 	},
 	
 	joinMatch: function(e){
-		clearInterval(Main.interval);
-		Match.init({
+		console.log("join me");
+		var data = {
+			pageType: "match",
+			role: "join",
 			url: $(e.target).closest(".open-match").data("url"),
 			name: $(e.target).closest(".open-match").text()
-		}, "join");
+		}
+		History.navTo(data);
 	},
 	
 	hostMatch: function(e){
-		clearInterval(Main.interval);
+		
+		var data = {
+                "name": Profile.tag + "'s game" ,
+                "game": Game.id,
+				"state": "j"
+            };
+		
+		
+		
 		Api.request({
 		    method: "POST",
 		    url: "api/matches/",
 			data: {
-                "name": Profile.tag + "'s game" ,
+				"name": Profile.tag + "'s game" ,
                 "game": Game.id,
 				"state": "j"
             },
 		    onSuccess: function (data) {
-				Match.init(data, "host");
+				data.pageType = "match";
+				data.role = "host";
+				History.navTo(data);
 		    }
 		});
 	}
 	
 	
-}
+};

@@ -2,6 +2,10 @@ var Arcade = {
 	
 	init: function(){
 		
+		$("#lobby").off("click");
+		$("#lobby").off("keydown");
+		clearInterval(Main.interval);
+		
 		$("#lobby-title").html("Arcade");
 		$("#lobby").html("<div class='arcade'>Loading games " + Util.loaderHtml() + "</div>");
 		$("#lobby").on("click", ".listed-game", Arcade.setGame);
@@ -42,14 +46,17 @@ var Arcade = {
 	},
 	
 	setGame: function(e){
-		clearInterval(Main.interval);
 		$("#lobby").off("click");
 		var clickedRow = $(e.target).closest(".listed-game");
-		Game.init({
+		
+		var data = {
+			pageType: "game",
             url: clickedRow.attr("data-url"),
 			name: clickedRow.attr("data-name"),
 			id: clickedRow.attr("data-id")
-		});
+		};
+		
+		History.navTo(data);
 	}
 
 };
