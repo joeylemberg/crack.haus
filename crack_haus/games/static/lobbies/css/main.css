@@ -2,6 +2,10 @@
 
 }
 
+.dimmed{
+	opacity: 0.5;
+}
+
 #lobby-title{
 	font-weight: 600;
 	font-size: 1.5em;
@@ -18,7 +22,17 @@
 }
 
 #lobby-footer{
-	display: none;
+	position: fixed;
+	bottom: 10px;
+	left: 10px;
+	font-size: 0.8em;
+	cursor: pointer;
+	width: 100%;
+	text-align: center;
+}
+
+.lobby-footer-inner{
+	display: inline-block;
 }
 
 .clickable, .button, .thin-button{
@@ -77,4 +91,42 @@
 .big-message{
 	text-align: center;
 	padding: 15px;
+}
+
+.edit-profile{
+	margin-left: 20px;
+}
+
+.edit-profile, .haus-link{
+	color: #a58eff;
+	margin-left: 20px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.edit-profile:hover, .haus-link:hover{
+	color: #38318c;
+	text-decoration: underline;
+}
+
+.edit-field{
+	padding: 5px;
+	border: 1px solid #e5e5e5;
+	border-radius: 3px;
+}
+
+.profile-table td{
+	padding: 10px;
+}
+
+.team-table th{
+	text-align: center;
+}
+
+.team-table td{
+	  vertical-align: top;
+}
+
+#lobby p{
+	font-size: 0.9em;
 }

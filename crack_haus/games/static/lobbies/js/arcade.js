@@ -2,9 +2,7 @@ var Arcade = {
 	
 	init: function(){
 		
-		$("#lobby").off("click");
-		$("#lobby").off("keydown");
-		clearInterval(Main.interval);
+		Main.clearPage();
 		
 		$("#lobby-title").html("Arcade");
 		$("#lobby").html("<div class='arcade'>Loading games " + Util.loaderHtml() + "</div>");
@@ -18,7 +16,9 @@ var Arcade = {
 		    method: "GET",
 		    url: "api/games/",
 		    onSuccess: function (data) {
-		        Arcade.renderGames(data);
+				if(History.pageType == "arcade"){
+					Arcade.renderGames(data);
+				}
 		    }
 		});
 	},

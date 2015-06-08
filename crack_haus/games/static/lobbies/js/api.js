@@ -1,5 +1,7 @@
 var Api = {
 
+	requests: [],
+
 	init: function(){
 		//Api.request(options)
 	},
@@ -8,7 +10,7 @@ var Api = {
 		
 		var urlPrefix = options.url.substr(0,4) == "http" ? "" : ("http://" + window.location.host + "/");
 		
-		$.ajax({
+		var request = $.ajax({
 		    type: options.method,
 		    contentType: "application/json",
             accepts: "application/json",
@@ -41,6 +43,16 @@ var Api = {
 				}
 			}
 		});
+		
+		Api.requests.push(request);
+	},
+	
+	cancelRequests: function(){
+		for(var i = 0; i < Api.requests.length; i++){
+			Api.requests[i].abort();
+		}
+		
+		Api.requests = [];
 	}
 	
 };

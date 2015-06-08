@@ -8,48 +8,62 @@
 
 	<link rel="shortcut icon" href="{% static "cupicon.png" %}">
 	<script type="text/javascript" src="{% static "games/jquery.js" %}"></script>
-	<!--<script data-main="{% static "lobbies/js/require-main.js" %}"="scripts/main" src="http://requirejs.org/docs/release/2.1.18/minified/require.js"></script>
--->
-<script src="http://cdn.peerjs.com/0.3/peer.js"></script>
-<link rel="stylesheet" type="text/css" href="{% static "games/lobby.css" %}">
-	
+	<!--<script data-main="{% static "lobbies/js/require-main.js" %}"="scripts/main" src="http://requirejs.org/docs/release/2.1.18/minified/require.js"></script>-->
+	<script src="http://cdn.peerjs.com/0.3/peer.js"></script>
 	<link rel="stylesheet" type="text/css" href="{% static "games/lobby.css" %}">
 	
-<link href="{% static "lobbies/css/main.css" %}" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="{% static "games/lobby.css" %}">
+		
+	<link href="{% static "lobbies/css/main.css" %}" rel='stylesheet' type='text/css' />
 
 </head>
 
 <body data-token="{{ csrf_token }}">
 
-<div id="crack-haus-title" class="main-title" >
-	<b><img src="/static/lobbies/img/big-cup.png" style="height:30px;margin-right:10px;"/>crack.haus</b>
-	<span class='subtitle'></span>
-</div>
-
-<div id='lobby-title' class='lobby-section'></div>
+	<div id="crack-haus-title" class="main-title" >
+		<b><img src="/static/lobbies/img/big-cup.png" style="height:30px;margin-right:10px;"/>crack.haus</b>
+		<span class='subtitle'></span>
+	</div>
 	
-<div id='lobby' class='lobby-section'>
-</div>
+	<div id='lobby-title' class='lobby-section'></div>
+		
+	<div id='lobby' class='lobby-section'></div>
+		
+	<div id="game-wrapper"></div>
+		
+	<div id='lobby-footer'>
+		<div class='lobby-footer-inner'>
+			<a class='haus-link' data-page-name='about'>about</a>
+			<a class='haus-link' data-page-name='team'>team</a>
+			<a class='haus-link' data-page-name='terms'>terms &amp; conditions</a>
+			<a class='haus-link' data-page-name='contact'>contact</a>
+			<a class='haus-link' href='http://swing.ninja'>swing.ninja</a>
+			<a class='haus-link' href='http://yangcanvas.com/arcade'>yangarcade</a>
+			<a class='haus-link' href='http://yinyangpaint.com'>yinyangpaint</a>
+		</div>
+	</div>
 
-		<script src="{% static "lobbies/js/main.js" %}"></script></script>
-		<script src="{% static "lobbies/js/user.js" %}"></script>
-			<script src="{% static "lobbies/js/history.js" %}"></script>
-				<script src="{% static "lobbies/js/profile.js" %}"></script>
-			<script src="{% static "lobbies/js/arcade.js" %}"></script>
-				<script src="{% static "lobbies/js/match.js" %}"></script>
-				<script src="{% static "lobbies/js/game.js" %}"></script>
-		<script src="{% static "lobbies/js/api.js" %}"></script>
-			<script src="{% static "lobbies/js/util.js" %}"></script>
-			<script src="{% static "lobbies/js/notification.js" %}"></script>
-				
-				<script>
-				$(document).ready(function(){
-					Main.init();
-				});</script>
-	
+	<script src="{% static "lobbies/js/main.js" %}"></script></script>
+	<script src="{% static "lobbies/js/user.js" %}"></script>
+	<script src="{% static "lobbies/js/history.js" %}"></script>
+	<script src="{% static "lobbies/js/profile.js" %}"></script>
+	<script src="{% static "lobbies/js/arcade.js" %}"></script>
+	<script src="{% static "lobbies/js/match.js" %}"></script>
+	<script src="{% static "lobbies/js/game.js" %}"></script>
+	<script src="{% static "lobbies/js/api.js" %}"></script>
+	<script src="{% static "lobbies/js/util.js" %}"></script>
+	<script src="{% static "lobbies/js/notification.js" %}"></script>
+		<script src="{% static "lobbies/js/static.js" %}"></script>
+		<script src="{% static "lobbies/js/jscolor/jscolor.js" %}"></script>
+					
+	<script>
+		$(document).ready(function(){
+			Main.init();
+		});
+	</script>
 	
 	<script type="text/javascript" src="{% static "games/ice/Game.js" %}"></script>
-<script type="text/javascript" src="{% static "games/ice/Input.js" %}"></script>
-	 
+	<script type="text/javascript" src="{% static "games/ice/Input.js" %}"></script>
+	
 </body>
 </html>

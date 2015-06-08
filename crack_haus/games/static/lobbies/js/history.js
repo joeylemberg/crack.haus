@@ -2,12 +2,12 @@ var History = {
 	
 	path: "/",
 	
+	pageType: "arcade",
+	
 	init: function(url){
 		
-		Arcade.init();
-		
 		window.addEventListener("popstate", History.onBack);
-
+		
 		
 	},
 	
@@ -21,15 +21,18 @@ var History = {
 		
 		if(!data){
 			//root
+			History.pageType = "arcade";
 			Arcade.init();
 		}else{
 			switch(data.pageType){
 			case "game":
+				History.pageType = "game";
 		//		history.pushState(data, null, "game/" + History.toUrl(data.name));
 				Game.init(data);
 				break;
 				
 			case "match":
+				History.pageType = "match";
 				Match.showOutOfDate();
 			///	Match.init(data);
 			//	if(data.role == "host"){
@@ -39,6 +42,11 @@ var History = {
 			//	}
 		//		history.pushState(data, null, "match/" +  History.toUrl(data.name));
 		//		Game.init(data);
+				break;
+				
+			case "static":
+				History.pageType = "static";
+				Static[data.pageName]();
 				break;
 		}
 		//alert(JSON.stringify(state.data));
@@ -52,22 +60,27 @@ var History = {
 		console.log(data);
 		switch(data.pageType){
 			case "game":
+				History.pageType = "game";
 				history.pushState(data, null, History.toUrl(data.name));
 				Game.init(data);
 				break;
 				
 			case "match":
+				History.pageType = "match";
 				history.pushState(data, null, History.toUrl(data.name));
 				Match.init(data);
-		//		History.inMatch = true;
-		//		history.replaceState(history.state, null, History.toUrl(Game.name) + "/" + History.toUrl(data.name))
+				break;
 				
-			//	var newPath = History.toUrl(data.name);
-			//	if(window.location.pathname.indexOf(History.toUrl(Game.name)) == -1){
-			//		newPath = History.toUrl(Game.name) + "/" + newPath;
-			//	}
-				//history.pushState(data, null, History.toUrl(data.name));
-		//		Game.init(data);
+			case "profile":
+				History.pageType = "profile";
+				history.pushState(data, null, "profile");
+				Profile.init(data);
+				break;
+				
+			case "static":
+				History.pageType = "static";
+				history.pushState(data, null, data.pageName);
+				Static[data.pageName]();
 				break;
 		}
 	},

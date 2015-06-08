@@ -4,10 +4,8 @@ var Match = {
 	
 	init: function(options){
 		
+		Main.clearPage();
 		
-		clearInterval(Main.interval);
-		$("#lobby").off("click");
-		$("#lobby").off("keydown");
 		Match.peer = undefined;
 		
 		Match.role = options.role;
@@ -22,7 +20,10 @@ var Match = {
 		$(".match-room").append($("<div class='match-room-title'>" + Game.name + " Match</div>"));
 		
 		var html = "<table><tr>";
-		html += "<td><b>Players</b> <div class='add-cpu thin-button' >Add CPU</div>";
+		html += "<td><b>Players</b>";
+		if(Match.role == "host"){
+			 html += "<div class='add-cpu thin-button' >Add CPU</div>";
+		}
 		html += "<td><b>Settings</b></td>";
 		html += "</tr><tr>";
 		html += "<td><div class='match-players'></td>";
@@ -48,6 +49,7 @@ var Match = {
 		
 		$("#lobby").on("keydown", ".match-chat-input", Match.chatKeyDown);
 		$("#lobby").on("click", ".send-match-chat", Match.sendChat);
+		$("#lobby").on("click", ".cancel-match", Match.cancelMatch);
 		
 		
 		Match.peers = {};
@@ -109,7 +111,6 @@ var Match = {
 		if(Match.peer && Match.peer.id){
 			console.info("peer_id: " + Match.peer.id);
 			Match.peer.on('connection', function(conn){
-				console.log("WTF");
 				Match.conn = conn;
 				Match.listen();
 			});
@@ -183,17 +184,20 @@ var Match = {
 		    method: "GET",
 		    url: Match.url,
 		    onSuccess: function (data) {
-		        Match.renderPlayers(data);
+				if(History.pageType == "match"){
+		        	Match.renderPlayers(data);
+				}
 		    }
 		});
 	},
 	
 	startMatch: function(){
-		IceGame.init();
+		var game = require('games/buffet');
+		/*IceGame.init();
 		Match.send({
 			type: "startGame"
 		});
-		game = IceGame;
+		game = IceGame;*/
 	},
 	
 	listen: function(){
@@ -226,6 +230,10 @@ var Match = {
 	send: function(data){
 		console.log(data);
 		Match.conn.send(JSON.stringify(data));
+	},
+	
+	cancelMatch: function(){
+		history.go(-1);
 	}
 	
 };

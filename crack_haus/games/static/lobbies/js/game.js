@@ -2,10 +2,7 @@ var Game = {
 	
 	init: function(options){
 		
-		
-		clearInterval(Main.interval);
-		$("#lobby").off("click");
-		$("#lobby").off("keydown");
+		Main.clearPage();
 		
 		Game.url = options.url;
 		Game.name = options.name;
@@ -33,7 +30,9 @@ var Game = {
 		    method: "GET",
 		    url: Game.url,
 		    onSuccess: function (data) {
-		        Game.renderMatches(data);
+				if(History.pageType == "game"){
+		        	Game.renderMatches(data);
+				}
 		    }
 		});
 	},
