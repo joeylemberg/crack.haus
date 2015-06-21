@@ -29,6 +29,8 @@ var Match = {
 		
 		Main.clearPage();
 		
+		Match.setPlayerLimit();
+		
 		Match.peer = undefined;
 		
 		Match.role = options.role;
@@ -217,35 +219,36 @@ var Match = {
 		    method: "GET",
 		    url: Match.url,
 		    onSuccess: function (data) {
-				Match.updatePlayers(data.players)
+				if(Match.playerLimit == 2){
+					Match.updatePlayersOld(data.players);
+				}else{
+					Match.updatePlayers(data.players);
+				}
+				
 		        Match.renderMatch(data);
 		    }
 		});
 	},
 	
+	updatePlayersOld: function(players){
+		Match.players = players;
+		if(!Match.him && Match.role == "host" && players.length > 1){
+			Match.conn = Match.peer.connect(players[1].peer_id);
+			Match.him = players[1];
+			Match.listen();
+		}
+	},
+	
 	updatePlayers: function(players){
 		Match.players = players;
-		//if(!Match.him && Match.role == "host" && players.length > 1){
 		if(Match.role == "host"){
 			for(var i = 0; i < players.length; i++){
 				var p = players[i];
 				if(p.tag != Profile.tag && !Match.connections[p.tag]){
-					//TODO the peer communication interface shouldn't be based on playerLimit
-				/*	if(Match.playerLimit == 2){
-						Match.conn = Match.peer.connect(players[1].peer_id);
-						Match.him = players[1];
-						Match.listen();
-					}else{*/
-						Match.connections[p.tag] = Match.peer.connect(players[i].peer_id);
-						Match.listen(Match.connections[p.tag]);
-				//	}
-					
+					Match.connections[p.tag] = Match.peer.connect(players[i].peer_id);
+					Match.listen(Match.connections[p.tag]);
 				}
 			}
-			
-			
-		//	 Match.peer.connect(players[1].peer_id);
-			
 		}
 	},
 	

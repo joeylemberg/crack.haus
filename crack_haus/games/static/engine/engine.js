@@ -1,10 +1,14 @@
 define(['./player'], function (Player) {
 	
+	console.log("engine loaded");
+	
 return {
 	
 	game: null, //complete game code
 	
 	init: function(options){
+		
+		
 		
 		this.game = options.game;
 		
