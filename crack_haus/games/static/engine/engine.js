@@ -4,15 +4,9 @@ return {
 	
 	game: null, //complete game code
 	
-	hosting: false,
-	
 	init: function(options){
 		
-		console.log("init");
-		
 		this.game = options.game;
-		
-		this.hosting = options.role == "host";
 		
 		for(var i = 0; i < options.players.length; i++){
 			var p = options.players[i];
@@ -31,11 +25,7 @@ return {
 			}
 		}
 		
-		if(this.hosting){
-			this.connections = options.connections;
-			this.establishConnections();
-		}
-		
+		this.establishConnections();
 	},
 	
 	establishConnections: function(){
@@ -47,9 +37,8 @@ return {
 			
 		}
 		
-		console.log("this.connections");
-		console.log(this.localPlayer);
-		console.log(this.connections);
+		
+		console.log(this.localPlayer);	
 	},
 	
 	start: function(game){
