@@ -163,13 +163,3 @@
 	color: red;
 	opacity: 1;
 }
-
-.game-table .game-icon{
-	display: none;
-	width: 30px;
-	height: 30px;
-	margin-right: 10px;
-	position: relative;
-	top: 8px;
-	margin-top: -12px;
-}
