@@ -224,6 +224,18 @@ var Util = {
 	
 	randomSeed: 103,
 	
+	getColorBox: function(i){
+		i = i % Util.defaultColors.length;
+		var html = "<div class='color-block' style='background-color:" + Util.getColor(i) + ";'></div>";	
+		return html;
+	},
+	
+	getColor: function(i){
+		return Util.defaultColors[i % Util.defaultColors.length];
+	},
+	
+	defaultColors: ["blue", "red", "green", "yellow", "teal", "purple", "grey", "orange"],
+	
 	makeRandomList: function(){
 		var rands = [];
 		for(var i = 0; i < 1231; i++){rands.push(Math.random());}
