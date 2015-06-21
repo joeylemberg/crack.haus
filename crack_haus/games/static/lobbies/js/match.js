@@ -29,6 +29,8 @@ var Match = {
 		
 		Main.clearPage();
 		
+		Match.setPlayerLimit();
+		
 		Match.peer = undefined;
 		
 		Match.role = options.role;
@@ -224,29 +226,39 @@ var Match = {
 	},
 	
 	updatePlayers: function(players){
-		Match.players = players;
+		
+		if(Match.playerLimit > 2){
+			Match.players = players;
 		//if(!Match.him && Match.role == "host" && players.length > 1){
-		if(Match.role == "host"){
-			for(var i = 0; i < players.length; i++){
-				var p = players[i];
-				if(p.tag != Profile.tag && !Match.connections[p.tag]){
-					//TODO the peer communication interface shouldn't be based on playerLimit
-				/*	if(Match.playerLimit == 2){
-						Match.conn = Match.peer.connect(players[1].peer_id);
-						Match.him = players[1];
-						Match.listen();
-					}else{*/
-						Match.connections[p.tag] = Match.peer.connect(players[i].peer_id);
-						Match.listen(Match.connections[p.tag]);
-				//	}
-					
+			if(Match.role == "host"){
+				for(var i = 0; i < players.length; i++){
+					var p = players[i];
+					if(p.tag != Profile.tag && !Match.connections[p.tag]){
+						//TODO the peer communication interface shouldn't be based on playerLimit
+					/*	if(Match.playerLimit == 2){
+							Match.conn = Match.peer.connect(players[1].peer_id);
+							Match.him = players[1];
+							Match.listen();
+						}else{*/
+							Match.connections[p.tag] = Match.peer.connect(players[i].peer_id);
+							Match.listen(Match.connections[p.tag]);
+					//	}
+						
+					}
 				}
+				
+				
+			//	 Match.peer.connect(players[1].peer_id);
+				
 			}
-			
-			
-		//	 Match.peer.connect(players[1].peer_id);
-			
+		}else if(!Match.him && Match.role == "host" && players.length > 1){
+			Match.conn = Match.peer.connect(players[1].peer_id);
+			Match.him = players[1];
+			Match.listen();
 		}
+		
+		
+		
 	},
 	
 	addCpu: function(){
@@ -323,13 +335,33 @@ var Match = {
 		
 	},
 	
+	connectionsReady: function(){
+		//called by host only
+		if(Match.playerLimit == 2){
+			if(Match.players && Match.conn){
+				return true;
+			}
+			return false;
+		}else{
+			for(var i = 0; i < Match.players.length; i++){
+				var p = Match.players[i];
+				if(p.tag != Profile.tag && !Match.connections[p.tag]){
+					return false;
+				}
+			}
+			return true;
+		}
+	},
+	
 	startMatch: function(){
+		
+		console.log("startMatch");
 		
 		history.replaceState(null, null, "/");
 		$(".match-controls").remove();
 		$(".match-room").html("Setting up the match " + Util.loaderHtml());
 		
-		if(!Match.players){
+		if(!Match.connectionsReady()){
 			setTimeout(Match.startMatch, 100);
 			return;
 		}
@@ -348,7 +380,9 @@ var Match = {
 						cpus: Match.cpus,
 						profile: Profile,
 						game: sushi,
-						settings: Match.settings
+						settings: Match.settings,
+						role: Match.role,
+						connections: Match.connections
 					});
 					game = sushi;
 					game.engine = engine;
@@ -386,6 +420,7 @@ var Match = {
 				case "startGame":
 					Match.startMatch();
 					//IceGame.init();
+					//game = IceGame;
 					break;
 					
 				case "gameData":
