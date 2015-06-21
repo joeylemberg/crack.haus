@@ -192,12 +192,11 @@ var Match = {
 	},
 	
 	startMatch: function(){
-		var game = require('games/buffet');
-		/*IceGame.init();
+		IceGame.init();
 		Match.send({
 			type: "startGame"
 		});
-		game = IceGame;*/
+		game = IceGame;
 	},
 	
 	listen: function(){
