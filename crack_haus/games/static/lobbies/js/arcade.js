@@ -24,7 +24,7 @@ var Arcade = {
 	},
 	
 	renderGames: function(games){
-		var i, game;
+		var i, game, icon;
 
 		var html = "<table class='game-table' cellspacing='0' >";
  
@@ -36,8 +36,9 @@ var Arcade = {
 
 		for(i = 0; i < games.length; i++){
 			game = games[i];
+			//icon = "<img class='game-icon' src='/static/lobbies/img/" + game.name.toLowerCase().replace(/\s/g, '') + ".png'/>";
 			html += "<tr class='listed-game clickable' data-url='" + game.url + "' data-id='" + game.id + "' data-name='" + game.name + "' >";
-			html += "<td>" + game.name + "</td>";
+			html += "<td>" + icon + game.name + "</td>";
 			html += "<td class='game-description'>" + game.description + "</td>";
 		        html += "<td>" + game.lobby_size + "</td>";
                         html += "</tr>"
