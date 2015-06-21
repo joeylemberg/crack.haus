@@ -1,5 +1,7 @@
 var Profile = {
 	
+	color: "FFFFFF",
+	
 	init: function(){
 		Main.clearPage();
 		
@@ -78,6 +80,8 @@ var Profile = {
 		$("#lobby").on("click", ".back-from-profile", Profile.goBack);
 		
 		new jscolor.color($("#profile-color-select-0")[0]);
+		
+		$("#profile-color-select-0").change(function(){Profile.color = $(this).val();})
 	},
 	
 	saveProfile: function(){
