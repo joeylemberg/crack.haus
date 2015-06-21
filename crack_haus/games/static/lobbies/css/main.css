@@ -74,8 +74,24 @@
 	border: 1px solid black;
 }
 
+.match-settings .setting-input{
+	font-size: 0.8em;
+}
+
+.match-length{
+	width: 60px;
+}
+
 .match-room table, .match-players, .match-settings{
 	width: 90%;
+}
+
+.match-room td{
+	vertical-align: top;
+}
+
+.match-player{
+	padding: 8px;
 }
 
 .match-chat{
@@ -89,7 +105,6 @@
 
 .add-cpu{
 	margin-left: 20px;
-	opacity: 0.4;
 }
 
 .big-message{
@@ -133,4 +148,18 @@
 
 #lobby p{
 	font-size: 0.9em;
+}
+
+.boot-player{
+	font-weight:900;
+	padding: 0 5px;
+	margin-left: 10px;
+	border: 1px solid #e5e5e5;
+	color: #cecece;
+	opacity: 0.6;
+}
+
+.boot-player:hover{
+	color: red;
+	opacity: 1;
 }

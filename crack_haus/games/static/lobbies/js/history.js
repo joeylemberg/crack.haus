@@ -13,10 +13,6 @@ var History = {
 	
 	onBack: function(e){
 		
-		
-		console.log(e);
-		
-		console.log("it's poppin");
 		var data = e.state;
 		
 		if(!data){

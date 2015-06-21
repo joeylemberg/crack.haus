@@ -56,6 +56,17 @@ var Static = {
 		html += "<p>or Forrest, <a href='mailto:forrestwalker99@gmail.com'>forrestwalker99@gmail.com</a></p>";
 		
 		$("#lobby").html(html);
+	},
+	
+	
+	blog: function(){
+		
+		$("#lobby-title").html("blog");
+		
+		var html = "<h2>crack.haus blog</h2>";
+		html += "<h4>nothing here...</h4>";
+		
+		$("#lobby").html(html);
 	}
 	
 	
