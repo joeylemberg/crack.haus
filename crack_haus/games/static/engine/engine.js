@@ -2,20 +2,46 @@ define(['./player'], function (Player) {
 	
 return {
 	
+	game: null, //complete game code
+	
 	init: function(options){
 		
-		
+		this.game = options.game;
 		
 		for(var i = 0; i < options.players.length; i++){
+			var p = options.players[i];
+			var player = this.addPlayer(p);
+			player.index = i;
+			if(p.tag == options.profile.tag){
+				this.localPlayer = player;
+			}
+		}
+		
+		for(var i = 0; i < options.cpus.length; i++){
 			var p = Match.players[i];
 			var player = this.addPlayer(p);
 			if(p.tag == options.profile.tag){
 				this.localPlayer = player;
 			}
 		}
+		
+		this.establishConnections();
 	},
 	
-	start: function(){
+	establishConnections: function(){
+		// The host is responsible for distributing the peer_ids
+		
+		
+		if(this.localPlayer.index == 0){
+			//this is the host
+			
+		}
+		
+		
+		console.log(this.localPlayer);	
+	},
+	
+	start: function(game){
 		
 	},
 	

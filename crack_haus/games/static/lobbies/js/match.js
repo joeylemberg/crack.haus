@@ -3,11 +3,26 @@ var Match = {
 	peers: [],
 	cpus: [],
 	playerLimit: 4,
+	connections: {},
 	
 	settings: {
 		matchLength: 90,
 		cpuDifficulty: "Normal",
 		cpus: []
+	},
+	
+	setPlayerLimit: function(){
+		//TODO add playerLimit to game data
+		switch(Game.name.toLowerCase()){	
+			case "blue ice":
+			case "war tanks":
+					Match.playerLimit = 2;
+			break;
+			
+			case "sushi":
+					Match.playerLimit = 4;
+			break;
+		}
 	},
 	
 	init: function(options){
@@ -22,6 +37,7 @@ var Match = {
 		Match.url = options.url;
 		
 		Match.cpus = [];
+		Match.connections = {};
 		
 		$("#lobby-title").html(Match.name);
 		
@@ -138,9 +154,10 @@ var Match = {
 	},
 	
 	sendSettings: function(){
+		Match.settings = Match.getSettingsData();
 		Match.send({
 			type: "matchSettings",
-			settings: Match.getSettingsData()
+			settings: Match.settings
 		});
 	},
 	
@@ -208,11 +225,27 @@ var Match = {
 	
 	updatePlayers: function(players){
 		Match.players = players;
-		if(!Match.him && Match.role == "host" && players.length > 1){
+		//if(!Match.him && Match.role == "host" && players.length > 1){
+		if(Match.role == "host"){
+			for(var i = 0; i < players.length; i++){
+				var p = players[i];
+				if(p.tag != Profile.tag && !Match.connections[p.tag]){
+					//TODO the peer communication interface shouldn't be based on playerLimit
+				/*	if(Match.playerLimit == 2){
+						Match.conn = Match.peer.connect(players[1].peer_id);
+						Match.him = players[1];
+						Match.listen();
+					}else{*/
+						Match.connections[p.tag] = Match.peer.connect(players[i].peer_id);
+						Match.listen(Match.connections[p.tag]);
+				//	}
+					
+				}
+			}
+			
+			
 		//	 Match.peer.connect(players[1].peer_id);
-			Match.conn = Match.peer.connect(players[1].peer_id);
-			Match.him = players[1];
-			Match.listen();
+			
 		}
 	},
 	
@@ -312,9 +345,11 @@ var Match = {
 				require(['./games/sushi/sushi', './engine/engine'], function (sushi, engine) {
 					engine.init({
 						players: Match.players,
-						profile: Profile
+						cpus: Match.cpus,
+						profile: Profile,
+						game: sushi,
+						settings: Match.settings
 					});
-					
 					game = sushi;
 					game.engine = engine;
 				});
@@ -327,8 +362,12 @@ var Match = {
 		}
 	},
 	
-	listen: function(){
-		Match.conn.on("data", function(str){
+	listen: function(connection){
+		
+		connection = connection || Match.conn;
+		
+		connection.on("data", function(str){
+			console.log(str);
 			try{
 				data = JSON.parse(str)
 			}catch(e){
@@ -339,6 +378,9 @@ var Match = {
 			switch(data.type){
 				case "chat":
 					Match.chat(data.chat);
+					if(Match.role == "host" && Match.playerLimit > 2){
+						Match.send(data);
+					}
 					break;
 					
 				case "startGame":
@@ -361,10 +403,21 @@ var Match = {
 	},
 	
 	send: function(data){
-		if(Match.conn){
-			Match.conn.send(JSON.stringify(data));
+		if(data.type != "chat" || Match.playerLimit == 2){
+			if(Match.conn){
+				Match.conn.send(JSON.stringify(data));
+			}
+		}else{
+			if(Match.role == "host"){
+				for(var tag in Match.connections){
+					if(data.chat.profile.tag != tag){
+						Match.connections[tag].send(JSON.stringify(data));
+					}
+				}
+			}else{
+				Match.conn.send(JSON.stringify(data));
+			}
 		}
-		
 	},
 	
 	cancelMatch: function(){

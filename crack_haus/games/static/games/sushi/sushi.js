@@ -1,5 +1,5 @@
 define({
 	
-	time: "now"
+	
 	
 });
