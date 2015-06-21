@@ -15,7 +15,7 @@ var Match = {
 		
 		$("#lobby-title").html(Match.name);
 		
-		$("#lobby").html("<div class='match-room'></div>");
+		$("#lobby").html("<div class='match-room'></div><div class='match-controls'></div>");
 		
 		$(".match-room").append($("<div class='match-room-title'>" + Game.name + " Match</div>"));
 		
@@ -39,11 +39,11 @@ var Match = {
 		$(".match-room").append(html);
 		
 		if(Match.role == "host"){
-				
-				$(".match-room").after($("<div class='start-match button' >Start Match</div>"));
-				$(".start-match").after($("<div class='cancel-match button' >Cancel Match</div>"));
-				
+				$(".match-controls").append($("<div class='start-match button' >Start Match</div>"));
+				$(".match-controls").append($("<div class='cancel-match button' >Cancel Match</div>"));
 				$("#lobby").on("click", ".start-match", Match.startMatch);
+		}else{
+			$(".match-controls").append($("<div class='cancel-match button' >Exit Match</div>"));
 		}
         //$(".host-a-match").click(lobby.hostMatch);
 		
@@ -152,11 +152,12 @@ var Match = {
 	},
 	
 	updatePlayers: function(players){
+		Match.players = players;
 		if(!Match.him && Match.role == "host" && players.length > 1){
 		//	 Match.peer.connect(players[1].peer_id);
 			Match.conn = Match.peer.connect(players[1].peer_id);
-			 Match.him = players[1];
-		Match.listen();
+			Match.him = players[1];
+			Match.listen();
 		}
 	},
 	
@@ -165,6 +166,13 @@ var Match = {
 	},
 	
 	renderMatch: function(data){
+		
+		/*var dataString = JSON.stringify(data);
+		if(Match.lastPlayersData && Match.lastPlayersData == dataString){
+			console.log("SAME SHIT");
+			return;
+		}
+		Match.lastPlayersData = dataString;*/
 		
 		var player;
 		
@@ -192,11 +200,40 @@ var Match = {
 	},
 	
 	startMatch: function(){
-		IceGame.init();
-		Match.send({
-			type: "startGame"
-		});
-		game = IceGame;
+		
+		history.replaceState(null, null, "/")
+		$(".match-controls").remove();
+		$(".match-room").html(Util.loaderHtml());
+		
+		if(!Match.players){
+			setTimeout(Match.startMatch, 100);
+			return;
+		}
+		
+		if(Match.role == "host"){
+			Match.send({
+				type: "startGame"
+			});
+		}
+		
+		switch(Game.name.toLowerCase()){
+			case "sushi":
+				require(['./games/sushi/sushi', './engine/engine'], function (sushi, engine) {
+					engine.init({
+						players: Match.players,
+						profile: Profile
+					});
+					
+					game = sushi;
+					game.engine = engine;
+				});
+			break;
+			
+			default:
+				IceGame.init();
+				game = IceGame;
+			break;
+		}
 	},
 	
 	listen: function(){
@@ -215,7 +252,8 @@ var Match = {
 					break;
 					
 				case "startGame":
-					IceGame.init();
+					Match.startMatch();
+					//IceGame.init();
 					break;
 					
 				case "gameData":

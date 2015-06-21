@@ -56,8 +56,7 @@ var History = {
 	},
 	
 	navTo: function(data){
-		console.log("NAVIT");
-		console.log(data);
+		
 		switch(data.pageType){
 			case "game":
 				History.pageType = "game";
@@ -81,6 +80,11 @@ var History = {
 				History.pageType = "static";
 				history.pushState(data, null, data.pageName);
 				Static[data.pageName]();
+				break;
+				
+			case "playing":
+				History.pageType = "static";
+				history.pushState({}, null, null);
 				break;
 		}
 	},

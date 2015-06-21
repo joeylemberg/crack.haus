@@ -36,9 +36,9 @@ var Arcade = {
 
 		for(i = 0; i < games.length; i++){
 			game = games[i];
-			html += "<tr class='listed-game clickable' data-url='" + game.url + "' data-id='" + game.id + "' data-name='" + game.name + "'>";
+			html += "<tr class='listed-game clickable' data-url='" + game.url + "' data-id='" + game.id + "' data-name='" + game.name + "' >";
 			html += "<td>" + game.name + "</td>";
-			html += "<td>" + game.description + "</td>";
+			html += "<td class='game-description'>" + game.description + "</td>";
 		        html += "<td>" + game.lobby_size + "</td>";
                         html += "</tr>"
 		}
@@ -53,7 +53,8 @@ var Arcade = {
 			pageType: "game",
             url: clickedRow.attr("data-url"),
 			name: clickedRow.attr("data-name"),
-			id: clickedRow.attr("data-id")
+			id: clickedRow.attr("data-id"),
+			description: clickedRow.find(".game-description").text()
 		};
 		
 		History.navTo(data);

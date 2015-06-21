@@ -7,16 +7,19 @@ var Game = {
 		Game.url = options.url;
 		Game.name = options.name;
 		Game.id = options.id;
+		Game.description = options.description;
 		
 		$("#lobby-title").html(Game.name);
 		
 		$("#lobby").html("<div class='game-room'></div>");
 		
-		$(".game-room").append($("<div class='game-room-title'>Open <em>" + Game.name + "</em> Matches</div>"));
+		$(".game-room").append($("<div class='host-a-match button' >Host a Match</div>"));
+		
+		//$(".game-room").append($("<div class='game-room-title'>Open <em>" + Game.name + "</em> Matches</div>"));
+		$(".game-room").append($("<div class='game-room-title'>Join a Match</div>"));
 		
 		$(".game-room").append("<div class='game-list'>Loading matches " + Util.loaderHtml() + "</div>");
 		
-		$(".game-list").after($("<div class='host-a-match button' >Host a Match</div>"));
         $(".host-a-match").click(lobby.hostMatch);
 		
 		
@@ -46,7 +49,7 @@ var Game = {
 		html += "<th>Tag</th>";
 		html += "</tr>";
 		
-		for(i = 0; i < data.lobby_set.length; i++){
+		for(i = data.lobby_set.length - 1; i >= 0; i--){
 			lobby = data.lobby_set[i];
 			html += "<tr class='open-match clickable' data-url='" + lobby.url + "'>";
 			html += "<td>" + lobby.name + "</td>";
