@@ -211,16 +211,35 @@ var Util = {
 		return Math.sqrt(dx*dx + dy*dy);
 	},
 	
+	tryParse: function(str){
+		try{
+			return JSON.parse(str);
+		}catch(e){
+			console.log(e);
+			return;
+		}
+	},
+	
 	random: function(t){
+		if(t == undefined){
+			t = this.randomCount++;
+		}
 		var i = (Util.randomSeed * t) % Util.randomList.length;
 		return Util.randomList[i]
 	},
 	
 	generateRandomSeed: function(){
 		var i = Math.floor(Math.random() * Util.primes.length);
-		this.randomSeed = Util.primes[i];
+		this.setRandomSeed(Util.primes[i]);
 		return this.randomSeed;
 	},
+	
+	setRandomSeed: function(val){
+		this.randomCount = 0;
+		this.randomSeed = val;
+	},
+	
+	randomCount: 0,
 	
 	randomSeed: 103,
 	

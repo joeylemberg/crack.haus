@@ -74,6 +74,10 @@
 	border: 1px solid black;
 }
 
+.match-chat{
+	overflow: scroll;
+}
+
 .match-settings .setting-input{
 	font-size: 0.8em;
 }

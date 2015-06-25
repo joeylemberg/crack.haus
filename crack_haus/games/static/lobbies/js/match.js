@@ -30,6 +30,7 @@ var Match = {
 		Main.clearPage();
 		
 		Match.setPlayerLimit();
+		Match.pings = {};
 		
 		Match.peer = undefined;
 		
@@ -301,6 +302,9 @@ var Match = {
 			if(player.tag == Profile.tag){
 				html += "<i style='margin-left:10px;font-size:0.75em;opacity:0.7;'>(you)</i>";
 			}
+			if(Match.pings[player.tag]){
+				html += "<b style='margin-left:10px;font-size:0.5em;opacity:0.7;color:green'>" + Match.pings[player.tag] + "</b>";
+			}
 			html += "</div>";
 		}
 		
@@ -322,11 +326,39 @@ var Match = {
 		//TODO reimplement settings without all the hacks
 		if(Match.role == "host"){
 			Match.sendSettings();
+			Match.send({
+				type: "ping",
+				time: Date.now()
+			});
 		}
 		
 	},
 	
+	buildPlayerList: function(){
+		var playerList = [];
+		for(var i = 0; i < this.players.length; i++){
+			var player = $.extend({}, this.players[i]);
+			player.connection = this.connections[player.tag];
+			player.type = "human";
+			player.color = Util.getColor(i);
+			player.index = i;
+			playerList.push(player);
+		}
+		for(var i = 0; i < this.cpus.length; i++){
+			var player = {
+				tag: "cpu " + (i+1),
+				type: "cpu",
+				color: Util.getColor(i + this.players.length),
+				index: this.players.length + i
+			};
+			playerList.push(player);
+		}
+		return playerList;
+	},
+	
 	startMatch: function(){
+		
+		clearInterval(Main.interval);
 		
 		history.replaceState(null, null, "/");
 		$(".match-controls").remove();
@@ -339,7 +371,8 @@ var Match = {
 		
 		if(Match.role == "host"){
 			Match.send({
-				type: "startGame"
+				type: "startGame",
+				time: Date.now()
 			});
 		}
 		
@@ -347,14 +380,13 @@ var Match = {
 			case "sushi":
 				require(['./games/sushi/sushi', './engine/engine'], function (sushi, engine) {
 					engine.init({
-						players: Match.players,
-						cpus: Match.cpus,
-						profile: Profile,
+						isHost: Match.role == "host",
 						game: sushi,
-						settings: Match.settings
+						players: Match.buildPlayerList(),
+						settings: Match.settings,
+						connection: Match.conn, //only joiners will have this
+						//connections for the host are nested in players
 					});
-					game = sushi;
-					game.engine = engine;
 				});
 			break;
 			
@@ -370,7 +402,6 @@ var Match = {
 		connection = connection || Match.conn;
 		
 		connection.on("data", function(str){
-			console.log(str);
 			try{
 				data = JSON.parse(str)
 			}catch(e){
@@ -384,6 +415,21 @@ var Match = {
 					if(Match.role == "host" && Match.playerLimit > 2){
 						Match.send(data);
 					}
+					break;
+					
+				case "ping":
+					Match.send({
+						type: "pong",
+						tag: Profile.tag,
+						pingTime: data.time,
+						pongTime: Date.now()
+					});
+					break;
+					
+				case "pong":
+					Match.pings[data.tag] = Date.now() - data.pingTime;
+					console.log("pingpong");
+					console.log(data);
 					break;
 					
 				case "startGame":
@@ -406,16 +452,16 @@ var Match = {
 	},
 	
 	send: function(data){
-		if(data.type != "chat" || Match.playerLimit == 2){
-			if(Match.conn){
+		
+		if(Match.conn && (data.type != "chat" || Match.playerLimit == 2)){
 				Match.conn.send(JSON.stringify(data));
-			}
 		}else{
 			if(Match.role == "host"){
 				for(var tag in Match.connections){
-					if(data.chat.profile.tag != tag){
-						Match.connections[tag].send(JSON.stringify(data));
+					if(data.type == "chat" && data.chat.profile.tag == tag){
+						continue;
 					}
+					Match.connections[tag].send(JSON.stringify(data));
 				}
 			}else{
 				Match.conn.send(JSON.stringify(data));
