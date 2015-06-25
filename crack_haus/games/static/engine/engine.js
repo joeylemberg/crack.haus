@@ -143,15 +143,21 @@ return {
 	},
 	
 	startGame: function(game){
+		
+		_.each(this.trueState.players, _.bind(this.game.setInitialState, this.game));
 
-		this.localState = this.trueState;
+		this.trueState.frame = 0;
+		this.localState = $.extend(true, {}, this.trueState);
+
+		window.ss = this.localState;
 
 		this.log = [];
 		this.startTime = Date.now();
 		
 		this.game.setUpHtml($("#lobby"));
+		this.game.setUpInput();
 
-		setInterval(_.bind(this.move, this), this.moveTime);
+		this.moveLoop();
 		this.drawLoop();
 		//requestAnimationFrame();
 		//setInterval(_.bind(this.draw, this), this.drawTime);
@@ -187,9 +193,41 @@ return {
 		});
 	},
 	
-	move: function(state, commands, options){
+	moveLoop: function(){
+		var me = this;
+		setInterval(function(){
+			var playerInput = _.bind(me.gatherInput, me)();
+			_.bind(me.move, me)(me.localState, playerInput);
+		}, this.moveTime);	
+	},
+	
+	gatherInput: function(){
+		var playerInput = {};
+			playerInput[Profile.tag] = this.game.playerInput.getState();
+		return playerInput;
+		//var localInputChange = this.game.playerInput.updateState();
+		
+		//if(localInputChange){
+			//playerInput[Profile.tag] = localInputChange;
+			//console.log(localInputChange);
+			//console.log(this.localState);
+		//}
+		//
+		
+		return playerInput;
+	},
+	
+	move: function(state, playerInput, options){
 		//overwritten for each game
 		//executes a single frame of gameplay
+		var me = this;
+		me.game.move(state, playerInput);
+	//	_.each(state.players, function(player){
+	//		_.bind(me.game.movePlayer, me.game)(player, playerInput, state);
+	//	});
+		//this.game.moveLocalPlayer(state, playerInput);
+		state.frame++;
+		
 	},
 	
 	draw: function(state, options){

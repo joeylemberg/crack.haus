@@ -1,4 +1,4 @@
-define(function(){
+define(["./playerInput"], function(playerInput){
 	
 	return {
 	
@@ -12,17 +12,22 @@ define(function(){
 			this.randomSeed = Util.generateRandomSeed();
 			this.players = {};
 			_.each(players, _.bind(this.setUpPlayer, this));
+			console.log(playerInput);
+		},
+		
+		setInitialState: function(player){
+			player.input = playerInput.getInitialState();
 		},
 		
 		setUpHtml: function($el){
-			var html = "<canvas id='sprite-canvas' width='500' height='500'></canvas>";
+			var html = "<canvas id='game-canvas' width='500' height='500'></canvas>";
 			$el.html(html);
-			$("#sprite-canvas").css({
+			$("#game-canvas").css({
 				"margin-left": "auto",
 				"margin-right": "auto",
 				"display": "block"
 			});
-			var ctx = $("#sprite-canvas")[0].getContext("2d");
+			var ctx = $("#game-canvas")[0].getContext("2d");
 			this.spriteCtx = ctx;
 			ctx.save();
 			var gradient = ctx.createLinearGradient(0, 500, 500, 0);
@@ -41,6 +46,13 @@ define(function(){
 			ctx.globalAlpha = 0.2;
 			ctx.fillRect(0,0,500,500);
 			ctx.restore();
+			
+			
+		},
+		
+		setUpInput: function(){
+			this.playerInput = playerInput;
+			this.playerInput.init();
 		},
 		
 		getPlayerData: function(){
@@ -87,11 +99,54 @@ define(function(){
 			};
 		},
 		
-		move: function(state, playerInput){
+		move: function(state, playerInput, options){
+			var me = this;
+			_.each(state.players, function(player){
+				_.bind(me.movePlayer, me)(player, playerInput[player.tag], state);
+				});
 			//execute a frame of gameplay
+			
+		},
+		
+		movePlayer: function(player, playerInput, state){
+			//console.log(arguments);
+		//	if(!$.isEmptyObject(playerInput)){
+		//		console.log
+		//	}
+		
+		//HACK
+		playerInput = this.playerInput.getState();
+		
+		
+			if(playerInput && playerInput.keys){
+				if(playerInput.keys.up){
+					player.y--;
+				}
+				if(playerInput.keys.down){
+					player.y++;
+				}
+				if(playerInput.keys.left){
+					player.x--;
+				}
+				if(playerInput.keys.right){
+					player.x++;
+				}
+				//player.y = playerInput["mouse-y"];
+				//player.x = playerInput["mouse-x"];
+			}
+				
+		},
+		
+		moveLocalPlayer: function(state, playerInput){
+		//	console.log("move");
+			var player = state.players[Profile.tag];
+			if(this.playerInput.keys.up){
+					player.y--;
+				}
 		},
 		
 		draw: function(state){
+	//		console.log("Draw");
 			this.spriteCtx.clearRect(0,0,500,500);
 			_.each(state.players, _.bind(this.drawPlayer, this));
 			//draw the game state
