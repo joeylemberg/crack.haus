@@ -16,7 +16,6 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^docs/', include('rest_framework_swagger.urls')),
 
-    url(r'^$', TemplateView.as_view(template_name='games/index.html'), name='home'),
     url(r'^lobby/$', TemplateView.as_view(template_name='games/lobby.html'), name='lobby'),
 
     # url(r'^blog/', include('blog.urls')),
@@ -30,4 +29,7 @@ urlpatterns = patterns('',
 
 
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'', TemplateView.as_view(template_name='games/index.html'), name='home'),
+
 )
