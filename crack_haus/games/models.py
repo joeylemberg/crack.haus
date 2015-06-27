@@ -42,9 +42,7 @@ class Match(models.Model):
     name = models.CharField(max_length=32)
     state = models.CharField(choices=STATE_CHOICES, default='j', max_length=3)
     game = models.ForeignKey('Game')
-    
-    host_player = models.ForeignKey('Player', related_name='hosted_matches', null=True, blank=True)
-   
+
     created_at = models.DateTimeField(auto_now_add=True)
     started_at = models.DateTimeField(null=True, blank=True)
     done_at = models.DateTimeField(null=True, blank=True)

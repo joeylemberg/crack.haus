@@ -78,8 +78,7 @@ var Game = {
 			data: {
 				"name": Profile.tag + "'s game" ,
                 "game": Game.id,
-				"state": "j",
-                "host_player": Profile.id
+				"state": "j"
             },
 		    onSuccess: function (data) {
 				data.pageType = "match";
