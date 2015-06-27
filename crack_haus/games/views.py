@@ -36,7 +36,8 @@ class ProfileViewSet(viewsets.ModelViewSet):
             return Response(ProfileSerializer(request.user.profile).data)
         return Response({'null'})
     
-
+    def partial_update(self, request, *args, **kwargs):
+        return super(ProfileViewSet, self).partial_update(request, *args, **kwargs)
     # def create(self, request, *args, **kwargs):
     #     print request
     #     res = super(ProfileViewSet, self).create(request, *args, **kwargs)

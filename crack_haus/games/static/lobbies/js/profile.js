@@ -49,6 +49,7 @@ var Profile = {
 	},
 	
 	setProfile: function(data){
+        console.log(data);
 		for(var k in data){
 			Profile[k] = data[k];
 		}
@@ -86,15 +87,21 @@ var Profile = {
 	
 	saveProfile: function(){
 		
+        var data = {
+			   	    "tag": $("#profile-tag").text(),
+					"colors": $("#profile-color-select-0").val(),
+					"description": $("#profile-description").text()
+                
+			};
+        
+        
 		$("#lobby").html("<div class='profile'>Saving profile " + Util.loaderHtml() + "</div>");
 		
 		
 		Api.request({
 		    method: "PATCH",
-		    url: "api/profiles/",
-			data: {
-			    	"tag": $("#profile-tag").text()
-			},
+		    url: "api/profiles/" + Profile.id + "/",
+			data: data,
 		    onSuccess: function (data) {
 				Profile.getProfile();
 		    }
