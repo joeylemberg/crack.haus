@@ -43,7 +43,7 @@ class MatchSerializer(PartialUpdateSerializerMixin, serializers.ModelSerializer)
 
     class Meta:
         model = Match
-        fields = ('name', 'game', 'players', 'url','state', 'created_at', 'started_at', 'done_at', 'id', 'host_player',)
+        fields = ('name', 'game', 'players', 'url','state', 'created_at', 'started_at', 'done_at', 'id', 'host_player', 'settings', 'log')
         read_only_fields = ('created_at', 'started_at', 'done_at',)
         partial=True
 
@@ -76,5 +76,5 @@ class GameSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Game
-        fields = ('url', 'id', 'name', 'description', 'lobby_size', 'lobby_set')
+        fields = ('url', 'id', 'name', 'description', 'settings', 'max_players', 'lobby_size', 'lobby_set')
         depth = 1

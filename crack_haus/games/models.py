@@ -49,6 +49,9 @@ class Match(models.Model):
     started_at = models.DateTimeField(null=True, blank=True)
     done_at = models.DateTimeField(null=True, blank=True)
 
+    settings = models.TextField(null=True, blank=True)
+    log = models.TextField(null=True, blank=True)
+
     def __unicode__(self):
         return "{0} ({1} {2})".format(self.name, unicode(self.game), 'lobby' if self.state == 'j' else 'match')
 
@@ -110,6 +113,9 @@ class Game(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField()
     # cover_pic = models.ImageField(upload_to="img/game/%Y/%m/%d", null=True, blank=True) # TODO game cover pic
+
+    settings = models.TextField(null=True, blank=True)
+    max_players = models.PositiveIntegerField(default=2)
 
     def __unicode__(self):
         return self.name
