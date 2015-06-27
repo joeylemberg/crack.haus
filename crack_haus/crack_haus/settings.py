@@ -52,7 +52,6 @@ INSTALLED_APPS = (
     'social_auth',
     'django_extensions',
     'rest_framework_swagger',
-    'django_crontab',
 )
 
 AUTHENTICATION_BACKENDS = (
