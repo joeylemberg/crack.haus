@@ -12,7 +12,7 @@ class ProfileSerializer(PartialUpdateSerializerMixin, serializers.ModelSerialize
 
     class Meta:
         model = Profile
-        fields = ('user', 'description', 'colors', 'tag')
+        fields = ('user', 'description', 'colors', 'tag', 'id')
         depth = 1
 
 class PlayerSerializer(PartialUpdateSerializerMixin, serializers.ModelSerializer):
