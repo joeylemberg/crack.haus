@@ -14,6 +14,7 @@ class ProfileSerializer(PartialUpdateSerializerMixin, serializers.ModelSerialize
         model = Profile
         fields = ('user', 'description', 'colors', 'tag', 'id')
         depth = 1
+        partial = True
 
 class PlayerSerializer(PartialUpdateSerializerMixin, serializers.ModelSerializer):
     # profile = serializers.HyperlinkedRelatedField(queryset=Profile.objects.all(), view_name='profile-detail')
