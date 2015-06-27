@@ -52,6 +52,13 @@ class Match(models.Model):
     def __unicode__(self):
         return "{0} ({1} {2})".format(self.name, unicode(self.game), 'lobby' if self.state == 'j' else 'match')
 
+    def purge(self):
+        for player in self.players.all():
+            player.purge()
+        print self.players.count()
+        if self.players.count() is 0:
+            self.delete()
+
 class Player(models.Model):
     RESULT_CHOICES = (
         ('w', 'won'),
@@ -78,18 +85,23 @@ class Player(models.Model):
     def __unicode__(self):
         return unicode(self.profile)
 
+    def is_online(self):
+        return self.last_ping > timezone.now() - timezone.timedelta(seconds=3)
+
     def purge(self):
-        for player in self.match.players.all():
-            if player.last_ping <= timezone.now() - timezone.timedelta(seconds=10):
-                try:
-                    player.delete()
-                except Exception:
-                    pass
+        if not self.is_online():
+            self.delete()
+        # for player in self.match.players.all():
+        #     if not player.is_online():
+        #         try:
+        #             player.delete()
+        #         except Exception:
+        #             pass
                 
     def ping(self):
         self.last_ping = timezone.now()
         self.save()
-        self.purge()
+        # self.purge()
 
 
 

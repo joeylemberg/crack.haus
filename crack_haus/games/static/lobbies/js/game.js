@@ -72,21 +72,14 @@ var Game = {
 	
 	hostMatch: function(e){
 		
-		var data = {
-                "name": Profile.tag + "'s game" ,
-                "game": Game.id,
-				"state": "j"
-            };
-		
-		
-		
 		Api.request({
 		    method: "POST",
 		    url: "api/matches/",
 			data: {
 				"name": Profile.tag + "'s game" ,
                 "game": Game.id,
-				"state": "j"
+				"state": "j",
+                "host_player": Profile.id
             },
 		    onSuccess: function (data) {
 				data.pageType = "match";

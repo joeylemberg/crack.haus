@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 #TODO seperate production and dev settings ala TwoScoops
 
-NOTEBOOK_ARGUMENTS = [ '--ip=192.168.0.101', '--port=8888', ]
+NOTEBOOK_ARGUMENTS = [ '--ip=10.1.10.6', '--port=8888', ]
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'social_auth',
     'django_extensions',
     'rest_framework_swagger',
+    'django_crontab',
 )
 
 AUTHENTICATION_BACKENDS = (
