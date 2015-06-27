@@ -6,6 +6,8 @@ return {
 	
 	init: function(matchData){
 		
+		window.engine = this;
+		
 		this.game = matchData.game;
 		
 		if(matchData.isHost){
